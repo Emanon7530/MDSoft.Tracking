@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tracking.TestPage"
+             Padding="5,20,5,5"
+             Title="TestPage">
+
+    <StackLayout HorizontalOptions="Fill" BackgroundColor="Aqua">
+
+
+        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" HorizontalOptions="FillAndExpand"  ColumnSpacing="5" BackgroundColor="Beige" RowSpacing="5">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                <StackLayout.Shadow>
+                    <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                </StackLayout.Shadow>
+                <Border HorizontalOptions="Fill" >
+                    <Grid ColumnDefinitions="10,Auto,*" ColumnSpacing="2">
+                        <BoxView Grid.Column="0" BackgroundColor="Red" HorizontalOptions="FillAndExpand"></BoxView>
+                        <Label Text="Recepcion de Compras" Grid.Column="1" WidthRequest="70" >
+
+                        </Label>
+                        <Image Source="dotnet_bot.svg" Grid.Column="2" HeightRequest="50" HorizontalOptions="EndAndExpand"></Image>
+                    </Grid>
+                </Border>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+                <StackLayout.Shadow>
+                    <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                </StackLayout.Shadow>
+                <Border HorizontalOptions="Fill" >
+                    <Grid ColumnDefinitions="10,Auto,*" ColumnSpacing="2">
+                        <BoxView Grid.Column="0" BackgroundColor="Red" WidthRequest="10"></BoxView>
+                        <Label Text="Recepcion de Compras" Grid.Column="1" WidthRequest="70">
+
+                        </Label>
+                        <Image Source="dotnet_bot.svg" Grid.Column="2" WidthRequest="50" HeightRequest="50"></Image>
+                    </Grid>
+                </Border>
+            </StackLayout>
+
+            <!--ROW 1-->
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                <StackLayout.Shadow>
+                    <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                </StackLayout.Shadow>
+                <Border HorizontalOptions="Fill" >
+                    <Grid ColumnDefinitions="10,Auto,*" ColumnSpacing="2">
+                        <BoxView Grid.Column="0" BackgroundColor="Red" HorizontalOptions="FillAndExpand"></BoxView>
+                        <Label Text="Recepcion de Compras" Grid.Column="1" WidthRequest="70" >
+
+                        </Label>
+                        <Image Source="dotnet_bot.svg" Grid.Column="2" HeightRequest="50"></Image>
+                    </Grid>
+                </Border>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1">
+                <StackLayout.Shadow>
+                    <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                </StackLayout.Shadow>
+                <Border HorizontalOptions="Fill" >
+                    <Grid ColumnDefinitions="10,Auto,*" ColumnSpacing="2">
+                        <BoxView Grid.Column="0" BackgroundColor="Red" WidthRequest="10"></BoxView>
+                        <Label Text="Recepcion de Compras" Grid.Column="1" WidthRequest="70">
+
+                        </Label>
+                        <Image Source="dotnet_bot.svg" Grid.Column="2" WidthRequest="50" HeightRequest="50"></Image>
+                    </Grid>
+                </Border>
+            </StackLayout>
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

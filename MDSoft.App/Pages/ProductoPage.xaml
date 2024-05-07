@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:Tracking.Utilidades"
+             xmlns:vm="clr-namespace:Tracking.ViewModels"
+             x:DataType="vm:ProductoVM"
+             x:Class="Tracking.Pages.ProductoPage"
+             Title="Recibir Producto">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ActivityIndicator Grid.Row="0" Grid.RowSpan="4" IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+        <ScrollView Grid.Row="1" >
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Orientation="Vertical" Spacing="10">
+                    <Label Text="Producto :" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Nombre}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="10">
+                    <Label Text="Destino:" VerticalOptions="Center"/>
+                    <Picker Title="Destino" ItemsSource="{Binding ListaCategoria}" SelectedItem="{Binding CategoriaSeleccionada}" HorizontalOptions="FillAndExpand">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Nombre" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
+                    <Label Text="Numero Lote :" VerticalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal" HeightRequest="40" Spacing="5">
+                        <Entry Text="{Binding NumeroLote}" HorizontalOptions="FillAndExpand"/>
+                        <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding AddLoteCommand}"></Button>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
+                        <Label Text="Peso Compra:" VerticalOptions="Center"/>
+                        <Entry Placeholder="Cantidad" HorizontalOptions="FillAndExpand" Keyboard="Numeric" Text="{Binding Cantidad}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
+                        <Label Text="Preso Recepcion:" VerticalOptions="Center"/>
+                        <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand"  Keyboard="Numeric" Text="{Binding Precio}"  />
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="4" Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" Margin="0,20">
+                    <Button  Text="Guardar" BackgroundColor="{StaticResource bgPrimary}" HorizontalOptions="End"
+             TextColor="White" Command="{Binding GuardarCommand}">
+                    </Button>
+                    <Button Text="Cancelar" BackgroundColor="{StaticResource Gray200}"
+                            TextColor="{StaticResource bgDark}"
+                            Command="{Binding VolverInventarioCommand}"></Button>
+
+                </StackLayout>
+
+
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

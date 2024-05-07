@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MDSoft.Tracking.API.props" />
+</Project>

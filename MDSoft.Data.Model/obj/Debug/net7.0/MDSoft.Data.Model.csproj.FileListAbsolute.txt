@@ -1,0 +1,14 @@
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Data.Model.deps.json
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Data.Model.runtimeconfig.json
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Data.Model.dll
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Data.Model.pdb
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.csproj.AssemblyReference.cache
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.AssemblyInfoInputs.cache
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.AssemblyInfo.cs
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.csproj.CoreCompileInputs.cache
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.dll
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\refint\MDSoft.Data.Model.dll
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.pdb
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Data.Model.genruntimeconfig.cache
+D:\Emanon\App Test\mauiventa\110_AppVentas_NetMaui-main\AppVenta\MDSoft.Data.Model\obj\Debug\net7.0\ref\MDSoft.Data.Model.dll

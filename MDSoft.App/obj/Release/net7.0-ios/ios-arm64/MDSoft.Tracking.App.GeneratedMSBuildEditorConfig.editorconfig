@@ -1,0 +1,143 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net7.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Tracking
+build_property.ProjectDir = D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.App\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/BarcodePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.BarcodePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\BarcodePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\BarcodePage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/BuscarProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.BuscarProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\BuscarProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\BuscarProductoPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/CategoriasPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.CategoriasPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CategoriasPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CategoriasPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/CompraProductoDetallePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.CompraProductoDetallePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CompraProductoDetallePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CompraProductoDetallePage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/EscanearComprasPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.EscanearComprasPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EscanearComprasPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EscanearComprasPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/EscanearComrpaDetallePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.EscanearComrpaDetallePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EscanearComrpaDetallePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EscanearComrpaDetallePage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/EscanearProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.EscanearProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EscanearProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EscanearProductoPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/ForgotPasswordPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\ForgotPasswordPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/HistoriaVentaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.HistoriaVentaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\HistoriaVentaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\HistoriaVentaPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/InventarioPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.InventarioPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\InventarioPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\InventarioPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\LoginPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/ProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.ProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\ProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\ProductoPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/RecepcionListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.RecepcionListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\RecepcionListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\RecepcionListPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/RecepcionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.RecepcionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\RecepcionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\RecepcionPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Pages/VentaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.VentaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\VentaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\VentaPage.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/Emanon/App Test/MAUI/MDSoft.Tracking/MDSoft.App/TestPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tracking.TestPage.xaml
+build_metadata.AdditionalFiles.TargetPath = TestPage.xaml
+build_metadata.AdditionalFiles.RelativePath = TestPage.xaml

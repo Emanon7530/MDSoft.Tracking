@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Tracking.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Tracking"
+    xmlns:pages="clr-namespace:Tracking.Pages"
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <Image Source="mainlogobig.png" WidthRequest="120" Margin="10"></Image>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Icon="home.svg"
+        Title="Inicio"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+     Icon="time.svg"
+    Title="Lote Fermentacion"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
+
+    <ShellContent
+     Icon="stand_by.svg"
+    Title="Lote Secado Natural"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
+
+    <ShellContent
+     Icon="add_solid.svg"
+    Title="Lotes Secado Maquina"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
+
+    <ShellContent
+     Icon="trash.svg"
+    Title="Lotes Limpieza"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
+
+    <ShellContent
+        Icon="ticket.svg"
+        Title="Recepcion Compras"
+       ContentTemplate="{DataTemplate pages:RecepcionListPage}"
+       Route="RecepcionListPage" />
+
+    <!--<ShellContent
+    Icon="shopping_cart.svg"
+   Title="Venta"
+   ContentTemplate="{DataTemplate pages:VentaPage}"
+   Route="VentaPage" />-->
+
+    <ShellContent
+     Icon="tuning.svg"
+    Title="Settings"
+    ContentTemplate="{DataTemplate pages:HistoriaVentaPage}"
+    Route="HistoriaVentaPage" />
+
+    <!--<ShellContent
+     Icon="time.svg"
+    Title="Inventario"
+    ContentTemplate="{DataTemplate pages:InventarioPage}"
+    Route="InventarioPage" />
+
+    <ShellContent
+     Icon="time.svg"
+    Title="Producto"
+    ContentTemplate="{DataTemplate pages:AgregarProductoPage}"
+    Route="AgregarProductoPage" />-->
+
+    <MenuItem IconImageSource="stand_by.svg" Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
+    </MenuItem>
+
+</Shell>

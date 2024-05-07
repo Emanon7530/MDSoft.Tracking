@@ -1,0 +1,2427 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MDSoft.Tracking.App</name>
+    </assembly>
+    <members>
+        <member name="T:Tracking.DTOs.AgregarProductoDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.Id">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.id"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.CodigoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.codigoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.Compra">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.compra"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.ProdId">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.prodId"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.Producto">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.producto"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.PesoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.pesoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.PesoRecibido">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.pesoRecibido"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.TipoLote">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.tipoLote"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.ComReflotFermentacion">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.comReflotFermentacion"/>
+        </member>
+        <member name="P:Tracking.DTOs.AgregarProductoDTO.ComReflotSecadoMaquina">
+            <inheritdoc cref="F:Tracking.DTOs.AgregarProductoDTO.comReflotSecadoMaquina"/>
+        </member>
+        <member name="T:Tracking.DTOs.CategoriaDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.CategoriaDTO.IdCategoria">
+            <inheritdoc cref="F:Tracking.DTOs.CategoriaDTO.idCategoria"/>
+        </member>
+        <member name="P:Tracking.DTOs.CategoriaDTO.Nombre">
+            <inheritdoc cref="F:Tracking.DTOs.CategoriaDTO.nombre"/>
+        </member>
+        <member name="T:Tracking.DTOs.CompraDetalleDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.CompraDetalleDTO.IdCompra">
+            <inheritdoc cref="F:Tracking.DTOs.CompraDetalleDTO.idCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.CompraDetalleDTO.ComReferencia">
+            <inheritdoc cref="F:Tracking.DTOs.CompraDetalleDTO.comReferencia"/>
+        </member>
+        <member name="P:Tracking.DTOs.CompraDetalleDTO.Producto">
+            <inheritdoc cref="F:Tracking.DTOs.CompraDetalleDTO.producto"/>
+        </member>
+        <member name="P:Tracking.DTOs.CompraDetalleDTO.Estatus">
+            <inheritdoc cref="F:Tracking.DTOs.CompraDetalleDTO.estatus"/>
+        </member>
+        <member name="P:Tracking.DTOs.CompraDetalleDTO.Peso">
+            <inheritdoc cref="F:Tracking.DTOs.CompraDetalleDTO.peso"/>
+        </member>
+        <member name="T:Tracking.DTOs.DetalleVentaDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.DetalleVentaDTO.Producto">
+            <inheritdoc cref="F:Tracking.DTOs.DetalleVentaDTO.producto"/>
+        </member>
+        <member name="P:Tracking.DTOs.DetalleVentaDTO.Cantidad">
+            <inheritdoc cref="F:Tracking.DTOs.DetalleVentaDTO.cantidad"/>
+        </member>
+        <member name="P:Tracking.DTOs.DetalleVentaDTO.Total">
+            <inheritdoc cref="F:Tracking.DTOs.DetalleVentaDTO.total"/>
+        </member>
+        <member name="T:Tracking.DTOs.ProductoDTO">
+            <summary>
+            Maestro de Productos
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proId">
+            <summary>
+            ID Producto
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.linId">
+            <summary>
+            ID Linea fk:Lineas
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDescripcion">
+            <summary>
+            Descripcion 
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proPrecio">
+            <summary>
+            Precio
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proPrecio2">
+            <summary>
+            Precio
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proPrecio3">
+            <summary>
+            Precio 3 Cuando no se usa LipCodigo
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proPrecioMin">
+            <summary>
+            Precio mínimo
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proCodigo">
+            <summary>
+            Código
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proReferencia">
+            <summary>
+            Codigo de Barra
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proUnidades">
+            <summary>
+            Unidades por Producto
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proCantidad">
+            <summary>
+            Cantidad
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.cat1Id">
+            <summary>
+            ID Categoria 1
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.cat2Id">
+            <summary>
+            ID Categoria 2  fk:Categoria2
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.cat3Id">
+            <summary>
+            ID Categoria 3  fk:Categoria3
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDescripcion1">
+            <summary>
+            Descripcion 1
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDescripcion2">
+            <summary>
+            Descripción 2
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDescripcion3">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDatos1">
+            <summary>
+            Datos 1
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDatos2">
+            <summary>
+            Datos 2
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proDatos3">
+            <summary>
+            Datos 3
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proItbis">
+            <summary>
+            Impuesto
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proSelectivo">
+            <summary>
+            Selectivo
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proAdValorem">
+            <summary>
+            Impuesto AdValorem
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proIndicadorDetalle">
+            <summary>
+            Indicador detalle
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proCodigoDescuento">
+            <summary>
+            Código descuento
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proCargoDistribucion">
+            <summary>
+            Cargo por Distribucion
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.secCodigo">
+            <summary>
+            Codigo Sector  fk:Sectores
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.usuInicioSesion">
+            <summary>
+            Usuario que creo o modifico el registro
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proFechaActualizacion">
+            <summary>
+            Fecha Creacion/Actualizacion 
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.unmCodigo">
+            <summary>
+            Codigo Unidad de Medida fk:UsosMultiples Grupo:UnmCodigo
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proImg">
+            <summary>
+            Imagen producto
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.rowguid">
+            <summary>
+            Identificador Unico
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proPeso">
+            <summary>
+            Peso
+            </summary>
+        </member>
+        <member name="F:Tracking.DTOs.ProductoDTO.proVolumen">
+            <summary>
+            Volumen
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProId">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proId"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.LinId">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.linId"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDescripcion">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDescripcion"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPrecio">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPrecio"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPrecio2">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPrecio2"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPrecio3">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPrecio3"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPrecioMin">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPrecioMin"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCodigo">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCodigo"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProReferencia">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proReferencia"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProUnidades">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proUnidades"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCantidad">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCantidad"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.Cat1Id">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.cat1Id"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.Cat2Id">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.cat2Id"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.Cat3Id">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.cat3Id"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDescripcion1">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDescripcion1"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDescripcion2">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDescripcion2"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDescripcion3">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDescripcion3"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDatos1">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDatos1"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDatos2">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDatos2"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDatos3">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDatos3"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProItbis">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proItbis"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProSelectivo">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proSelectivo"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProAdValorem">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proAdValorem"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProIndicadorDetalle">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proIndicadorDetalle"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCodigoDescuento">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCodigoDescuento"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCargoDistribucion">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCargoDistribucion"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.SecCodigo">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.secCodigo"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.UsuInicioSesion">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.usuInicioSesion"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProFechaActualizacion">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proFechaActualizacion"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.UnmCodigo">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.unmCodigo"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProImg">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proImg"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.Rowguid">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.rowguid"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPeso">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPeso"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProVolumen">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proVolumen"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProGrupoProductos">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proGrupoProductos"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProLotes">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proLotes"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProHolgura">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proHolgura"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProInventarios">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proInventarios"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProListaPrecios">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proListaPrecios"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProDescuentoMaximo">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proDescuentoMaximo"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCantidadMinVenta">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCantidadMinVenta"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCantidadMaxVenta">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCantidadMaxVenta"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProCantidadMultiploVenta">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proCantidadMultiploVenta"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProColor">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proColor"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProPaisOrigen">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proPaisOrigen"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProAnio">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proAnio"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProMedida">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proMedida"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProEstado">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proEstado"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProAtributo1">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proAtributo1"/>
+        </member>
+        <member name="P:Tracking.DTOs.ProductoDTO.ProAtributo2">
+            <inheritdoc cref="F:Tracking.DTOs.ProductoDTO.proAtributo2"/>
+        </member>
+        <member name="T:Tracking.DTOs.RecepcionDetalleDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.CodigoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.codigoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.FechaRecepcion">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.fechaRecepcion"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.Destino">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.destino"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.NumeroLote">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.numeroLote"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.ComReferencia">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.comReferencia"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.NombreProducto">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.nombreProducto"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.PesoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.pesoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDetalleDTO.PesoRecibido">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDetalleDTO.pesoRecibido"/>
+        </member>
+        <member name="T:Tracking.DTOs.RecepcionDTO">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.Id">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.id"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.CodigoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.codigoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.FechaRecepcion">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.fechaRecepcion"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.IdVendedor">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.idVendedor"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.NombreVendedor">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.nombreVendedor"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.Secuencia">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.secuencia"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.IdRepresentante">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.idRepresentante"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.NombreRepresentante">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.nombreRepresentante"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.PesoCompra">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.pesoCompra"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.PesoRecibido">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.pesoRecibido"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.TipoLote">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.tipoLote"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.LotFermentacion">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.lotFermentacion"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.LotSecadoMaquina">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.lotSecadoMaquina"/>
+        </member>
+        <member name="P:Tracking.DTOs.RecepcionDTO.RecepcionDetalleDTO">
+            <inheritdoc cref="F:Tracking.DTOs.RecepcionDTO.recepcionDetalleDTO"/>
+        </member>
+        <member name="T:Tracking.DTOs.RepresentanteDTO">
+            <summary>
+            Maestra de Representantes 
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepCodigo">
+            <summary>
+            Codigo de Representante
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepNombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepCargo">
+            <summary>
+            Cargo
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepClasificacion">
+            <summary>
+            Clasificación
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepTelefono1">
+            <summary>
+            Teléfono 1
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepTelefono2">
+            <summary>
+            Teléfono 2
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepClave">
+            <summary>
+            Clave
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepIndicadorVenta">
+            <summary>
+            Indicador venta
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepInventarioVentas">
+            <summary>
+            Inventario ventas
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepPedidos">
+            <summary>
+            Pedidos
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepCobros">
+            <summary>
+            Cobros
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepDevoluciones">
+            <summary>
+            Devoluciones
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepEntrega">
+            <summary>
+            Entrega
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepDeposito">
+            <summary>
+            Depósito
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepInvestigacion">
+            <summary>
+            Investigación
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepM1">
+            <summary>
+            M1 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepM2">
+            <summary>
+            M2 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepM3">
+            <summary>
+            M3 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepM4">
+            <summary>
+            M4 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepM5">
+            <summary>
+            M5 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.ZonId">
+            <summary>
+            ID zona
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepIndicadorSupervisor">
+            <summary>
+            Indicador supervisor
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepSupervisor">
+            <summary>
+            Representante supervisor
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepDivision">
+            <summary>
+            División
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.AlmId">
+            <summary>
+            ID de almacén
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepFechaUltimaActualizacion">
+            <summary>
+            Fecha última actualización
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepClaveSync">
+            <summary>
+            Clave Sync
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepIndicadorRutaVisitasFecha">
+            <summary>
+            Fecha indicador ruta visita
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepLicencia">
+            <summary>
+            Licencia
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RutId">
+            <summary>
+            ID ruta
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.EquId">
+            <summary>
+            ID equipo
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepFechaActualizacion">
+            <summary>
+            Fecha Creacion/Actualizacion 
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.UsuInicioSesion">
+            <summary>
+            Usuario que creo o modifico el registro
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.Rowguid">
+            <summary>
+            Identificador Unico
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.RepEstatus">
+            <summary>
+            Estatus
+            </summary>
+        </member>
+        <member name="P:Tracking.DTOs.RepresentanteDTO.VehId">
+            <summary>
+            ID vehiculo
+            </summary>
+        </member>
+        <member name="T:Tracking.Modelos.Producto">
+            <summary>
+            Maestro de Productos
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProId">
+            <summary>
+            ID Producto
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.LinId">
+            <summary>
+            ID Linea fk:Lineas
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDescripcion">
+            <summary>
+            Descripcion 
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProPrecio">
+            <summary>
+            Precio
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProPrecio2">
+            <summary>
+            Precio
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProPrecio3">
+            <summary>
+            Precio 3 Cuando no se usa LipCodigo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProPrecioMin">
+            <summary>
+            Precio mínimo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProCodigo">
+            <summary>
+            Código
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProReferencia">
+            <summary>
+            Codigo de Barra
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProUnidades">
+            <summary>
+            Unidades por Producto
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProCantidad">
+            <summary>
+            Cantidad
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.Cat1Id">
+            <summary>
+            ID Categoria 1
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.Cat2Id">
+            <summary>
+            ID Categoria 2  fk:Categoria2
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.Cat3Id">
+            <summary>
+            ID Categoria 3  fk:Categoria3
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDescripcion1">
+            <summary>
+            Descripcion 1
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDescripcion2">
+            <summary>
+            Descripción 2
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDescripcion3">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDatos1">
+            <summary>
+            Datos 1
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDatos2">
+            <summary>
+            Datos 2
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProDatos3">
+            <summary>
+            Datos 3
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProItbis">
+            <summary>
+            Impuesto
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProSelectivo">
+            <summary>
+            Selectivo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProAdValorem">
+            <summary>
+            Impuesto AdValorem
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProIndicadorDetalle">
+            <summary>
+            Indicador detalle
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProCodigoDescuento">
+            <summary>
+            Código descuento
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProCargoDistribucion">
+            <summary>
+            Cargo por Distribucion
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.SecCodigo">
+            <summary>
+            Codigo Sector  fk:Sectores
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.UsuInicioSesion">
+            <summary>
+            Usuario que creo o modifico el registro
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProFechaActualizacion">
+            <summary>
+            Fecha Creacion/Actualizacion 
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.UnmCodigo">
+            <summary>
+            Codigo Unidad de Medida fk:UsosMultiples Grupo:UnmCodigo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProImg">
+            <summary>
+            Imagen producto
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.Rowguid">
+            <summary>
+            Identificador Unico
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProPeso">
+            <summary>
+            Peso
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Producto.ProVolumen">
+            <summary>
+            Volumen
+            </summary>
+        </member>
+        <member name="T:Tracking.Modelos.Representante">
+            <summary>
+            Maestra de Representantes 
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepCodigo">
+            <summary>
+            Codigo de Representante
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepNombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepCargo">
+            <summary>
+            Cargo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepClasificacion">
+            <summary>
+            Clasificación
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepTelefono1">
+            <summary>
+            Teléfono 1
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepTelefono2">
+            <summary>
+            Teléfono 2
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepClave">
+            <summary>
+            Clave
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepIndicadorVenta">
+            <summary>
+            Indicador venta
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepInventarioVentas">
+            <summary>
+            Inventario ventas
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepPedidos">
+            <summary>
+            Pedidos
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepCobros">
+            <summary>
+            Cobros
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepDevoluciones">
+            <summary>
+            Devoluciones
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepEntrega">
+            <summary>
+            Entrega
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepDeposito">
+            <summary>
+            Depósito
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepInvestigacion">
+            <summary>
+            Investigación
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepM1">
+            <summary>
+            M1 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepM2">
+            <summary>
+            M2 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepM3">
+            <summary>
+            M3 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepM4">
+            <summary>
+            M4 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepM5">
+            <summary>
+            M5 Representantes
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.ZonId">
+            <summary>
+            ID zona
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepIndicadorSupervisor">
+            <summary>
+            Indicador supervisor
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepSupervisor">
+            <summary>
+            Representante supervisor
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepDivision">
+            <summary>
+            División
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.AlmId">
+            <summary>
+            ID de almacén
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepFechaUltimaActualizacion">
+            <summary>
+            Fecha última actualización
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepClaveSync">
+            <summary>
+            Clave Sync
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepIndicadorRutaVisitasFecha">
+            <summary>
+            Fecha indicador ruta visita
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepLicencia">
+            <summary>
+            Licencia
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RutId">
+            <summary>
+            ID ruta
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.EquId">
+            <summary>
+            ID equipo
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepFechaActualizacion">
+            <summary>
+            Fecha Creacion/Actualizacion 
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.UsuInicioSesion">
+            <summary>
+            Usuario que creo o modifico el registro
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.Rowguid">
+            <summary>
+            Identificador Unico
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.RepEstatus">
+            <summary>
+            Estatus
+            </summary>
+        </member>
+        <member name="P:Tracking.Modelos.Representante.VehId">
+            <summary>
+            ID vehiculo
+            </summary>
+        </member>
+        <member name="T:Tracking.ViewModels.BuscarProductoVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.ListaProducto">
+            <inheritdoc cref="F:Tracking.ViewModels.BuscarProductoVM.listaProducto"/>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.ProductoSeleccionado">
+            <inheritdoc cref="F:Tracking.ViewModels.BuscarProductoVM.productoSeleccionado"/>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.LoadingCategoriaEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.BuscarProductoVM.loadingCategoriaEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.BuscarProductoVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.Busqueda">
+            <inheritdoc cref="F:Tracking.ViewModels.BuscarProductoVM.busqueda"/>
+        </member>
+        <member name="F:Tracking.ViewModels.BuscarProductoVM.ejecutarBusquedaCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.BuscarProductoVM.EjecutarBusquedaCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.EjecutarBusquedaCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.BuscarProductoVM.EjecutarBusqueda"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.BuscarProductoVM.changedProductoSeleccionadoCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.BuscarProductoVM.ChangedProductoSeleccionadoCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.ChangedProductoSeleccionadoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.BuscarProductoVM.ChangedProductoSeleccionado"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.BuscarProductoVM.volverCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.BuscarProductoVM.VolverCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.BuscarProductoVM.VolverCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.BuscarProductoVM.Volver"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.CategoriasVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.ListaCategorias">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.listaCategorias"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.CategoriaSeleccionada">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.categoriaSeleccionada"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.BuscarCategoria">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.buscarCategoria"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.DataEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.dataEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.CategoriasVM.btnLimpiarEsVisible"/>
+        </member>
+        <member name="F:Tracking.ViewModels.CategoriasVM.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CategoriasVM.BuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CategoriasVM.Buscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CategoriasVM.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CategoriasVM.LimpiarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CategoriasVM.Limpiar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CategoriasVM.agregarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CategoriasVM.AgregarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.AgregarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CategoriasVM.Agregar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CategoriasVM.editarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CategoriasVM.EditarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.EditarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.CategoriasVM.Editar(Tracking.DTOs.CategoriaDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CategoriasVM.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CategoriasVM.EliminarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CategoriasVM.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.CategoriasVM.Eliminar(Tracking.DTOs.CategoriaDTO)"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.CompraProductoDetalleMV">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.CodigoBarras">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.codigoBarras"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.Nombre">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.nombre"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.CategoriaSeleccionada">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.categoriaSeleccionada"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.LoteDestino">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.loteDestino"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.LoteComReference">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.loteComReference"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.PesoCompra">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.pesoCompra"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.PesoRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.pesoRecepcion"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.ListaCategoria">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.listaCategoria"/>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.TituloPagina">
+            <inheritdoc cref="F:Tracking.ViewModels.CompraProductoDetalleMV.tituloPagina"/>
+        </member>
+        <member name="F:Tracking.ViewModels.CompraProductoDetalleMV.mostrarScannerCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CompraProductoDetalleMV.MostrarScannerCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.MostrarScannerCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CompraProductoDetalleMV.MostrarScanner"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CompraProductoDetalleMV.volverInventarioCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CompraProductoDetalleMV.VolverInventarioCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.VolverInventarioCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CompraProductoDetalleMV.VolverInventario"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.CompraProductoDetalleMV.guardarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.CompraProductoDetalleMV.GuardarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.CompraProductoDetalleMV.GuardarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.CompraProductoDetalleMV.Guardar"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.ForgotPaswordVM">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.ForgotPaswordVM.Email">
+            <inheritdoc cref="F:Tracking.ViewModels.ForgotPaswordVM.email"/>
+        </member>
+        <member name="F:Tracking.ViewModels.ForgotPaswordVM.forgotCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ForgotPaswordVM.Forgot"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.HistorialVentaVM">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.HistorialVentaVM.ListaVenta">
+            <inheritdoc cref="F:Tracking.ViewModels.HistorialVentaVM.listaVenta"/>
+        </member>
+        <member name="T:Tracking.ViewModels.InventarioVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.CategoriaSeleccionada">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.categoriaSeleccionada"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.ListaCategoria">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.listaCategoria"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.BuscarProducto">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.buscarProducto"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.LoadingCategoriaEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.loadingCategoriaEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.DataEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.dataEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.btnLimpiarEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.ListaProductos">
+            <inheritdoc cref="F:Tracking.ViewModels.InventarioVM.listaProductos"/>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.filtrarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.FiltrarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.FiltrarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.Filtrar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.BuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.Buscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.LimpiarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.Limpiar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.irProductoCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.IrProductoCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.IrProductoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.IrProducto"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.editarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.EditarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.EditarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.Editar(Tracking.DTOs.ProductoDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.InventarioVM.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.InventarioVM.EliminarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.InventarioVM.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.InventarioVM.Eliminar(Tracking.DTOs.ProductoDTO)"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.LoginVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.Usuario">
+            <inheritdoc cref="F:Tracking.ViewModels.LoginVM.usuario"/>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.Password">
+            <inheritdoc cref="F:Tracking.ViewModels.LoginVM.password"/>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.FullName">
+            <inheritdoc cref="F:Tracking.ViewModels.LoginVM.fullName"/>
+        </member>
+        <member name="F:Tracking.ViewModels.LoginVM.loginCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Login"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.LoginVM.forgetPasswordCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.ForgetPassword"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.LoginVM.registerCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.RegisterCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.LoginVM.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Register"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.MainVM">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.TotalIngresos">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.totalIngresos"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.TotalVentas">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.totalVentas"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.TotalProductos">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.totalProductos"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.TotalCategorias">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.totalCategorias"/>
+        </member>
+        <member name="F:Tracking.ViewModels.MainVM.recepcionCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.RecepcionCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.RecepcionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.Recepcion"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.ProductoVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.CodigoBarras">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.codigoBarras"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.Nombre">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.nombre"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.CategoriaSeleccionada">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.categoriaSeleccionada"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.Cantidad">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.cantidad"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.Precio">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.precio"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.ListaCategoria">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.listaCategoria"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.TituloPagina">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.tituloPagina"/>
+        </member>
+        <member name="F:Tracking.ViewModels.ProductoVM.mostrarScannerCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.ProductoVM.MostrarScannerCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.MostrarScannerCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ProductoVM.MostrarScanner"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.ProductoVM.volverInventarioCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.ProductoVM.VolverInventarioCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.VolverInventarioCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ProductoVM.VolverInventario"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.ProductoVM.guardarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.ProductoVM.GuardarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.GuardarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ProductoVM.Guardar"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.RecepcionlistMV">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.CategoriaSeleccionada">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.categoriaSeleccionada"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.ListaCategoria">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.listaCategoria"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.buscarRecepcion"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingCategoriaEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingCategoriaEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.DataEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.dataEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.btnLimpiarEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.ListRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.listRecepcion"/>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.filtrarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.FiltrarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.FiltrarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Filtrar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Buscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Limpiar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.irRecepcionCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.IrRecepcion"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.editarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Editar(Tracking.DTOs.RecepcionDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Eliminar(Tracking.DTOs.RecepcionDTO)"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.RecepcionVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.DetalleRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.detalleRecepcion"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.BuscarRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.buscarRecepcion"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.CodigoCompra">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.codigoCompra"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.loadingEsVisible"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.IdRepresentante">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.idRepresentante"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.NombreRepresentante">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.nombreRepresentante"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.Secuencia">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.secuencia"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.IdVendedor">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.idVendedor"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.NombreProducto">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.nombreProducto"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.NombreVendedor">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.nombreVendedor"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.CantidadProductos">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.cantidadProductos"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.Totalpesorecibido">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.totalpesorecibido"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.TotalpesoCompra">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.totalpesoCompra"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.Diferencia">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.diferencia"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.CambioColor">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.cambioColor"/>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionVM.btnLimpiarEsVisible"/>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.tapBuscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.TapBuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.TapBuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.TapBuscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.tapEscanearCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.TapEscanearCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.TapEscanearCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.TapEscanear"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.tapEscanearProductoCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.TapEscanearProductoCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.TapEscanearProductoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.TapEscanearProducto"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.BuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Buscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.LimpiarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Limpiar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.eliminarEventCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.EliminarEvent(Tracking.DTOs.RecepcionDetalleDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.finalizarVentaCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.FinalizarVenta"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.RecepcionVM.volverCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.VolverCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.RecepcionVM.VolverCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Volver"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.VentaVM">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.DetalleVenta">
+            <inheritdoc cref="F:Tracking.ViewModels.VentaVM.detalleVenta"/>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.Total">
+            <inheritdoc cref="F:Tracking.ViewModels.VentaVM.total"/>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.PagoCon">
+            <inheritdoc cref="F:Tracking.ViewModels.VentaVM.pagoCon"/>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.Cambio">
+            <inheritdoc cref="F:Tracking.ViewModels.VentaVM.cambio"/>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.CambioColor">
+            <inheritdoc cref="F:Tracking.ViewModels.VentaVM.cambioColor"/>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.tapBuscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.TapBuscarCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.TapBuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.TapBuscar"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.tapEscanearCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.TapEscanearCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.TapEscanearCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.TapEscanear"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.disminuirEventCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.DisminuirEventCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.DisminuirEventCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.DisminuirEvent(Tracking.DTOs.DetalleVentaDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.aumentarEventCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.AumentarEventCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.AumentarEventCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.AumentarEvent(Tracking.DTOs.DetalleVentaDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.eliminarEventCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.EliminarEventCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.EliminarEventCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.EliminarEvent(Tracking.DTOs.DetalleVentaDTO)"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.VentaVM.finalizarVentaCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.VentaVM.FinalizarVentaCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.VentaVM.FinalizarVentaCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.VentaVM.FinalizarVenta"/>.</summary>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CodigoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CodigoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Compra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Compra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProdId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProdId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Producto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Producto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PesoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PesoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PesoRecibido">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PesoRecibido" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TipoLote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TipoLote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComReflotFermentacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComReflotFermentacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComReflotSecadoMaquina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComReflotSecadoMaquina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IdCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IdCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Nombre">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Nombre" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IdCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IdCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Estatus">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Estatus" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Peso">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Peso" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cantidad">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cantidad" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Total">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Total" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LinId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LinId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDescripcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDescripcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPrecio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPrecio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPrecio2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPrecio2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPrecio3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPrecio3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPrecioMin">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPrecioMin" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProUnidades">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProUnidades" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCantidad">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCantidad" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cat1Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cat1Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cat2Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cat2Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cat3Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cat3Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDescripcion1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDescripcion1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDescripcion2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDescripcion2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDescripcion3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDescripcion3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDatos1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDatos1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDatos2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDatos2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDatos3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDatos3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProItbis">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProItbis" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProSelectivo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProSelectivo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProAdValorem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProAdValorem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProIndicadorDetalle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProIndicadorDetalle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCodigoDescuento">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCodigoDescuento" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCargoDistribucion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCargoDistribucion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SecCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SecCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UsuInicioSesion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UsuInicioSesion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProFechaActualizacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProFechaActualizacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UnmCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UnmCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProImg">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProImg" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Rowguid">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Rowguid" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPeso">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPeso" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProVolumen">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProVolumen" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProGrupoProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProGrupoProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProLotes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProLotes" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProHolgura">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProHolgura" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProInventarios">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProInventarios" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProListaPrecios">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProListaPrecios" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProDescuentoMaximo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProDescuentoMaximo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCantidadMinVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCantidadMinVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCantidadMaxVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCantidadMaxVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProCantidadMultiploVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProCantidadMultiploVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProPaisOrigen">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProPaisOrigen" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProAnio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProAnio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProMedida">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProMedida" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProEstado">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProEstado" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProAtributo1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProAtributo1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProAtributo2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProAtributo2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FechaRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FechaRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Destino">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Destino" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NumeroLote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NumeroLote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IdVendedor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IdVendedor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreVendedor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreVendedor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Secuencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Secuencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IdRepresentante">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IdRepresentante" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreRepresentante">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreRepresentante" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LotFermentacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LotFermentacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LotSecadoMaquina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LotSecadoMaquina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecepcionDetalleDTO">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecepcionDetalleDTO" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProductoSeleccionado">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProductoSeleccionado" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoadingCategoriaEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoadingCategoriaEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoadingEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoadingEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Busqueda">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Busqueda" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaCategorias">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaCategorias" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CategoriaSeleccionada">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CategoriaSeleccionada" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DataEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DataEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BtnLimpiarEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BtnLimpiarEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CodigoBarras">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CodigoBarras" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoteDestino">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoteDestino" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoteComReference">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoteComReference" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PesoRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PesoRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TituloPagina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TituloPagina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Usuario">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Usuario" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FullName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FullName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalIngresos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalIngresos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalVentas">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalVentas" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalCategorias">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalCategorias" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Precio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Precio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DetalleRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DetalleRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CantidadProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CantidadProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Totalpesorecibido">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Totalpesorecibido" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalpesoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalpesoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Diferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Diferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CambioColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CambioColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DetalleVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DetalleVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PagoCon">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PagoCon" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cambio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cambio" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CodigoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CodigoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Compra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Compra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProdId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProdId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Producto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Producto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PesoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PesoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PesoRecibido">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PesoRecibido" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TipoLote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TipoLote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComReflotFermentacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComReflotFermentacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComReflotSecadoMaquina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComReflotSecadoMaquina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IdCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IdCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Nombre">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Nombre" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IdCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IdCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Estatus">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Estatus" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Peso">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Peso" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cantidad">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cantidad" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Total">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Total" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LinId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LinId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDescripcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDescripcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPrecio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPrecio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPrecio2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPrecio2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPrecio3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPrecio3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPrecioMin">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPrecioMin" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProUnidades">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProUnidades" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCantidad">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCantidad" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cat1Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cat1Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cat2Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cat2Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cat3Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cat3Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDescripcion1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDescripcion1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDescripcion2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDescripcion2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDescripcion3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDescripcion3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDatos1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDatos1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDatos2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDatos2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDatos3">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDatos3" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProItbis">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProItbis" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProSelectivo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProSelectivo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProAdValorem">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProAdValorem" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProIndicadorDetalle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProIndicadorDetalle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCodigoDescuento">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCodigoDescuento" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCargoDistribucion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCargoDistribucion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SecCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SecCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UsuInicioSesion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UsuInicioSesion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProFechaActualizacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProFechaActualizacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UnmCodigo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UnmCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProImg">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProImg" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Rowguid">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Rowguid" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPeso">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPeso" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProVolumen">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProVolumen" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProGrupoProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProGrupoProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProLotes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProLotes" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProHolgura">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProHolgura" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProInventarios">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProInventarios" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProListaPrecios">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProListaPrecios" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProDescuentoMaximo">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProDescuentoMaximo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCantidadMinVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCantidadMinVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCantidadMaxVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCantidadMaxVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProCantidadMultiploVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProCantidadMultiploVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProPaisOrigen">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProPaisOrigen" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProAnio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProAnio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProMedida">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProMedida" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProEstado">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProEstado" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProAtributo1">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProAtributo1" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProAtributo2">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProAtributo2" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FechaRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FechaRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Destino">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Destino" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NumeroLote">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NumeroLote" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IdVendedor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IdVendedor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreVendedor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreVendedor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Secuencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Secuencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IdRepresentante">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IdRepresentante" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreRepresentante">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreRepresentante" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LotFermentacion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LotFermentacion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LotSecadoMaquina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LotSecadoMaquina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecepcionDetalleDTO">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecepcionDetalleDTO" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProductoSeleccionado">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProductoSeleccionado" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoadingCategoriaEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoadingCategoriaEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoadingEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoadingEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Busqueda">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Busqueda" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaCategorias">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaCategorias" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CategoriaSeleccionada">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CategoriaSeleccionada" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DataEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DataEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BtnLimpiarEsVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BtnLimpiarEsVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CodigoBarras">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CodigoBarras" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoteDestino">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoteDestino" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoteComReference">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoteComReference" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PesoRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PesoRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaCategoria">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaCategoria" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TituloPagina">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TituloPagina" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarProducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Usuario">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Usuario" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FullName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FullName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalIngresos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalIngresos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalVentas">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalVentas" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalCategorias">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalCategorias" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Precio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Precio" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DetalleRecepcion">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DetalleRecepcion" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CantidadProductos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CantidadProductos" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Totalpesorecibido">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Totalpesorecibido" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalpesoCompra">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalpesoCompra" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Diferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Diferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CambioColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CambioColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DetalleVenta">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DetalleVenta" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PagoCon">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PagoCon" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cambio">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cambio" generated properties.</summary>
+        </member>
+    </members>
+</doc>

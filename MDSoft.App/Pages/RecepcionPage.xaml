@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tracking.Pages.RecepcionPage"
+             xmlns:util="clr-namespace:Tracking.Utilidades"
+             xmlns:vm="clr-namespace:Tracking.ViewModels"
+             xmlns:model="clr-namespace:Tracking.DTOs"
+             Title="Recepcion de Sacos">
+
+    <Grid Margin="5" >
+        <Border >
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+
+            <Grid Margin="10" RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" Spacing="5">
+                    <Grid ColumnDefinitions="1*" RowDefinitions="1*" HorizontalOptions="FillAndExpand">
+                        <Entry HorizontalOptions="FillAndExpand" Placeholder="Escane o Digite el codigo de la compra" PlaceholderColor="DarkSlateGray"  Text="{Binding BuscarRecepcion}" />
+                        <ImageButton Source="close.svg" HeightRequest="32" WidthRequest="28" HorizontalOptions="End" 
+                                 BackgroundColor="{StaticResource bgLightGray}" Padding="3" CornerRadius="4"
+                                 IsVisible="{Binding BtnLimpiarEsVisible}" Command="{Binding LimpiarCommand}"/>
+                    </Grid>
+                    <Button FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding BuscarCommand}"></Button>
+                </StackLayout>
+                <!--<BoxView Grid.Row="1" HeightRequest="10" Color="LightGray"/>-->
+
+                <!--Details-->
+                <ScrollView Grid.Row="1" >
+                    <CollectionView SelectionMode="None"  ItemsSource="{Binding DetalleRecepcion}" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:RecepcionDetalleDTO">
+                                <Grid Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Columna de informacion -->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Columna de botones -->
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Padding="2,2" Grid.Column="0" >
+                                        <!--<StackLayout.Shadow>
+                                            <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                                        </StackLayout.Shadow>-->
+
+                                        <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
+
+                                            <StackLayout Orientation="Horizontal" Padding="0">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer 
+                                         Command="{Binding BindingContext.IrRecepcionCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                           CommandParameter="{Binding}"
+                                                           />
+                                                </StackLayout.GestureRecognizers>
+
+                                                <BoxView Grid.Column="0" Color="blue" WidthRequest="5"/>
+
+                                                <!--<Grid ColumnDefinitions="Auto" Padding="5" HorizontalOptions="FillAndExpand">-->
+                                                <StackLayout Grid.Column="0"  Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Grid ColumnDefinitions="*,*" RowSpacing="5" RowDefinitions="Auto,Auto,Auto" HorizontalOptions="FillAndExpand" Padding="5">
+
+                                                        <!--ROW 1 , COLUMN 0-->
+                                                        <Label Text="{Binding NombreProducto}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
+
+                                                        <!--<Label Text="Numero Lote" Grid.Row="1" Grid.Column="0"></Label>
+                                                            <Label Text="{Binding NumeroLote}" Grid.Row="1" Grid.Column="1" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />-->
+
+                                                        <!--ROW 4 , COLUMN 0-->
+                                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                                                            <Label Text="Peso Compra" ></Label>
+                                                            <Label Text="{Binding PesoCompra}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                                        </StackLayout>
+
+                                                        <!--ROW 4 , COLUMN 0-->
+                                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1">
+                                                            <Label Text="Peso Recepcion" ></Label>
+                                                            <Label Text="{Binding PesoRecibido}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                                        </StackLayout>
+
+                                                    </Grid>
+                                                </StackLayout>
+                                                <!--</Grid>-->
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                        <ImageButton Source="edit_pencil.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
+      BackgroundColor="{StaticResource bgLightBlue}"  
+      Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+      CommandParameter="{Binding}"
+      />
+
+                                        <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
+      BackgroundColor="{StaticResource bgLightRed}"
+      Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+      CommandParameter="{Binding}"
+      />
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </ScrollView>
+
+                <!--Footer and totals-->
+                <StackLayout Grid.Row="3" BackgroundColor="{StaticResource bgLightGray}" Padding="10">
+                    <Grid ColumnSpacing="12" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Peso Total Comprado:"  VerticalOptions="End" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding TotalpesoCompra, StringFormat='{0:C}'}" VerticalOptions="Center" />
+
+                        <Label Grid.Row="0" Grid.Column="1" Text="Peso Total Recibido:" VerticalOptions="End"/>
+                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding Totalpesorecibido}" />
+
+                        <Label Grid.Row="0" Grid.Column="2" Text="Diferencia:" VerticalOptions="End"/>
+                        <Label Grid.Row="1" Grid.Column="2" IsEnabled="False" HorizontalOptions="FillAndExpand" Text="{Binding Diferencia}" TextColor="{Binding CambioColor}"/>
+
+                        <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Finalizar" HeightRequest="35" WidthRequest="100" 
+                                Padding="0" Margin="0,5,0,0"
+                                HorizontalOptions="End" BackgroundColor="{StaticResource bgSuccess}"
+                                Command="{Binding FinalizarVentaCommand}"
+                                />
+                    </Grid>
+
+                </StackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

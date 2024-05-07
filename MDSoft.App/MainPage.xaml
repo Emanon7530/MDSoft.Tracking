@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:Tracking.Utilidades"
+             x:Class="Tracking.MainPage" BackgroundColor="#EDEDF5">
+
+    <Grid RowDefinitions="auto" Margin="5" HorizontalOptions="FillAndExpand" >
+        <StackLayout VerticalOptions="FillAndExpand" Padding="0" Margin="0,20">
+            <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="25" VerticalOptions="Start"/>
+
+            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" Padding="0">
+
+                <!--Begin Row 0-->
+                <!--Recepcion de Compras-->
+                <StackLayout Padding="5" Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="0" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RecepcionCommand}" />
+                            </StackLayout.GestureRecognizers>
+
+                            <BoxView Grid.Column="0" Color="red" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*" Padding="5" HorizontalOptions="FillAndExpand">
+                                <Frame Grid.Column="1" Padding="0"  IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="recepcion.png" />
+                                </Frame>
+                                <StackLayout Grid.Column="0" >
+                                    <Label Text="Recepcion Compras"  TextColor="Black" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+
+                <!--Cierre de Lotes-->
+                <StackLayout Padding="5,5" Grid.Column="1" Grid.Row="0">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="0" HeightRequest="100">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <!--<StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=NavigateToDetailCommand}" CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>-->
+
+                            <BoxView Grid.Column="1" Color="Blue" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*" Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Frame Grid.Column="1" Padding="0"   IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="cierrepreview.png" />
+                                </Frame>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Cierre Lotes" TextColor="Black" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <!--End Row 0-->
+
+
+                <!--Begin Row 1-->
+                <!--Lote de Fermentacion-->
+                <StackLayout Padding="5,5" Grid.Column="0" Grid.Row="1">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+
+                    <Frame BackgroundColor="White" Grid.Row="1" Grid.Column="0" CornerRadius="5" Padding="0"  HeightRequest="100">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <!--<StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=NavigateToDetailCommand}" CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>-->
+
+                            <BoxView Grid.Column="0" Grid.Row="1" Color="Purple" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*"  Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Frame Grid.Column="1" Padding="0"  IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="fermentacionpreview.png">
+                                    </Image>
+                                    
+                                </Frame>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Lotes Fermentacion" TextColor="Black" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <!--Cierre de Lotes-->
+                <StackLayout Padding="5,5" Grid.Column="1" Grid.Row="1">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+
+
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="0" HeightRequest="100">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <!--<StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=NavigateToDetailCommand}" CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>-->
+
+                            <BoxView Grid.Column="1" Grid.Row="1" Color="Green" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*" Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Frame Grid.Column="1" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="naturalpreview.png" />
+                                </Frame>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Lotes Secado Natural"  TextColor="Black" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <!--End Row 1-->
+
+                <!--Begin Row 2-->
+                <!--Lote de Secado a Maquina-->
+                <StackLayout Padding="5,5" Grid.Column="0" Grid.Row="2">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+
+                    <Frame BackgroundColor="White" Grid.Row="2" Grid.Column="0" CornerRadius="5" Padding="0"  HeightRequest="100">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SecadoMaquinaCommand}" />
+                            </StackLayout.GestureRecognizers>
+
+                            <BoxView Grid.Column="0" Grid.Row="1" Color="Brown" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*" Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Frame Grid.Column="1" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="maquinapreview.png" />
+                                </Frame>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Lotes Secado Maquin"  TextColor="Black" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+
+                <!--Lote de Limpieza-->
+                <StackLayout Padding="5,5" Grid.Column="1" Grid.Row="2">
+                    <!--<StackLayout.Shadow>
+                        <Shadow Brush="Gray" Offset="10,10"></Shadow>
+                    </StackLayout.Shadow>-->
+
+
+                    <Frame BackgroundColor="White" CornerRadius="5" Padding="0" HeightRequest="100">
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <!--<StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=NavigateToDetailCommand}" CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>-->
+
+                            <BoxView Grid.Column="1" Grid.Row="2" Color="Coral" WidthRequest="7"/>
+
+                            <Grid ColumnDefinitions="*,*" Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Frame Grid.Column="1" Padding="0"  IsClippedToBounds="True" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="limpiezapreview.png"  />
+                                </Frame>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Lotes Limpieza" TextColor="Black" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <!--End Row 1-->
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
