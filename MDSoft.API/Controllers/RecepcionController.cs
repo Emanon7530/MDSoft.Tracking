@@ -48,7 +48,22 @@ namespace MDSoft.API.Controllers
                 throw;
             }
         }
+        [HttpGet()]
+        [Route("ExecuteGetComprasStoreProcedure")]
+        public async Task<IEnumerable<RecepcionesCompraDTO>> ExecuteGetComprasStoreProcedure(string comReferencia)
+        {
+            try
+            {
+                var result = await _recepcionServices.ExecuteGetComprasStoreProcedure(comReferencia);
 
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         [HttpGet()]
         [Route("GetRecepciones")]
         public async Task<IEnumerable<RecepcionesCompraDTO>> GetRecepciones(RecepcionesComprasFilter Filter)
@@ -65,7 +80,22 @@ namespace MDSoft.API.Controllers
                 throw;
             }
         }
+        [HttpGet()]
+        [Route("GetRecepcionesDetalle")]
+        public async Task<IEnumerable<RecepcionesComprasDetalleDTO>> GetRecepcionesDetalle(int RecSecuencia)
+        {
+            try
+            {
+                var result = await _recepcionServices.GetRecepcionesDetalle(RecSecuencia);
 
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         [HttpPost()]
         [Route("Guardar")]
         public async Task<RecepcionesCompraDTO> Guardar(RecepcionesCompraDTO recepcionCompra)
@@ -73,6 +103,41 @@ namespace MDSoft.API.Controllers
             try
             {
                 var result = await _recepcionServices.Guardar(recepcionCompra);
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPut()]
+        [Route("Actualizar")]
+        public async Task<RecepcionesCompraDTO> Actualizar(RecepcionesCompraDTO recepcionCompra)
+        {
+            try
+            {
+                var result = await _recepcionServices.Actualizar(recepcionCompra);
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        [HttpPost()]
+        [Route("GuardarDetalle")]
+        public async Task<RecepcionesComprasDetalleDTO> GuardarDetalle(RecepcionesComprasDetalleDTO recepcionCompraDetalle)
+        {
+            try
+            {
+                var result = await _recepcionServices.GuradarDetalle(recepcionCompraDetalle);
 
                 return result;
             }

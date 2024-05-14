@@ -1,4 +1,6 @@
-﻿using Tracking.Pages;
+﻿using MDSoft.Tracking.Services.DTO;
+using Tracking.Pages;
+using Tracking.Services;
 namespace Tracking
 {
     public partial class App : Application
@@ -16,8 +18,9 @@ namespace Tracking
             else
             {
                 MainPage = new AppShell();
+                //MainPage = new RecepcionPage(new ViewModels.RecepcionVM(new ComprasProductoDTO()), "jlanda");
             }
-
         }
     }
+
 }

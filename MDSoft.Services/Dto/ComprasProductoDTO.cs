@@ -21,6 +21,8 @@ public partial class ComprasProductoDTO
 
     public short? ComEstatus { get; set; }
 
+    public string? RepNombre { get; set; }
+
     public int? ComCantidadDetalle { get; set; }
 
     [Column("ComNCF")]

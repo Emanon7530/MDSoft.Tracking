@@ -21,6 +21,7 @@ namespace MDSoft.Tracking.Services
     {
         IComprasProductosRepository _RepoCompras;
         IComprasProductosDetalleRepository _RepoDetalle;
+        IRepositorio<Producto> _RepoProducto;
 
         IMapper _mapper;
 
@@ -28,6 +29,7 @@ namespace MDSoft.Tracking.Services
         {
             _RepoCompras = new ComprasProductosRepository();
             _RepoDetalle = new ComprasProductosDetalleRepository();
+            _RepoProducto = new Repositorio<Producto>();
             _mapper = mapper;
         }
 
@@ -35,7 +37,25 @@ namespace MDSoft.Tracking.Services
         {
             IEnumerable<ComprasProductoDTO> result = null;
 
+            IEnumerable<ComprasProducto> compra = await _RepoCompras.TraerTodos();
+
+            if (compra.Count() > 0)
+            {
+                result = _mapper.Map<IEnumerable<ComprasProductoDTO>>(compra);
+            }
+
+            return result;
+
+        }
+
+        public async Task<IEnumerable<ComprasProductoDTO>> GetPendingByDate()
+        {
+            IEnumerable<ComprasProductoDTO> result = null;
+
             var _param = new ParametrosDeQuery<ComprasProducto>(1, 100);
+
+            _param.Where = x => x.ComEstatus == 2;
+            _param.OrderBy = x => x.ComFecha.Value;
 
             IEnumerable<ComprasProducto> compra = await _RepoCompras.EncontrarPor(_param);
 
@@ -48,13 +68,22 @@ namespace MDSoft.Tracking.Services
 
         }
 
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string TicketNumber)
+        public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
+        {
+            IEnumerable<ComprasRepresentante> result = null;
+
+            var compra = await _RepoCompras.sp_GetComprasPendientes();
+
+            return compra;
+        }
+
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
             ComprasProductoDTO result = null;
 
             var _param = new ParametrosDeQuery<ComprasProducto>(1, 100);
 
-            _param.Where = x => x.ComReferencia.Equals(TicketNumber);
+            _param.Where = x => x.RepCodigo.Equals(repCodigo) && x.ComSecuencia == comSecuencia;
 
             var compra = await _RepoCompras.EncontrarPor(_param);
 
@@ -86,17 +115,36 @@ namespace MDSoft.Tracking.Services
             }
         }
 
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(ComprasProductoDTO comprasProducto, int ProductCode)
+        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int prodID)
         {
             ComprasProductosDetalleDTO result = null;
 
             var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
 
-            _param.Where = x => x.RepCodigo == comprasProducto.RepCodigo && x.ComSecuencia == comprasProducto.ComSecuencia && x.ProId == ProductCode;
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ProId == prodID;
 
             var compra = await _RepoDetalle.EncontrarPor(_param);
 
-            result = _mapper.Map<ComprasProductosDetalleDTO>(compra);
+            result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
+
+            var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
+
+            _paramProd.Where = x => x.ProId == result.ProId;
+
+            result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+            return result;
+        }
+
+
+        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductsInCompra(string repCodigo, int comSecuencia)
+        {
+            var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
+
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia;
+
+            IEnumerable<ComprasProductosDetalle> compra = await _RepoDetalle.EncontrarPor(_param);
+
+            var result = _mapper.Map<IEnumerable<ComprasProductosDetalleDTO>>(compra);
 
             return result;
         }

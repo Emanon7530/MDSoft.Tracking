@@ -26,6 +26,9 @@ public partial class RecepcionesComprasDetalle
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? RecPeso { get; set; }
 
+    //[StringLength(5)]
+    //public string? ComEstado { get; set; }
+
     [ForeignKey("RecSecuencia")]
     [InverseProperty("RecepcionesComprasDetalles")]
     public virtual RecepcionesCompra RecSecuenciaNavigation { get; set; } = null!;

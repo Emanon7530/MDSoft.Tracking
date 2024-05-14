@@ -28,26 +28,6 @@ namespace MDSoft.API.Controllers
             _productoServices = new ProductoServices(_mapper);
 
         }
-        [HttpGet()]
-        [Route("TestMapper")]
-        public async Task<PadresDTO> TestMapper()
-        {
-            try
-            {
-                var test = new Padres();
-
-                var testdto = _mapper.Map<PadresDTO>(test);
-
-                return testdto;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
 
         [HttpGet()]
         [Route("GetAll")]

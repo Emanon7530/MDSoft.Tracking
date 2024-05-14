@@ -9,10 +9,12 @@
     ".NETCoreApp,Version=v7.0/win10-x64": {
       "MDSoft.Tracking.App/1.0": {
         "dependencies": {
-          "Camera.MAUI": "1.4.4",
+          "AutoMapper": "13.0.1",
           "CommunityToolkit.Maui": "5.3.0",
           "CommunityToolkit.Maui.Core": "5.3.0",
-          "CommunityToolkit.Mvvm": "8.2.1",
+          "CommunityToolkit.Mvvm": "8.2.2",
+          "MDSoft.Tracking.Data": "1.0.0",
+          "MDSoft.Tracking.Model": "1.0.0",
           "MDSoft.Tracking.Services": "1.0.0",
           "Microsoft.EntityFrameworkCore.Proxies": "7.0.9",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.9",
@@ -23,7 +25,6 @@
           "Microsoft.Maui.Graphics": "7.0.101",
           "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "7.0.101",
           "Microsoft.WindowsAppSDK": "1.2.221209.1",
-          "Newtonsoft.Json": "13.0.3",
           "TouchEffect.Maui": "7.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "7.0.18",
           "runtimepack.Microsoft.WindowsDesktop.App.Runtime.win-x64": "7.0.18",
@@ -1070,17 +1071,6 @@
           }
         }
       },
-      "Camera.MAUI/1.4.4": {
-        "dependencies": {
-          "ZXing.Net": "0.16.9"
-        },
-        "runtime": {
-          "lib/net7.0-windows10.0.19041/Camera.MAUI.dll": {
-            "assemblyVersion": "1.4.4.0",
-            "fileVersion": "1.4.4.0"
-          }
-        }
-      },
       "Castle.Core/5.1.0": {
         "dependencies": {
           "System.Diagnostics.EventLog": "6.0.0"
@@ -1114,11 +1104,11 @@
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.2.1": {
+      "CommunityToolkit.Mvvm/8.2.2": {
         "runtime": {
           "lib/net6.0/CommunityToolkit.Mvvm.dll": {
             "assemblyVersion": "8.2.0.0",
-            "fileVersion": "8.2.1.1"
+            "fileVersion": "8.2.2.1"
           }
         }
       },
@@ -2082,14 +2072,6 @@
           }
         }
       },
-      "ZXing.Net/0.16.9": {
-        "runtime": {
-          "lib/net7.0/zxing.dll": {
-            "assemblyVersion": "0.16.9.0",
-            "fileVersion": "0.16.9.0"
-          }
-        }
-      },
       "MDSoft.Tracking.Data/1.0.0": {
         "dependencies": {
           "MDSoft.Tracking.Model": "1.0.0",
@@ -2180,13 +2162,6 @@
       "path": "azure.identity/1.10.3",
       "hashPath": "azure.identity.1.10.3.nupkg.sha512"
     },
-    "Camera.MAUI/1.4.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hsCdEVRXR7hzESvOHOxQJkiJxxd6/j/daHekhQVzQAZFlzuKkN1ncDxXNG5tXyutX6VaCzYLZiA7rSvqtCZT9w==",
-      "path": "camera.maui/1.4.4",
-      "hashPath": "camera.maui.1.4.4.nupkg.sha512"
-    },
     "Castle.Core/5.1.0": {
       "type": "package",
       "serviceable": true,
@@ -2208,12 +2183,12 @@
       "path": "communitytoolkit.maui.core/5.3.0",
       "hashPath": "communitytoolkit.maui.core.5.3.0.nupkg.sha512"
     },
-    "CommunityToolkit.Mvvm/8.2.1": {
+    "CommunityToolkit.Mvvm/8.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I24ofWVEdplxYjUez9/bljv/qb8r8Ccj6cvYXHexNBegLaD3iDy3QrzAAOYVMmfGWIXxlU1ZtECQNfU07+6hXQ==",
-      "path": "communitytoolkit.mvvm/8.2.1",
-      "hashPath": "communitytoolkit.mvvm.8.2.1.nupkg.sha512"
+      "sha512": "sha512-r0g0k9tGYdrnz8R7T3x5UiokDffeevzK/2P/9SBL6fqLgN8B157MIi/bVUWI1KAz6ZorZrK9AdABCWUeXZZsvA==",
+      "path": "communitytoolkit.mvvm/8.2.2",
+      "hashPath": "communitytoolkit.mvvm.8.2.2.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -3019,13 +2994,6 @@
       "sha512": "sha512-5e036jum46gmPdFHvwRzH6e8NpvZavVHbc8FSkaMumgMj1lRYOzFNcnk3kuTzbWqZ44mBAEJ+RQmanmtQijuPQ==",
       "path": "toucheffect.maui/7.0.0",
       "hashPath": "toucheffect.maui.7.0.0.nupkg.sha512"
-    },
-    "ZXing.Net/0.16.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-7WaVMHklpT3Ye2ragqRIwlFRsb6kOk63BOGADV0fan3ulVfGLUYkDi5yNUsZS/7FVNkWbtHAlDLmu4WnHGfqvQ==",
-      "path": "zxing.net/0.16.9",
-      "hashPath": "zxing.net.0.16.9.nupkg.sha512"
     },
     "MDSoft.Tracking.Data/1.0.0": {
       "type": "project",

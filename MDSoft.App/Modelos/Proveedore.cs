@@ -20,7 +20,7 @@ public partial class Proveedore
     [Column("ProRNC")]
     [StringLength(20)]
     [Unicode(false)]
-    public string? ProRnc { get; set; }
+    public string ProRnc { get; set; }
 
     [Column("PaiID")]
     public int? PaiId { get; set; }
@@ -56,14 +56,14 @@ public partial class Proveedore
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProWhatsapp { get; set; }
+    public string ProWhatsapp { get; set; }
 
     public bool? ProIndicadorExonerado { get; set; }
 
     [Column("LiPCodigo")]
     [StringLength(10)]
     [Unicode(false)]
-    public string? LiPcodigo { get; set; }
+    public string LiPcodigo { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ProPromedioCompra { get; set; }
@@ -71,12 +71,12 @@ public partial class Proveedore
     [Column("ProTipoComprobanteFAC")]
     [StringLength(2)]
     [Unicode(false)]
-    public string? ProTipoComprobanteFac { get; set; }
+    public string ProTipoComprobanteFac { get; set; }
 
     [Column("ProTipoComprobanteNC")]
     [StringLength(2)]
     [Unicode(false)]
-    public string? ProTipoComprobanteNc { get; set; }
+    public string ProTipoComprobanteNc { get; set; }
 
     public bool? ProIndicadorPresentacion { get; set; }
 
@@ -87,19 +87,19 @@ public partial class Proveedore
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProSector { get; set; }
+    public string ProSector { get; set; }
 
     [StringLength(15)]
     [Unicode(false)]
-    public string? RepCodigo { get; set; }
+    public string RepCodigo { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? MonCodigo { get; set; }
+    public string MonCodigo { get; set; }
 
     [StringLength(20)]
     [Unicode(false)]
-    public string? ProLicencia { get; set; }
+    public string ProLicencia { get; set; }
 
     [Column(TypeName = "decimal(18, 15)")]
     public decimal? ProLongitud { get; set; }
@@ -109,29 +109,29 @@ public partial class Proveedore
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProEncargadoPago { get; set; }
+    public string ProEncargadoPago { get; set; }
 
     public bool? ProIndicadorDeposito { get; set; }
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProCorreoElectronico { get; set; }
+    public string ProCorreoElectronico { get; set; }
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProPropietario { get; set; }
+    public string ProPropietario { get; set; }
 
     [StringLength(13)]
     [Unicode(false)]
-    public string? ProCedulaPropietario { get; set; }
+    public string ProCedulaPropietario { get; set; }
 
     [StringLength(150)]
     [Unicode(false)]
-    public string? ProPaginaWeb { get; set; }
+    public string ProPaginaWeb { get; set; }
 
     [StringLength(10)]
     [Unicode(false)]
-    public string? ProFormasPago { get; set; }
+    public string ProFormasPago { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? ProFechaCreacion { get; set; }
@@ -139,7 +139,7 @@ public partial class Proveedore
     [Column("prdDirTipo")]
     [StringLength(15)]
     [Unicode(false)]
-    public string? PrdDirTipo { get; set; }
+    public string PrdDirTipo { get; set; }
 
     [Column("TiNID")]
     public int? TiNid { get; set; }
@@ -160,7 +160,7 @@ public partial class Proveedore
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? ProCaracteristicas { get; set; }
+    public string ProCaracteristicas { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ProMontoUltimaCompra { get; set; }
@@ -179,7 +179,7 @@ public partial class Proveedore
 
     [StringLength(60)]
     [Unicode(false)]
-    public string? ProNombreComercial { get; set; }
+    public string ProNombreComercial { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ProValorDescuentoPromedio { get; set; }
@@ -189,44 +189,44 @@ public partial class Proveedore
 
     [StringLength(80)]
     [Unicode(false)]
-    public string? ProRegMercantil { get; set; }
+    public string ProRegMercantil { get; set; }
 
     [StringLength(1)]
     [Unicode(false)]
-    public string? ProDiaVisita { get; set; }
+    public string ProDiaVisita { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ProFrecuenciaVisita { get; set; }
+    public string ProFrecuenciaVisita { get; set; }
 
     [StringLength(7)]
     [Unicode(false)]
-    public string? ProRutSemana1 { get; set; }
+    public string ProRutSemana1 { get; set; }
 
     [StringLength(7)]
     [Unicode(false)]
-    public string? ProRutSemana2 { get; set; }
+    public string ProRutSemana2 { get; set; }
 
     [StringLength(7)]
     [Unicode(false)]
-    public string? ProRutSemana3 { get; set; }
+    public string ProRutSemana3 { get; set; }
 
     [StringLength(7)]
     [Unicode(false)]
-    public string? ProRutSemana4 { get; set; }
+    public string ProRutSemana4 { get; set; }
 
     public int? ProOrdenRuta { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ProFuente { get; set; }
+    public string ProFuente { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? ProFechaActualizacion { get; set; }
 
     [StringLength(64)]
     [Unicode(false)]
-    public string? UsuInicioSesion { get; set; }
+    public string UsuInicioSesion { get; set; }
 
     [Column("rowguid")]
     public Guid? Rowguid { get; set; }

@@ -27,9 +27,7 @@ namespace MDSoft.Tracking.Services
         {
             IEnumerable<ProductoDTO> result = null;
 
-            var _param = new ParametrosDeQuery<Producto>(1, 100);
-
-            IEnumerable<Producto> compra = await _Repolote.EncontrarPor(_param);
+            IEnumerable<Producto> compra = await _Repolote.TraerTodos();
 
             if (compra.Count() > 0)
             {

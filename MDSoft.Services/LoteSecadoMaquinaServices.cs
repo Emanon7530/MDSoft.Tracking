@@ -21,6 +21,42 @@ namespace MDSoft.Tracking.Services
             _Repolote = new Repositorio<LotesSecadoMaquina>();
             _mapper=mapper;
         }
+        public async Task<IEnumerable<LotesSecadoMaquinaDTO>> GetAll()
+        {
 
+            List<LotesSecadoMaquinaDTO> dtoresult = new List<LotesSecadoMaquinaDTO>();
+
+            var result = await _Repolote.TraerTodos();
+
+            _mapper.Map(result, dtoresult);
+
+            return dtoresult;
+        }
+
+        public async Task<LotesSecadoMaquinaDTO> GetById(int LoteNumber)
+        {
+
+            LotesSecadoMaquinaDTO dtoresult = new LotesSecadoMaquinaDTO();
+
+            var result = await _Repolote.ObtenerPorId(LoteNumber);
+
+            _mapper.Map(result, dtoresult);
+
+            return dtoresult;
+        }
+
+        public async Task<LotesSecadoMaquinaDTO> Guardar(LotesSecadoMaquinaDTO loteFermentacion)
+        {
+
+            LotesSecadoMaquina result = new LotesSecadoMaquina();
+
+            result = _mapper.Map<LotesSecadoMaquina>(loteFermentacion);
+
+            await _Repolote.Agregar(result);
+
+            loteFermentacion = _mapper.Map<LotesSecadoMaquinaDTO>(result);
+
+            return loteFermentacion;
+        }
     }
 }

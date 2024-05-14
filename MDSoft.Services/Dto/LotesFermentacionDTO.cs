@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MDSoft.Tracking.Services.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace MDSoft.Tracking.Services.DTO;
 
-public partial class LotesFermentacionDTO
-{
+public partial class LotesFermentacionDTO {
     [Key]
     [StringLength(15)]
     [Unicode(false)]
     public string LotFermentacion { get; set; } = null!;
 
     [Column(TypeName = "datetime")]
-    public DateTime? LotFechaCreacion { get; set; }
+     public DateTime? LotFechaCreacion { get; set; } 
 
     [StringLength(64)]
     [Unicode(false)]

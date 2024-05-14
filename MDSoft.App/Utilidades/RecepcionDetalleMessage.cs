@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MDSoft.Tracking.Services.DTO;
 
 namespace Tracking.Utilidades
 {
-    class RecepcionDetalleMessage : ValueChangedMessage<RecepcionDetalleDTO>
+    class RecepcionDetalleMessage : ValueChangedMessage<RecepcionesComprasDetalleDTO>
     {
-        public RecepcionDetalleMessage(RecepcionDetalleDTO value) : base(value)
+        public RecepcionDetalleMessage(RecepcionesComprasDetalleDTO value) : base(value)
         {
         }
     }

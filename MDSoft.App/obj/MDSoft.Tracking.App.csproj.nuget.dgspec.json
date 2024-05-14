@@ -41,6 +41,12 @@
           "net7.0-android33.0": {
             "targetAlias": "net7.0-android",
             "projectReferences": {
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
+              },
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
+              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -49,6 +55,12 @@
           "net7.0-ios16.1": {
             "targetAlias": "net7.0-ios",
             "projectReferences": {
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
+              },
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
+              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -57,6 +69,12 @@
           "net7.0-maccatalyst16.1": {
             "targetAlias": "net7.0-maccatalyst",
             "projectReferences": {
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
+              },
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
+              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -65,6 +83,12 @@
           "net7.0-windows10.0.19041": {
             "targetAlias": "net7.0-windows10.0.19041.0",
             "projectReferences": {
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
+              },
+              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
+                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
+              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -86,9 +110,9 @@
         "net7.0-android33.0": {
           "targetAlias": "net7.0-android",
           "dependencies": {
-            "Camera.MAUI": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[1.4.4, )"
+              "version": "[13.0.1, )"
             },
             "CommunityToolkit.Maui": {
               "target": "Package",
@@ -100,7 +124,7 @@
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.2.2, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
@@ -145,10 +169,6 @@
               "target": "Package",
               "version": "[7.0.100-1.23211.1, )",
               "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
             },
             "TouchEffect.Maui": {
               "target": "Package",
@@ -289,9 +309,9 @@
         "net7.0-ios16.1": {
           "targetAlias": "net7.0-ios",
           "dependencies": {
-            "Camera.MAUI": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[1.4.4, )"
+              "version": "[13.0.1, )"
             },
             "CommunityToolkit.Maui": {
               "target": "Package",
@@ -303,7 +323,7 @@
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.2.2, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
@@ -348,10 +368,6 @@
               "target": "Package",
               "version": "[7.0.100-1.23211.1, )",
               "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
             },
             "TouchEffect.Maui": {
               "target": "Package",
@@ -425,9 +441,9 @@
         "net7.0-maccatalyst16.1": {
           "targetAlias": "net7.0-maccatalyst",
           "dependencies": {
-            "Camera.MAUI": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[1.4.4, )"
+              "version": "[13.0.1, )"
             },
             "CommunityToolkit.Maui": {
               "target": "Package",
@@ -439,7 +455,7 @@
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.2.2, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
@@ -484,10 +500,6 @@
               "target": "Package",
               "version": "[7.0.100-1.23211.1, )",
               "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
             },
             "TouchEffect.Maui": {
               "target": "Package",
@@ -562,9 +574,9 @@
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
           "dependencies": {
-            "Camera.MAUI": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[1.4.4, )"
+              "version": "[13.0.1, )"
             },
             "CommunityToolkit.Maui": {
               "target": "Package",
@@ -576,7 +588,7 @@
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.2.2, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
@@ -619,10 +631,6 @@
               "target": "Package",
               "version": "[1.2.221209.1, )",
               "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
             },
             "TouchEffect.Maui": {
               "target": "Package",

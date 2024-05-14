@@ -1,8 +1,5 @@
 ﻿using MDSoft.Data.Common;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace MDSoft.Data.Interface
 {
@@ -12,7 +9,9 @@ namespace MDSoft.Data.Interface
 		Task<int> Eliminar(int id);
 		Task<int> Actualizar(T entidad);
 		Task<int> Contar(Expression<Func<T, bool>> where);
-		Task<T> ObtenerPorId(int id, string IncluirPropiedades = null);
-		Task<IEnumerable<T>> EncontrarPor(ParametrosDeQuery<T> parametrosDeQuery, string IncluirPropiedades = null);
-	}
+		Task<T> ObtenerPorId(int id, string? IncluirPropiedades = null);
+		Task<IEnumerable<T>> TraerTodos();
+		Task<IEnumerable<T>> EncontrarPor(ParametrosDeQuery<T> parametrosDeQuery, string? IncluirPropiedades = null);
+		Task<IEnumerable<T>> ExecuteProcedureNonQuery(T entidad, string storeProcedureName, string[] parameterNames, string[] values);
+    }
 }

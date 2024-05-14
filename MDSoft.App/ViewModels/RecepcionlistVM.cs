@@ -9,6 +9,14 @@ using Tracking.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Tracking.Modelos;
+using MDSoft.Tracking.Services.DTO;
+using MDSoft.Tracking.Services;
+using System.Text.Json;
+using AutoMapper;
+using MDSoft.Tracking.Services.AutoMapper;
+using Tracking.Handlers;
+using Newtonsoft.Json;
+using Tracking.Services;
 
 namespace Tracking.ViewModels
 {
@@ -46,9 +54,6 @@ namespace Tracking.ViewModels
         private CategoriaDTO categoriaSeleccionada;
 
         [ObservableProperty]
-        ObservableCollection<CategoriaDTO> listaCategoria = new ObservableCollection<CategoriaDTO>();
-
-        [ObservableProperty]
         private string buscarRecepcion = string.Empty;
 
         [ObservableProperty]
@@ -63,34 +68,33 @@ namespace Tracking.ViewModels
         private bool btnLimpiarEsVisible = false;
 
         [ObservableProperty]
-        ObservableCollection<RecepcionDTO> listRecepcion = new ObservableCollection<RecepcionDTO>();
+        ObservableCollection<ComprasProductoDTO> listRecepcion = new ObservableCollection<ComprasProductoDTO>();
 
-        private async Task ObtenerCategorias()
-        {
-            LoadingCategoriaEsVisible = true;
-            await Task.Run(async () =>
-            {
-                var lstCategoria = await _context.Categorias.ToListAsync();
-                var lstTemp = new ObservableCollection<CategoriaDTO>();
-                var categoriaDefault = new CategoriaDTO { IdCategoria = 0, Nombre = "Todos los Lotes" };
-                lstTemp.Add(categoriaDefault);
-                foreach (var item in lstCategoria)
-                {
-                    lstTemp.Add(new CategoriaDTO
-                    {
-                        IdCategoria = item.IdCategoria,
-                        Nombre = item.Nombre
-                    });
-                }
+        //private async Task ObtenerCategorias()
+        //{
+        //    LoadingCategoriaEsVisible = true;
+        //    await Task.Run(async () =>
+        //    {
+        //        var lstCategoria = await _context.Categorias.ToListAsync();
+        //        var lstTemp = new ObservableCollection<CategoriaDTO>();
+        //        var categoriaDefault = new CategoriaDTO { IdCategoria = 0, Nombre = "Todos los Lotes" };
+        //        lstTemp.Add(categoriaDefault);
+        //        foreach (var item in lstCategoria)
+        //        {
+        //            lstTemp.Add(new CategoriaDTO
+        //            {
+        //                IdCategoria = item.IdCategoria,
+        //                Nombre = item.Nombre
+        //            });
+        //        }
 
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    ListaCategoria = lstTemp;
-                    CategoriaSeleccionada = categoriaDefault;
-                    LoadingCategoriaEsVisible = false;
-                });
-            });
-        }
+        //        MainThread.BeginInvokeOnMainThread(() =>
+        //        {
+        //            CategoriaSeleccionada = categoriaDefault;
+        //            LoadingCategoriaEsVisible = false;
+        //        });
+        //    });
+        //}
 
         public async Task GetRecepciones()
         {
@@ -99,32 +103,30 @@ namespace Tracking.ViewModels
 
             await Task.Run(async () =>
             {
-                var lstRecepciones = await _context.Recepciones.Include(c => c.recepcionDetalle).ToListAsync();
-                var lstTemp = new ObservableCollection<RecepcionDTO>();
 
-                if (lstRecepciones.Any())
+                var compras = await APIManager.sp_GetComprasPendientes();
+
+                var lstTemp = new ObservableCollection<ComprasProductoDTO>();
+
+                if (compras.Any())
                 {
-                    foreach (var item in lstRecepciones)
+                    foreach (var item in compras)
                     {
-                        lstTemp.Add(new RecepcionDTO
+                        lstTemp.Add(new ComprasProductoDTO
                         {
-                            Id = item.Id,
-                            TipoLote = item.TipoLote,
-                            IdVendedor = item.IdVendedor,
-                            IdRepresentante = item.IdRepresentante,
-                            CodigoCompra = item.CodigoCompra,
-                            FechaRecepcion = item.FechaRecepcion,
-                            LotFermentacion = item.LotFermentacion,
-                            LotSecadoMaquina = item.LotSecadoMaquina,
-                            NombreRepresentante = "Enriquillo Manon",
-                            NombreVendedor = "Alberto de la Cruz",
-                            PesoCompra = item.PesoCompra,
-                            PesoRecibido = item.PesoRecibido
-                            //Categoria = new CategoriaDTO() { IdCategoria = item.RefCategoria.IdCategoria, Nombre = item.RefCategoria.Nombre },
+                            ComReferencia = item.ComReferencia,
+                            RepCodigo = $"{item.RepCodigo}-{item.ComSecuencia}",
+                            RepSupervisor = item.RepNombre,
+                            ComSecuencia = item.ComSecuencia,
+                            ComFecha = item.ComFecha,
+                            ComCantidadDetalle = item.ComCantidadDetalle,
+                            ComEstatus = item.ComEstatus,
+                            RepNombre = item.RepNombre
                         });
                     }
 
                 }
+
 
                 ListRecepcion = lstTemp;
 
@@ -150,36 +152,35 @@ namespace Tracking.ViewModels
             DataEsVisible = false;
             LoadingEsVisible = true;
 
+            var codigo = BuscarRecepcion.Split("-");
+
             await Task.Run(async () =>
             {
-                ObservableCollection<RecepcionDTO> encontrados = new ObservableCollection<RecepcionDTO>();
-                List<Recepcion> bdListCategorias = new List<Recepcion>();
-                if (CategoriaSeleccionada.IdCategoria == 0)
-                    bdListCategorias = await _context.Recepciones.Where(p => p.CodigoCompra.ToLower().Contains(BuscarRecepcion.ToLower())).ToListAsync();
-                else
-                    bdListCategorias = await _context.Recepciones.Where(p => p.CodigoCompra.ToLower().Contains(BuscarRecepcion.ToLower()) && p.TipoLote == CategoriaSeleccionada.IdCategoria).ToListAsync();
 
-                foreach (var item in bdListCategorias)
+                var compras = await APIManager.GetCompraByTicket(codigo[0], int.Parse(codigo[1]));
+
+
+                if (compras != null)
                 {
-                    encontrados.Add(new RecepcionDTO
+                    var lstTemp = new ObservableCollection<ComprasProductoDTO>();
+                    lstTemp.Add(new ComprasProductoDTO
                     {
-                        TipoLote = item.TipoLote,
-                        Id = item.Id,
-                        IdVendedor = item.IdVendedor,
-                        IdRepresentante = item.IdRepresentante,
-                        CodigoCompra = item.CodigoCompra,
-                        NombreVendedor = "Juan Alberto Gomez",
-                        NombreRepresentante = "Carlos Jose Vidal",
-                        FechaRecepcion = item.FechaRecepcion,
-                        LotFermentacion = item.LotFermentacion,
-                        LotSecadoMaquina = item.LotSecadoMaquina,
-                        PesoCompra = item.PesoCompra,
-                        PesoRecibido = item.PesoRecibido
-                        //Categoria = new CategoriaDTO() { IdCategoria = item.RefCategoria.IdCategoria, Nombre = item.RefCategoria.Nombre },
+                        ComReferencia = compras.ComReferencia,
+                        RepCodigo = $"{compras.RepCodigo}-{compras.ComSecuencia}",
+                        RepSupervisor = compras.RepSupervisor,
+                        ComSecuencia = compras.ComSecuencia,
+                        ComFecha = compras.ComFecha,
+                        ComCantidadDetalle = compras.ComCantidadDetalle,
+                        ComEstatus = compras.ComEstatus,
+                        RepNombre = compras.RepNombre
                     });
-                }
 
-                ListRecepcion = encontrados;
+                    ListRecepcion = lstTemp;
+                }
+                else
+                {
+                    ListRecepcion.Clear();
+                }
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
@@ -209,12 +210,12 @@ namespace Tracking.ViewModels
         }
 
         [RelayCommand]
-        private async Task IrRecepcion()
+        private async Task IrRecepcion(ComprasProductoDTO recepcion)
         {
             DataEsVisible = false;
             LoadingEsVisible = true;
 
-            await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(new DataAccess.VentaDbContext()), 0));
+            await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(recepcion), recepcion.RepCodigo));
 
             await Task.Run(async () =>
             {
@@ -230,18 +231,18 @@ namespace Tracking.ViewModels
         private void RecepcionMensajeRecibido(RecepcionCompraResult result)
         {
 
-            
+
 
         }
 
         [RelayCommand]
-        private async Task Editar(RecepcionDTO recepcion)
+        private async Task Editar(ComprasProductoDTO recepcion)
         {
             await Shell.Current.Navigation.PushModalAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));//, recepcion.Id));
         }
 
         [RelayCommand]
-        private async Task Eliminar(RecepcionDTO recepcion)
+        private async Task Eliminar(ComprasProductoDTO recepcion)
         {
             bool answer = await Shell.Current.DisplayAlert("Mensaje", "Desea eliminar esta recepción?", "Si, continuar", "No, volver");
             if (answer)
@@ -249,10 +250,10 @@ namespace Tracking.ViewModels
                 LoadingEsVisible = true;
                 await Task.Run(async () =>
                 {
-                    var prod = await _context.Recepciones.FirstAsync(p => p.Id == recepcion.Id);
-                    _context.Recepciones.Remove(prod);
+                    //var prod = await _context.Compras.FirstAsync(p => p.Id == recepcion.Id);
+                    //_context.Recepciones.Remove(prod);
 
-                    await _context.SaveChangesAsync();
+                    //await _context.SaveChangesAsync();
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {

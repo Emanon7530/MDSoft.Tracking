@@ -14,6 +14,9 @@ public partial class RecepcionesComprasDetalleDTO
     [Key]
     public int RecPosicion { get; set; }
 
+    public string? RepCodigo { get; set; }
+    public DateTime? RecFechaCreacion { get; set; }
+
     [StringLength(15)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
@@ -25,5 +28,8 @@ public partial class RecepcionesComprasDetalleDTO
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? RecPeso { get; set; }
 
-    public virtual RecepcionesCompraDTO RecSecuenciaDTO { get; set; } = null!;
+    [StringLength(5)]
+    public string RecEstado { get; set; }
+
+    public virtual RecepcionesCompraDTO recepcionesComprasDTO { get; set; } = null!;
 }

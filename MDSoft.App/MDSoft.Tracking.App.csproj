@@ -54,6 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\values\styles.xml" />
 	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
 	  <None Remove="Resources\Images\envelop.svg" />
 	  <None Remove="Resources\Images\icons\add_solid.svg" />
@@ -124,14 +125,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="5.3.0" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.9" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="TouchEffect.Maui" Version="7.0.0" />
 	</ItemGroup>
 
@@ -140,6 +140,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\MDSoft.Data.Model\MDSoft.Tracking.Model.csproj" />
+	  <ProjectReference Include="..\MDSoft.Data\MDSoft.Tracking.Data.csproj" />
 	  <ProjectReference Include="..\MDSoft.Services\MDSoft.Tracking.Services.csproj" />
 	</ItemGroup>
 
@@ -148,12 +150,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\EscanearComprasPage.xaml.cs">
-	    <DependentUpon>EscanearComprasPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\EscanearComrpaDetallePage.xaml.cs">
-	    <DependentUpon>EscanearComrpaDetallePage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\ForgotPasswordPage.xaml.cs">
 	    <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
 	  </Compile>
@@ -169,34 +165,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\BarcodePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\BuscarProductoPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\CategoriasPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\EscanearComprasPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\EscanearComrpaDetallePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\EscanearProductoPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\HistoriaVentaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\CompraProductoDetallePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RecepcionListPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\InventarioPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ForgotPasswordPage.xaml">
@@ -209,9 +184,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RecepcionPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\VentaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TestPage.xaml">

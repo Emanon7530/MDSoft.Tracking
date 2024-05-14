@@ -1,9 +1,11 @@
 ﻿using Tracking.Pages;
 using Microsoft.Extensions.Logging;
-using Camera.MAUI;
 using Tracking.DataAccess;
 using Tracking.ViewModels;
 using CommunityToolkit.Maui;
+using MDSoft.Tracking.Services.AutoMapper;
+using MDSoft.Tracking;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tracking
 {
@@ -14,7 +16,7 @@ namespace Tracking
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCameraView()
+                //.UseMauiCameraView()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
@@ -23,34 +25,31 @@ namespace Tracking
                     fonts.AddFont("fa-solid-900.ttf", "FaSolid");
                 });
 
+            builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
+
+            builder.Services.AddDbContext<VentaDbContext>();
             builder.Services.AddDbContext<VentaDbContext>();
 
+            builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Trust Server Certificate=True;Initial Catalog=MovilBusiness5STD;uid=sa;pwd=manonram"));
             builder.Services.AddTransient<CategoriasPage>();
             builder.Services.AddTransient<CategoriasVM>();
-
-            builder.Services.AddTransient<InventarioPage>();
-            builder.Services.AddTransient<InventarioVM>();
 
             builder.Services.AddTransient<ProductoPage>();
             builder.Services.AddTransient<ProductoVM>();
 
-            builder.Services.AddTransient<VentaPage>();
-            builder.Services.AddTransient<VentaVM>();
-
-            builder.Services.AddTransient<BuscarProductoPage>();
-            builder.Services.AddTransient<BuscarProductoVM>();
-
-            builder.Services.AddTransient<HistoriaVentaPage>();
-            builder.Services.AddTransient<HistorialVentaVM>();
-
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainVM>();
+
+            builder.Services.AddTransient<RecepcionPage>();
+            builder.Services.AddTransient<RecepcionVM>();
 
             builder.Services.AddTransient<RecepcionListPage>();
             builder.Services.AddTransient<RecepcionlistMV>();
 
             builder.Services.AddTransient<CompraProductoDetallePage>();
             builder.Services.AddTransient<CompraProductoDetalleMV>();
+
+            builder.Services.AddSingleton<MainPage>();
 
             var dbContext = new VentaDbContext();
             var result = dbContext.Database.EnsureCreated();
@@ -61,8 +60,9 @@ namespace Tracking
 #endif
 
             Routing.RegisterRoute(nameof(ProductoPage), typeof(ProductoPage));
-            Routing.RegisterRoute(nameof(BarcodePage), typeof(BarcodePage));
-            Routing.RegisterRoute(nameof(BuscarProductoPage), typeof(BuscarProductoPage));
+            Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
+            Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
+            //Routing.RegisterRoute(nameof(BuscarProductoPage), typeof(BuscarProductoPage));
             Routing.RegisterRoute(nameof(CompraProductoDetallePage), typeof(CompraProductoDetallePage));
 
             return builder.Build();

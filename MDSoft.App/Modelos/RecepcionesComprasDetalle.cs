@@ -20,7 +20,7 @@ public partial class RecepcionesComprasDetalle
 
     [StringLength(15)]
     [Unicode(false)]
-    public string? ComReferencia { get; set; }
+    public string ComReferencia { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ComPeso { get; set; }

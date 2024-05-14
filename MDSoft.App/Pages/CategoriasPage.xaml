@@ -86,15 +86,8 @@
                                 </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-
                     </CollectionView>
-
-
-
-
                 </ScrollView>
-                
-
             </Grid>
         </Border>
     </Grid>

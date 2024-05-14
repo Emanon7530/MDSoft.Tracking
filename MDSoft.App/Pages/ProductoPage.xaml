@@ -28,22 +28,26 @@
 
                 <StackLayout Grid.Row="0" Orientation="Vertical" Spacing="10">
                     <Label Text="Producto :" VerticalOptions="Center"/>
-                    <Entry Text="{Binding Nombre}" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding NombreProducto}" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="10">
                     <Label Text="Destino:" VerticalOptions="Center"/>
-                    <Picker Title="Destino" ItemsSource="{Binding ListaCategoria}" SelectedItem="{Binding CategoriaSeleccionada}" HorizontalOptions="FillAndExpand">
-                        <Picker.ItemDisplayBinding>
-                            <Binding Path="Nombre" />
-                        </Picker.ItemDisplayBinding>
+                    <Picker x:Name="processPicker" 
+                    SelectedItem="{Binding Destino}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Fermentación</x:String>
+                                <x:String>Secado a Máquina</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
                     </Picker>
                 </StackLayout>
 
                 <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
                     <Label Text="Numero Lote :" VerticalOptions="Center"/>
                     <StackLayout Orientation="Horizontal" HeightRequest="40" Spacing="5">
-                        <Entry Text="{Binding NumeroLote}" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding ComReferencia}" HorizontalOptions="FillAndExpand"/>
                         <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
                      BackgroundColor="{StaticResource Gray200}"
                      TextColor="Black"
@@ -55,11 +59,11 @@
                 <StackLayout Grid.Row="3" Orientation="Vertical">
                     <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
                         <Label Text="Peso Compra:" VerticalOptions="Center"/>
-                        <Entry Placeholder="Cantidad" HorizontalOptions="FillAndExpand" Keyboard="Numeric" Text="{Binding Cantidad}"/>
+                        <Entry Placeholder="Cantidad" HorizontalOptions="FillAndExpand" Keyboard="Numeric" Text="{Binding ComPeso}"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
                         <Label Text="Preso Recepcion:" VerticalOptions="Center"/>
-                        <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand"  Keyboard="Numeric" Text="{Binding Precio}"  />
+                        <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand"  Keyboard="Numeric" Text="{Binding RecPeso}"  />
                     </StackLayout>
                 </StackLayout>
 

@@ -1,10 +1,10 @@
 ﻿using Tracking.DataAccess;
 using Tracking.DTOs;
-using Tracking.Modelos;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using Tracking.Modelos;
 
 
 namespace Tracking.ViewModels
@@ -127,8 +127,8 @@ namespace Tracking.ViewModels
         [RelayCommand]
         private async Task Agregar()
         {
-
             string resultado = await Shell.Current.DisplayPromptAsync("Nueva Categoria", "Ingrese el nombre", accept: "Guardar", cancel: "Volver");
+
             if (!string.IsNullOrEmpty(resultado))
             {
                 LoadingEsVisible = true;

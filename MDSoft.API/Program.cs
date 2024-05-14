@@ -1,3 +1,4 @@
+using AutoMapper;
 using MDSoft.Tracking.API.Utilities;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.Model;
@@ -7,12 +8,23 @@ using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// para https dotnet dev -certs https --trust
+//builder.WebHost.ConfigureKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(7027, listenOptions =>
+//    {
+//        listenOptions.UseHttps();
+//    });
+//});
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
@@ -38,10 +50,12 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();
-builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("name=DefaultConnection"));
+builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MDSoftTracking;User ID=SA;Password=manonram;Trust Server Certificate=True"));
 
 var app = builder.Build();
 

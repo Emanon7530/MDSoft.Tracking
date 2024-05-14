@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Formats.Tar;
 using System.IO;
 using System.Reflection;
+using MDSoft.Tracking.Services.DTO;
 
 namespace Tracking.ViewModels
 {
@@ -20,10 +21,10 @@ namespace Tracking.ViewModels
         private readonly VentaDbContext _context;
         public CompraProductoDetalleMV(VentaDbContext context)
         {
-            WeakReferenceMessenger.Default.Register<BarcodeScannedMessage>(this, (r, m) =>
-            {
-                BarcodeMensajeRecibido(m.Value);
-            });
+            //WeakReferenceMessenger.Default.Register<BarcodeScannedMessage>(this, (r, m) =>
+            //{
+            //    BarcodeMensajeRecibido(m.Value);
+            //});
             _context = context;
         }
 
@@ -93,13 +94,13 @@ namespace Tracking.ViewModels
 
             }
         }
-        private void BarcodeMensajeRecibido(BarcodeResult result)
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                CodigoBarras = result.BarcodeValue;
-            });
-        }
+        //private void BarcodeMensajeRecibido(BarcodeResult result)
+        //{
+        //    MainThread.BeginInvokeOnMainThread(() =>
+        //    {
+        //        CodigoBarras = result.BarcodeValue;
+        //    });
+        //}
 
         private async Task ObtenerCategorias(int idCategoria = 0)
         {
@@ -129,7 +130,7 @@ namespace Tracking.ViewModels
         [RelayCommand]
         private async Task MostrarScanner()
         {
-            await Shell.Current.Navigation.PushModalAsync(new BarcodePage());
+            //await Shell.Current.Navigation.PushModalAsync(new BarcodePage());
         }
 
         [RelayCommand]

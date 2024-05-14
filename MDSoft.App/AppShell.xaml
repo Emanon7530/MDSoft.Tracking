@@ -17,7 +17,7 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <ShellContent
+    <!--<ShellContent
      Icon="time.svg"
     Title="Lote Fermentacion"
     ContentTemplate="{DataTemplate pages:CategoriasPage}"
@@ -39,25 +39,25 @@
      Icon="trash.svg"
     Title="Lotes Limpieza"
     ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />
+    Route="CategoriasPage" />-->
 
-    <ShellContent
+    <!--<ShellContent
         Icon="ticket.svg"
         Title="Recepcion Compras"
        ContentTemplate="{DataTemplate pages:RecepcionListPage}"
-       Route="RecepcionListPage" />
+       Route="RecepcionListPage" />-->
 
-    <!--<ShellContent
-    Icon="shopping_cart.svg"
-   Title="Venta"
-   ContentTemplate="{DataTemplate pages:VentaPage}"
-   Route="VentaPage" />-->
+    <ShellContent
+     Icon="trash.svg"
+    Title="Lotes Limpieza"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
 
     <ShellContent
      Icon="tuning.svg"
     Title="Settings"
-    ContentTemplate="{DataTemplate pages:HistoriaVentaPage}"
-    Route="HistoriaVentaPage" />
+    ContentTemplate="{DataTemplate pages:CompraProductoDetallePage}"
+    Route="CompraProductoDetalleMV" />
 
     <!--<ShellContent
      Icon="time.svg"

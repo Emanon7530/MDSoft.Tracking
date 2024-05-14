@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MDSoft.Tracking.Services.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace MDSoft.Tracking.Services.DTO;
 
-public partial class LotesSecadoMaquinaDTO
-{
+public partial class LotesSecadoMaquinaDTO {
     [Key]
     [StringLength(15)]
     [Unicode(false)]

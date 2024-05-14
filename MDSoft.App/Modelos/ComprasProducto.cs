@@ -29,11 +29,11 @@ public partial class ComprasProducto
     [Column("ComNCF")]
     [StringLength(50)]
     [Unicode(false)]
-    public string? ComNcf { get; set; }
+    public string ComNcf { get; set; }
 
     [StringLength(20)]
     [Unicode(false)]
-    public string? ComReferencia { get; set; }
+    public string ComReferencia { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ComSubTotal { get; set; }
@@ -61,17 +61,17 @@ public partial class ComprasProducto
     [Column("CLDCedula")]
     [StringLength(15)]
     [Unicode(false)]
-    public string? Cldcedula { get; set; }
+    public string Cldcedula { get; set; }
 
     public int? DepSecuencia { get; set; }
 
     [StringLength(15)]
     [Unicode(false)]
-    public string? RepSupervisor { get; set; }
+    public string RepSupervisor { get; set; }
 
     [StringLength(64)]
     [Unicode(false)]
-    public string? UsuInicioSesion { get; set; }
+    public string UsuInicioSesion { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? ComFechaActualizacion { get; set; }
@@ -82,11 +82,11 @@ public partial class ComprasProducto
     [Column("mbVersion")]
     [StringLength(50)]
     [Unicode(false)]
-    public string? MbVersion { get; set; }
+    public string MbVersion { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ComTipoPago { get; set; }
+    public string ComTipoPago { get; set; }
 
     [InverseProperty("ComprasProducto")]
     public virtual ICollection<ComprasProductosDetalle> ComprasProductosDetalles { get; set; } = new List<ComprasProductosDetalle>();

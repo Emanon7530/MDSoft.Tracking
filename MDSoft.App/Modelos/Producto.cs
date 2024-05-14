@@ -31,7 +31,7 @@ public partial class Producto
     /// </summary>
     [StringLength(200)]
     [Unicode(false)]
-    public string? ProDescripcion { get; set; }
+    public string ProDescripcion { get; set; }
 
     /// <summary>
     /// Precio
@@ -62,14 +62,14 @@ public partial class Producto
     /// </summary>
     [StringLength(100)]
     [Unicode(false)]
-    public string? ProCodigo { get; set; }
+    public string ProCodigo { get; set; }
 
     /// <summary>
     /// Codigo de Barra
     /// </summary>
     [StringLength(120)]
     [Unicode(false)]
-    public string? ProReferencia { get; set; }
+    public string ProReferencia { get; set; }
 
     /// <summary>
     /// Unidades por Producto
@@ -106,42 +106,42 @@ public partial class Producto
     /// </summary>
     [StringLength(200)]
     [Unicode(false)]
-    public string? ProDescripcion1 { get; set; }
+    public string ProDescripcion1 { get; set; }
 
     /// <summary>
     /// Descripción 2
     /// </summary>
     [StringLength(200)]
     [Unicode(false)]
-    public string? ProDescripcion2 { get; set; }
+    public string ProDescripcion2 { get; set; }
 
     /// <summary>
     /// Descripción
     /// </summary>
     [StringLength(200)]
     [Unicode(false)]
-    public string? ProDescripcion3 { get; set; }
+    public string ProDescripcion3 { get; set; }
 
     /// <summary>
     /// Datos 1
     /// </summary>
     [StringLength(100)]
     [Unicode(false)]
-    public string? ProDatos1 { get; set; }
+    public string ProDatos1 { get; set; }
 
     /// <summary>
     /// Datos 2
     /// </summary>
     [StringLength(100)]
     [Unicode(false)]
-    public string? ProDatos2 { get; set; }
+    public string ProDatos2 { get; set; }
 
     /// <summary>
     /// Datos 3
     /// </summary>
     [StringLength(100)]
     [Unicode(false)]
-    public string? ProDatos3 { get; set; }
+    public string ProDatos3 { get; set; }
 
     /// <summary>
     /// Impuesto
@@ -171,7 +171,7 @@ public partial class Producto
     /// </summary>
     [StringLength(10)]
     [Unicode(false)]
-    public string? ProCodigoDescuento { get; set; }
+    public string ProCodigoDescuento { get; set; }
 
     /// <summary>
     /// Cargo por Distribucion
@@ -184,14 +184,14 @@ public partial class Producto
     /// </summary>
     [StringLength(10)]
     [Unicode(false)]
-    public string? SecCodigo { get; set; }
+    public string SecCodigo { get; set; }
 
     /// <summary>
     /// Usuario que creo o modifico el registro
     /// </summary>
     [StringLength(64)]
     [Unicode(false)]
-    public string? UsuInicioSesion { get; set; }
+    public string UsuInicioSesion { get; set; }
 
     /// <summary>
     /// Fecha Creacion/Actualizacion 
@@ -204,14 +204,14 @@ public partial class Producto
     /// </summary>
     [StringLength(15)]
     [Unicode(false)]
-    public string? UnmCodigo { get; set; }
+    public string UnmCodigo { get; set; }
 
     /// <summary>
     /// Imagen producto
     /// </summary>
     [StringLength(500)]
     [Unicode(false)]
-    public string? ProImg { get; set; }
+    public string ProImg { get; set; }
 
     /// <summary>
     /// Identificador Unico
@@ -233,22 +233,22 @@ public partial class Producto
 
     [StringLength(2000)]
     [Unicode(false)]
-    public string? ProGrupoProductos { get; set; }
+    public string ProGrupoProductos { get; set; }
 
     [StringLength(1000)]
     [Unicode(false)]
-    public string? ProLotes { get; set; }
+    public string ProLotes { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ProHolgura { get; set; }
 
     [StringLength(5000)]
     [Unicode(false)]
-    public string? ProInventarios { get; set; }
+    public string ProInventarios { get; set; }
 
     [StringLength(5000)]
     [Unicode(false)]
-    public string? ProListaPrecios { get; set; }
+    public string ProListaPrecios { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ProDescuentoMaximo { get; set; }
@@ -264,23 +264,23 @@ public partial class Producto
 
     [StringLength(60)]
     [Unicode(false)]
-    public string? ProColor { get; set; }
+    public string ProColor { get; set; }
 
     [StringLength(60)]
     [Unicode(false)]
-    public string? ProPaisOrigen { get; set; }
+    public string ProPaisOrigen { get; set; }
 
     [StringLength(60)]
     [Unicode(false)]
-    public string? ProAnio { get; set; }
+    public string ProAnio { get; set; }
 
     [StringLength(60)]
     [Unicode(false)]
-    public string? ProMedida { get; set; }
+    public string ProMedida { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ProEstado { get; set; }
+    public string ProEstado { get; set; }
 
     public Guid? ProAtributo1 { get; set; }
 

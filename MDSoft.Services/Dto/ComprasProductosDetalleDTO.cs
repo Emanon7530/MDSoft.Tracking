@@ -18,9 +18,13 @@ public partial class ComprasProductosDetalleDTO
 
     [Key]
     public int ComPosicion { get; set; }
+    [Column(TypeName = "datetime")]
+    public DateTime? ComFecha { get; set; }
 
+    public short? ComEstatus { get; set; }
     [Column("ProID")]
     public int? ProId { get; set; }
+    public string? ProDescripcion { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ComCantidad { get; set; }
@@ -67,7 +71,5 @@ public partial class ComprasProductosDetalleDTO
     [Column("rowguid")]
     public Guid Rowguid { get; set; }
 
-    [ForeignKey("ComSecuencia, RepCodigo")]
-    [InverseProperty("ComprasProductosDetalles")]
     public virtual ComprasProductoDTO ComprasProducto { get; set; } = null!;
 }

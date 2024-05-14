@@ -12,8 +12,9 @@ namespace Tracking.DTOs
         [ObservableProperty]
         public string codigoCompra;
         [ObservableProperty]
+        public RecepcionDTO recepcion;
+        [ObservableProperty]
         public DateTime fechaRecepcion;
-
         [ObservableProperty]
         public string destino;
         [ObservableProperty]

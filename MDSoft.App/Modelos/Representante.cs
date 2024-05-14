@@ -29,42 +29,42 @@ public partial class Representante
     /// </summary>
     [StringLength(25)]
     [Unicode(false)]
-    public string? RepNombre { get; set; }
+    public string RepNombre { get; set; }
 
     /// <summary>
     /// Cargo
     /// </summary>
     [StringLength(25)]
     [Unicode(false)]
-    public string? RepCargo { get; set; }
+    public string RepCargo { get; set; }
 
     /// <summary>
     /// Clasificación
     /// </summary>
     [StringLength(25)]
     [Unicode(false)]
-    public string? RepClasificacion { get; set; }
+    public string RepClasificacion { get; set; }
 
     /// <summary>
     /// Teléfono 1
     /// </summary>
     [StringLength(20)]
     [Unicode(false)]
-    public string? RepTelefono1 { get; set; }
+    public string RepTelefono1 { get; set; }
 
     /// <summary>
     /// Teléfono 2
     /// </summary>
     [StringLength(20)]
     [Unicode(false)]
-    public string? RepTelefono2 { get; set; }
+    public string RepTelefono2 { get; set; }
 
     /// <summary>
     /// Clave
     /// </summary>
     [StringLength(36)]
     [Unicode(false)]
-    public string? RepClave { get; set; }
+    public string RepClave { get; set; }
 
     /// <summary>
     /// Indicador venta
@@ -147,7 +147,7 @@ public partial class Representante
     /// </summary>
     [StringLength(15)]
     [Unicode(false)]
-    public string? RepSupervisor { get; set; }
+    public string RepSupervisor { get; set; }
 
     /// <summary>
     /// División
@@ -171,7 +171,7 @@ public partial class Representante
     /// </summary>
     [StringLength(10)]
     [Unicode(false)]
-    public string? RepClaveSync { get; set; }
+    public string RepClaveSync { get; set; }
 
     /// <summary>
     /// Fecha indicador ruta visita
@@ -189,7 +189,7 @@ public partial class Representante
     [Column("RutID")]
     [StringLength(20)]
     [Unicode(false)]
-    public string? RutId { get; set; }
+    public string RutId { get; set; }
 
     /// <summary>
     /// ID equipo
@@ -197,7 +197,7 @@ public partial class Representante
     [Column("EquID")]
     [StringLength(15)]
     [Unicode(false)]
-    public string? EquId { get; set; }
+    public string EquId { get; set; }
 
     /// <summary>
     /// Fecha Creacion/Actualizacion 
@@ -210,7 +210,7 @@ public partial class Representante
     /// </summary>
     [StringLength(64)]
     [Unicode(false)]
-    public string? UsuInicioSesion { get; set; }
+    public string UsuInicioSesion { get; set; }
 
     /// <summary>
     /// Identificador Unico
@@ -231,9 +231,9 @@ public partial class Representante
 
     [StringLength(10)]
     [Unicode(false)]
-    public string? CedCodigo { get; set; }
+    public string CedCodigo { get; set; }
 
     [StringLength(20)]
     [Unicode(false)]
-    public string? RepColor { get; set; }
+    public string RepColor { get; set; }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace MDSoft.Tracking;
@@ -22,6 +23,7 @@ public partial class LotesSecadoNaturalDetalle
     [Unicode(false)]
     public string? ComReferencia { get; set; }
 
+    [JsonIgnore]
     [ForeignKey("LotSecadoManual")]
     [InverseProperty("LotesSecadoNaturalDetalles")]
     public virtual LotesSecadoNatural LotSecadoManualNavigation { get; set; } = null!;

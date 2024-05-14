@@ -53,20 +53,20 @@ public partial class ComprasProductosDetalle
     [Column("comReferencia")]
     [StringLength(20)]
     [Unicode(false)]
-    public string? ComReferencia { get; set; }
+    public string ComReferencia { get; set; }
 
     public int? ComEstatusDetalle { get; set; }
 
     [StringLength(15)]
     [Unicode(false)]
-    public string? RepSupervisor { get; set; }
+    public string RepSupervisor { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? ComFechaActualizacion { get; set; }
 
     [StringLength(64)]
     [Unicode(false)]
-    public string? UsuInicioSesion { get; set; }
+    public string UsuInicioSesion { get; set; }
 
     [Column("rowguid")]
     public Guid Rowguid { get; set; }

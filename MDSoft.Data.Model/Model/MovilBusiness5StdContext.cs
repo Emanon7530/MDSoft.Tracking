@@ -52,7 +52,7 @@ public partial class MovilBusiness5StdContext : DbContext
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("name=DefaultConnection");
+    => optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;Persist Security Info=True;User ID=sa;Password=manonram;Encrypt=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

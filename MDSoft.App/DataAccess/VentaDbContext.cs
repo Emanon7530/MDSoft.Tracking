@@ -1,7 +1,7 @@
-﻿using Tracking.Modelos;
-using Tracking.Utilidades;
+﻿using Tracking.Utilidades;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Tracking.Modelos;
 
 namespace Tracking.DataAccess
 {

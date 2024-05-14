@@ -9,17 +9,17 @@ using MDSoft.Data.Interface;
 using MDSoft.Data.Repository;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.Model;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 namespace MDSoft.Tracking.Services
 {
-    public class LoteFermentacionServices 
-    {
+    public class LoteFermentacionServices     {
         IRepositorio<LotesFermentacion> _Repolote;
 
         IMapper _mapper;
 
-        public LoteFermentacionServices(IMapper mapper )
+        public LoteFermentacionServices(IMapper mapper)
         {
             _Repolote = new Repositorio<LotesFermentacion>();
             _mapper = mapper;
@@ -30,7 +30,7 @@ namespace MDSoft.Tracking.Services
 
             List<LotesFermentacionDTO> dtoresult = new List<LotesFermentacionDTO>();
 
-            var result = await _Repolote.EncontrarPor(null, null);
+            var result = await _Repolote.TraerTodos();
 
             _mapper.Map(result, dtoresult);
 
@@ -42,13 +42,25 @@ namespace MDSoft.Tracking.Services
 
             LotesFermentacionDTO dtoresult = new LotesFermentacionDTO();
 
-            var result = await _Repolote.ObtenerPorId (LoteNumber);
+            var result = await _Repolote.ObtenerPorId(LoteNumber);
 
             _mapper.Map(result, dtoresult);
 
             return dtoresult;
         }
 
+        public async Task<LotesFermentacionDTO> Guardar(LotesFermentacionDTO loteFermentacion)
+        {
 
+            LotesFermentacion result = new LotesFermentacion();
+
+            result = _mapper.Map<LotesFermentacion>(loteFermentacion);
+
+            await _Repolote.Agregar(result);
+
+            loteFermentacion = _mapper.Map<LotesFermentacionDTO>(result);
+
+            return loteFermentacion;
+        }
     }
 }

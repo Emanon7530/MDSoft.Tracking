@@ -20,13 +20,10 @@ namespace MDSoft.Tracking.Services.AutoMapper
             CreateMap<ComprasProducto, ComprasProductoDTO>().ReverseMap();
             CreateMap<ComprasProductosDetalle, ComprasProductosDetalleDTO>().ReverseMap();
             CreateMap<Proveedore, ProveedoreDTO>().ReverseMap();
-            CreateMap<Compra, CompraDTO>().ReverseMap();
             CreateMap<Representante, RepresentanteDTO>().ReverseMap();
             CreateMap<RecepcionesCompra, RecepcionesCompraDTO>().ReverseMap();
             CreateMap<RecepcionesComprasDetalle, RecepcionesComprasDetalleDTO>().ReverseMap();
             CreateMap<Producto, ProductoDTO>().ReverseMap();
-            CreateMap<Padres, PadresDTO>().ReverseMap();
-            CreateMap<Hijos, HijosDTO>().ReverseMap();
             CreateMap<ComprasDetalle, ComprasDetalleDTO>().ReverseMap();
             CreateMap<UsuarioSistema, UsuarioSistemaDTO>().ReverseMap();
             CreateMap<LotesFermentacion, LotesFermentacionDTO>().ReverseMap();

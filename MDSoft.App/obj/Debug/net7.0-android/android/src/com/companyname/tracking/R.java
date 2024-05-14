@@ -12017,6 +12017,7 @@ public final class R {
     public static final int CardView_Light=0x7f100113;
     /**
      * Themes for Xamarin.Forms backwards compatibility
+     * Themes for Xamarin.Forms backwards compatibility
      */
     public static final int MainTheme=0x7f100114;
     public static final int MainTheme_Base=0x7f100115;

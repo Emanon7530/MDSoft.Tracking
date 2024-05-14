@@ -12,7 +12,7 @@ using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 namespace MDSoft.Tracking.Services
 {
-    public class LoteLimpiezaServices 
+    public class LoteLimpiezaServices     
     {
         IRepositorio<LotesLimpieza> _Repolote;
         IMapper _mapper;
@@ -22,6 +22,42 @@ namespace MDSoft.Tracking.Services
             _Repolote = new Repositorio<LotesLimpieza>();
             _mapper=mapper;
         }
+        public async Task<IEnumerable<LotesLimpiezaDTO>> GetAll()
+        {
 
+            List<LotesLimpiezaDTO> dtoresult = new List<LotesLimpiezaDTO>();
+
+            var result = await _Repolote.TraerTodos();
+
+            _mapper.Map(result, dtoresult);
+
+            return dtoresult;
+        }
+
+        public async Task<LotesLimpiezaDTO> GetById(int LoteNumber)
+        {
+
+            LotesLimpiezaDTO dtoresult = new LotesLimpiezaDTO();
+
+            var result = await _Repolote.ObtenerPorId(LoteNumber);
+
+            _mapper.Map(result, dtoresult);
+
+            return dtoresult;
+        }
+
+        public async Task<LotesLimpiezaDTO> Guardar(LotesLimpiezaDTO loteFermentacion)
+        {
+
+            LotesLimpieza result = new LotesLimpieza();
+
+            result = _mapper.Map<LotesLimpieza>(loteFermentacion);
+
+            await _Repolote.Agregar(result);
+
+            loteFermentacion = _mapper.Map<LotesLimpiezaDTO>(result);
+
+            return loteFermentacion;
+        }
     }
 }

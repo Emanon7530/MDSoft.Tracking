@@ -11,6 +11,11 @@ using System.Collections.ObjectModel;
 using System.Formats.Tar;
 using System.IO;
 using System.Reflection;
+using MDSoft.Tracking.Services.DTO;
+using Tracking.Services;
+using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Windows.Input;
 
 namespace Tracking.ViewModels
 {
@@ -18,143 +23,116 @@ namespace Tracking.ViewModels
     public partial class ProductoVM : ObservableObject
     {
         private readonly VentaDbContext _context;
-        public ProductoVM(VentaDbContext context)
+        private ComprasProductosDetalleDTO _compradetalleDTO;
+        public ProductoVM(ComprasProductosDetalleDTO compradetalleDTO)
         {
-            WeakReferenceMessenger.Default.Register<BarcodeScannedMessage>(this, (r, m) =>
-            {
-                BarcodeMensajeRecibido(m.Value);
-            });
-            _context = context;
+            _compradetalleDTO = compradetalleDTO;
+
+
+            //MainThread.BeginInvokeOnMainThread(async () =>
+            //    {
+            //        await Task.Run(async () => Inicio(0));
+            //        //await Task.Run(async () => await ShowInfoProduct());
+            //    });
+
         }
 
+        #region Propiedades
         private int IdProducto;
+
         [ObservableProperty]
         private bool loadingEsVisible = false;
 
         [ObservableProperty]
-        private string codigoBarras = string.Empty;
+        private string repCodigo = string.Empty;
 
         [ObservableProperty]
-        private string nombre = string.Empty;
+        private string comReferencia = string.Empty;
 
         [ObservableProperty]
-        private CategoriaDTO categoriaSeleccionada;
+        private int comSecuencia;
 
         [ObservableProperty]
-        private string numeroLote = string.Empty;
+        private int recDestino;
 
         [ObservableProperty]
-        private int cantidad;
+        private string destino;
 
         [ObservableProperty]
-        private decimal precio;
+        private string nombreProducto;
 
         [ObservableProperty]
-        ObservableCollection<CategoriaDTO> listaCategoria;
+        private decimal? comPeso;
 
         [ObservableProperty]
-        private string tituloPagina;
+        private int recPeso;
+        #endregion
 
         public async void Inicio(int idProducto)
         {
-            IdProducto = idProducto;
+            //if (_compradetalleDTO.ProId == null)
+            //{
+            //    var proddetalle = await APIManager.GetProductInCompraByCode("jlanda", 2, 40007408);
+            //    _compradetalleDTO = proddetalle;
+            //}
 
-            if (IdProducto == 0)
-            {
-                TituloPagina = "Agregar producto";
-                await ObtenerCategorias();
-            }
-            else
-            {
-                TituloPagina = "Editar producto";
-                LoadingEsVisible = true;
+            RepCodigo = _compradetalleDTO.RepCodigo;
+            ComSecuencia = _compradetalleDTO.ComSecuencia;
+            ComPeso = _compradetalleDTO.ComCantidad;
+            IdProducto = _compradetalleDTO.ProId.Value;
+            NombreProducto = _compradetalleDTO.ProDescripcion;
+            ComReferencia = _compradetalleDTO.ComReferencia;
 
-                await Task.Run(async () =>
-                {
-                    var encontrado = await _context.Productos.FirstAsync(p => p.ProId == IdProducto);
-                    CodigoBarras = "010101"; // encontrado.ProCodigo;
-                    Nombre = "Producto Principal" ;//encontrado.ProDescripcion;
-                    Cantidad = (int)encontrado.ProCantidad.Value;
-                    Precio = encontrado.ProPrecio.Value;
-
-                    MainThread.BeginInvokeOnMainThread(async () =>
-                    {
-                        LoadingEsVisible = false;
-                        //await ObtenerCategorias(encontrado.IdCategoria);
-                    });
-
-                });
-
-            }
-        }
-        private void BarcodeMensajeRecibido(BarcodeResult result)
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                CodigoBarras = result.BarcodeValue;
-            });
         }
 
-        private async Task ObtenerCategorias(int idCategoria = 0)
-        {
-            LoadingEsVisible = true;
-            await Task.Run(async () =>
-            {
-                var lstCategoria = await _context.Categorias.ToListAsync();
-                var lstTemp = new ObservableCollection<CategoriaDTO>();
-                foreach (var item in lstCategoria)
-                {
-                    lstTemp.Add(new CategoriaDTO
-                    {
-                        IdCategoria = item.IdCategoria,
-                        Nombre = item.Nombre
-                    });
-                }
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                    ListaCategoria = lstTemp;
-                    if (idCategoria != 0)
-                        CategoriaSeleccionada = ListaCategoria.First(c => c.IdCategoria == idCategoria);
-                });
-            });
-        }
-
-        [RelayCommand]
-        private async Task MostrarScanner()
-        {
-            await Shell.Current.Navigation.PushModalAsync(new BarcodePage());
-        }
-
+        #region Commands
         [RelayCommand]
         private async Task AddLote()
         {
             string resultado = await Shell.Current.DisplayPromptAsync("Nuevo Lote", "Escane el Lote", accept: "Aceptar", cancel: "Cancelar");
+
             if (!string.IsNullOrEmpty(resultado))
             {
-                //LoadingEsVisible = true;
-                //await Task.Run(async () =>
-                //{
-                //    Categoria modelo = new Categoria
-                //    {
-                //        Nombre = resultado
-                //    };
-                //    _context.Categorias.Add(modelo);
-                //    await _context.SaveChangesAsync();
+                LoadingEsVisible = true;
+                await Task.Run(async () =>
+                {
+                    if (Destino == "Fermentacion") // Fermentacion
+                    {
+                        var lote = new LotesFermentacionDTO()
+                        {
+                            LotFermentacion = resultado,
+                            LotFechaCreacion = DateTime.Now,
+                            LotFechaCierre = null,
+                            LotesFermentacionDetallesDTO = null
 
-                //    MainThread.BeginInvokeOnMainThread(() =>
-                //    {
-                //        //ListaCategorias.Add(new CategoriaDTO { IdCategoria = modelo.IdCategoria, Nombre = modelo.Nombre });
-                //        LoadingEsVisible = false;
-                //    });
-                //});
+                        };
+                        var compras = await APIManager.GuardarLoteFermentacion(lote);
+                    }
+                    else // Secado a Maquina
+                    {
+                        var lote = new LotesSecadoNaturalDTO()
+                        {
+                            LotSecadoManual = resultado,
+                            LotFechaCreacion = DateTime.Now,
+                            LotFechaCierre = null,
+                            LotesSecadoNaturalDetallesDTO = null
+                        };
+                        var compras = await APIManager.GuardarLoteSecadoNatural(lote);
+                    }
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        ComReferencia = resultado;
+                        LoadingEsVisible = false;
+                    });
+                });
             }
         }
 
         [RelayCommand]
         private async Task VolverInventario()
         {
-            await Shell.Current.Navigation.PopModalAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
 
         [RelayCommand]
@@ -164,68 +142,42 @@ namespace Tracking.ViewModels
             await Task.Run(async () =>
             {
                 LoadingEsVisible = true;
-                ProductoResult productoResult = new ProductoResult();
 
-                var enviarProducto = new ProductoDTO
+                RecepcionesComprasDetalleDTO recepcionDetalle = new()
                 {
-                    ProId = IdProducto,
-                    ProCodigo = CodigoBarras,
-                    ProDescripcion = Nombre,
-                    //Categoria = CategoriaSeleccionada,
-                    ProCantidad = Cantidad,
-                    ProPrecio = Precio
+                    ComPeso = ComPeso,
+                    RecFechaCreacion = DateTime.Now,
+                    RecPeso = RecPeso,
+                    RecPosicion = 1,
+                    RepCodigo = RepCodigo,
+                    ComReferencia = ComReferencia,
+                    NombreComReferencia = NombreProducto,
+                    RecEstado = "Rec",
+                    RecSecuencia = 1
                 };
 
-                if (IdProducto == 0)
+                recepcionDetalle.recepcionesComprasDTO = new RecepcionesCompraDTO()
                 {
-                    var dbProducto = new Producto
-                    {
-                        ProId = IdProducto,
-                        ProCodigo = CodigoBarras,
-                        ProDescripcion = Nombre,
-                        ProCantidad = Cantidad,
-                        ProPrecio = Precio
-                    };
-                    _context.Productos.Add(dbProducto);
 
-                    await _context.SaveChangesAsync();
+                    RecSecuencia = 1,
+                    RecEstado = "Prac",
+                    RecFechaCreacion = DateTime.Now,
+                    Comreferencia = ComReferencia
+                };
 
-                    enviarProducto.ProId = dbProducto.ProId;
 
-                    productoResult = new ProductoResult()
-                    {
-                        esCrear = true,
-                        producto = enviarProducto
-                    };
+                var Prod = await APIManager.GuradarDetalleRecepcion(recepcionDetalle);
 
-                }
-                else
-                {
-                    var encontrado = await _context.Productos.FirstAsync(p => p.ProId == IdProducto);
-                    encontrado.ProId = IdProducto;
-                    encontrado.ProCodigo = CodigoBarras;
-                    encontrado.ProDescripcion = Nombre;
-                    //encontrado.IdCategoria = CategoriaSeleccionada.IdCategoria;
-                    encontrado.ProCantidad = Cantidad;
-                    encontrado.ProPrecio = Precio;
-                    _context.Productos.Update(encontrado);
-                    await _context.SaveChangesAsync();
-
-                    productoResult = new ProductoResult()
-                    {
-                        esCrear = false,
-                        producto = enviarProducto
-                    };
-                }
                 MainThread.BeginInvokeOnMainThread(async () =>
-                {
-                    LoadingEsVisible = false;
-                    WeakReferenceMessenger.Default.Send(new ProductoMessage(productoResult));
-                    await Shell.Current.Navigation.PopModalAsync();
-                });
+               {
+                   LoadingEsVisible = false;
+                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(recepcionDetalle));
+                   await Shell.Current.Navigation.PopAsync();
+               });
             });
 
         }
 
+        #endregion
     }
 }
