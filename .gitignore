@@ -5,3 +5,10 @@
 *.vsidx
 *.dll
 *.pdb
+/.vs/MDSoft.Tracking/DesignTimeBuild/.dtbcache.v2
+/.vs/MDSoft.Tracking/v17/.futdcache.v2
+/.vs/ProjectEvaluation/mdsoft.tracking.metadata.v7.bin
+/.vs/MDSoft.Tracking/v17/DocumentLayout.json
+/.vs/ProjectEvaluation/mdsoft.tracking.projects.v7.bin
+/MDSoft.API/obj/Debug/net7.0/MDSoft.Tracking.API.AssemblyInfo.cs
+/MDSoft.API/obj/Debug/net7.0/MDSoft.Tracking.API.AssemblyInfoInputs.cache
