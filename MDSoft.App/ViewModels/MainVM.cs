@@ -8,15 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Tracking.Pages;
+using System.Collections.ObjectModel;
 
 namespace Tracking.ViewModels
 {
     public partial class MainVM : ObservableObject
     {
+        public class menuOptions
+        {
+            public string Name { get; set; }
+            public Color Color { get; set; }
+            public string Image { get; set; }
+            public string NavigatePage { get; set; }
+        }
         private readonly VentaDbContext _context;
         public MainVM(VentaDbContext context)
         {
             _context = context;
+            Options = new ObservableCollection<menuOptions>() {
+                new menuOptions {Name = "Recepcion Compras", Color= Colors.Red, Image="recepcion.png"},
+                new menuOptions {Name = "Cierre Lotes", Color=Colors.Green, Image="cierrepreview.png"},
+                new menuOptions {Name = "Lotes Fermentacion", Color=Colors.Blue, Image="fermentacionpreview.png"},
+                new menuOptions {Name = "Lotes Secado Maquina", Color=Colors.Purple, Image="maquinapreview.png"},
+                new menuOptions {Name = "Lotes Secado Natrual", Color=Colors.Brown, Image="naturalpreview.png"},
+                new menuOptions {Name = "Lotes Limpiezas", Color=Colors.Black, Image="limpiezapreview.png"},
+            };
+
             MainThread.BeginInvokeOnMainThread(async () =>
             {
                 await Task.Run(async () => await ObtenerResumen());
@@ -37,6 +54,13 @@ namespace Tracking.ViewModels
         [ObservableProperty]
         private int totalCategorias;
 
+
+        [ObservableProperty]
+        public ObservableCollection<menuOptions> options;
+
+        [ObservableProperty]
+        public menuOptions selectedOptions;
+
         private async Task ObtenerResumen()
         {
             decimal totalingresos = 0;
@@ -51,7 +75,42 @@ namespace Tracking.ViewModels
             TotalProductos = _context.Productos.Count();
             TotalCategorias = _context.Categorias.Count();
         }
+        [RelayCommand]
+        public async Task SelectionChanged()
+        {
+            LoadingEsVisible = true;
 
+            switch (SelectedOptions.Name)
+            {
+                case "Recepcion Compras":
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    break;
+                case "Cierre Lotes":
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    break;
+                case "Lotes Fermentacion":
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    break;
+                case "Lotes Secado Maquina":
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    break;
+                case "Lotes Limpiezas":
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    break;
+                default:
+                    break;
+            }
+
+            await Task.Run(async () =>
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    LoadingEsVisible = false;
+                });
+            });
+
+
+        }
         [RelayCommand]
         private async Task Recepcion()
         {

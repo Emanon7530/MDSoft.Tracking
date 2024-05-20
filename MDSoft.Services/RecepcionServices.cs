@@ -6,8 +6,10 @@ using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Services.Common;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
+using PNComm.Common.Enums;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -20,6 +22,13 @@ namespace MDSoft.Tracking.Services
         IRepositorio<RecepcionesCompra> _RepoRecepcion;
         IRepositorio<RecepcionesComprasDetalle> _RepoRecepcionDetalle;
         IRepositorio<ComprasProducto> _repoCompra;
+        IRepositorio<ComprasProductosDetalle> _repoCompraDet;
+        IRepositorio<LotesFermentacion> _repoFermentacion;
+        IRepositorio<LotesSecadoNatural> _repoSecadoNatural;
+
+        IRepositorio<LotesFermentacionDetalle> _repoFermentacionDet;
+        IRepositorio<LotesSecadoNaturalDetalle> _repoSecadoNaturalDet;
+
         IMapper _mapper;
 
         public RecepcionServices(IMapper mapper)
@@ -27,6 +36,8 @@ namespace MDSoft.Tracking.Services
             _RepoRecepcion = new Repositorio<RecepcionesCompra>();
             _RepoRecepcionDetalle = new Repositorio<RecepcionesComprasDetalle>();
             _repoCompra = new Repositorio<ComprasProducto>();
+            _repoCompraDet = new Repositorio<ComprasProductosDetalle>();
+
             _mapper = mapper;
 
         }
@@ -63,28 +74,7 @@ namespace MDSoft.Tracking.Services
 
                 return entities;
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public async Task<IEnumerable<RecepcionesComprasDetalleDTO>> GetRecepcionesDetalle(int RecSecuencia)
-        {
-            try
-            {
-                var _param = new ParametrosDeQuery<RecepcionesComprasDetalle>(1, 100);
-
-                _param.Where = x => x.RecSecuencia == RecSecuencia;
-
-                var result = await _RepoRecepcionDetalle.EncontrarPor(_param);
-
-                var entities = _mapper.Map<IEnumerable<RecepcionesComprasDetalleDTO>>(result);
-
-                return entities;
-            }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -101,7 +91,7 @@ namespace MDSoft.Tracking.Services
 
                 return entities;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -127,7 +117,7 @@ namespace MDSoft.Tracking.Services
 
                 return recepcionCompra;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -151,7 +141,38 @@ namespace MDSoft.Tracking.Services
 
                 return newRecord;
             }
-            catch (Exception)
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<RecepcionesCompraDTO> Cerrar(RecepcionesCompraDTO recepcionCompra, EstatusCompraProductos comEstatus)
+        {
+            try
+            {
+                //*** Cerrar Compra //
+                var compra = await _repoCompra.ObtenerPorId(recepcionCompra.ComSecuencia);
+
+                if (compra == null)
+                {
+                    throw new ApplicationException("No existe compra con esta secuencia!");
+                }
+
+                compra.ComEstatus = (short?)comEstatus;  //Recibido Completo
+                compra.ComFechaActualizacion = DateTime.Now;
+
+                await _repoCompra.Actualizar(compra);
+
+                /// actualizar recepcion
+                var newRecord = _mapper.Map<RecepcionesCompra>(recepcionCompra);
+                newRecord.RecFechaActualizacion = DateTime.Now;
+                var result = await _RepoRecepcion.Actualizar(newRecord);
+
+                return recepcionCompra;
+            }
+            catch (Exception e)
             {
 
                 throw;
@@ -168,29 +189,76 @@ namespace MDSoft.Tracking.Services
 
                 return recepcionCompra;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
             }
         }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="recepcionDetalle"></param>
+        /// <returns></returns>
         public async Task<RecepcionesComprasDetalleDTO> GuradarDetalle(RecepcionesComprasDetalleDTO recepcionDetalle)
         {
             try
             {
 
-                // verificar si existe cabecera
-                var rowExiste = await _RepoRecepcion.ObtenerPorId(recepcionDetalle.RecSecuencia, null);
+                // Actualizar el producto de la compra recibido
+                var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100)
+                {
+                    Where = x => x.ComReferencia == recepcionDetalle.recepcionesComprasDTO.ComReferencia && x.ComPosicion == recepcionDetalle.RecPosicion
+                };
 
+                var compradet = _repoCompraDet.EncontrarPor(_param).Result.First();
+
+                if (compradet == null)
+                {
+                    throw new ApplicationException("No existe este producto en la compra!");
+                }
+
+                compradet.ComEstatusDetalle = 1; // Recibido;
+                compradet.ComFechaActualizacion = DateTime.Now;
+                await _repoCompraDet.Actualizar(compradet);
+
+                // Actualizar Lote 
+                if (recepcionDetalle.RecDestino == 2) // Fermentacion
+                {
+                    _repoFermentacionDet = new Repositorio<LotesFermentacionDetalle>();
+                    var lote = new LotesFermentacionDetalle()
+                    {
+                        LotFermentacion = recepcionDetalle.LotReferencia,
+                        ComReferencia = recepcionDetalle.ComReferencia,
+                        LotFermentacionSecuencia = 1
+
+                    };
+
+                    await _repoFermentacionDet.Agregar(lote);
+                }
+                else
+                {
+                    _repoSecadoNaturalDet = new Repositorio<LotesSecadoNaturalDetalle>();
+                    var lote = new LotesSecadoNaturalDetalle()
+                    {
+                        LotSecadoManual = recepcionDetalle.LotReferencia,
+                        ComReferencia = recepcionDetalle.ComReferencia,
+                        LotPosicion = await _repoSecadoNaturalDet.Contar(x => x.LotSecadoManual == recepcionDetalle.LotReferencia) + 1
+                    };
+
+                    await _repoSecadoNaturalDet.Agregar(lote);
+                };
+
+                // Insertar detalle recepcion 
+                //// verificar si existe cabecera
+                var rowExiste = await _RepoRecepcion.ObtenerPorId(recepcionDetalle.RecSecuencia, null);
                 if (rowExiste == null)
                 {
                     recepcionDetalle.recepcionesComprasDTO = await Guardar(recepcionDetalle.recepcionesComprasDTO);
                 }
 
                 var newRecord = _mapper.Map<RecepcionesComprasDetalle>(recepcionDetalle);
-
                 var result = await _RepoRecepcionDetalle.Agregar(newRecord);
-
                 var recepcionCompra = _mapper.Map<RecepcionesComprasDetalleDTO>(recepcionDetalle);
 
                 return recepcionCompra;

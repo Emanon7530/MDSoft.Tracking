@@ -8,6 +8,11 @@ namespace MDSoft.Tracking;
 
 public partial class RecepcionesCompra
 {
+    public RecepcionesCompra()
+    {
+        RecepcionesComprasDetalles = new List<RecepcionesComprasDetalle>();
+    }
+
     [Key]
     public int RecSecuencia { get; set; }
 

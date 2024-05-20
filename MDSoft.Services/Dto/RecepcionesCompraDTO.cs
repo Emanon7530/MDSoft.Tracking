@@ -30,8 +30,8 @@ public partial class RecepcionesCompraDTO
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? Comreferencia { get; set; }
-    public string? NombreComreferencia { get; set; }
+    public string? ComReferencia { get; set; }
+    public int ComSecuencia { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]

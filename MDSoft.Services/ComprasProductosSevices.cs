@@ -77,13 +77,13 @@ namespace MDSoft.Tracking.Services
             return compra;
         }
 
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string comReferencia )
         {
             ComprasProductoDTO result = null;
 
             var _param = new ParametrosDeQuery<ComprasProducto>(1, 100);
 
-            _param.Where = x => x.RepCodigo.Equals(repCodigo) && x.ComSecuencia == comSecuencia;
+            _param.Where = x => x.ComReferencia.Equals(comReferencia);
 
             var compra = await _RepoCompras.EncontrarPor(_param);
 

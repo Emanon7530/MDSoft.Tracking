@@ -31,9 +31,10 @@ namespace MDSoft.Data.Repository
 
         public async Task<IEnumerable<T>> ExecuteProcedureNonQuery(T entidad, string storeProcedureName, string[] parameterNames, string[] values)
         {
-            var db = Context;
-            var result = await db.Set<T>().FromSqlRaw<T>(storeProcedureName, parameterNames, values).ToListAsync();
+            MovilBusiness5StdContext db = (MovilBusiness5StdContext)Context;
 
+            var commandText = $"EXEC {storeProcedureName} {string.Join(", ", values.Select((p, i) => $"@p{i}"))}";
+            var result = await db.Set<T>().FromSqlRaw(commandText, values).ToListAsync();
             return result;
         }
 

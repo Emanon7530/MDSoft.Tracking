@@ -140,8 +140,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MDSoft.Data.Model\MDSoft.Tracking.Model.csproj" />
-	  <ProjectReference Include="..\MDSoft.Data\MDSoft.Tracking.Data.csproj" />
 	  <ProjectReference Include="..\MDSoft.Services\MDSoft.Tracking.Services.csproj" />
 	</ItemGroup>
 
@@ -165,6 +163,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\CardViewInfo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\CategoriasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

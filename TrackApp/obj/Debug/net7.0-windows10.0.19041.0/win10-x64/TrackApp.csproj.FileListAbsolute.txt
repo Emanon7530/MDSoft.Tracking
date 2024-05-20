@@ -547,7 +547,6 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-wind
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1824.16914.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -657,3 +656,4 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-wind
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1924.21523.dll

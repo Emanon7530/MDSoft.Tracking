@@ -83,11 +83,11 @@ namespace MDSoft.API.Controllers
 
         [HttpGet()]
         [Route("GetCompraByTicket")]
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string comReferencia )
         {
             try
             {
-                var result = await _compraServices.GetCompraByTicket(repCodigo, comSecuencia);
+                var result = await _compraServices.GetCompraByTicket(comReferencia );
 
                 return result;
             }

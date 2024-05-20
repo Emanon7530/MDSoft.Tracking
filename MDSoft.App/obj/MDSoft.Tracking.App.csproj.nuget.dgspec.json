@@ -41,12 +41,6 @@
           "net7.0-android33.0": {
             "targetAlias": "net7.0-android",
             "projectReferences": {
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
-              },
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
-              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -55,12 +49,6 @@
           "net7.0-ios16.1": {
             "targetAlias": "net7.0-ios",
             "projectReferences": {
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
-              },
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
-              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -69,12 +57,6 @@
           "net7.0-maccatalyst16.1": {
             "targetAlias": "net7.0-maccatalyst",
             "projectReferences": {
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
-              },
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
-              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -83,12 +65,6 @@
           "net7.0-windows10.0.19041": {
             "targetAlias": "net7.0-windows10.0.19041.0",
             "projectReferences": {
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
-              },
-              "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj": {
-                "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data\\MDSoft.Tracking.Data.csproj"
-              },
               "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
                 "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
               }
@@ -304,7 +280,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         },
         "net7.0-ios16.1": {
           "targetAlias": "net7.0-ios",
@@ -436,7 +412,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         },
         "net7.0-maccatalyst16.1": {
           "targetAlias": "net7.0-maccatalyst",
@@ -569,7 +545,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         },
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
@@ -651,7 +627,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.19, 7.0.19]"
             },
             {
               "name": "Microsoft.Maui.Controls.Ref.win",
@@ -679,7 +655,7 @@
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.19, 7.0.19]"
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
@@ -687,7 +663,7 @@
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[7.0.18, 7.0.18]"
+              "version": "[7.0.19, 7.0.19]"
             }
           ],
           "frameworkReferences": {
@@ -707,7 +683,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -821,7 +797,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -904,7 +880,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -994,7 +970,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

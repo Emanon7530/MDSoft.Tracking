@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tracking.Controls.CardViewInfo">
+    <VerticalStackLayout>
+        <Grid Margin="0" ColumnDefinitions="Auto,1*,Auto,*,*,Auto" HorizontalOptions="FillAndExpand" RowSpacing="4"
+                                                    Padding="5" RowDefinitions="*,*,*" ColumnSpacing="5">
+
+            <BoxView Grid.Column="0" Color="Red" WidthRequest="7" Grid.RowSpan="4"></BoxView>
+            <Label Grid.Column="1" Grid.Row="0" Text="{Binding RepCodigo}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+            <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
+            <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
+            <Line Y1="70" Grid.Column="2" Grid.RowSpan="4" BackgroundColor="Blue" ></Line>
+
+            <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="3" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
+
+            <Label Text="Cantidad" Grid.Row="1" Grid.Column="3" ></Label>
+            <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="3"  FontSize="Small" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
+            <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="4" ></Label>
+            <Border BackgroundColor="Blue">
+                <Label Text="{Binding ComEstatus}"    
+                                                       Grid.Row="2" Grid.Column="4"
+                                                       FontSize="Small" TextColor="White" 
+                                                       HorizontalOptions="Center"
+                                                       FontAttributes="Bold"/>
+            </Border>
+            <Button Text=">" FontSize="Large" Grid.Column="5" Grid.Row="0" Grid.RowSpan="3"></Button>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentView>

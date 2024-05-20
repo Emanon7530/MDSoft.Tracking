@@ -3,40 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tracking.TestPage"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:mvvm="clr-namespace:Tracking.ViewModels"
              Padding="5,20,5,5"
+             BackgroundColor="#EEEEEE"
              Title="TestPage">
 
-    <!--<StackLayout HorizontalOptions="FillAndExpand">-->
-    <!--<StackLayout.Shadow>
-            <Shadow Brush="Gray" Offset="10,10"></Shadow>
-        </StackLayout.Shadow>-->
+    <ContentPage.Resources>
+        <Style TargetType="Border">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSkyBlue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <mvvm:TestPageViewModel></mvvm:TestPageViewModel>
+    </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto,Auto,Auto">
-        <Border HorizontalOptions="Fill" Grid.Row="0">
-            <Grid RowDefinitions="Auto" ColumnDefinitions="*,Auto" HorizontalOptions="FillAndExpand"  ColumnSpacing="5"  RowSpacing="5">
-                <!--ROW 0-->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" >
+    <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="25" VerticalOptions="Start"/>
 
-                    <Grid ColumnDefinitions="7,Auto,Auto,*" ColumnSpacing="5" HorizontalOptions="FillAndExpand">
-                        <BoxView Grid.Column="0" Color="Red" ></BoxView>
-                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="FillAndExpand">
-                            <Label Text="010101" HorizontalOptions="Center"/>
-                            <Label Text="# Compra" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
-                        <Line Y1="40"  Grid.Column="2" Stroke="Green"></Line>
-                        <VerticalStackLayout Grid.Column="3" HorizontalOptions="FillAndExpand">
-                            <Label Text="Nombre suplidor"  FontSize="Medium" FontAttributes="Bold" />
-                            <Grid ColumnDefinitions="*,Auto" HorizontalOptions="FillAndExpand">
-                                <Label Grid.Column="0" Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Default" />
-                                <Label Grid.Column="1" Text="$123.15" FontSize="Default" />
-                            </Grid>
-                        </VerticalStackLayout>
-                    </Grid>
-                </StackLayout>
-                <Button Text=">" Grid.Column="1" BackgroundColor="{StaticResource Primary}">
-                </Button>
-            </Grid>
-        </Border>
-    </Grid>
+    <CollectionView ItemsSource="{Binding Options}" SelectionMode="Single" SelectedItem="{Binding SelectedOptions}" SelectionChangedCommand="{Binding SelectionChangedCommand}" Margin="5">
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" HorizontalItemSpacing="10" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <!--<Frame CornerRadius="5" Padding="0" HeightRequest="100" IsClippedToBounds="True">-->
+                <Border Padding="0" HeightRequest="100" StrokeShape="RoundRectangle 5,5,5,5" >
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView Grid.Column="0" Color="{Binding Color}" WidthRequest="7"/>
+
+                        <Grid ColumnDefinitions="2*,*" Padding="5" HorizontalOptions="FillAndExpand" ColumnSpacing="5">
+                            <StackLayout Grid.Column="0" Margin="5,15" >
+                                <Label Text="{Binding Name}"  TextColor="Black" FontAttributes="None" />
+                            </StackLayout>
+                            <Image Source="{Binding Image}" Grid.Column="1" HorizontalOptions="End" />
+                        </Grid>
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+
     <!--</StackLayout>-->
 </ContentPage>

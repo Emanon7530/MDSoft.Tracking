@@ -16,6 +16,8 @@ public partial class RecepcionesComprasDetalle
     [Key]
     public int RecPosicion { get; set; }
 
+    public int RecDestino { get; set; }
+
     [StringLength(15)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }

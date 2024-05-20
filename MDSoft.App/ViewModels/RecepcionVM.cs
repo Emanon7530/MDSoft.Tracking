@@ -105,6 +105,9 @@ namespace Tracking.ViewModels
         private System.Drawing.Color cambioColor;
         [ObservableProperty]
         private bool btnLimpiarEsVisible = false;
+
+        private Random rnd = new Random();
+
         #endregion
 
         #region Commands
@@ -130,7 +133,7 @@ namespace Tracking.ViewModels
             }
             else
             {
-                await Shell.Current.Navigation.PushAsync(new ProductoPage(new ProductoVM(_compradetalleDTO), 0));
+                await Shell.Current.Navigation.PushModalAsync(new ProductoPage(new ProductoVM(_compradetalleDTO), 0));
             }
 
             await Task.Run(async () =>
@@ -195,7 +198,9 @@ namespace Tracking.ViewModels
             {
                 RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO()
                 {
-                    Comreferencia = RepCodigo,
+                    RecFechaActualizacion = DateTime.Now,
+                    ComSecuencia = ComSecuencia,
+                    ComReferencia = _compraDTO.ComReferencia,
                     RecEstado = cierreParcial == true ? "Parc" : "Compl",
                     RecFechaCreacion = DateTime.Now,
                     RecSecuencia = ComSecuencia
@@ -203,7 +208,7 @@ namespace Tracking.ViewModels
 
                 await APIManager.ActualizarRecepcion(recepcion);
 
-                await Shell.Current.DisplayAlert("Listo!", $"Recepcion {recepcion.Comreferencia}' fue concluido!", "Aceptar");
+                await Shell.Current.DisplayAlert("Listo!", string.Concat($"Recepcion {recepcion.ComReferencia} fue recibida ", cierreParcial == true ? "Parcial" : "Total"), "Aceptar");
 
                 await Shell.Current.Navigation.PopAsync();
 

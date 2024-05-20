@@ -1959,7 +1959,6 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-wi
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1824.16914.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -2411,3 +2410,4 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-wi
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\tuning.scale-150.png
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\tuning.scale-200.png
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\tuning.scale-400.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1924.21523.dll

@@ -53,9 +53,9 @@ namespace Tracking.Services
             return compras;
         }
 
-        public static async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
+        public static async Task<ComprasProductoDTO> GetCompraByTicket(string ComReferencia)
         {
-            string endPoint = $"ComprasProductos/GetCompraByTicket?repCodigo={repCodigo}&comSecuencia={comSecuencia}";
+            string endPoint = $"ComprasProductos/GetCompraByTicket?ComReferencia={ComReferencia}";
 
             var response = await _client.GetAsync(endPoint);
 

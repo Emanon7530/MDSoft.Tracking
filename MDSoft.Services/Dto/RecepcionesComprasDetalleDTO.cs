@@ -28,6 +28,9 @@ public partial class RecepcionesComprasDetalleDTO
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? RecPeso { get; set; }
 
+    public int RecDestino { get; set; }
+    public string LotReferencia { get; set; }
+
     [StringLength(5)]
     public string RecEstado { get; set; }
 

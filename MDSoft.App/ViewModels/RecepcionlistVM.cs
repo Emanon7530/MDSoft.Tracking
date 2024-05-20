@@ -59,7 +59,7 @@ namespace Tracking.ViewModels
         [ObservableProperty]
         private bool loadingEsVisible = false;
         [ObservableProperty]
-        private bool loadingCategoriaEsVisible = false;
+        private bool isRefreshing = false;
 
         [ObservableProperty]
         private bool dataEsVisible = false;
@@ -70,35 +70,9 @@ namespace Tracking.ViewModels
         [ObservableProperty]
         ObservableCollection<ComprasProductoDTO> listRecepcion = new ObservableCollection<ComprasProductoDTO>();
 
-        //private async Task ObtenerCategorias()
-        //{
-        //    LoadingCategoriaEsVisible = true;
-        //    await Task.Run(async () =>
-        //    {
-        //        var lstCategoria = await _context.Categorias.ToListAsync();
-        //        var lstTemp = new ObservableCollection<CategoriaDTO>();
-        //        var categoriaDefault = new CategoriaDTO { IdCategoria = 0, Nombre = "Todos los Lotes" };
-        //        lstTemp.Add(categoriaDefault);
-        //        foreach (var item in lstCategoria)
-        //        {
-        //            lstTemp.Add(new CategoriaDTO
-        //            {
-        //                IdCategoria = item.IdCategoria,
-        //                Nombre = item.Nombre
-        //            });
-        //        }
-
-        //        MainThread.BeginInvokeOnMainThread(() =>
-        //        {
-        //            CategoriaSeleccionada = categoriaDefault;
-        //            LoadingCategoriaEsVisible = false;
-        //        });
-        //    });
-        //}
-
         public async Task GetRecepciones()
         {
-            DataEsVisible = false;
+            IsRefreshing = true;
             LoadingEsVisible = true;
 
             await Task.Run(async () =>
@@ -115,7 +89,7 @@ namespace Tracking.ViewModels
                         lstTemp.Add(new ComprasProductoDTO
                         {
                             ComReferencia = item.ComReferencia,
-                            RepCodigo = $"{item.RepCodigo}-{item.ComSecuencia}",
+                            RepCodigo = item.RepCodigo,
                             RepSupervisor = item.RepNombre,
                             ComSecuencia = item.ComSecuencia,
                             ComFecha = item.ComFecha,
@@ -132,7 +106,7 @@ namespace Tracking.ViewModels
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    DataEsVisible = true;
+                    IsRefreshing = false;
                     LoadingEsVisible = false;
                 });
             });
@@ -140,10 +114,9 @@ namespace Tracking.ViewModels
         }
 
         [RelayCommand]
-        private void Filtrar()
+        private async Task RefreshGrid()
         {
-
-
+            await GetRecepciones();
         }
 
         [RelayCommand]
@@ -152,13 +125,9 @@ namespace Tracking.ViewModels
             DataEsVisible = false;
             LoadingEsVisible = true;
 
-            var codigo = BuscarRecepcion.Split("-");
-
             await Task.Run(async () =>
             {
-
-                var compras = await APIManager.GetCompraByTicket(codigo[0], int.Parse(codigo[1]));
-
+                var compras = await APIManager.GetCompraByTicket(BuscarRecepcion);
 
                 if (compras != null)
                 {
@@ -166,7 +135,7 @@ namespace Tracking.ViewModels
                     lstTemp.Add(new ComprasProductoDTO
                     {
                         ComReferencia = compras.ComReferencia,
-                        RepCodigo = $"{compras.RepCodigo}-{compras.ComSecuencia}",
+                        RepCodigo = compras.RepCodigo,
                         RepSupervisor = compras.RepSupervisor,
                         ComSecuencia = compras.ComSecuencia,
                         ComFecha = compras.ComFecha,

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrackApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+95fc4deadd6a0ced199a853545fc068f99c72ad5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrackApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrackApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

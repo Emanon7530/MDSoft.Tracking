@@ -639,6 +639,13 @@
             ID vehiculo
             </summary>
         </member>
+        <member name="M:Tracking.Utilidades.RandomColorExtension.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Send a Random Color to be displayed by the user.
+            </summary>
+            <param name="serviceProvider"></param>
+            <returns></returns>
+        </member>
         <member name="T:Tracking.ViewModels.CategoriasVM">
             <inheritdoc/>
             <inheritdoc/>
@@ -808,6 +815,7 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:Tracking.ViewModels.MainVM.LoadingEsVisible">
             <inheritdoc cref="F:Tracking.ViewModels.MainVM.loadingEsVisible"/>
@@ -823,6 +831,18 @@
         </member>
         <member name="P:Tracking.ViewModels.MainVM.TotalCategorias">
             <inheritdoc cref="F:Tracking.ViewModels.MainVM.totalCategorias"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.Options">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.options"/>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.SelectedOptions">
+            <inheritdoc cref="F:Tracking.ViewModels.MainVM.selectedOptions"/>
+        </member>
+        <member name="F:Tracking.ViewModels.MainVM.selectionChangedCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.SelectionChangedCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.MainVM.SelectionChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.SelectionChanged"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.MainVM.recepcionCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.RecepcionCommand"/>.</summary>
@@ -850,6 +870,9 @@
         </member>
         <member name="P:Tracking.ViewModels.ProductoVM.ComReferencia">
             <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.comReferencia"/>
+        </member>
+        <member name="P:Tracking.ViewModels.ProductoVM.LotReferencia">
+            <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.lotReferencia"/>
         </member>
         <member name="P:Tracking.ViewModels.ProductoVM.ComSecuencia">
             <inheritdoc cref="F:Tracking.ViewModels.ProductoVM.comSecuencia"/>
@@ -905,8 +928,8 @@
         <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingEsVisible">
             <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingCategoriaEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingCategoriaEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.IsRefreshing">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.isRefreshing"/>
         </member>
         <member name="P:Tracking.ViewModels.RecepcionlistMV.DataEsVisible">
             <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.dataEsVisible"/>
@@ -917,11 +940,11 @@
         <member name="P:Tracking.ViewModels.RecepcionlistMV.ListRecepcion">
             <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.listRecepcion"/>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.filtrarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.FiltrarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionlistMV.refreshGridCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.FiltrarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Filtrar"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.RefreshGrid"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.RecepcionlistMV.buscarCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand"/>.</summary>
@@ -1041,6 +1064,25 @@
         </member>
         <member name="P:Tracking.ViewModels.RecepcionVM.VolverCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Volver"/>.</summary>
+        </member>
+        <member name="T:Tracking.ViewModels.TestPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Tracking.ViewModels.TestPageViewModel.Options">
+            <inheritdoc cref="F:Tracking.ViewModels.TestPageViewModel.options"/>
+        </member>
+        <member name="P:Tracking.ViewModels.TestPageViewModel.SelectedOptions">
+            <inheritdoc cref="F:Tracking.ViewModels.TestPageViewModel.selectedOptions"/>
+        </member>
+        <member name="P:Tracking.ViewModels.TestPageViewModel.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.TestPageViewModel.loadingEsVisible"/>
+        </member>
+        <member name="F:Tracking.ViewModels.TestPageViewModel.selectionChangedCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.TestPageViewModel.SelectionChangedCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.TestPageViewModel.SelectionChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.TestPageViewModel.SelectionChanged"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>
@@ -1276,8 +1318,17 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalCategorias">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalCategorias" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Options">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Options" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedOptions">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedOptions" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RepCodigo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RepCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LotReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
@@ -1294,8 +1345,8 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoadingCategoriaEsVisible">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoadingCategoriaEsVisible" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListRecepcion" generated properties.</summary>
@@ -1459,8 +1510,17 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalCategorias">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalCategorias" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Options">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Options" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedOptions">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedOptions" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RepCodigo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RepCodigo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LotReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
@@ -1477,8 +1537,8 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoadingCategoriaEsVisible">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoadingCategoriaEsVisible" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListRecepcion" generated properties.</summary>

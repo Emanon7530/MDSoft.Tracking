@@ -9,35 +9,44 @@
              Title="Recepcion de Compras"
              BackgroundColor="#EDEDF5">
 
-    <!--<StackLayout Margin="5" >-->
-    <!--<Border BackgroundColor="#EDEDF5">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="5"/>
-            </Border.StrokeShape>-->
+    <ContentPage.Resources>
+        <Style TargetType="Border">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSkyBlue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
 
-    <Grid Margin="10" RowSpacing="2">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- ROW 0 - Search bar-->
-            <RowDefinition Height="Auto"/>
-            <!-- ROW 1 - Indicator -->
-            <RowDefinition Height="Auto"/>
-            <!-- ROW 2 - ScrollView -->
-            <!--<RowDefinition Height="Auto"/>-->
-            <!--<RowDefinition Height="*"/>-->
-        </Grid.RowDefinitions>
+        <Grid Margin="10" RowSpacing="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- ROW 0 - Search bar-->
+                <RowDefinition Height="Auto"/>
+                <!-- ROW 1 - Indicator -->
+                <RowDefinition Height="Auto"/>
+                <!-- ROW 2 - ScrollView -->
+                <!--<RowDefinition Height="Auto"/>-->
+                <!--<RowDefinition Height="*"/>-->
+            </Grid.RowDefinitions>
 
-        <!--ROW 0-->
-        <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" >
-            <!--<Grid ColumnDefinitions="1*"
-                  RowDefinitions="1*" 
-                  HorizontalOptions="FillAndExpand">-->
-
-            <Entry HorizontalOptions="FillAndExpand" 
+            <!--ROW 0-->
+            <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" >
+                <Entry HorizontalOptions="FillAndExpand" 
                        Placeholder="Escane o Digite el codigo de la compra" 
                        PlaceholderColor="DarkSlateGray"  Text="{Binding BuscarRecepcion}" />
 
-            <ImageButton Source="close.svg" 
+                <ImageButton Source="close.svg" 
                              HeightRequest="32" 
                              WidthRequest="28" 
                              HorizontalOptions="End" 
@@ -46,115 +55,74 @@
                              CornerRadius="4"
                              IsVisible="{Binding BtnLimpiarEsVisible}" 
                              Command="{Binding LimpiarCommand}"/>
-            <!--</Grid>-->
+                <!--</Grid>-->
 
-            <Button FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35" BackgroundColor="{StaticResource Gray200}" TextColor="Black" Command="{Binding BuscarCommand}"></Button>
-        </StackLayout>
+                <Button FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35" BackgroundColor="{StaticResource Gray200}" TextColor="Black" Command="{Binding BuscarCommand}"></Button>
+            </StackLayout>
 
-        <!--ROW 1-->
-        <StackLayout Grid.Row="1" Orientation="Vertical">
-            <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" 
+            <!--ROW 1-->
+            <StackLayout Grid.Row="1" Orientation="Vertical">
+                <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" 
                                IsVisible="{Binding LoadingEsVisible}" 
                                Color="Blue" HeightRequest="25" 
                                VerticalOptions="Start"/>
-        </StackLayout>
+            </StackLayout>
 
-
+        </Grid>
         <!--ROW 2-->
-        <ScrollView Grid.Row="2">
-            <CollectionView ItemsSource="{Binding ListRecepcion}">
+        <!--<ScrollView >-->
+        <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
+            VerticalOptions="FillAndExpand" IsVisible="true" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="dto:ComprasProductoDTO">
-                        <Grid Padding="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <!-- Color -->
-                                <!-- Columna de informacion -->
-                                <ColumnDefinition Width="Auto"/>
-                                <!-- Detalle -->
-                                <!-- Columna de botones -->
-                            </Grid.ColumnDefinitions>
-                            <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer 
+                        <Border BackgroundColor="White" StrokeShape="RoundRectangle 5,5,5,5" Padding="0">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer 
                                          Command="{Binding BindingContext.IrRecepcionCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
-                                                           CommandParameter="{Binding}"
-                                                           />
-                                </Frame.GestureRecognizers>
+                                                           CommandParameter="{Binding}"/>
+                            </Border.GestureRecognizers>
+                            <Border.Shadow>
+                                <Shadow Brush="Gray"></Shadow>
+                            </Border.Shadow>
 
-                                <StackLayout Orientation="Horizontal" >
+                            <Grid Margin="0" ColumnDefinitions="Auto,1*,Auto,*,*,Auto" HorizontalOptions="FillAndExpand" RowSpacing="4"
+                                                    Padding="5" RowDefinitions="*,*,*" ColumnSpacing="5">
 
-                                    <BoxView Grid.Column="0" Color="red" WidthRequest="5"/>
-                                    <Grid ColumnDefinitions="*,Auto,*,*" 
-                                              Grid.Column="1"
-                                              ColumnSpacing="5"
-                                              RowDefinitions="*,Auto" 
-                                              Margin="0"
-                                              HorizontalOptions="FillAndExpand" 
-                                              Padding="5">
+                                <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="7" Grid.RowSpan="4"></BoxView>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding ComReferencia}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
+                                <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
+                                <Line Y1="40" Grid.Column="2" Grid.RowSpan="4" BackgroundColor="Blue" ></Line>
 
-                                        <VerticalStackLayout Grid.Column="0" Grid.RowSpan="2" Padding="5" HorizontalOptions="CenterAndExpand">
-                                            <!--ROW 0, COLUMN 0 / ROW 1, COLUMN 0-->
-                                            <Label Text="{Binding RepCodigo}" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
-                                            <!--ROW 0, COLUMN 1 / ROW 0, COLUMN 1-->
-                                            <Label Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
-                                            <Label Text="No. Compra" FontSize="Small"    TextColor="Black"/>
-                                        </VerticalStackLayout>
+                                <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="3" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
-                                        <Line Y1="70" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
-
-                                        <!--ROW 1 , COLUMN 0-->
-
-                                        <!--ROW 4 , COLUMN 0-->
-                                        <Grid RowDefinitions="*,*,Auto" ColumnDefinitions="*,*" Grid.Row="1" 
-                                                                 Grid.Column="2" 
-                                                                 Grid.ColumnSpan="2"
-                                                                 Padding="0"
-                                                                 Margin="0"
-                                                                 HorizontalOptions="FillAndExpand">
-
-                                        <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="2" />
-                                            <Label Text="Peso Compra" Grid.Row="1" Grid.Column="0" ></Label>
-                                            <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="0"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
-
-                                            <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="1" ></Label>
-                                            <Label Text="{Binding ComEstatus}"    Grid.Row="2" Grid.Column="1"
+                                <Label Text="Cantidad" Grid.Row="1" Grid.Column="3" ></Label>
+                                <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="3"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="4" ></Label>
+                                <Frame CornerRadius="10" Grid.Row="2" Grid.Column="4" Padding="0" Margin="0" BackgroundColor="{StaticResource Primary}">
+                                    <Label Text="{Binding ComEstatusNombre}"    
+                                                       Grid.Row="2" Grid.Column="4"
                                                        FontSize="Small" TextColor="White" 
-                                                       TextDecorations="Underline"
-                                                       FontAttributes="Bold" Background="{StaticResource Primary}"/>
-                                        </Grid>
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       FontAttributes="Bold" />
+                                </Frame>
 
-                                    </Grid>
-                                </StackLayout>
-                            </Frame>
-                            <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
-                                <ImageButton Source="edit_pencil.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
-      BackgroundColor="{StaticResource bgLightBlue}"  
-      Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
-      CommandParameter="{Binding}"
-      />
+                            </Grid>
+                        </Border>
 
-                                <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
-      BackgroundColor="{StaticResource bgLightRed}"
-      Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
-      CommandParameter="{Binding}"
-      />
-                            </StackLayout>
-                        </Grid>
-                        <!--</Border>-->
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+        <!--</ScrollView>-->
 
-        </ScrollView>
+    </VerticalStackLayout>
+    <!--</RefreshView>-->
 
-
-    </Grid>
     <!--</Border>-->
     <!--</StackLayout>-->
 </ContentPage>

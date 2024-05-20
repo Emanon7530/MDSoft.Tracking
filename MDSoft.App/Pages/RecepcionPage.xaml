@@ -70,14 +70,14 @@
                                     <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer 
-                                         Command="{Binding BindingContext.IrRecepcionCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
-                                                           CommandParameter="{Binding}"
-                                                           />
+                                         Command="{Binding BindingContext.IrRecepcionCommand, 
+                                                    Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                           CommandParameter="{Binding}"/>
                                         </Frame.GestureRecognizers>
 
                                         <StackLayout Orientation="Horizontal" >
 
-                                            <BoxView Grid.Column="0" Color="red" WidthRequest="5"/>
+                                            <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="5"/>
                                             <Grid ColumnDefinitions="Auto,Auto,*,*" 
                                               RowSpacing="5" 
                                               ColumnSpacing="5"
@@ -93,7 +93,7 @@
                                                     <Label Text="No. Compra" FontSize="Small"    TextColor="Black"/>
                                                 </VerticalStackLayout>
 
-                                                <Line Y1="60" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
+                                                <Line Y1="105" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
 
                                                 <!--ROW 1 , COLUMN 0-->
                                                 <Label Text="{Binding NombreComReferencia}" Grid.Row="0" Grid.Column="2" FontSize="Medium"   
@@ -119,12 +119,6 @@
                                         </StackLayout>
                                     </Frame>
                                     <StackLayout Grid.Column="3" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
-                                        <ImageButton Source="edit_pencil.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
-      BackgroundColor="{StaticResource bgLightBlue}"  
-      Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
-      CommandParameter="{Binding}"
-      />
-
                                         <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
       BackgroundColor="{StaticResource bgLightRed}"
       Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
@@ -163,8 +157,7 @@
                         <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Finalizar" HeightRequest="35" WidthRequest="100" 
                                 Padding="0" Margin="0,5,0,0"
                                 HorizontalOptions="End" BackgroundColor="{StaticResource bgSuccess}"
-                                Command="{Binding FinalizarVentaCommand}"
-                                />
+                                Command="{Binding FinalizarVentaCommand}"/>
                     </Grid>
 
                 </StackLayout>

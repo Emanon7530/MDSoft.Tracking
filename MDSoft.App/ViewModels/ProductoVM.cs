@@ -50,6 +50,9 @@ namespace Tracking.ViewModels
         private string comReferencia = string.Empty;
 
         [ObservableProperty]
+        private string lotReferencia = string.Empty;
+
+        [ObservableProperty]
         private int comSecuencia;
 
         [ObservableProperty]
@@ -81,7 +84,7 @@ namespace Tracking.ViewModels
             ComPeso = _compradetalleDTO.ComCantidad;
             IdProducto = _compradetalleDTO.ProId.Value;
             NombreProducto = _compradetalleDTO.ProDescripcion;
-            ComReferencia = _compradetalleDTO.ComReferencia;
+            //ComReferencia = _compradetalleDTO.ComReferencia;
 
         }
 
@@ -132,7 +135,7 @@ namespace Tracking.ViewModels
         [RelayCommand]
         private async Task VolverInventario()
         {
-            await Shell.Current.Navigation.PopAsync();
+            await Shell.Current.Navigation.PopModalAsync();
         }
 
         [RelayCommand]
@@ -148,9 +151,11 @@ namespace Tracking.ViewModels
                     ComPeso = ComPeso,
                     RecFechaCreacion = DateTime.Now,
                     RecPeso = RecPeso,
-                    RecPosicion = 1,
+                    RecDestino = Destino == "Fermentacion" ? 1 : 2,
+                    RecPosicion = _compradetalleDTO.ComPosicion,
                     RepCodigo = RepCodigo,
-                    ComReferencia = ComReferencia,
+                    ComReferencia = _compradetalleDTO.ComReferencia,
+                    LotReferencia = LotReferencia,
                     NombreComReferencia = NombreProducto,
                     RecEstado = "Rec",
                     RecSecuencia = 1
@@ -162,7 +167,7 @@ namespace Tracking.ViewModels
                     RecSecuencia = 1,
                     RecEstado = "Prac",
                     RecFechaCreacion = DateTime.Now,
-                    Comreferencia = ComReferencia
+                    ComReferencia = _compradetalleDTO.ComReferencia
                 };
 
 
