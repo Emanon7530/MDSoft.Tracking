@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 public partial class MovilBusiness5StdContext : DbContext
 {
@@ -14,10 +14,6 @@ public partial class MovilBusiness5StdContext : DbContext
         : base(options)
     {
     }
-
-    public virtual DbSet<Compra> Compras { get; set; }
-
-    public virtual DbSet<ComprasDetalle> ComprasDetalles { get; set; }
 
     public virtual DbSet<ComprasProducto> ComprasProductos { get; set; }
 
@@ -49,106 +45,17 @@ public partial class MovilBusiness5StdContext : DbContext
 
     public virtual DbSet<Representante> Representantes { get; set; }
 
+    public virtual DbSet<UsosMultiple> UsosMultiples { get; set; }
+
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;Persist Security Info=True;User ID=sa;Password=manonram;Encrypt=True;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("name=DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Compra>(entity =>
-        {
-            entity.ToTable(tb =>
-                {
-                    tb.HasComment("Maestra de Compras");
-                    tb.HasTrigger("tg_ComprasEstatusActualizar");
-                    tb.HasTrigger("tg_MD_Compras_IUD");
-                    tb.HasTrigger("tg_MD_REPL_Compras_IUDV9");
-                    tb.HasTrigger("trg_ComprasCambiarEstatus");
-                    tb.HasTrigger("trg_ComprasIOI");
-                });
-
-            entity.HasIndex(e => e.Rowguid, "MSmerge_index_827527123")
-                .IsUnique()
-                .HasFillFactor(90);
-
-            entity.Property(e => e.ComSecuencia).HasComment("Secuencia");
-            entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
-            entity.Property(e => e.Cldcedula).HasComment("Cédula");
-            entity.Property(e => e.CliId).HasComment("ID Cliente");
-            entity.Property(e => e.ComCantidadCanastos)
-                .HasDefaultValueSql("((0))")
-                .HasComment("Cantidad canastos");
-            entity.Property(e => e.ComCantidadDetalle).HasComment("Cantidad detalle");
-            entity.Property(e => e.ComCantidadImpresion).HasComment("Cantidad impresión");
-            entity.Property(e => e.ComEstatus).HasComment("Estatus");
-            entity.Property(e => e.ComFecha).HasComment("Fecha");
-            entity.Property(e => e.ComFechaActualizacion)
-                .HasDefaultValueSql("(getdate())")
-                .HasComment("Fecha Creacion/Actualizacion ");
-            entity.Property(e => e.ComNcf).HasComment("NCF");
-            entity.Property(e => e.ComReferencia).HasComment("Referencia");
-            entity.Property(e => e.ComTotal).HasComment("Total");
-            entity.Property(e => e.ConId).HasComment("ID condición de pago");
-            entity.Property(e => e.CuaSecuencia).HasComment("Secuencia");
-            entity.Property(e => e.DepSecuencia).HasComment("Secuencia");
-            entity.Property(e => e.MbVersion).HasComment("Version de MovilBusiness");
-            entity.Property(e => e.Rowguid)
-                .HasDefaultValueSql("(newid())")
-                .HasComment("Identificador Unico");
-            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
-            entity.Property(e => e.VisSecuencia).HasComment("Secuencia");
-        });
-
-        modelBuilder.Entity<ComprasDetalle>(entity =>
-        {
-            entity.ToTable("ComprasDetalle", tb =>
-                {
-                    tb.HasComment("Detalle de Compras");
-                    tb.HasTrigger("tg_MD_ComprasDetalle_IUD");
-                    tb.HasTrigger("tg_MD_REPL_ComprasDetalle_IUDV9");
-                    tb.HasTrigger("trg_ComprasDetalleIOI");
-                });
-
-            entity.HasIndex(e => e.Rowguid, "MSmerge_index_2011531341")
-                .IsUnique()
-                .HasFillFactor(90);
-
-            entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
-            entity.Property(e => e.ComSecuencia).HasComment("Secuencia");
-            entity.Property(e => e.ComPosicion).HasComment("Posición");
-            entity.Property(e => e.ComAdValorem).HasComment("Impuesto AdValorem");
-            entity.Property(e => e.ComCantidad).HasComment("Cantidad");
-            entity.Property(e => e.ComCantidadDetalle).HasComment("Cantidad detalle");
-            entity.Property(e => e.ComDescuento).HasComment("Descuento");
-            entity.Property(e => e.ComFechaActualizacion)
-                .HasDefaultValueSql("(getdate())")
-                .HasComment("Fecha Creacion/Actualizacion ");
-            entity.Property(e => e.ComItbis).HasComment("Itbis");
-            entity.Property(e => e.ComPrecio).HasComment("Precio");
-            entity.Property(e => e.ComSelectivo).HasComment("Selectivo");
-            entity.Property(e => e.ComTotalDescuento).HasComment("Total descuento");
-            entity.Property(e => e.ComTotalItbis).HasComment("Total Itbis");
-            entity.Property(e => e.ComindicadorOferta)
-                .HasDefaultValueSql("((0))")
-                .HasComment("Indicador oferta");
-            entity.Property(e => e.CxcDocumento).HasComment("Número de documento cuentas por cobrar");
-            entity.Property(e => e.ProId).HasComment("ID Producto");
-            entity.Property(e => e.Rowguid)
-                .HasDefaultValueSql("(newid())")
-                .HasComment("Identificador Unico");
-            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
-        });
-
-        modelBuilder.Entity<ComprasProducto>(entity =>
-        {
-            entity.ToTable(tb => tb.HasTrigger("tg_MD_REPL_ComprasProductos_IUDV7"));
-        });
-
         modelBuilder.Entity<ComprasProductosDetalle>(entity =>
         {
-            entity.ToTable("ComprasProductosDetalle", tb => tb.HasTrigger("tg_MD_REPL_ComprasProductosDetalle_IUDV7"));
-
             entity.Property(e => e.ComReferencia).HasDefaultValueSql("((1))");
 
             entity.HasOne(d => d.ComprasProducto).WithMany(p => p.ComprasProductosDetalles)
@@ -193,13 +100,7 @@ public partial class MovilBusiness5StdContext : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.ToTable(tb =>
-                {
-                    tb.HasComment("Maestro de Productos");
-                    tb.HasTrigger("tg_MD_Productos_IUD");
-                    tb.HasTrigger("tg_MD_REPL_Productos_IUDV9");
-                    tb.HasTrigger("trg_ProductosIOI");
-                });
+            entity.ToTable(tb => tb.HasComment("Maestro de Productos"));
 
             entity.Property(e => e.ProId)
                 .ValueGeneratedNever()
@@ -251,8 +152,6 @@ public partial class MovilBusiness5StdContext : DbContext
 
         modelBuilder.Entity<Proveedore>(entity =>
         {
-            entity.ToTable(tb => tb.HasTrigger("tg_MD_REPL_Proveedores_IUDV7"));
-
             entity.Property(e => e.ProCalle).HasDefaultValueSql("('')");
             entity.Property(e => e.ProCasa).HasDefaultValueSql("('')");
             entity.Property(e => e.ProContacto).HasDefaultValueSql("('')");
@@ -283,18 +182,7 @@ public partial class MovilBusiness5StdContext : DbContext
         {
             entity.HasKey(e => e.RepCodigo).HasName("PK_Usuarios");
 
-            entity.ToTable(tb =>
-                {
-                    tb.HasComment("Maestra de Representantes ");
-                    tb.HasTrigger("tg_MD_REPL_Representantes_IUDV9");
-                    tb.HasTrigger("tg_MD_Representantes_IUD");
-                    tb.HasTrigger("trg_RepresentantesIOI");
-                    tb.HasTrigger("trg_RepresentantesRutaAsignar");
-                });
-
-            entity.HasIndex(e => e.Rowguid, "index_1428200138")
-                .IsUnique()
-                .HasFillFactor(90);
+            entity.ToTable(tb => tb.HasComment("Maestra de Representantes "));
 
             entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
             entity.Property(e => e.AlmId).HasComment("ID de almacén");
@@ -340,16 +228,27 @@ public partial class MovilBusiness5StdContext : DbContext
             entity.Property(e => e.ZonId).HasComment("ID zona");
         });
 
+        modelBuilder.Entity<UsosMultiple>(entity =>
+        {
+            entity.ToTable(tb => tb.HasComment("Maestra de Usos Multiples"));
+
+            entity.Property(e => e.CodigoGrupo).HasComment("Código grupo");
+            entity.Property(e => e.CodigoUso).HasComment("Código uso");
+            entity.Property(e => e.Descripcion).HasComment("Descripción");
+            entity.Property(e => e.Rowguid)
+                .HasDefaultValueSql("(newid())")
+                .HasComment("Identificador Unico");
+            entity.Property(e => e.UsoFechaActualizacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasComment("Fecha Creacion/Actualizacion ");
+            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
+        });
+
         modelBuilder.Entity<UsuarioSistema>(entity =>
         {
             entity.HasKey(e => e.UsuInicioSesion).HasName("PK16");
 
-            entity.ToTable("UsuarioSistema", tb =>
-                {
-                    tb.HasComment("Maestra de Usuario del Sistema");
-                    tb.HasTrigger("tg_MD_UsuarioSistema_IUD");
-                    tb.HasTrigger("tg_usuarios_claves");
-                });
+            entity.ToTable("UsuarioSistema", tb => tb.HasComment("Maestra de Usuario del Sistema"));
 
             entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
             entity.Property(e => e.CliId).HasComment("ID Cliente");

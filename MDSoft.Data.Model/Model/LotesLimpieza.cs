@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 [Table("LotesLimpieza")]
 public partial class LotesLimpieza

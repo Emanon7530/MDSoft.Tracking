@@ -47,16 +47,16 @@
        ContentTemplate="{DataTemplate pages:RecepcionListPage}"
        Route="RecepcionListPage" />-->
 
-    <ShellContent
+    <!--<ShellContent
      Icon="trash.svg"
     Title="Lotes Limpieza"
     ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />
+    Route="CategoriasPage" />-->
 
     <ShellContent
      Icon="tuning.svg"
     Title="Settings"
-    ContentTemplate="{DataTemplate pages:CompraProductoDetallePage}"
+    ContentTemplate="{DataTemplate pages:SettingDataPage}"
     Route="CompraProductoDetalleMV" />
 
     <!--<ShellContent

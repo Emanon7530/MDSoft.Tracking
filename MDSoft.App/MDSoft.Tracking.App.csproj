@@ -151,8 +151,11 @@
 	  <Compile Update="Pages\ForgotPasswordPage.xaml.cs">
 	    <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\CompraProductoDetallePage.xaml.cs">
-	    <DependentUpon>CompraProductoDetallePage.xaml</DependentUpon>
+	  <Compile Update="Pages\PesoLinealPage.xaml.cs">
+	    <DependentUpon>PesoLinealPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SettingDataPage.xaml.cs">
+	    <DependentUpon>SettingDataPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\RecepcionListPage.xaml.cs">
 	    <DependentUpon>RecepcionListPage.xaml</DependentUpon>
@@ -166,10 +169,10 @@
 	  <MauiXaml Update="Controls\CardViewInfo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\CategoriasPage.xaml">
+	  <MauiXaml Update="Pages\PesoLinealPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\CompraProductoDetallePage.xaml">
+	  <MauiXaml Update="Pages\SettingDataPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RecepcionListPage.xaml">

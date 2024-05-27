@@ -21,7 +21,7 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    <CollectionView ItemsSource="{Binding Options}" SelectionMode="Single" SelectedItem="{Binding SelectedOptions}" SelectionChangedCommand="{Binding SelectionChangedCommand}" Margin="5,20" x:Name="CollViewOptions">
+    <CollectionView ItemsSource="{Binding Options}" SelectionMode="Single" SelectedItem="{Binding SelectedOptions, Mode=TwoWay}" SelectionChangedCommand="{Binding SelectionChangedCommand}" Margin="5,20" x:Name="CollViewOptions">
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" HorizontalItemSpacing="10" />

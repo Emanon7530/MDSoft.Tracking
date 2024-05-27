@@ -14,8 +14,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ActivityIndicator Grid.Row="0" Grid.RowSpan="4" IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
-
         <ScrollView Grid.Row="1" >
             <Grid Margin="10">
                 <Grid.RowDefinitions>
@@ -77,6 +75,8 @@
                             Command="{Binding VolverInventarioCommand}"></Button>
 
                 </StackLayout>
+
+                <ActivityIndicator Grid.Row="0" Grid.RowSpan="4" IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
 
 
             </Grid>

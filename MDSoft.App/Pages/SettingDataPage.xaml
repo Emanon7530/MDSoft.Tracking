@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:Tracking.Utilidades"
+             xmlns:vm="clr-namespace:Tracking.ViewModels"
+             x:Class="Tracking.Pages.SettingDataPage"
+             xmlns:dto="clr-namespace:MDSoft.Tracking.Services.DTO;assembly=MDSoft.Tracking.Services"
+             Title="Settings"
+             BackgroundColor="#EDEDF5">
+
+    <VerticalStackLayout Margin="10">
+        <VerticalStackLayout>
+            <Entry Text="{Binding MdsoftKey}" Placeholder="Digite su product Key registration"></Entry>
+            <Entry Text="{Binding UrlApi}" Placeholder="Digite el url del API Midelware"></Entry>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,20">
+            <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
+            <Button Text="Cancelar" Command="{Binding CancelarCommand}"></Button>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

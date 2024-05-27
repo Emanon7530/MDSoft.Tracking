@@ -680,9 +680,9 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-io
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Data.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Model.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Services.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Model.pdb
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Data.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Services.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Data.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-ios\ios-arm64\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-ios\ios-arm64\mauiimage.inputs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-ios\ios-arm64\mauifont.inputs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-ios\ios-arm64\mauisplash.inputs

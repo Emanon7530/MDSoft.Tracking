@@ -329,7 +329,6 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MD
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.AssemblyInfoInputs.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.AssemblyInfo.cs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.csproj.CoreCompileInputs.cache
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.sourcelink.json
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\staticwebassets.build.json

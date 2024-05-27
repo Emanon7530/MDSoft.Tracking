@@ -63,17 +63,17 @@ namespace Tracking.ViewModels
 
         private async Task ObtenerResumen()
         {
-            decimal totalingresos = 0;
-            var lstVentas = await _context.Ventas.ToListAsync();
-            foreach (var item in lstVentas)
-            {
-                totalingresos += item.Total;
-            }
+            //decimal totalingresos = 0;
+            //var lstVentas = await _context.Ventas.ToListAsync();
+            //foreach (var item in lstVentas)
+            //{
+            //    totalingresos += item.Total;
+            //}
 
-            TotalIngresos = totalingresos;
-            TotalVentas = _context.Ventas.Count();
-            TotalProductos = _context.Productos.Count();
-            TotalCategorias = _context.Categorias.Count();
+            //TotalIngresos = totalingresos;
+            //TotalVentas = _context.Ventas.Count();
+            //TotalProductos = _context.Productos.Count();
+            //TotalCategorias = _context.Categorias.Count();
         }
         [RelayCommand]
         public async Task SelectionChanged()
@@ -105,7 +105,8 @@ namespace Tracking.ViewModels
             {
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    LoadingEsVisible = false;
+                    SelectedOptions = null;
+                   LoadingEsVisible = false;
                 });
             });
 
@@ -135,7 +136,7 @@ namespace Tracking.ViewModels
 
             await Task.Run(async () =>
             {
-                await Shell.Current.Navigation.PushAsync(new CategoriasPage(new CategoriasVM(new DataAccess.VentaDbContext())));
+                //await Shell.Current.Navigation.PushAsync(new CategoriasPage(new CategoriasVM(new DataAccess.VentaDbContext())));
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {

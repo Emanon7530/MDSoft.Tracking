@@ -4,7 +4,6 @@
              xmlns:util="clr-namespace:Tracking.Utilidades"
              xmlns:vm="clr-namespace:Tracking.ViewModels"
              x:Class="Tracking.Pages.RecepcionListPage"
-             xmlns:model="clr-namespace:Tracking.DTOs"
              xmlns:dto="clr-namespace:MDSoft.Tracking.Services.DTO;assembly=MDSoft.Tracking.Services"
              Title="Recepcion de Compras"
              BackgroundColor="#EDEDF5">
@@ -70,9 +69,8 @@
 
         </Grid>
         <!--ROW 2-->
-        <!--<ScrollView >-->
-        <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
-            VerticalOptions="FillAndExpand" IsVisible="true" >
+            <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
+            VerticalOptions="FillAndExpand" IsVisible="true"  Margin="5,0,5,0" SelectionMode="Single" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
@@ -92,7 +90,7 @@
                             <Grid Margin="0" ColumnDefinitions="Auto,1*,Auto,*,*,Auto" HorizontalOptions="FillAndExpand" RowSpacing="4"
                                                     Padding="5" RowDefinitions="*,*,*" ColumnSpacing="5">
 
-                                <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="7" Grid.RowSpan="4"></BoxView>
+                                <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="7" Margin="0"  Grid.RowSpan="4"></BoxView>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding ComReferencia}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
                                 <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
                                 <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
@@ -106,8 +104,9 @@
                                 <Frame CornerRadius="10" Grid.Row="2" Grid.Column="4" Padding="0" Margin="0" BackgroundColor="{StaticResource Primary}">
                                     <Label Text="{Binding ComEstatusNombre}"    
                                                        Grid.Row="2" Grid.Column="4"
-                                                       FontSize="Small" TextColor="White" 
+                                                       FontSize="Micro" TextColor="White" 
                                                        HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="Center"
                                                        FontAttributes="Bold" />
                                 </Frame>
 
@@ -118,11 +117,6 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
-        <!--</ScrollView>-->
 
     </VerticalStackLayout>
-    <!--</RefreshView>-->
-
-    <!--</Border>-->
-    <!--</StackLayout>-->
 </ContentPage>

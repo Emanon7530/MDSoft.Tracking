@@ -4,7 +4,6 @@ using Tracking.Pages;
 using Tracking.Utilidades;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
-using Tracking.DTOs;
 using Tracking.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -49,9 +48,6 @@ namespace Tracking.ViewModels
                     BtnLimpiarEsVisible = false;
             }
         }
-
-        [ObservableProperty]
-        private CategoriaDTO categoriaSeleccionada;
 
         [ObservableProperty]
         private string buscarRecepcion = string.Empty;

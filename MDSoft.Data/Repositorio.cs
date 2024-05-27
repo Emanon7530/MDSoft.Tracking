@@ -1,6 +1,7 @@
 ﻿using MDSoft.Data.Common;
 using MDSoft.Data.Interface;
 using MDSoft.Tracking;
+using MDSoft.Tracking.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;

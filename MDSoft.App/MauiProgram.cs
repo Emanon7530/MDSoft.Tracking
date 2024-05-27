@@ -6,6 +6,7 @@ using CommunityToolkit.Maui;
 using MDSoft.Tracking.Services.AutoMapper;
 using MDSoft.Tracking;
 using Microsoft.EntityFrameworkCore;
+using MDSoft.Tracking.Model;
 
 namespace Tracking
 {
@@ -28,11 +29,7 @@ namespace Tracking
             builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
             builder.Services.AddDbContext<VentaDbContext>();
-            builder.Services.AddDbContext<VentaDbContext>();
-
             builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Trust Server Certificate=True;Initial Catalog=MovilBusiness5STD;uid=sa;pwd=manonram"));
-            builder.Services.AddTransient<CategoriasPage>();
-            builder.Services.AddTransient<CategoriasVM>();
 
             builder.Services.AddTransient<ProductoPage>();
             builder.Services.AddTransient<ProductoVM>();
@@ -46,10 +43,13 @@ namespace Tracking
             builder.Services.AddTransient<RecepcionListPage>();
             builder.Services.AddTransient<RecepcionlistMV>();
 
-            builder.Services.AddTransient<CompraProductoDetallePage>();
-            builder.Services.AddTransient<CompraProductoDetalleMV>();
+            builder.Services.AddTransient<PesoLinealPage>();
+            builder.Services.AddTransient<PesoLinealVM>();
 
-            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<SettingDataPage>();
+            builder.Services.AddTransient<SettingDataMV>();
+
+            //builder.Services.AddSingleton<MainPage>();
 
             var dbContext = new VentaDbContext();
             var result = dbContext.Database.EnsureCreated();
@@ -62,8 +62,9 @@ namespace Tracking
             Routing.RegisterRoute(nameof(ProductoPage), typeof(ProductoPage));
             Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
             Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
-            //Routing.RegisterRoute(nameof(BuscarProductoPage), typeof(BuscarProductoPage));
-            Routing.RegisterRoute(nameof(CompraProductoDetallePage), typeof(CompraProductoDetallePage));
+            Routing.RegisterRoute(nameof(PesoLinealPage), typeof(PesoLinealPage));
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(SettingDataPage), typeof(SettingDataPage));
 
             return builder.Build();
         }

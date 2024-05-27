@@ -1,5 +1,4 @@
-﻿using Tracking.DTOs;
-using Tracking.Modelos;
+﻿using Tracking.Modelos;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;

@@ -547,3 +547,4 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-ios\
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-ios\iossimulator-x64\TrackApp.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-ios\iossimulator-x64\TrackApp.genruntimeconfig.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-ios\iossimulator-x64\ref\TrackApp.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\TrackApp\obj\Debug\net7.0-ios\iossimulator-x64\build-signature\signature

@@ -137,13 +137,13 @@
             "Microsoft.NET.ILLink.Analyzers": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "TouchEffect.Maui": {
@@ -280,7 +280,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         },
         "net7.0-ios16.1": {
           "targetAlias": "net7.0-ios",
@@ -336,13 +336,13 @@
             "Microsoft.NET.ILLink.Analyzers": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "TouchEffect.Maui": {
@@ -364,11 +364,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.iOS.Ref",
-              "version": "[16.4.7129, 16.4.7129]"
+              "version": "[16.4.7142, 16.4.7142]"
             },
             {
               "name": "Microsoft.iOS.Runtime.ios-arm64",
-              "version": "[16.4.7129, 16.4.7129]"
+              "version": "[16.4.7142, 16.4.7142]"
             },
             {
               "name": "Microsoft.Maui.Controls.Ref.ios",
@@ -412,7 +412,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         },
         "net7.0-maccatalyst16.1": {
           "targetAlias": "net7.0-maccatalyst",
@@ -468,13 +468,13 @@
             "Microsoft.NET.ILLink.Analyzers": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "TouchEffect.Maui": {
@@ -497,11 +497,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.MacCatalyst.Ref",
-              "version": "[16.4.7129, 16.4.7129]"
+              "version": "[16.4.7142, 16.4.7142]"
             },
             {
               "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64",
-              "version": "[16.4.7129, 16.4.7129]"
+              "version": "[16.4.7142, 16.4.7142]"
             },
             {
               "name": "Microsoft.Maui.Controls.Ref.maccatalyst",
@@ -545,7 +545,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         },
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
@@ -683,7 +683,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -797,7 +797,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -880,7 +880,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -970,7 +970,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

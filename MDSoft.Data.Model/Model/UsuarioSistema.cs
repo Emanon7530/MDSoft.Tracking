@@ -4,13 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 /// <summary>
 /// Maestra de Usuario del Sistema
 /// </summary>
 [Table("UsuarioSistema")]
-[Index("Rowguid", Name = "IDXUsuarioSistemarowguid", IsUnique = true)]
 public partial class UsuarioSistema
 {
     /// <summary>

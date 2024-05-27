@@ -4,15 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 public partial class RecepcionesCompra
 {
-    public RecepcionesCompra()
-    {
-        RecepcionesComprasDetalles = new List<RecepcionesComprasDetalle>();
-    }
-
     [Key]
     public int RecSecuencia { get; set; }
 
@@ -32,7 +27,7 @@ public partial class RecepcionesCompra
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? Comreferencia { get; set; }
+    public string? ComReferencia { get; set; }
 
     [StringLength(5)]
     [Unicode(false)]

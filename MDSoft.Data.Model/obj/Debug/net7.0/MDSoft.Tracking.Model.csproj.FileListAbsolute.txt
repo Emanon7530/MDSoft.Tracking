@@ -40,16 +40,16 @@ D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\refin
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.pdb
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.genruntimeconfig.cache
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\ref\MDSoft.Tracking.Model.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.deps.json
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.runtimeconfig.json
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.csproj.AssemblyReference.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.GeneratedMSBuildEditorConfig.editorconfig
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.AssemblyInfoInputs.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.AssemblyInfo.cs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.csproj.CoreCompileInputs.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.sourcelink.json
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.deps.json
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.runtimeconfig.json
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\bin\Debug\net7.0\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\refint\MDSoft.Tracking.Model.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.Data.Model\obj\Debug\net7.0\MDSoft.Tracking.Model.pdb

@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 /// <summary>
 /// Maestra de Representantes 
 /// </summary>
-[Index("Rowguid", Name = "IDXRepresentantesrowguid", IsUnique = true)]
 [Index("RepLicencia", Name = "IX_Representantes", IsUnique = true)]
-[Index("RepSupervisor", Name = "IX_Representantes_1")]
 public partial class Representante
 {
     /// <summary>

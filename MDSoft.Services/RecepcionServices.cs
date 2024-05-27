@@ -59,7 +59,7 @@ namespace MDSoft.Tracking.Services
 
                 if (Filter.ComReferencia != null)
                 {
-                    _param.Where = x => x.Comreferencia.Contains(Filter.ComReferencia);
+                    _param.Where = x => x.ComReferencia.Contains(Filter.ComReferencia);
                 }
 
                 //if (Filter.IdRepresentante != null)

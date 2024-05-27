@@ -4,12 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 /// <summary>
 /// Maestro de Productos
 /// </summary>
-[Index("Rowguid", Name = "IDXProductosrowguid", IsUnique = true)]
 public partial class Producto
 {
     /// <summary>

@@ -3,7 +3,6 @@ using Tracking.Utilidades;
 using CommunityToolkit.Mvvm.Input;
 using Tracking.Pages;
 using CommunityToolkit.Mvvm.Messaging;
-using Tracking.DTOs;
 using System.Collections.ObjectModel;
 using Tracking.DataAccess;
 using System.Drawing;
@@ -42,7 +41,7 @@ namespace Tracking.ViewModels
         {
             if (e.PropertyName == nameof(Totalpesorecibido))
             {
-                if (Totalpesorecibido - TotalpesoCompra > 0)
+                if ((Totalpesorecibido - TotalpesoCompra) > 0)
                 {
                     Diferencia = Totalpesorecibido - TotalpesoCompra;
                     CambioColor = System.Drawing.Color.Red;
@@ -50,7 +49,7 @@ namespace Tracking.ViewModels
                 else
                 {
                     Diferencia = TotalpesoCompra - Totalpesorecibido;
-                    CambioColor = System.Drawing.Color.Black;
+                    CambioColor = System.Drawing.Color.Blue;
                 }
             }
         }
@@ -150,6 +149,25 @@ namespace Tracking.ViewModels
         }
 
         [RelayCommand]
+        private async Task PesoLineal()
+        {
+
+            LoadingEsVisible = true;
+            await Shell.Current.Navigation.PushModalAsync(new PesoLinealPage(new PesoLinealVM(new ComprasProductoDTO()), 0));
+            await Task.Run(async () =>
+            {
+                //await GetRecepciones();
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    BuscarRecepcion = "";
+                    LoadingEsVisible = false;
+                    MostarTotal();
+                });
+            });
+
+        }
+
+        [RelayCommand]
         private async Task Limpiar()
         {
             LoadingEsVisible = true;
@@ -196,6 +214,7 @@ namespace Tracking.ViewModels
 
             try
             {
+                LoadingEsVisible = true;
                 RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO()
                 {
                     RecFechaActualizacion = DateTime.Now,
@@ -218,10 +237,12 @@ namespace Tracking.ViewModels
 
                 //MostarTotal();
             }
-            catch
+            catch (Exception e)
             {
-                await Shell.Current.DisplayAlert("Error!", "No se pudo registrar la recepcion", "Aceptar");
+                await Shell.Current.DisplayAlert("Error!", $"No se pudo registrar la recepcion \\n {e.Message} ", "Aceptar");
             }
+
+            LoadingEsVisible = false;
         }
 
         [RelayCommand]

@@ -3407,6 +3407,20 @@ D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\resi
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\splash.png
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\splash.png
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\splash.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.runtimeconfig.json
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking.apk
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking.aab
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.aab
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.apk
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.apk.idsig
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Data.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Model.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Services.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Services.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Data.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\build.props
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\adb.props
@@ -3642,20 +3656,6 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-an
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\MDSoft.Tracking.App.AssemblyInfo.cs
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\MDSoft.Tracking.App.csproj.CoreCompileInputs.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\MDSoft.Tracking.App.sourcelink.json
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.runtimeconfig.json
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.App.pdb
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking.apk
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking.aab
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.aab
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.apk
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\com.companyname.Tracking-Signed.apk.idsig
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Data.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Model.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Services.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Model.pdb
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Data.pdb
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-android\MDSoft.Tracking.Services.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\XamlC.stamp
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\MDSoft.T.2091F16B.Up2Date
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\MDSoft.Tracking.App.dll
@@ -3667,6 +3667,7 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-an
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\android\bin\com.companyname.Tracking.aab
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\android\bin\com.companyname.Tracking.apks
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\res\values\colors.xml
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\res\values\styles.xml
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\res\xml\network_security_config.xml
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\uploadflags.txt
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\resolvedassemblies.hash
@@ -4592,4 +4593,3 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-an
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-android\res\values\styles.xml

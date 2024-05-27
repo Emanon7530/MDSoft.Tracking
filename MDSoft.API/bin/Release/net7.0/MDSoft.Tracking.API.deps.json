@@ -12,6 +12,7 @@
           "MDSoft.Tracking.Services": "1.0.0",
           "MailKit": "4.5.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.17",
+          "Microsoft.EntityFrameworkCore": "7.0.18",
           "Microsoft.EntityFrameworkCore.Design": "7.0.18",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Swashbuckle.AspNetCore.Swagger": "6.5.0",

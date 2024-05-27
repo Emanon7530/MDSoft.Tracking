@@ -1,5 +1,4 @@
 ﻿using Tracking.DataAccess;
-using Tracking.DTOs;
 using Tracking.Modelos;
 using Tracking.Pages;
 using Tracking.Utilidades;
@@ -50,7 +49,7 @@ namespace Tracking.ViewModels
         private string comReferencia = string.Empty;
 
         [ObservableProperty]
-        private string lotReferencia = string.Empty;
+        private string lotReferencia ;
 
         [ObservableProperty]
         private int comSecuencia;
@@ -99,7 +98,7 @@ namespace Tracking.ViewModels
                 LoadingEsVisible = true;
                 await Task.Run(async () =>
                 {
-                    if (Destino == "Fermentacion") // Fermentacion
+                    if (Destino == "Fermentación") // Fermentacion
                     {
                         var lote = new LotesFermentacionDTO()
                         {

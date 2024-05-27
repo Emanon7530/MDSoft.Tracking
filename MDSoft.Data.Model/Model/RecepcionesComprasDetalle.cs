@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace MDSoft.Tracking;
+namespace MDSoft.Tracking.Model;
 
 [PrimaryKey("RecSecuencia", "RecPosicion")]
 [Table("RecepcionesComprasDetalle")]
@@ -16,8 +16,6 @@ public partial class RecepcionesComprasDetalle
     [Key]
     public int RecPosicion { get; set; }
 
-    public int RecDestino { get; set; }
-
     [StringLength(15)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
@@ -28,8 +26,7 @@ public partial class RecepcionesComprasDetalle
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? RecPeso { get; set; }
 
-    //[StringLength(5)]
-    //public string? ComEstado { get; set; }
+    public int? RecDestino { get; set; }
 
     [ForeignKey("RecSecuencia")]
     [InverseProperty("RecepcionesComprasDetalles")]

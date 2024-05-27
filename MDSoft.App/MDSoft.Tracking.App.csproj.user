@@ -27,10 +27,10 @@
     <MauiXaml Update="MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\CategoriasPage.xaml">
+    <MauiXaml Update="Pages\PesoLinealPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\CompraProductoDetallePage.xaml">
+    <MauiXaml Update="Pages\SettingDataPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\RecepcionListPage.xaml">

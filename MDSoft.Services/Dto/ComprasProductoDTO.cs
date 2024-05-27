@@ -20,7 +20,7 @@ public partial class ComprasProductoDTO
     public DateTime? ComFecha { get; set; }
 
     public short? ComEstatus { get; set; }
-    public string ComEstatusNombre { get => ComEstatus == 2 ? "Pend." : "Recib"; }
+    public string ComEstatusNombre { get => ComEstatus == 2 ? "Pendiente" : "Recibido"; }
 
 
 

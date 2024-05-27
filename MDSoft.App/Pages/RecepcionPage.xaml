@@ -9,32 +9,34 @@
              Title="Recepcion de Sacos">
 
 
-    <Grid Margin="5" >
-        <Border >
+    <Grid Margin="5" RowDefinitions="Auto,*" >
+        <Grid ColumnDefinitions="*,*,*" VerticalOptions="Center" Grid.Row="0" Margin="5,5,5,20">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="No. Compra" Grid.Column="0"></Label>
+                <Label Text="{Binding RepCodigo}" Grid.Column="0" FontSize="Medium"    TextColor="Black" FontAttributes="Bold" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Secuencia" Grid.Column="1"></Label>
+                <Label Text="{Binding ComSecuencia}" Grid.Column="1" FontSize="Medium"    TextColor="Black" FontAttributes="Bold" />
+            </VerticalStackLayout>
+            <Button Text="Peso lineal" Grid.Column="2" Command="{Binding PesoLinealCommand}"></Button>
+        </Grid>
+
+        <Border Grid.Row="1">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="5"/>
             </Border.StrokeShape>
             <Grid Margin="10" RowSpacing="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
+                    <!--<RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>-->
                 </Grid.RowDefinitions>
 
-                <Grid ColumnDefinitions="*,*" VerticalOptions="Center" Grid.Row="0">
-                    <VerticalStackLayout Grid.Column="0">
-                        <Label Text="No. Compra" Grid.Column="0"></Label>
-                        <Label Text="{Binding RepCodigo}" Grid.Column="0" FontSize="Medium"    TextColor="Black" FontAttributes="Bold" />
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Column="1">
-                        <Label Text="Secuencia" Grid.Column="1"></Label>
-                        <Label Text="{Binding ComSecuencia}" Grid.Column="1" FontSize="Medium"    TextColor="Black" FontAttributes="Bold" />
-                    </VerticalStackLayout>
-                </Grid>
 
-                <StackLayout Grid.Row="1" Orientation="Horizontal" HeightRequest="40" Spacing="5">
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" Spacing="5">
                     <Grid ColumnDefinitions="1*" RowDefinitions="1*" HorizontalOptions="FillAndExpand">
                         <Entry HorizontalOptions="FillAndExpand" Placeholder="Escane o Digite el codigo de la compra" PlaceholderColor="DarkSlateGray"  Text="{Binding BuscarRecepcion}" />
                         <ImageButton Source="close.svg" HeightRequest="32" WidthRequest="28" HorizontalOptions="End" 
@@ -47,10 +49,8 @@
                      Command="{Binding BuscarCommand}"></Button>
                 </StackLayout>
 
-                <!--<BoxView Grid.Row="1" HeightRequest="10" Color="LightGray"/>-->
-
                 <!--Details-->
-                <ScrollView Grid.Row="2" >
+                <ScrollView Grid.Row="1" >
                     <CollectionView SelectionMode="None"  ItemsSource="{Binding DetalleRecepcion}" >
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
@@ -87,16 +87,16 @@
 
                                                 <VerticalStackLayout Grid.Column="0" Grid.RowSpan="2" Padding="5" HorizontalOptions="CenterAndExpand">
                                                     <!--ROW 0, COLUMN 0 / ROW 1, COLUMN 0-->
-                                                    <Label Text="{Binding ComReferencia}" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
+                                                    <Label Text="{Binding ComReferencia}" FontSize="Small" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
                                                     <!--ROW 0, COLUMN 1 / ROW 0, COLUMN 1-->
-                                                    <Label Text="{Binding  RecFechaCreacion, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
+                                                    <Label Text="{Binding  RecFechaCreacion, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
                                                     <Label Text="No. Compra" FontSize="Small"    TextColor="Black"/>
                                                 </VerticalStackLayout>
 
-                                                <Line Y1="105" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
+                                                <Line Y1="75" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
 
                                                 <!--ROW 1 , COLUMN 0-->
-                                                <Label Text="{Binding NombreComReferencia}" Grid.Row="0" Grid.Column="2" FontSize="Medium"   
+                                                <Label Text="{Binding NombreComReferencia}" Grid.Row="0" Grid.Column="2"   
                                                    TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
                                                 <!--ROW 4 , COLUMN 0-->
@@ -133,7 +133,7 @@
                 </ScrollView>
 
                 <!--Footer and totals-->
-                <StackLayout Grid.Row="4" BackgroundColor="{StaticResource bgLightGray}" Padding="10">
+                <StackLayout Grid.Row="2" BackgroundColor="{StaticResource bgLightGray}" Padding="10">
                     <Grid ColumnSpacing="12" RowSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -146,13 +146,13 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Text="Peso Total Comprado:"  VerticalOptions="End" />
-                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding TotalpesoCompra, StringFormat='{0:C}'}" VerticalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding TotalpesoCompra, StringFormat='{0:C}'}" FontAttributes="Bold" VerticalOptions="Center" />
 
                         <Label Grid.Row="0" Grid.Column="1" Text="Peso Total Recibido:" VerticalOptions="End"/>
-                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding Totalpesorecibido}" />
+                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding Totalpesorecibido}" FontAttributes="Bold" />
 
                         <Label Grid.Row="0" Grid.Column="2" Text="Diferencia:" VerticalOptions="End"/>
-                        <Label Grid.Row="1" Grid.Column="2" IsEnabled="False" HorizontalOptions="FillAndExpand" Text="{Binding Diferencia}" TextColor="{Binding CambioColor}"/>
+                        <Label Grid.Row="1" Grid.Column="2" IsEnabled="False" HorizontalOptions="FillAndExpand" Text="{Binding Diferencia}" TextColor="{Binding CambioColor}" FontAttributes="Bold"/>
 
                         <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Finalizar" HeightRequest="35" WidthRequest="100" 
                                 Padding="0" Margin="0,5,0,0"
