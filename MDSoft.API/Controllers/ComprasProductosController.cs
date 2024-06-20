@@ -1,13 +1,8 @@
 using AutoMapper;
 using MDSoft.Tracking.Services;
-using MDSoft.Tracking.Services.Common;
-using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
-using MDSoft.Tracking.Services.Interface;
 using MDSoft.Tracking.Services.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
-using System.Linq.Expressions;
 
 namespace MDSoft.API.Controllers
 {
@@ -65,7 +60,7 @@ namespace MDSoft.API.Controllers
 
         [HttpGet()]
         [Route("sp_GetComprasPendientes")]
-        public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
+        public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasPendientes()
         {
             try
             {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "V4KjDKY5YZc=",
+  "dgSpecHash": "DSY2Yf3h3YI=",
   "success": true,
   "projectFilePath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.App\\MDSoft.Tracking.App.csproj",
   "expectedPackageFiles": [
@@ -266,12 +266,12 @@
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.essentials.ref.win\\7.0.101\\microsoft.maui.essentials.ref.win.7.0.101.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.core.runtime.win\\7.0.101\\microsoft.maui.core.runtime.win.7.0.101.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.31\\microsoft.windows.sdk.net.ref.10.0.19041.31.nupkg.sha512",
-    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.19\\microsoft.aspnetcore.app.runtime.win-x64.7.0.19.nupkg.sha512",
+    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.20\\microsoft.aspnetcore.app.runtime.win-x64.7.0.20.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.controls.ref.win\\7.0.101\\microsoft.maui.controls.ref.win.7.0.101.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.core.ref.win\\7.0.101\\microsoft.maui.core.ref.win.7.0.101.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.essentials.runtime.win\\7.0.101\\microsoft.maui.essentials.runtime.win.7.0.101.nupkg.sha512",
-    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.19\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.19.nupkg.sha512",
-    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.19\\microsoft.netcore.app.runtime.win-x64.7.0.19.nupkg.sha512",
+    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.20\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.20.nupkg.sha512",
+    "C:\\Users\\emanon\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.20\\microsoft.netcore.app.runtime.win-x64.7.0.20.nupkg.sha512",
     "C:\\Users\\emanon\\.nuget\\packages\\microsoft.maui.controls.runtime.win\\7.0.101\\microsoft.maui.controls.runtime.win.7.0.101.nupkg.sha512"
   ],
   "logs": []

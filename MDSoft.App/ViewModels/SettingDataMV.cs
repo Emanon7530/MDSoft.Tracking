@@ -20,8 +20,8 @@ using Tracking.Services;
 namespace Tracking.ViewModels;
 public partial class SettingDataMV : ObservableObject
 {
-    private readonly VentaDbContext _context;
-    public SettingDataMV(VentaDbContext context)
+    private readonly TrackingDbContext _context;
+    public SettingDataMV(TrackingDbContext context)
     {
         //WeakReferenceMessenger.Default.Register<RecepcionCompraMessage>(this, (r, m) =>
         //{
@@ -50,29 +50,25 @@ public partial class SettingDataMV : ObservableObject
     {
         LoadingEsVisible = true;
 
-        await Task.Run(async () =>
+        currentSetting = await _context.SettingData.FirstOrDefaultAsync();
+
+        if (currentSetting != null)
         {
-            currentSetting = await _context.SettingData.FirstAsync();
+            MdsoftKey = currentSetting.mdsoftKey;
+            UrlApi = currentSetting.urlApi;
 
-            //if (currentSetting != null)
-            //{
-            //    MdsoftKey = currentSetting.mdsoftKey;
-            //    UrlApi = currentSetting.urlApi;
+            _context.Entry(currentSetting).State = EntityState.Modified;
+        }
+        else
+        {
+            currentSetting = new SettingsData();
+            await _context.SettingData.AddAsync(currentSetting);
+        }
 
-            //    _context.Entry(currentSetting).State = EntityState.Modified;
-            //}
-            //else
-            //{
-            //currentSetting = new SettingsData();
-            //await _context.SettingData.AddAsync(currentSetting);
-            //}
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                LoadingEsVisible = false;
-            });
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            LoadingEsVisible = false;
         });
-
     }
 
     private void RecepcionMensajeRecibido(RecepcionCompraResult result)
@@ -84,19 +80,21 @@ public partial class SettingDataMV : ObservableObject
     private async Task Guardar()
     {
         bool answer = await Shell.Current.DisplayAlert("Settings", "Desea Guardar su nueva configuración?", "Si, continuar", "No, volver");
+
         if (answer)
         {
             LoadingEsVisible = true;
-            await Task.Run(async () =>
+
+            currentSetting.mdsoftKey = MdsoftKey;
+            currentSetting.urlApi = UrlApi;
+
+            await _context.SaveChangesAsync();
+
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                await _context.SaveChangesAsync();
-
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                });
+                LoadingEsVisible = false;
+                Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             });
-
         }
     }
 
@@ -104,16 +102,12 @@ public partial class SettingDataMV : ObservableObject
     private async Task Cancelar()
     {
         LoadingEsVisible = true;
-        await Task.Run(async () =>
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+
+        MainThread.BeginInvokeOnMainThread(() =>
         {
-            await Shell.Current.Navigation.PopModalAsync();
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                LoadingEsVisible = false;
-            });
+            LoadingEsVisible = false;
         });
-
     }
 }
 

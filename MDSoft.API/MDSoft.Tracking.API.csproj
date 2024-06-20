@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MDSoft.Data.Model\MDSoft.Tracking.Model.csproj" />
     <ProjectReference Include="..\MDSoft.Services\MDSoft.Tracking.Services.csproj" />
   </ItemGroup>
 

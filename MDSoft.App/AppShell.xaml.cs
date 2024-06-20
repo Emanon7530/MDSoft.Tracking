@@ -18,5 +18,9 @@ namespace Tracking
                 Application.Current.MainPage = new LoginPage();
             }
         }
+
+        public async void CallSettings() { 
+
+        }
     }
 }

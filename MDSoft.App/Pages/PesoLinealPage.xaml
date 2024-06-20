@@ -56,7 +56,7 @@
                 <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
                     <Label Text="Numero Lote :" VerticalOptions="Center"/>
                     <StackLayout Orientation="Horizontal" HeightRequest="40" Spacing="5">
-                        <Entry Text="{Binding LotReferencia}" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding LotReferencia}" HorizontalOptions="FillAndExpand" ClearButtonVisibility="WhileEditing" />
                         <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
                      BackgroundColor="{StaticResource Gray200}"
                      TextColor="Black"
@@ -72,7 +72,7 @@
                     </StackLayout>
                     <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
                         <Label Text="Preso Recepcion:" VerticalOptions="Center"/>
-                        <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand"  Keyboard="Numeric" Text="{Binding RecPeso}"  />
+                        <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand" ClearButtonVisibility="WhileEditing"  Keyboard="Numeric" Text="{Binding RecPeso}"  />
                     </StackLayout>
                 </StackLayout>
 

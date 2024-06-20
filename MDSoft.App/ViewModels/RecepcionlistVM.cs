@@ -5,24 +5,15 @@ using Tracking.Utilidades;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 using Tracking.DataAccess;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using Tracking.Modelos;
 using MDSoft.Tracking.Services.DTO;
-using MDSoft.Tracking.Services;
-using System.Text.Json;
-using AutoMapper;
-using MDSoft.Tracking.Services.AutoMapper;
-using Tracking.Handlers;
-using Newtonsoft.Json;
 using Tracking.Services;
 
 namespace Tracking.ViewModels
 {
     public partial class RecepcionlistMV : ObservableObject
     {
-        private readonly VentaDbContext _context;
-        public RecepcionlistMV(VentaDbContext context)
+        private readonly TrackingDbContext _context;
+        public RecepcionlistMV(TrackingDbContext context)
         {
             WeakReferenceMessenger.Default.Register<RecepcionCompraMessage>(this, (r, m) =>
             {
@@ -30,11 +21,13 @@ namespace Tracking.ViewModels
             });
 
             _context = context;
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                //await Task.Run(async () => await ObtenerCategorias());
-                await Task.Run(async () => await GetRecepciones());
-            });
+
+                Task.Run(async () => await GetRecepciones());
+
+            //MainThread.BeginInvokeOnMainThread(async () =>
+            //{
+            //    await Task.Run(async () => await GetRecepciones());
+            //});
             PropertyChanged += RecepcionVM_PropertyChanged;
         }
 
@@ -71,41 +64,43 @@ namespace Tracking.ViewModels
             IsRefreshing = true;
             LoadingEsVisible = true;
 
-            await Task.Run(async () =>
-            {
+            //await Task.Run(async () =>
+            //{
 
                 var compras = await APIManager.sp_GetComprasPendientes();
 
-                var lstTemp = new ObservableCollection<ComprasProductoDTO>();
+                ListRecepcion = new ObservableCollection<ComprasProductoDTO>(compras);
 
-                if (compras.Any())
-                {
-                    foreach (var item in compras)
-                    {
-                        lstTemp.Add(new ComprasProductoDTO
-                        {
-                            ComReferencia = item.ComReferencia,
-                            RepCodigo = item.RepCodigo,
-                            RepSupervisor = item.RepNombre,
-                            ComSecuencia = item.ComSecuencia,
-                            ComFecha = item.ComFecha,
-                            ComCantidadDetalle = item.ComCantidadDetalle,
-                            ComEstatus = item.ComEstatus,
-                            RepNombre = item.RepNombre
-                        });
-                    }
+                //var lstTemp = new ObservableCollection<ComprasProductoDTO>();
 
-                }
+                //if (compras.Any())
+                //{
+                //    foreach (var item in compras)
+                //    {
+                //        lstTemp.Add(new ComprasProductoDTO
+                //        {
+                //            ComReferencia = item.ComReferencia,
+                //            RepCodigo = item.RepCodigo,
+                //            RepSupervisor = item.RepNombre,
+                //            ComSecuencia = item.ComSecuencia,
+                //            ComFecha = item.ComFecha,
+                //            ComCantidadDetalle = item.ComCantidadDetalle,
+                //            ComEstatus = item.ComEstatus,
+                //            RepNombre = item.RepNombre
+                //        });
+                //    }
+
+                //}
 
 
-                ListRecepcion = lstTemp;
+                //ListRecepcion = lstTemp;
 
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
                     IsRefreshing = false;
                     LoadingEsVisible = false;
                 });
-            });
+            //});
 
         }
 
@@ -203,7 +198,7 @@ namespace Tracking.ViewModels
         [RelayCommand]
         private async Task Editar(ComprasProductoDTO recepcion)
         {
-            await Shell.Current.Navigation.PushModalAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));//, recepcion.Id));
+            await Shell.Current.Navigation.PushModalAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));//, recepcion.Id));
         }
 
         [RelayCommand]

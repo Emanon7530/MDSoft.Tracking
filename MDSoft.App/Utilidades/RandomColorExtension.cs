@@ -26,7 +26,7 @@ namespace Tracking.Utilidades
             Colors.Brown
         };
 
-            return colors[new Random().Next(0, 4)];
+            return colors[new Random().Next(0, 6)];
         }
     }
 }

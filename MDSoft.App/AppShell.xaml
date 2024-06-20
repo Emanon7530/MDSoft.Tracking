@@ -17,59 +17,11 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <!--<ShellContent
-     Icon="time.svg"
-    Title="Lote Fermentacion"
-    ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />
-
     <ShellContent
-     Icon="stand_by.svg"
-    Title="Lote Secado Natural"
-    ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />
-
-    <ShellContent
-     Icon="add_solid.svg"
-    Title="Lotes Secado Maquina"
-    ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />
-
-    <ShellContent
-     Icon="trash.svg"
-    Title="Lotes Limpieza"
-    ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />-->
-
-    <!--<ShellContent
-        Icon="ticket.svg"
-        Title="Recepcion Compras"
-       ContentTemplate="{DataTemplate pages:RecepcionListPage}"
-       Route="RecepcionListPage" />-->
-
-    <!--<ShellContent
-     Icon="trash.svg"
-    Title="Lotes Limpieza"
-    ContentTemplate="{DataTemplate pages:CategoriasPage}"
-    Route="CategoriasPage" />-->
-
-    <ShellContent
-     Icon="tuning.svg"
-    Title="Settings"
-    ContentTemplate="{DataTemplate pages:SettingDataPage}"
-    Route="CompraProductoDetalleMV" />
-
-    <!--<ShellContent
-     Icon="time.svg"
-    Title="Inventario"
-    ContentTemplate="{DataTemplate pages:InventarioPage}"
-    Route="InventarioPage" />
-
-    <ShellContent
-     Icon="time.svg"
-    Title="Producto"
-    ContentTemplate="{DataTemplate pages:AgregarProductoPage}"
-    Route="AgregarProductoPage" />-->
+        Icon="tuning.svg"
+        Title="Settings"
+        ContentTemplate="{DataTemplate pages:SettingDataPage}"
+        Route="SettingDataPage" />
 
     <MenuItem IconImageSource="stand_by.svg" Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
     </MenuItem>

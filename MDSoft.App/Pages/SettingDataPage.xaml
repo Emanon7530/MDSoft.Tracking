@@ -13,6 +13,13 @@
             <Entry Text="{Binding MdsoftKey}" Placeholder="Digite su product Key registration"></Entry>
             <Entry Text="{Binding UrlApi}" Placeholder="Digite el url del API Midelware"></Entry>
         </VerticalStackLayout>
+        <!--ROW 1-->
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+            <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" 
+                               IsVisible="{Binding LoadingEsVisible}" 
+                               Color="Blue" HeightRequest="25" 
+                               VerticalOptions="Start"/>
+        </StackLayout>
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,20">
             <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
             <Button Text="Cancelar" Command="{Binding CancelarCommand}"></Button>

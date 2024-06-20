@@ -1,6 +1,7 @@
 ﻿using MDSoft.Data.Interface;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.StoreProcedure;
+using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Repository;
 using System;
 using System.Collections.Generic;

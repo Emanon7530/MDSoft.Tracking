@@ -21,7 +21,7 @@ namespace Tracking.ViewModels
 
     public partial class PesoLinealVM : ObservableObject
     {
-        private readonly VentaDbContext _context;
+        private readonly TrackingDbContext _context;
         private ComprasProductoDTO _compradetalleDTO;
         public PesoLinealVM(ComprasProductoDTO compradetalleDTO)
         {

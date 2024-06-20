@@ -5557,7 +5557,6 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "MDSoft.Tracking.Model >= 1.0.0",
       "MDSoft.Tracking.Services >= 1.0.0",
       "MailKit >= 4.5.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.17",
@@ -5608,9 +5607,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj": {
-              "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Data.Model\\MDSoft.Tracking.Model.csproj"
-            },
             "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj": {
               "projectPath": "D:\\Emanon\\MDSoft - Milquiades\\App\\MDSoft.Tracking\\MDSoft.Services\\MDSoft.Tracking.Services.csproj"
             }
@@ -5690,7 +5686,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

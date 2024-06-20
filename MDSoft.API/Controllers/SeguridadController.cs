@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using MDSoft.Tracking.Services;
 using AutoMapper;
 using MDSoft.Tracking.Services.DTO;
-using System.Runtime.Serialization;
 using MDSoft.Tracking.API.Utilities;
 
 namespace MDSoft.API.Controllers;

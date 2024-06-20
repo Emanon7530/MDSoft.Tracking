@@ -1,6 +1,7 @@
 ﻿using MDSoft.Data.Common;
 using MDSoft.Data.Interface;
 using MDSoft.Tracking;
+using MDSoft.Tracking.Data.Common;
 using MDSoft.Tracking.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -20,7 +21,9 @@ namespace MDSoft.Data.Repository
 
         public Repositorio()
         {
-            _context = new MovilBusiness5StdContext();
+            var options = new DbContextOptionsBuilder<MovilBusiness5StdContext>();
+            options.UseSqlServer(ToolsHelper.ConnectString);
+            _context = new MovilBusiness5StdContext(options.Options);
         }
 
         public async Task<int> Actualizar(T entidad)

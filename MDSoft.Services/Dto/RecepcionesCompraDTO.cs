@@ -37,5 +37,7 @@ public partial class RecepcionesCompraDTO
     [Unicode(false)]
     public string? RecEstado { get; set; }
 
+    public virtual ComprasProductoDTO compraProductoDTO { get; set; }
+
     public virtual ICollection<RecepcionesComprasDetalleDTO> RecepcionesComprasDetallesDTO { get; set; } = new List<RecepcionesComprasDetalleDTO>();
 }

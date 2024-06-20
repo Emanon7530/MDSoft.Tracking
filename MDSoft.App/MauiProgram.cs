@@ -4,7 +4,6 @@ using Tracking.DataAccess;
 using Tracking.ViewModels;
 using CommunityToolkit.Maui;
 using MDSoft.Tracking.Services.AutoMapper;
-using MDSoft.Tracking;
 using Microsoft.EntityFrameworkCore;
 using MDSoft.Tracking.Model;
 
@@ -17,7 +16,6 @@ namespace Tracking
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                //.UseMauiCameraView()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
@@ -28,8 +26,8 @@ namespace Tracking
 
             builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
-            builder.Services.AddDbContext<VentaDbContext>();
-            builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Trust Server Certificate=True;Initial Catalog=MovilBusiness5STD;uid=sa;pwd=manonram"));
+            builder.Services.AddDbContext<TrackingDbContext>();
+            //builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Trust Server Certificate=True;Initial Catalog=MovilBusiness5STD;uid=sa;pwd=manonram"));
 
             builder.Services.AddTransient<ProductoPage>();
             builder.Services.AddTransient<ProductoVM>();
@@ -49,9 +47,7 @@ namespace Tracking
             builder.Services.AddTransient<SettingDataPage>();
             builder.Services.AddTransient<SettingDataMV>();
 
-            //builder.Services.AddSingleton<MainPage>();
-
-            var dbContext = new VentaDbContext();
+            var dbContext = new TrackingDbContext();
             var result = dbContext.Database.EnsureCreated();
             dbContext.Dispose();
 

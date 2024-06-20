@@ -1,11 +1,7 @@
 using AutoMapper;
 using MDSoft.Tracking.Services;
-using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
-using MDSoft.Tracking.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
-using System.Linq.Expressions;
 
 namespace MDSoft.API.Controllers
 {

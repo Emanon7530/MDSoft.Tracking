@@ -16,41 +16,25 @@ public partial class MovilBusiness5StdContext : DbContext
     }
 
     public virtual DbSet<ComprasProducto> ComprasProductos { get; set; }
-
     public virtual DbSet<ComprasProductosDetalle> ComprasProductosDetalles { get; set; }
-
     public virtual DbSet<LotesFermentacion> LotesFermentacions { get; set; }
-
     public virtual DbSet<LotesFermentacionDetalle> LotesFermentacionDetalles { get; set; }
-
     public virtual DbSet<LotesLimpieza> LotesLimpiezas { get; set; }
-
     public virtual DbSet<LotesLimpiezaDetalle> LotesLimpiezaDetalles { get; set; }
-
     public virtual DbSet<LotesSecadoMaquina> LotesSecadoMaquinas { get; set; }
-
     public virtual DbSet<LotesSecadoMaquinaDetalle> LotesSecadoMaquinaDetalles { get; set; }
-
     public virtual DbSet<LotesSecadoNatural> LotesSecadoNaturals { get; set; }
-
     public virtual DbSet<LotesSecadoNaturalDetalle> LotesSecadoNaturalDetalles { get; set; }
-
     public virtual DbSet<Producto> Productos { get; set; }
-
     public virtual DbSet<Proveedore> Proveedores { get; set; }
-
     public virtual DbSet<RecepcionesCompra> RecepcionesCompras { get; set; }
-
     public virtual DbSet<RecepcionesComprasDetalle> RecepcionesComprasDetalles { get; set; }
-
     public virtual DbSet<Representante> Representantes { get; set; }
-
     public virtual DbSet<UsosMultiple> UsosMultiples { get; set; }
-
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("name=DefaultConnection");
+        => optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;User ID=SA;Password=manonram;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

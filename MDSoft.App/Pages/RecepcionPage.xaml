@@ -105,14 +105,14 @@
                                                                  Margin="0"
                                                                  HorizontalOptions="FillAndExpand">
                                                     <Label Text="Peso Compra" ></Label>
-                                                    <Label Text="{Binding ComPeso}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                                    <Label Text="{Binding ComPeso, StringFormat='{0:N}'}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
                                                 </VerticalStackLayout>
 
                                                 <VerticalStackLayout Grid.Row="1" 
                                                                  Grid.Column="3" 
                                                                  HorizontalOptions="FillAndExpand">
                                                     <Label Text="Peso Recibido"  ></Label>
-                                                    <Label Text="{Binding RecPeso}"   FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                                    <Label Text="{Binding RecPeso, StringFormat='{0:N}'}"   FontSize="Small" TextColor="Black" FontAttributes="Bold" />
                                                 </VerticalStackLayout>
 
                                             </Grid>
@@ -146,10 +146,10 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Text="Peso Total Comprado:"  VerticalOptions="End" />
-                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding TotalpesoCompra, StringFormat='{0:C}'}" FontAttributes="Bold" VerticalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding TotalpesoCompra, StringFormat='{0:N}'}" FontAttributes="Bold" VerticalOptions="Center" />
 
                         <Label Grid.Row="0" Grid.Column="1" Text="Peso Total Recibido:" VerticalOptions="End"/>
-                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding Totalpesorecibido}" FontAttributes="Bold" />
+                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding Totalpesorecibido, StringFormat='{0:N}'}" FontAttributes="Bold" />
 
                         <Label Grid.Row="0" Grid.Column="2" Text="Diferencia:" VerticalOptions="End"/>
                         <Label Grid.Row="1" Grid.Column="2" IsEnabled="False" HorizontalOptions="FillAndExpand" Text="{Binding Diferencia}" TextColor="{Binding CambioColor}" FontAttributes="Bold"/>

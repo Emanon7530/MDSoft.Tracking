@@ -148,7 +148,7 @@ namespace MDSoft.Tracking.Services
             }
         }
 
-        public async Task<RecepcionesCompraDTO> Cerrar(RecepcionesCompraDTO recepcionCompra, EstatusCompraProductos comEstatus)
+        public async Task<RecepcionesCompraDTO> Cerrar(RecepcionesCompraDTO recepcionCompra )
         {
             try
             {
@@ -160,7 +160,7 @@ namespace MDSoft.Tracking.Services
                     throw new ApplicationException("No existe compra con esta secuencia!");
                 }
 
-                compra.ComEstatus = (short?)comEstatus;  //Recibido Completo
+                compra.ComEstatus = (short?)recepcionCompra.compraProductoDTO.ComEstatus ;  //Recibido Completo
                 compra.ComFechaActualizacion = DateTime.Now;
 
                 await _repoCompra.Actualizar(compra);

@@ -21,8 +21,8 @@ namespace Tracking.ViewModels
             public string Image { get; set; }
             public string NavigatePage { get; set; }
         }
-        private readonly VentaDbContext _context;
-        public MainVM(VentaDbContext context)
+        private readonly TrackingDbContext _context;
+        public MainVM(TrackingDbContext context)
         {
             _context = context;
             Options = new ObservableCollection<menuOptions>() {
@@ -83,19 +83,19 @@ namespace Tracking.ViewModels
             switch (SelectedOptions.Name)
             {
                 case "Recepcion Compras":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
                     break;
                 case "Cierre Lotes":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
                     break;
                 case "Lotes Fermentacion":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
                     break;
                 case "Lotes Secado Maquina":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
                     break;
                 case "Lotes Limpiezas":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
                     break;
                 default:
                     break;
@@ -117,7 +117,7 @@ namespace Tracking.ViewModels
         {
             LoadingEsVisible = true;
 
-            await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.VentaDbContext())));
+            await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
 
             await Task.Run(async () =>
             {

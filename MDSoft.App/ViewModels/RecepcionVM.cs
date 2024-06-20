@@ -12,12 +12,13 @@ using MDSoft.Tracking.Services.DTO;
 using Tracking.Services;
 using MDSoft.Tracking.Services;
 using Microsoft.Identity.Client;
+using PNComm.Common.Enums;
 
 namespace Tracking.ViewModels
 {
     public partial class RecepcionVM : ObservableObject
     {
-        private readonly VentaDbContext _context;
+        private readonly TrackingDbContext _context;
         private ComprasProductoDTO _compraDTO;
         public RecepcionVM(ComprasProductoDTO compraDTO)
         {
@@ -32,6 +33,7 @@ namespace Tracking.ViewModels
             });
 
             _compraDTO = compraDTO;
+            TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
 
             PropertyChanged += RecepcionVM_PropertyChanged;
 
@@ -215,12 +217,16 @@ namespace Tracking.ViewModels
             try
             {
                 LoadingEsVisible = true;
+
+                _compraDTO.ComEstatus = cierreParcial == true ? (short?)EstatusCompraProductos.RecibidoParcial : (short?)EstatusCompraProductos.RecibidoTotal;
+
                 RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO()
                 {
                     RecFechaActualizacion = DateTime.Now,
                     ComSecuencia = ComSecuencia,
                     ComReferencia = _compraDTO.ComReferencia,
-                    RecEstado = cierreParcial == true ? "Parc" : "Compl",
+                    compraProductoDTO = _compraDTO,
+                    RecEstado = "Listo",
                     RecFechaCreacion = DateTime.Now,
                     RecSecuencia = ComSecuencia
                 };

@@ -2,10 +2,7 @@ using AutoMapper;
 using MDSoft.Tracking.Services;
 using MDSoft.Tracking.Services.Common;
 using MDSoft.Tracking.Services.DTO;
-using MDSoft.Tracking.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
-using System.Linq.Expressions;
 
 namespace MDSoft.API.Controllers
 {
@@ -130,7 +127,22 @@ namespace MDSoft.API.Controllers
             }
         }
 
+        [HttpPut()]
+        [Route("Cerrar")]
+        public async Task<RecepcionesCompraDTO> Cerrar(RecepcionesCompraDTO recepcionCompra)
+        {
+            try
+            {
+                var result = await _recepcionServices.Cerrar(recepcionCompra);
 
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         [HttpPost()]
         [Route("GuardarDetalle")]
         public async Task<RecepcionesComprasDetalleDTO> GuardarDetalle(RecepcionesComprasDetalleDTO recepcionCompraDetalle)

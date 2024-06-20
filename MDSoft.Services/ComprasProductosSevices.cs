@@ -4,7 +4,6 @@ using MDSoft.Data.Interface;
 using MDSoft.Data.Repository;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.Model;
-using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 using MDSoft.Tracking.Services.Repository;
@@ -68,13 +67,15 @@ namespace MDSoft.Tracking.Services
 
         }
 
-        public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
+        public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasPendientes()
         {
-            IEnumerable<ComprasRepresentante> result = null;
+            IEnumerable<ComprasProductoDTO> result = null;
 
             var compra = await _RepoCompras.sp_GetComprasPendientes();
 
-            return compra;
+            result = _mapper.Map<IEnumerable<ComprasProductoDTO>>(compra);
+
+            return result;
         }
 
         public async Task<ComprasProductoDTO> GetCompraByTicket(string comReferencia )

@@ -37,7 +37,7 @@ namespace Tracking.Services
             return compras;
         }
 
-        public static async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
+        public static async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasPendientes()
         {
             string endPoint = $"ComprasProductos/sp_GetComprasPendientes";
 
@@ -48,7 +48,7 @@ namespace Tracking.Services
                 return null;
             }
             var responsedetail = await response.Content.ReadAsStringAsync();
-            var compras = JsonConvert.DeserializeObject<List<ComprasRepresentante>>(responsedetail);
+            var compras = JsonConvert.DeserializeObject<List<ComprasProductoDTO>>(responsedetail);
 
             return compras;
         }
@@ -169,10 +169,10 @@ namespace Tracking.Services
 
         public static async Task<RecepcionesCompraDTO> ActualizarRecepcion(RecepcionesCompraDTO recepcionDetalle)
         {
-            string endPoint = $"Recepcion/Actualizar";
+            string endPoint = $"Recepcion/Cerrar";
 
             //HTTP POST
-            RecepcionesCompraDTO compras = new RecepcionesCompraDTO();
+            RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO();
 
             var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
 
@@ -181,10 +181,10 @@ namespace Tracking.Services
             if (response.IsSuccessStatusCode)
             {
                 var responsedetail = await response.Content.ReadAsStringAsync();
-                compras = JsonConvert.DeserializeObject<RecepcionesCompraDTO>(responsedetail);
+                recepcion = JsonConvert.DeserializeObject<RecepcionesCompraDTO>(responsedetail);
 
             }
-            return compras;
+            return recepcion;
         }
 
         public static async Task<IEnumerable<RecepcionesComprasDetalleDTO>> GetRecepcionesDetalle(int recSecuencia)

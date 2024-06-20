@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v7.0": {
       "MDSoft.Tracking.API/1.0.0": {
         "dependencies": {
-          "MDSoft.Tracking.Model": "1.0.0",
           "MDSoft.Tracking.Services": "1.0.0",
           "MailKit": "4.5.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.17",

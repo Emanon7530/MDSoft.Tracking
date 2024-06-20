@@ -21,7 +21,7 @@ namespace Tracking.ViewModels
 
     public partial class ProductoVM : ObservableObject
     {
-        private readonly VentaDbContext _context;
+        private readonly TrackingDbContext _context;
         private ComprasProductosDetalleDTO _compradetalleDTO;
         public ProductoVM(ComprasProductosDetalleDTO compradetalleDTO)
         {
@@ -49,7 +49,7 @@ namespace Tracking.ViewModels
         private string comReferencia = string.Empty;
 
         [ObservableProperty]
-        private string lotReferencia ;
+        private string lotReferencia;
 
         [ObservableProperty]
         private int comSecuencia;
@@ -141,44 +141,44 @@ namespace Tracking.ViewModels
         private async Task Guardar()
         {
 
-            await Task.Run(async () =>
+            //await Task.Run(async () =>
+            //{
+            LoadingEsVisible = true;
+
+            RecepcionesComprasDetalleDTO recepcionDetalle = new()
             {
-                LoadingEsVisible = true;
+                ComPeso = ComPeso,
+                RecFechaCreacion = DateTime.Now,
+                RecPeso = RecPeso,
+                RecDestino = Destino == "Fermentacion" ? 1 : 2,
+                RecPosicion = _compradetalleDTO.ComPosicion,
+                RepCodigo = RepCodigo,
+                ComReferencia = _compradetalleDTO.ComReferencia,
+                LotReferencia = LotReferencia,
+                NombreComReferencia = NombreProducto,
+                RecEstado = "Rec",
+                RecSecuencia = 1
+            };
 
-                RecepcionesComprasDetalleDTO recepcionDetalle = new()
-                {
-                    ComPeso = ComPeso,
-                    RecFechaCreacion = DateTime.Now,
-                    RecPeso = RecPeso,
-                    RecDestino = Destino == "Fermentacion" ? 1 : 2,
-                    RecPosicion = _compradetalleDTO.ComPosicion,
-                    RepCodigo = RepCodigo,
-                    ComReferencia = _compradetalleDTO.ComReferencia,
-                    LotReferencia = LotReferencia,
-                    NombreComReferencia = NombreProducto,
-                    RecEstado = "Rec",
-                    RecSecuencia = 1
-                };
+            recepcionDetalle.recepcionesComprasDTO = new RecepcionesCompraDTO()
+            {
 
-                recepcionDetalle.recepcionesComprasDTO = new RecepcionesCompraDTO()
-                {
-
-                    RecSecuencia = 1,
-                    RecEstado = "Prac",
-                    RecFechaCreacion = DateTime.Now,
-                    ComReferencia = _compradetalleDTO.ComReferencia
-                };
+                RecSecuencia = 1,
+                RecEstado = "Prac",
+                RecFechaCreacion = DateTime.Now,
+                ComReferencia = _compradetalleDTO.ComReferencia
+            };
 
 
-                var Prod = await APIManager.GuradarDetalleRecepcion(recepcionDetalle);
+            var Prod = await APIManager.GuradarDetalleRecepcion(recepcionDetalle);
 
-                MainThread.BeginInvokeOnMainThread(async () =>
-               {
-                   LoadingEsVisible = false;
-                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(recepcionDetalle));
-                   await Shell.Current.Navigation.PopAsync();
-               });
-            });
+            MainThread.BeginInvokeOnMainThread(async () =>
+           {
+               LoadingEsVisible = false;
+               WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(recepcionDetalle));
+               await Shell.Current.Navigation.PopAsync();
+           });
+            //});
 
         }
 

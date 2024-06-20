@@ -52,10 +52,18 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+// appsettings
+var config = new ConfigurationBuilder()
+           .AddJsonFile("appsettings.json")
+           .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+           .Build();
+
+var defaultConnectionString = config.GetConnectionString("DefaultConnection");
+
 builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();
-builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MDSoftTracking;User ID=SA;Password=manonram;Trust Server Certificate=True"));
+builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer(defaultConnectionString));
 
 var app = builder.Build();
 
