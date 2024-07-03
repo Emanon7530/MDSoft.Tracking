@@ -21,9 +21,18 @@ namespace Tracking.ViewModels
             public string Image { get; set; }
             public string NavigatePage { get; set; }
         }
+
         private readonly TrackingDbContext _context;
         public MainVM(TrackingDbContext context)
         {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    await Shell.Current.DisplayAlert("Internet", "Upps, Not internet access, Verify plase!", "OK");
+                }
+            });
+
             _context = context;
             Options = new ObservableCollection<menuOptions>() {
                 new menuOptions {Name = "Recepcion Compras", Color= Colors.Red, Image="recepcion.png"},
@@ -34,10 +43,6 @@ namespace Tracking.ViewModels
                 new menuOptions {Name = "Lotes Limpiezas", Color=Colors.Black, Image="limpiezapreview.png"},
             };
 
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                await Task.Run(async () => await ObtenerResumen());
-            });
         }
         [ObservableProperty]
         private bool loadingEsVisible = false;
@@ -106,7 +111,7 @@ namespace Tracking.ViewModels
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
                     SelectedOptions = null;
-                   LoadingEsVisible = false;
+                    LoadingEsVisible = false;
                 });
             });
 

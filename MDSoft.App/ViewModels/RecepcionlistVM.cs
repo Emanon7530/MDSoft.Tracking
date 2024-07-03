@@ -13,6 +13,7 @@ namespace Tracking.ViewModels
     public partial class RecepcionlistMV : ObservableObject
     {
         private readonly TrackingDbContext _context;
+        private readonly IAPIManager _apiManager;
         public RecepcionlistMV(TrackingDbContext context)
         {
             WeakReferenceMessenger.Default.Register<RecepcionCompraMessage>(this, (r, m) =>
@@ -21,13 +22,10 @@ namespace Tracking.ViewModels
             });
 
             _context = context;
+            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
 
-                Task.Run(async () => await GetRecepciones());
+            Task.Run(async () => await GetRecepciones());
 
-            //MainThread.BeginInvokeOnMainThread(async () =>
-            //{
-            //    await Task.Run(async () => await GetRecepciones());
-            //});
             PropertyChanged += RecepcionVM_PropertyChanged;
         }
 
@@ -47,6 +45,7 @@ namespace Tracking.ViewModels
 
         [ObservableProperty]
         private bool loadingEsVisible = false;
+
         [ObservableProperty]
         private bool isRefreshing = false;
 
@@ -61,47 +60,26 @@ namespace Tracking.ViewModels
 
         public async Task GetRecepciones()
         {
-            IsRefreshing = true;
-            LoadingEsVisible = true;
+            try
+            {
 
-            //await Task.Run(async () =>
-            //{
+                IsRefreshing = true;
+                LoadingEsVisible = true;
 
-                var compras = await APIManager.sp_GetComprasPendientes();
+                var compras = await _apiManager.sp_GetComprasPendientes();
 
-                ListRecepcion = new ObservableCollection<ComprasProductoDTO>(compras);
+                ListRecepcion = new ObservableCollection<ComprasProductoDTO>(compras.OrderBy(x => x.ComFecha));
 
-                //var lstTemp = new ObservableCollection<ComprasProductoDTO>();
-
-                //if (compras.Any())
-                //{
-                //    foreach (var item in compras)
-                //    {
-                //        lstTemp.Add(new ComprasProductoDTO
-                //        {
-                //            ComReferencia = item.ComReferencia,
-                //            RepCodigo = item.RepCodigo,
-                //            RepSupervisor = item.RepNombre,
-                //            ComSecuencia = item.ComSecuencia,
-                //            ComFecha = item.ComFecha,
-                //            ComCantidadDetalle = item.ComCantidadDetalle,
-                //            ComEstatus = item.ComEstatus,
-                //            RepNombre = item.RepNombre
-                //        });
-                //    }
-
-                //}
-
-
-                //ListRecepcion = lstTemp;
-
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    IsRefreshing = false;
-                    LoadingEsVisible = false;
-                });
-            //});
-
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+            }
+            finally
+            {
+                IsRefreshing = false;
+                LoadingEsVisible = false;
+            }
         }
 
         [RelayCommand]
@@ -118,7 +96,7 @@ namespace Tracking.ViewModels
 
             await Task.Run(async () =>
             {
-                var compras = await APIManager.GetCompraByTicket(BuscarRecepcion);
+                var compras = await _apiManager.GetCompraByTicket(BuscarRecepcion);
 
                 if (compras != null)
                 {
@@ -210,11 +188,6 @@ namespace Tracking.ViewModels
                 LoadingEsVisible = true;
                 await Task.Run(async () =>
                 {
-                    //var prod = await _context.Compras.FirstAsync(p => p.Id == recepcion.Id);
-                    //_context.Recepciones.Remove(prod);
-
-                    //await _context.SaveChangesAsync();
-
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         LoadingEsVisible = false;

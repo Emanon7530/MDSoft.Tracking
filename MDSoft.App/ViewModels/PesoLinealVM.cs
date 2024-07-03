@@ -23,10 +23,12 @@ namespace Tracking.ViewModels
     {
         private readonly TrackingDbContext _context;
         private ComprasProductoDTO _compradetalleDTO;
+        private readonly IAPIManager _apiManager;
         public PesoLinealVM(ComprasProductoDTO compradetalleDTO)
         {
             _compradetalleDTO = compradetalleDTO;
 
+            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
 
             //MainThread.BeginInvokeOnMainThread(async () =>
             //    {
@@ -97,7 +99,7 @@ namespace Tracking.ViewModels
                             LotesFermentacionDetallesDTO = null
 
                         };
-                        var compras = await APIManager.GuardarLoteFermentacion(lote);
+                        var compras = await _apiManager.GuardarLoteFermentacion(lote);
                     }
                     else // Secado a Maquina
                     {
@@ -108,7 +110,7 @@ namespace Tracking.ViewModels
                             LotFechaCierre = null,
                             LotesSecadoNaturalDetallesDTO = null
                         };
-                        var compras = await APIManager.GuardarLoteSecadoNatural(lote);
+                        var compras = await _apiManager.GuardarLoteSecadoNatural(lote);
                     }
 
                     MainThread.BeginInvokeOnMainThread(() =>
@@ -158,7 +160,7 @@ namespace Tracking.ViewModels
                 };
 
 
-                var Prod = await APIManager.GuradarDetalleRecepcion(recepcionDetalle);
+                var Prod = await _apiManager.GuradarDetalleRecepcion(recepcionDetalle);
 
                 MainThread.BeginInvokeOnMainThread(async () =>
                {

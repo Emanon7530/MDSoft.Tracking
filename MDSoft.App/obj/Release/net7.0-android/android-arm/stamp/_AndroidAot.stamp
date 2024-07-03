@@ -1,7 +1,6 @@
 obj\Release\net7.0-android\android-arm\aot\AutoMapper.dll.so
 obj\Release\net7.0-android\android-arm\aot\Azure.Core.dll.so
 obj\Release\net7.0-android\android-arm\aot\Azure.Identity.dll.so
-obj\Release\net7.0-android\android-arm\aot\Camera.MAUI.dll.so
 obj\Release\net7.0-android\android-arm\aot\Castle.Core.dll.so
 obj\Release\net7.0-android\android-arm\aot\CommunityToolkit.Maui.dll.so
 obj\Release\net7.0-android\android-arm\aot\CommunityToolkit.Maui.Core.dll.so
@@ -19,9 +18,14 @@ obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Caching.Abstract
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Caching.Memory.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Configuration.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Configuration.Abstractions.dll.so
+obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Configuration.FileExtensions.dll.so
+obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Configuration.Json.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.DependencyInjection.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.DependencyInjection.Abstractions.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.DependencyModel.dll.so
+obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.FileProviders.Abstractions.dll.so
+obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.FileProviders.Physical.dll.so
+obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.FileSystemGlobbing.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Logging.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Logging.Abstractions.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Extensions.Options.dll.so
@@ -85,7 +89,6 @@ obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Window.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.Google.Android.Material.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.Kotlin.StdLib.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
-obj\Release\net7.0-android\android-arm\aot\zxing.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.CSharp.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Win32.Primitives.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Buffers.dll.so
@@ -121,6 +124,7 @@ obj\Release\net7.0-android\android-arm\aot\System.Linq.Parallel.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Linq.Queryable.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Linq.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Memory.dll.so
+obj\Release\net7.0-android\android-arm\aot\System.Net.Http.Json.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Net.Http.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Net.Mail.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Net.NameResolution.dll.so

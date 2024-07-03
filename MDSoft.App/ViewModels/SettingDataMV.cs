@@ -23,14 +23,14 @@ public partial class SettingDataMV : ObservableObject
     private readonly TrackingDbContext _context;
     public SettingDataMV(TrackingDbContext context)
     {
-        //WeakReferenceMessenger.Default.Register<RecepcionCompraMessage>(this, (r, m) =>
-        //{
-        //    RecepcionMensajeRecibido(m.Value);
-        //});
-
         _context = context;
         MainThread.BeginInvokeOnMainThread(async () =>
         {
+            if (!await ValidAccess())
+            {
+                await Shell.Current.DisplayAlert("Access", "Clave Administrador invalido!", "OK");
+                await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+            }
             await Task.Run(async () => await GetSettings());
         });
     }
@@ -45,6 +45,20 @@ public partial class SettingDataMV : ObservableObject
     private bool loadingEsVisible = false;
 
     private SettingsData currentSetting;
+
+    public async Task<bool> ValidAccess()
+    {
+
+        bool isValid = false;
+        var answer = await Shell.Current.DisplayPromptAsync("Access", "Digite la clave Administración", "Aceptar", "Cancelar");
+
+        if (answer == "P@ssword1")
+        {
+            isValid = true;
+        }
+
+        return isValid;
+    }
 
     public async Task GetSettings()
     {

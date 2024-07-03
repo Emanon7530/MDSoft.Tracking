@@ -1498,6 +1498,12 @@
     <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.configuration.abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.configuration.fileextensions\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.configuration.json\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.dependencyinjection\7.0.0\lib\net7.0\Microsoft.Extensions.DependencyInjection.dll">
       <PackagePath>Microsoft.Extensions.DependencyInjection.dll</PackagePath>
     </AppxPackagedFile>
@@ -1506,6 +1512,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.dependencymodel\7.0.0\lib\net7.0\Microsoft.Extensions.DependencyModel.dll">
       <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.fileproviders.abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.fileproviders.physical\7.0.0\lib\net7.0\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.filesystemglobbing\7.0.0\lib\net7.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\emanon\.nuget\packages\microsoft.extensions.logging\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.dll">
       <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
@@ -1695,6 +1710,30 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+      <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+      <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+      <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+      <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+      <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-solid-900.ttf">
+      <PackagePath>fa-solid-900.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+      <PackagePath>OpenSans-Regular.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+      <PackagePath>OpenSans-Semibold.ttf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_solid.scale-100.png">
       <PackagePath>add_solid.scale-100.png</PackagePath>

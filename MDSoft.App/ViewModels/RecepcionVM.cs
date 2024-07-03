@@ -19,6 +19,7 @@ namespace Tracking.ViewModels
     public partial class RecepcionVM : ObservableObject
     {
         private readonly TrackingDbContext _context;
+        private readonly IAPIManager _apiManager;
         private ComprasProductoDTO _compraDTO;
         public RecepcionVM(ComprasProductoDTO compraDTO)
         {
@@ -33,7 +34,11 @@ namespace Tracking.ViewModels
             });
 
             _compraDTO = compraDTO;
-            TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
+            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
+
+            //TODO
+            //TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
+            TotalpesoCompra = 4;
 
             PropertyChanged += RecepcionVM_PropertyChanged;
 
@@ -124,9 +129,8 @@ namespace Tracking.ViewModels
             }
 
             LoadingEsVisible = true;
-            var codigo = RepCodigo.Split("-");
 
-            var _compradetalleDTO = await APIManager.GetProductInCompraByCode(codigo[0], ComSecuencia, int.Parse(BuscarRecepcion));
+            var _compradetalleDTO = await _apiManager.GetProductInCompraByReference(RepCodigo, ComSecuencia, BuscarRecepcion);
 
             if (_compradetalleDTO == null)
             {
@@ -139,7 +143,6 @@ namespace Tracking.ViewModels
 
             await Task.Run(async () =>
             {
-                //await GetRecepciones();
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
                     BuscarRecepcion = "";
@@ -231,7 +234,7 @@ namespace Tracking.ViewModels
                     RecSecuencia = ComSecuencia
                 };
 
-                await APIManager.ActualizarRecepcion(recepcion);
+                await _apiManager.ActualizarRecepcion(recepcion);
 
                 await Shell.Current.DisplayAlert("Listo!", string.Concat($"Recepcion {recepcion.ComReferencia} fue recibida ", cierreParcial == true ? "Parcial" : "Total"), "Aceptar");
 
@@ -241,7 +244,6 @@ namespace Tracking.ViewModels
                 TotalpesoCompra = 0;
                 Totalpesorecibido = 0;
 
-                //MostarTotal();
             }
             catch (Exception e)
             {
@@ -273,7 +275,7 @@ namespace Tracking.ViewModels
             await Task.Run(async () =>
             {
 
-                var compras = await APIManager.GetRecepcionesDetalle(RecSecuencia);
+                var compras = await _apiManager.GetRecepcionesDetalle(RecSecuencia);
 
                 var lstTemp = new ObservableCollection<RecepcionesComprasDetalleDTO>();
 
@@ -324,11 +326,6 @@ namespace Tracking.ViewModels
 
         internal void Inicio(string idRecepcion)
         {
-            //if (idRecepcion != null)
-            //{
-            //    _compraDTO.RepCodigo = "jlanda";
-            //    _compraDTO.ComSecuencia = 3;
-            //}
 
             RepCodigo = _compraDTO.RepCodigo;
             ComSecuencia = _compraDTO.ComSecuencia;

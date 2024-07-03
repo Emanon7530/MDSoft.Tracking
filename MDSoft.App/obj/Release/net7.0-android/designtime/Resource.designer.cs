@@ -28658,34 +28658,31 @@ namespace Tracking
 			public const int splash = 2131165418;
 			
 			// aapt resource value: 0x7F0700EB
-			public const int splashnet = 2131165419;
+			public const int stand_by = 2131165419;
 			
 			// aapt resource value: 0x7F0700EC
-			public const int stand_by = 2131165420;
+			public const int stock = 2131165420;
 			
 			// aapt resource value: 0x7F0700ED
-			public const int stock = 2131165421;
+			public const int test_level_drawable = 2131165421;
 			
 			// aapt resource value: 0x7F0700EE
-			public const int test_level_drawable = 2131165422;
+			public const int ticket = 2131165422;
 			
 			// aapt resource value: 0x7F0700EF
-			public const int ticket = 2131165423;
+			public const int time = 2131165423;
 			
 			// aapt resource value: 0x7F0700F0
-			public const int time = 2131165424;
+			public const int tooltip_frame_dark = 2131165424;
 			
 			// aapt resource value: 0x7F0700F1
-			public const int tooltip_frame_dark = 2131165425;
+			public const int tooltip_frame_light = 2131165425;
 			
 			// aapt resource value: 0x7F0700F2
-			public const int tooltip_frame_light = 2131165426;
+			public const int trash = 2131165426;
 			
 			// aapt resource value: 0x7F0700F3
-			public const int trash = 2131165427;
-			
-			// aapt resource value: 0x7F0700F4
-			public const int tuning = 2131165428;
+			public const int tuning = 2131165427;
 			
 			static Drawable()
 			{

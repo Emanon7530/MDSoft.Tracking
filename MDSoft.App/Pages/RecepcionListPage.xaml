@@ -69,54 +69,61 @@
 
         </Grid>
         <!--ROW 2-->
-            <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
+        <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
             VerticalOptions="FillAndExpand" IsVisible="true"  Margin="5,0,5,0" SelectionMode="Single" >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
-                </CollectionView.ItemsLayout>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="dto:ComprasProductoDTO">
-                        <Border BackgroundColor="White" StrokeShape="RoundRectangle 5,5,5,5" Padding="0">
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer 
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="dto:ComprasProductoDTO">
+                    <Border BackgroundColor="White" StrokeShape="RoundRectangle 5,5,5,5" Padding="0">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer 
                                          Command="{Binding BindingContext.IrRecepcionCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
                                                            CommandParameter="{Binding}"/>
-                            </Border.GestureRecognizers>
-                            <Border.Shadow>
-                                <Shadow Brush="Gray"></Shadow>
-                            </Border.Shadow>
+                        </Border.GestureRecognizers>
+                        <Border.Shadow>
+                            <Shadow Brush="Gray"></Shadow>
+                        </Border.Shadow>
 
-                            <Grid Margin="0" ColumnDefinitions="Auto,1*,Auto,*,*,Auto" HorizontalOptions="FillAndExpand" RowSpacing="4"
+                        <Grid Margin="0" ColumnDefinitions="Auto,1*,Auto,*,*,Auto" HorizontalOptions="FillAndExpand" RowSpacing="4"
                                                     Padding="5" RowDefinitions="*,*,*" ColumnSpacing="5">
 
-                                <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="7" Margin="0"  Grid.RowSpan="4"></BoxView>
-                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding ComReferencia}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
-                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
-                                <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
-                                <Line Y1="40" Grid.Column="2" Grid.RowSpan="4" BackgroundColor="Blue" ></Line>
+                            <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="7" Margin="0"  Grid.RowSpan="4"></BoxView>
+                            <Label Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" FontAttributes="Bold">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}{0}-{1}">
+                                        <Binding Path="RepCodigo"/>
+                                        <Binding Path="ComSecuencia"/>
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
+                            <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
+                            <Line Y1="40" Grid.Column="2" Grid.RowSpan="4" BackgroundColor="Blue" ></Line>
 
-                                <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="3" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
+                            <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="3" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
-                                <Label Text="Cantidad" Grid.Row="1" Grid.Column="3" ></Label>
-                                <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="3"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
-                                <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="4" ></Label>
-                                <Frame CornerRadius="10" Grid.Row="2" Grid.Column="4" Padding="0" Margin="0" BackgroundColor="{StaticResource Primary}">
-                                    <Label Text="{Binding ComEstatusNombre}"    
+                            <Label Text="Cantidad" Grid.Row="1" Grid.Column="3" ></Label>
+                            <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="3"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                            <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="4" ></Label>
+                            <Frame CornerRadius="10" Grid.Row="2" Grid.Column="4" Padding="0" Margin="0" BackgroundColor="{StaticResource Primary}">
+                                <Label Text="{Binding ComEstatusNombre}"    
                                                        Grid.Row="2" Grid.Column="4"
                                                        FontSize="Micro" TextColor="White" 
                                                        HorizontalOptions="CenterAndExpand"
                                                        VerticalOptions="Center"
                                                        FontAttributes="Bold" />
-                                </Frame>
+                            </Frame>
 
-                            </Grid>
-                        </Border>
+                        </Grid>
+                    </Border>
 
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
 
-            </CollectionView>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>

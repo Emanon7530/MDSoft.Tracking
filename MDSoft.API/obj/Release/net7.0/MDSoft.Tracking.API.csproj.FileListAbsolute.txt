@@ -172,6 +172,7 @@ D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\refint\MDS
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\MDSoft.Tracking.API.pdb
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\MDSoft.Tracking.API.genruntimeconfig.cache
 D:\Emanon\App Test\MAUI\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\ref\MDSoft.Tracking.API.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\nlog.config
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\appsettings.Development.json
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\appsettings.json
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\libman.json
@@ -209,6 +210,9 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MimeKit.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\Mono.TextTemplating.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\Newtonsoft.Json.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NLog.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NLog.Extensions.Logging.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NLog.Web.AspNetCore.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NuGet.Common.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NuGet.Configuration.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\NuGet.Frameworks.dll
@@ -244,9 +248,9 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Data.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Model.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Services.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Services.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Data.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Release\net7.0\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\MDSoft.Tracking.API.csproj.AssemblyReference.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\MDSoft.Tracking.API.GeneratedMSBuildEditorConfig.editorconfig
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\MDSoft.Tracking.API.AssemblyInfoInputs.cache

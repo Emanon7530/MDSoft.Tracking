@@ -21,9 +21,10 @@ namespace MDSoft.Data.Repository
 
         public Repositorio()
         {
-            var options = new DbContextOptionsBuilder<MovilBusiness5StdContext>();
-            options.UseSqlServer(ToolsHelper.ConnectString);
-            _context = new MovilBusiness5StdContext(options.Options);
+            //var options = new DbContextOptionsBuilder<MovilBusiness5StdContext>();
+            //options.UseSqlServer(ToolsHelper.ConnectString);
+            //_context = new MovilBusiness5StdContext(options.Options);
+            _context = new MovilBusiness5StdContext();
         }
 
         public async Task<int> Actualizar(T entidad)

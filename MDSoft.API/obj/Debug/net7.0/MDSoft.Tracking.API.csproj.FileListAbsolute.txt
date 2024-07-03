@@ -346,3 +346,7 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MD
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.genruntimeconfig.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\ref\MDSoft.Tracking.API.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Debug\net7.0\MDSoft.Tracking.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Debug\net7.0\nlog.config
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Debug\net7.0\NLog.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll

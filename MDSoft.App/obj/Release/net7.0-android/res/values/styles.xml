@@ -1,0 +1,1 @@
+<resources><style name="MainTheme" parent="Maui.SplashTheme"><item name="android:windowIsTranslucent">true</item><item name="android:windowSplashScreenAnimationDuration">0</item></style></resources>

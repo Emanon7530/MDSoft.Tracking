@@ -6,8 +6,7 @@
              xmlns:vm="clr-namespace:Tracking.ViewModels"
              xmlns:model="clr-namespace:Tracking.DTOs"
              xmlns:dto="clr-namespace:MDSoft.Tracking.Services.DTO;assembly=MDSoft.Tracking.Services"
-             Title="Recepcion de Sacos">
-
+             Title="Recepcion de Sacos"> 
 
     <Grid Margin="5" RowDefinitions="Auto,*" >
         <Grid ColumnDefinitions="*,*,*" VerticalOptions="Center" Grid.Row="0" Margin="5,5,5,20">
@@ -74,7 +73,7 @@
                                                     Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
                                                            CommandParameter="{Binding}"/>
                                         </Frame.GestureRecognizers>
-
+        
                                         <StackLayout Orientation="Horizontal" >
 
                                             <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="5"/>
@@ -104,14 +103,14 @@
                                                                  Grid.Column="2" 
                                                                  Margin="0"
                                                                  HorizontalOptions="FillAndExpand">
-                                                    <Label Text="Peso Compra" ></Label>
+                                                    <Label Text="Comprado" ></Label>
                                                     <Label Text="{Binding ComPeso, StringFormat='{0:N}'}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
                                                 </VerticalStackLayout>
 
                                                 <VerticalStackLayout Grid.Row="1" 
                                                                  Grid.Column="3" 
                                                                  HorizontalOptions="FillAndExpand">
-                                                    <Label Text="Peso Recibido"  ></Label>
+                                                    <Label Text="Recibido"  ></Label>
                                                     <Label Text="{Binding RecPeso, StringFormat='{0:N}'}"   FontSize="Small" TextColor="Black" FontAttributes="Bold" />
                                                 </VerticalStackLayout>
 

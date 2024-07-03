@@ -78,13 +78,13 @@ namespace MDSoft.Tracking.Services
             return result;
         }
 
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string comReferencia )
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia )
         {
             ComprasProductoDTO result = null;
 
             var _param = new ParametrosDeQuery<ComprasProducto>(1, 100);
 
-            _param.Where = x => x.ComReferencia.Equals(comReferencia);
+            _param.Where = x => x.RepCodigo.Equals(repCodigo) && x.ComSecuencia.Equals(comSecuencia);
 
             var compra = await _RepoCompras.EncontrarPor(_param);
 
@@ -133,6 +133,27 @@ namespace MDSoft.Tracking.Services
             _paramProd.Where = x => x.ProId == result.ProId;
 
             result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+            return result;
+        }
+
+        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReference)
+        {
+            ComprasProductosDetalleDTO result = null;
+
+            var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
+
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference;
+
+            var compra = await _RepoDetalle.EncontrarPor(_param);
+
+            result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
+
+            var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
+
+            _paramProd.Where = x => x.ProId == result.ProId;
+
+            result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+
             return result;
         }
 

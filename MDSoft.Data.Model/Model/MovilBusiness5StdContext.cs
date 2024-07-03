@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace MDSoft.Tracking.Model;
 
@@ -34,7 +35,12 @@ public partial class MovilBusiness5StdContext : DbContext
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;User ID=SA;Password=manonram;Trust Server Certificate=True");
+    {
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
+        optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+    }
+    //=> optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;User ID=SA;Password=manonram;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

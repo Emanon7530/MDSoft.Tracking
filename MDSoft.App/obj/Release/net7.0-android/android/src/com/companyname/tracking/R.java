@@ -10839,16 +10839,15 @@ public final class R {
     public static final int search=0x7f0700e8;
     public static final int shopping_cart=0x7f0700e9;
     public static final int splash=0x7f0700ea;
-    public static final int splashnet=0x7f0700eb;
-    public static final int stand_by=0x7f0700ec;
-    public static final int stock=0x7f0700ed;
-    public static final int test_level_drawable=0x7f0700ee;
-    public static final int ticket=0x7f0700ef;
-    public static final int time=0x7f0700f0;
-    public static final int tooltip_frame_dark=0x7f0700f1;
-    public static final int tooltip_frame_light=0x7f0700f2;
-    public static final int trash=0x7f0700f3;
-    public static final int tuning=0x7f0700f4;
+    public static final int stand_by=0x7f0700eb;
+    public static final int stock=0x7f0700ec;
+    public static final int test_level_drawable=0x7f0700ed;
+    public static final int ticket=0x7f0700ee;
+    public static final int time=0x7f0700ef;
+    public static final int tooltip_frame_dark=0x7f0700f0;
+    public static final int tooltip_frame_light=0x7f0700f1;
+    public static final int trash=0x7f0700f2;
+    public static final int tuning=0x7f0700f3;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
@@ -12017,6 +12016,7 @@ public final class R {
     public static final int CardView_Dark=0x7f100112;
     public static final int CardView_Light=0x7f100113;
     /**
+     * Themes for Xamarin.Forms backwards compatibility
      * Themes for Xamarin.Forms backwards compatibility
      */
     public static final int MainTheme=0x7f100114;

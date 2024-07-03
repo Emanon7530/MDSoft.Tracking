@@ -2403,3 +2403,16 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-wi
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.2024.26716.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Json.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\fa-solid-900.ttf
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf

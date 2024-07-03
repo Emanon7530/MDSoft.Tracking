@@ -1,4 +1,6 @@
-﻿using MDSoft.Tracking.Services.DTO;
+﻿using __XamlGeneratedCode__;
+using MDSoft.Tracking.Services.DTO;
+using System.Runtime.ExceptionServices;
 using Tracking.Pages;
 using Tracking.Services;
 namespace Tracking
@@ -7,20 +9,21 @@ namespace Tracking
     {
         public App()
         {
+
             InitializeComponent();
 
-
             var logueado = Preferences.Get("logueado", string.Empty);
+
             if (string.IsNullOrEmpty(logueado))
             {
                 MainPage = new LoginPage();
+                //MainPage = new TestPage();
             }
             else
             {
+                //MainPage = new TestPage();
                 MainPage = new AppShell();
-                //MainPage = new RecepcionPage(new ViewModels.RecepcionVM(new ComprasProductoDTO()), "jlanda");
             }
         }
     }
-
 }

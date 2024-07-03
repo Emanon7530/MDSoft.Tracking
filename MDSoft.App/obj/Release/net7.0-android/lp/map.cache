@@ -1,7 +1,7 @@
-Camera.MAUI.dll
 CommunityToolkit.Maui.Core.dll
 CommunityToolkit.Maui.dll
 GoogleGson.dll
+Maui.TouchEffect.dll
 Microsoft.Identity.Client.dll
 Microsoft.Maui.Controls.Compatibility.dll
 Microsoft.Maui.Controls.dll
@@ -154,10 +154,10 @@ androidx.exifinterface.exifinterface.aar
 androidx.browser.browser.aar
 gifdecoder.aar
 glide.aar
-Camera.MAUI.aar
 CommunityToolkit.Maui.Core.aar
 CommunityToolkit.Maui.aar
 GoogleGson.aar
+Maui.TouchEffect.aar
 Microsoft.Maui.Controls.aar
 Microsoft.Maui.Controls.Compatibility.aar
 maui.aar
@@ -165,5 +165,3 @@ Microsoft.Maui.aar
 Microsoft.Maui.Essentials.aar
 SQLitePCLRaw.lib.e_sqlite3.android.aar
 Xamarin.Google.Crypto.Tink.Android.aar
-Maui.TouchEffect.dll
-Maui.TouchEffect.aar

@@ -1457,3 +1457,8 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-ma
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\MDSoft.Tracking.App.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\MDSoft.Tracking.App.genruntimeconfig.cache
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\ref\MDSoft.Tracking.App.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.Configuration.Json.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.FileSystemGlobbing.dll

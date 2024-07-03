@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDSoft.Tracking.Data", "MDS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackApp", "TrackApp\TrackApp.csproj", "{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDSoft.Tracking.Tests", "MDSoft.Tracking.Tests\MDSoft.Tracking.Tests.csproj", "{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDSoft.Tracking.Tests", "MDSoft.Tracking.Tests\MDSoft.Tracking.Tests.csproj", "{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,12 +49,9 @@ Global
 		{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{727B7F7B-446D-457C-A3F7-94C69D2DB0B2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83EF9704-5687-4BCE-9A0A-CAFD2E3B1C5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

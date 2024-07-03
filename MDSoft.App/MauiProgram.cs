@@ -6,13 +6,17 @@ using CommunityToolkit.Maui;
 using MDSoft.Tracking.Services.AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MDSoft.Tracking.Model;
+using Tracking.Services;
 
 namespace Tracking
 {
     public static class MauiProgram
     {
+
+
         public static MauiApp CreateMauiApp()
         {
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
@@ -27,7 +31,6 @@ namespace Tracking
             builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
             builder.Services.AddDbContext<TrackingDbContext>();
-            //builder.Services.AddDbContext<MovilBusiness5StdContext>(options => options.UseSqlServer("Data Source=AGTDEVL1019;Trust Server Certificate=True;Initial Catalog=MovilBusiness5STD;uid=sa;pwd=manonram"));
 
             builder.Services.AddTransient<ProductoPage>();
             builder.Services.AddTransient<ProductoVM>();
@@ -47,6 +50,8 @@ namespace Tracking
             builder.Services.AddTransient<SettingDataPage>();
             builder.Services.AddTransient<SettingDataMV>();
 
+            builder.Services.AddSingleton<IAPIManager, APIManager>();
+
             var dbContext = new TrackingDbContext();
             var result = dbContext.Database.EnsureCreated();
             dbContext.Dispose();
@@ -56,8 +61,8 @@ namespace Tracking
 #endif
 
             Routing.RegisterRoute(nameof(ProductoPage), typeof(ProductoPage));
-            Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
-            Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
+            //Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
+            //Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
             Routing.RegisterRoute(nameof(PesoLinealPage), typeof(PesoLinealPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(SettingDataPage), typeof(SettingDataPage));

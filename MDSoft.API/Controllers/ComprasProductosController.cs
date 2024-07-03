@@ -35,9 +35,9 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                _logger.LogError("ComprasProductos_GetAll " + e.Message);
                 throw;
             }
         }
@@ -51,9 +51,9 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                _logger.LogError("ComprasProductos_GetPendingByDate " + e.Message);
                 throw;
             }
         }
@@ -68,9 +68,10 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
+                _logger.LogError("ComprasProductos_sp_GetComprasPendientes " + e.Message);
                 throw;
             }
         }
@@ -78,34 +79,53 @@ namespace MDSoft.API.Controllers
 
         [HttpGet()]
         [Route("GetCompraByTicket")]
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string comReferencia )
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
             try
             {
-                var result = await _compraServices.GetCompraByTicket(comReferencia );
+                var result = await _compraServices.GetCompraByTicket(repCodigo, comSecuencia );
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                _logger.LogError("ComprasProductos_GetCompraByTicket " + e.Message);
                 throw;
             }
         }
 
         [HttpGet()]
         [Route("GetProductInCompraByCode")]
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string compra,int comSecuencia, int productId)
+        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int productId)
         {
             try
             {
-                var result = await _compraServices.GetProductInCompraByCode(compra, comSecuencia, productId);
+                var result = await _compraServices.GetProductInCompraByCode(repCodigo, comSecuencia, productId);
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
+                _logger.LogError("ComprasProductos_GetProductInCompraByCode " + e.Message);
+                throw;
+            }
+        }
+
+        [HttpGet()]
+        [Route("GetProductInCompraByReference")]
+        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReferencia)
+        {
+            try
+            {
+                var result = await _compraServices.GetProductInCompraByReference(repCodigo, comSecuencia, comReferencia);
+
+                return result;
+            }
+            catch (Exception e)
+            {
+
+                _logger.LogError(e.TargetSite + " " + e.Message);
                 throw;
             }
         }
@@ -120,9 +140,10 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
+                _logger.LogError("ComprasProductos_GetProductsInCompra " + e.Message);
                 throw;
             }
         }
@@ -138,9 +159,10 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
+                _logger.LogError("ComprasProductos_CerrarCompra " + e.Message);
                 throw;
             }
         }

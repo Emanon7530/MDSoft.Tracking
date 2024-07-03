@@ -23,16 +23,12 @@ namespace Tracking.ViewModels
     {
         private readonly TrackingDbContext _context;
         private ComprasProductosDetalleDTO _compradetalleDTO;
+        private readonly IAPIManager _apiManager;
         public ProductoVM(ComprasProductosDetalleDTO compradetalleDTO)
         {
             _compradetalleDTO = compradetalleDTO;
 
-
-            //MainThread.BeginInvokeOnMainThread(async () =>
-            //    {
-            //        await Task.Run(async () => Inicio(0));
-            //        //await Task.Run(async () => await ShowInfoProduct());
-            //    });
+            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
 
         }
 
@@ -72,11 +68,6 @@ namespace Tracking.ViewModels
 
         public async void Inicio(int idProducto)
         {
-            //if (_compradetalleDTO.ProId == null)
-            //{
-            //    var proddetalle = await APIManager.GetProductInCompraByCode("jlanda", 2, 40007408);
-            //    _compradetalleDTO = proddetalle;
-            //}
 
             RepCodigo = _compradetalleDTO.RepCodigo;
             ComSecuencia = _compradetalleDTO.ComSecuencia;
@@ -108,7 +99,7 @@ namespace Tracking.ViewModels
                             LotesFermentacionDetallesDTO = null
 
                         };
-                        var compras = await APIManager.GuardarLoteFermentacion(lote);
+                        var compras = await _apiManager.GuardarLoteFermentacion(lote);
                     }
                     else // Secado a Maquina
                     {
@@ -119,7 +110,7 @@ namespace Tracking.ViewModels
                             LotFechaCierre = null,
                             LotesSecadoNaturalDetallesDTO = null
                         };
-                        var compras = await APIManager.GuardarLoteSecadoNatural(lote);
+                        var compras = await _apiManager.GuardarLoteSecadoNatural(lote);
                     }
 
                     MainThread.BeginInvokeOnMainThread(() =>
@@ -170,7 +161,7 @@ namespace Tracking.ViewModels
             };
 
 
-            var Prod = await APIManager.GuradarDetalleRecepcion(recepcionDetalle);
+            var Prod = await _apiManager.GuradarDetalleRecepcion(recepcionDetalle);
 
             MainThread.BeginInvokeOnMainThread(async () =>
            {

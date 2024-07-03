@@ -64,7 +64,7 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Data.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Model.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Services.dll
-D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Services.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Data.pdb
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.Model.pdb
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.API.deps.json

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MDSoft.Tracking.Services.DTO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -43,6 +45,39 @@ namespace Tracking.ViewModels
             };
 
             LoadingEsVisible = false;
+
+            Task.Run(async () =>
+            {
+                await LoadAPI();
+
+            });
+
+
+        }
+
+        public async Task LoadAPI()
+        {
+
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://movilbusiness.com.do/MDSOFT_Tracking/")
+            };
+
+            string endPoint = $"ComprasProductos/sp_GetComprasPendientes";
+
+            var response = await client.GetAsync(endPoint);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                await Shell.Current.DisplayAlert("no existe!", response.RequestMessage.ToString(), "OK");
+            }
+            else
+            {
+
+                var responsedetail = await response.Content.ReadAsStringAsync();
+                var compras = JsonConvert.DeserializeObject<List<ComprasProductoDTO>>(responsedetail);
+            }
+
         }
 
         [RelayCommand]

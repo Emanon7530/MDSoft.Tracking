@@ -129,6 +129,7 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="5.3.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.18" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.9" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
