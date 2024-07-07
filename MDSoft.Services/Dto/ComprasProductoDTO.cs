@@ -26,7 +26,7 @@ public partial class ComprasProductoDTO
 
     public string? RepNombre { get; set; }
 
-    public int? ComCantidadDetalle { get; set; }
+    public decimal? ComCantidadDetalle { get; set; }
 
     [Column("ComNCF")]
     [StringLength(50)]

@@ -351,11 +351,11 @@
         <member name="P:Tracking.ViewModels.RecepcionVM.LimpiarCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Limpiar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionVM.eliminarEventCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionVM.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.EliminarEvent(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionVM.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.RecepcionVM.finalizarVentaCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand"/>.</summary>

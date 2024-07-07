@@ -27,7 +27,4 @@ public partial class LotesSecadoMaquina
     [StringLength(64)]
     [Unicode(false)]
     public string? UsuiniciosesionCierre { get; set; }
-
-    [InverseProperty("LotSecadoMaquinaNavigation")]
-    public virtual ICollection<LotesSecadoMaquinaDetalle> LotesSecadoMaquinaDetalles { get; set; } = new List<LotesSecadoMaquinaDetalle>();
 }

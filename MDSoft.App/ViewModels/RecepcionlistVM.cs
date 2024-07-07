@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Tracking.Pages;
-using Tracking.Utilidades;
 using CommunityToolkit.Mvvm.Messaging;
+using MDSoft.Tracking.Services.DTO;
 using System.Collections.ObjectModel;
 using Tracking.DataAccess;
-using MDSoft.Tracking.Services.DTO;
+using Tracking.Pages;
 using Tracking.Services;
+using Tracking.Utilidades;
 
 namespace Tracking.ViewModels
 {
@@ -16,17 +16,30 @@ namespace Tracking.ViewModels
         private readonly IAPIManager _apiManager;
         public RecepcionlistMV(TrackingDbContext context)
         {
-            WeakReferenceMessenger.Default.Register<RecepcionCompraMessage>(this, (r, m) =>
+            try
             {
-                RecepcionMensajeRecibido(m.Value);
-            });
 
-            _context = context;
-            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
+                WeakReferenceMessenger.Default.Register<RecepcionCompraResult>(this, (r, m) =>
+                 {
+                     RecepcionMensajeRecibido(m);
+                 });
 
-            Task.Run(async () => await GetRecepciones());
+                _context = context;
+                _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
 
-            PropertyChanged += RecepcionVM_PropertyChanged;
+                //TODO Agregar un Refreshview
+                Task.Run(async () => await GetRecepciones());
+
+                PropertyChanged += RecepcionVM_PropertyChanged;
+            }
+            catch (Exception e)
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+                });
+            }
+
         }
 
         private void RecepcionVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -94,9 +107,11 @@ namespace Tracking.ViewModels
             DataEsVisible = false;
             LoadingEsVisible = true;
 
-            await Task.Run(async () =>
+            try
             {
-                var compras = await _apiManager.GetCompraByTicket(BuscarRecepcion);
+
+                var codigo = BuscarRecepcion.Split("-");
+                var compras = await _apiManager.GetCompraByTicket(codigo[0], int.Parse(codigo[1]));
 
                 if (compras != null)
                 {
@@ -114,18 +129,24 @@ namespace Tracking.ViewModels
                     });
 
                     ListRecepcion = lstTemp;
+
+                    await IrRecepcion(lstTemp[0]);
                 }
                 else
                 {
                     ListRecepcion.Clear();
                 }
 
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    DataEsVisible = true;
-                    LoadingEsVisible = false;
-                });
-            });
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+            }
+            finally
+            {
+                IsRefreshing = false;
+                LoadingEsVisible = false;
+            }
         }
 
         [RelayCommand]
@@ -135,16 +156,11 @@ namespace Tracking.ViewModels
             LoadingEsVisible = true;
 
             BuscarRecepcion = "";
-            await Task.Run(async () =>
-            {
-                await GetRecepciones();
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    DataEsVisible = true;
-                    LoadingEsVisible = false;
-                });
-            });
 
+            await GetRecepciones();
+
+            DataEsVisible = true;
+            LoadingEsVisible = false;
         }
 
         [RelayCommand]
@@ -153,24 +169,29 @@ namespace Tracking.ViewModels
             DataEsVisible = false;
             LoadingEsVisible = true;
 
-            await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(recepcion), recepcion.RepCodigo));
-
-            await Task.Run(async () =>
+            try
             {
+
+                await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(recepcion), recepcion.RepCodigo));
+
                 await GetRecepciones();
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    DataEsVisible = true;
-                    LoadingEsVisible = false;
-                });
-            });
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+            }
+            finally
+            {
+                IsRefreshing = false;
+                LoadingEsVisible = false;
+            }
+
         }
 
         private void RecepcionMensajeRecibido(RecepcionCompraResult result)
         {
-
-
-
+            //TODO Agregar un Refreshview
+            Task.Run(async () => await GetRecepciones());
         }
 
         [RelayCommand]

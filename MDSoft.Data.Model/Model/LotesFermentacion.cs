@@ -27,7 +27,4 @@ public partial class LotesFermentacion
     [StringLength(64)]
     [Unicode(false)]
     public string? LotUsuarioCierre { get; set; }
-
-    [InverseProperty("LotFermentacionNavigation")]
-    public virtual ICollection<LotesFermentacionDetalle> LotesFermentacionDetalles { get; set; } = new List<LotesFermentacionDetalle>();
 }

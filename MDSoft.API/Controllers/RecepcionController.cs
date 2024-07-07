@@ -77,22 +77,6 @@ namespace MDSoft.API.Controllers
                 throw;
             }
         }
-        //[HttpGet()]
-        //[Route("GetRecepcionesDetalle")]
-        //public async Task<IEnumerable<RecepcionesComprasDetalleDTO>> GetRecepcionesDetalle(int RecSecuencia)
-        //{
-        //    try
-        //    {
-        //        var result = await _recepcionServices.GetRecepcionesDetalle(RecSecuencia);
-
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
         [HttpPost()]
         [Route("Guardar")]
         public async Task<RecepcionesCompraDTO> Guardar(RecepcionesCompraDTO recepcionCompra)
@@ -153,9 +137,8 @@ namespace MDSoft.API.Controllers
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
                 throw;
             }
         }

@@ -9,6 +9,9 @@ namespace MDSoft.Tracking.Model;
 /// <summary>
 /// Maestro de Productos
 /// </summary>
+[Index("Rowguid", Name = "IDXProductosrowguid", IsUnique = true)]
+[Index("Rowguid", Name = "missing_index_444")]
+[Index("Rowguid", Name = "missing_index_446")]
 public partial class Producto
 {
     /// <summary>
@@ -207,7 +210,7 @@ public partial class Producto
     /// <summary>
     /// Imagen producto
     /// </summary>
-    [StringLength(500)]
+    [StringLength(50)]
     [Unicode(false)]
     public string? ProImg { get; set; }
 

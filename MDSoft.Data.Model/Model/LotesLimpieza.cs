@@ -42,7 +42,4 @@ public partial class LotesLimpieza
     [StringLength(64)]
     [Unicode(false)]
     public string? UsuiniciosesionCierre { get; set; }
-
-    [InverseProperty("LotLimpiezaNavigation")]
-    public virtual ICollection<LotesLimpiezaDetalle> LotesLimpiezaDetalles { get; set; } = new List<LotesLimpiezaDetalle>();
 }

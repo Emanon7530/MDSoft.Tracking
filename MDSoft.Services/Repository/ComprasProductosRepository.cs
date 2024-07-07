@@ -69,34 +69,26 @@ namespace MDSoft.Tracking.Services.Repository
             return result.FirstOrDefault();
         }
 
-        //public async Task<IEnumerable<ComprasyRepresentante>> GetComprasProductoWithRepresentante(string comReferencia)
-        //{
-
-        //    var compra = await TraerTodos();
-        //    var present = await _repoRepresentante.TraerTodos();
-
-        //    var result = compra.Join(present, repres => repres.RepCodigo, compra => compra.RepCodigo, (compra, representa) => new ComprasyRepresentante { CompraProd = compra, Representante = representa });
-
-        //    return result.ToList(); ;
-        //}
 
         public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
         {
             using (var dbContext = new MovilBusiness5StdContext())
             {
                 var entryPoint = await (from ep in dbContext.ComprasProductos
-                                         join e in dbContext.Representantes on ep.RepCodigo equals e.RepCodigo
-                                         where ep.ComEstatus == 2
-                                         select new ComprasRepresentante
-                                         {
-                                             RepCodigo = ep.RepCodigo,
-                                             ComSecuencia = ep.ComSecuencia,
-                                             ComFecha = ep.ComFecha,
-                                             RepNombre = e.RepNombre,
-                                             ComReferencia = ep.ComReferencia,
-                                             ComCantidadDetalle = ep.ComCantidadDetalle,
-                                             ComEstatus = ep.ComEstatus
-                                         }).Take(10).ToListAsync();
+                                        join d in dbContext.ComprasProductosDetalles on new { ep.RepCodigo, ep.ComSecuencia } equals new { d.RepCodigo, d.ComSecuencia }
+                                        join e in dbContext.Representantes on ep.RepCodigo equals e.RepCodigo
+                                        where ep.ComEstatus == 2
+                                        group d by new { ep.RepCodigo, ep.ComReferencia, ep.ComSecuencia, ep.ComFecha, ep.ComEstatus, e.RepNombre } into grupo
+                                        select new ComprasRepresentante
+                                        {
+                                            RepCodigo = grupo.Key.RepCodigo,
+                                            ComSecuencia = grupo.Key.ComSecuencia,
+                                            ComFecha = grupo.Key.ComFecha,
+                                            RepNombre = grupo.Key.RepNombre,
+                                            ComReferencia = grupo.Key.ComReferencia,
+                                            ComCantidadDetalle = grupo.Sum(t1 => t1.ComPrecioKg),
+                                            ComEstatus = grupo.Key.ComEstatus
+                                        }).Take(10).ToListAsync();
 
                 return entryPoint;
             }

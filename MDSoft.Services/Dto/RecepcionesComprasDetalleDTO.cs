@@ -9,30 +9,71 @@ namespace MDSoft.Tracking.Services.DTO;
 public partial class RecepcionesComprasDetalleDTO
 {
     [Key]
+    [StringLength(15)]
+    [Unicode(false)]
+    public string RepCodigo { get; set; } = null!;
+
+    [Key]
     public int RecSecuencia { get; set; }
 
     [Key]
-    public int RecPosicion { get; set; }
+    public int RefSecuencia { get; set; }
 
-    public string? RepCodigo { get; set; }
-    public DateTime? RecFechaCreacion { get; set; }
+    [Column(TypeName = "datetime")]
+    public DateTime? RecFechaRecogida { get; set; }
+
+    [StringLength(18)]
+    [Unicode(false)]
+    public string? ProCodigo { get; set; }
+
+    [StringLength(255)]
+    [Unicode(false)]
+    public string? ProDescripcion { get; set; }
+
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? RecCantidadOrdenada { get; set; }
+
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? RecCantidadRecibida { get; set; }
+
+    [StringLength(30)]
+    [Unicode(false)]
+    public string? ProCodigoBarra { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? UsuInicioSesion { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? UsuFechaActualizacion { get; set; }
+
+    public short? RecEstado { get; set; }
+
+    [Column("rowguid")]
+    public Guid? Rowguid { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? AlmCodigo { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? RecFechaActualizacion { get; set; }
+
+    public int? RecPosicion { get; set; }
 
     [StringLength(15)]
     [Unicode(false)]
+    public string? RecReferencia { get; set; }
     public string? ComReferencia { get; set; }
-    public string? NombreComReferencia { get; set; }
+    public string? NombreProducto { get; set; }
+
+    public int? ComSecuencia { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ComPeso { get; set; }
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? RecPeso { get; set; }
-
-    public int RecDestino { get; set; }
-    public string LotReferencia { get; set; }
-
-    [StringLength(5)]
-    public string RecEstado { get; set; }
 
     public virtual RecepcionesCompraDTO recepcionesComprasDTO { get; set; } = null!;
 }

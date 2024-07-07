@@ -68,6 +68,7 @@
             </StackLayout>
 
         </Grid>
+        <!-- TODO Agregar un RefreshView -->
         <!--ROW 2-->
         <CollectionView ItemsSource="{Binding ListRecepcion}" HeightRequest="800" 
             VerticalOptions="FillAndExpand" IsVisible="true"  Margin="5,0,5,0" SelectionMode="Single" >
@@ -100,13 +101,13 @@
                                 </Label.Text>
                             </Label>
                             <Label Grid.Column="1" Grid.Row="1" Text="{Binding ComFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center"></Label>
-                            <Label Text="No. Compra" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
+                            <Label Text="Comprador" Grid.Column="1" Grid.Row="2" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
                             <Line Y1="40" Grid.Column="2" Grid.RowSpan="4" BackgroundColor="Blue" ></Line>
 
                             <Label Text="{Binding RepNombre}" Grid.Row="0" Grid.Column="3" FontSize="Subtitle" TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
                             <Label Text="Cantidad" Grid.Row="1" Grid.Column="3" ></Label>
-                            <Label Text="{Binding ComCantidadDetalle}" Grid.Row="2" Grid.Column="3"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                            <Label Text="{Binding ComCantidadDetalle, StringFormat='{0:n}'}" Grid.Row="2" Grid.Column="3"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
                             <Label Text="Estatus" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="4" ></Label>
                             <Frame CornerRadius="10" Grid.Row="2" Grid.Column="4" Padding="0" Margin="0" BackgroundColor="{StaticResource Primary}">
                                 <Label Text="{Binding ComEstatusNombre}"    

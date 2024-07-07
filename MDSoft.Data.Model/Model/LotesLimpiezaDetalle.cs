@@ -25,8 +25,4 @@ public partial class LotesLimpiezaDetalle
     [StringLength(15)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
-
-    [ForeignKey("LotLimpieza")]
-    [InverseProperty("LotesLimpiezaDetalles")]
-    public virtual LotesLimpieza LotLimpiezaNavigation { get; set; } = null!;
 }

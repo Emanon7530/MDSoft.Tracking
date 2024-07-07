@@ -21,8 +21,4 @@ public partial class LotesSecadoNaturalDetalle
     [StringLength(50)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
-
-    [ForeignKey("LotSecadoManual")]
-    [InverseProperty("LotesSecadoNaturalDetalles")]
-    public virtual LotesSecadoNatural LotSecadoManualNavigation { get; set; } = null!;
 }

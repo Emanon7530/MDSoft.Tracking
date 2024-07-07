@@ -7,7 +7,7 @@ namespace Tracking.Services
         HttpClient Client { get; }
 
         Task<RecepcionesCompraDTO> ActualizarRecepcion(RecepcionesCompraDTO recepcionDetalle);
-        Task<ComprasProductoDTO> GetCompraByTicket(string ComReferencia);
+        Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia);
         Task<List<ComprasProductoDTO>> GetComprasPendientes(DateTime fromDate, DateTime toDate);
         Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID);
         Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReference);

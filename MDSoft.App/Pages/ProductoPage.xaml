@@ -45,7 +45,7 @@
                 <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
                     <Label Text="Numero Lote :" VerticalOptions="Center" FontAttributes="Bold"/>
                     <StackLayout Orientation="Horizontal" HeightRequest="40" Spacing="5">
-                        <Entry Text="{Binding LotReferencia}" HorizontalOptions="FillAndExpand"/>
+                        <Entry Text="{Binding ComReferencia}" HorizontalOptions="FillAndExpand"/>
                         <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
                      BackgroundColor="{StaticResource Gray200}"
                      TextColor="Black"

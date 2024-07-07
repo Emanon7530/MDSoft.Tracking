@@ -27,7 +27,4 @@ public partial class LotesSecadoNatural
     [StringLength(64)]
     [Unicode(false)]
     public string? UsuiniciosesionCierre { get; set; }
-
-    [InverseProperty("LotSecadoManualNavigation")]
-    public virtual ICollection<LotesSecadoNaturalDetalle> LotesSecadoNaturalDetalles { get; set; } = new List<LotesSecadoNaturalDetalle>();
 }

@@ -4,14 +4,13 @@
              x:Class="Tracking.Pages.RecepcionPage"
              xmlns:util="clr-namespace:Tracking.Utilidades"
              xmlns:vm="clr-namespace:Tracking.ViewModels"
-             xmlns:model="clr-namespace:Tracking.DTOs"
              xmlns:dto="clr-namespace:MDSoft.Tracking.Services.DTO;assembly=MDSoft.Tracking.Services"
-             Title="Recepcion de Sacos"> 
+             Title="Recepcion de Sacos">
 
     <Grid Margin="5" RowDefinitions="Auto,*" >
         <Grid ColumnDefinitions="*,*,*" VerticalOptions="Center" Grid.Row="0" Margin="5,5,5,20">
             <VerticalStackLayout Grid.Column="0">
-                <Label Text="No. Compra" Grid.Column="0"></Label>
+                <Label Text="Comprador" Grid.Column="0"></Label>
                 <Label Text="{Binding RepCodigo}" Grid.Column="0" FontSize="Medium"    TextColor="Black" FontAttributes="Bold" />
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Column="1">
@@ -46,10 +45,18 @@
                      BackgroundColor="{StaticResource Gray200}"
                      TextColor="Black"
                      Command="{Binding BuscarCommand}"></Button>
+                    <!--ROW 1-->
+                    <StackLayout Grid.Row="1" Orientation="Vertical">
+                        <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" 
+                               IsVisible="{Binding LoadingEsVisible}" 
+                               Color="Blue" HeightRequest="25" 
+                               VerticalOptions="Start"/>
+                    </StackLayout>
                 </StackLayout>
 
                 <!--Details-->
                 <ScrollView Grid.Row="1" >
+
                     <CollectionView SelectionMode="None"  ItemsSource="{Binding DetalleRecepcion}" >
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
@@ -73,7 +80,7 @@
                                                     Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
                                                            CommandParameter="{Binding}"/>
                                         </Frame.GestureRecognizers>
-        
+
                                         <StackLayout Orientation="Horizontal" >
 
                                             <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="5"/>
@@ -88,14 +95,14 @@
                                                     <!--ROW 0, COLUMN 0 / ROW 1, COLUMN 0-->
                                                     <Label Text="{Binding ComReferencia}" FontSize="Small" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
                                                     <!--ROW 0, COLUMN 1 / ROW 0, COLUMN 1-->
-                                                    <Label Text="{Binding  RecFechaCreacion, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
-                                                    <Label Text="No. Compra" FontSize="Small"    TextColor="Black"/>
+                                                    <Label Text="{Binding  RecFechaRecogida, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
+                                                    <Label Text="Producto" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
                                                 </VerticalStackLayout>
 
                                                 <Line Y1="75" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
 
                                                 <!--ROW 1 , COLUMN 0-->
-                                                <Label Text="{Binding NombreComReferencia}" Grid.Row="0" Grid.Column="2"   
+                                                <Label Text="{Binding NombreProducto}" Grid.Row="0" Grid.Column="2"   
                                                    TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
                                                 <!--ROW 4 , COLUMN 0-->

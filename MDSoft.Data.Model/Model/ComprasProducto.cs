@@ -86,6 +86,5 @@ public partial class ComprasProducto
     [Unicode(false)]
     public string? ComTipoPago { get; set; }
 
-    [InverseProperty("ComprasProducto")]
-    public virtual ICollection<ComprasProductosDetalle> ComprasProductosDetalles { get; set; } = new List<ComprasProductosDetalle>();
+    public int? ComTotal { get; set; }
 }

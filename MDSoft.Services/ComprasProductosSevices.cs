@@ -21,6 +21,7 @@ namespace MDSoft.Tracking.Services
         IComprasProductosRepository _RepoCompras;
         IComprasProductosDetalleRepository _RepoDetalle;
         IRepositorio<Producto> _RepoProducto;
+        IRepositorio<Representante> _RepoRepresentante;
 
         IMapper _mapper;
 
@@ -29,6 +30,8 @@ namespace MDSoft.Tracking.Services
             _RepoCompras = new ComprasProductosRepository();
             _RepoDetalle = new ComprasProductosDetalleRepository();
             _RepoProducto = new Repositorio<Producto>();
+            _RepoRepresentante = new Repositorio<Representante>();
+
             _mapper = mapper;
         }
 
@@ -73,12 +76,15 @@ namespace MDSoft.Tracking.Services
 
             var compra = await _RepoCompras.sp_GetComprasPendientes();
 
-            result = _mapper.Map<IEnumerable<ComprasProductoDTO>>(compra);
+            if (compra.Count() > 0)
+            {
+                result = _mapper.Map<IEnumerable<ComprasProductoDTO>>(compra);
+            }
 
             return result;
         }
 
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia )
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
             ComprasProductoDTO result = null;
 
@@ -91,6 +97,11 @@ namespace MDSoft.Tracking.Services
             if (compra != null)
             {
                 result = _mapper.Map<ComprasProductoDTO>(compra.FirstOrDefault());
+
+                var _paramRep = new ParametrosDeQuery<Representante>(1, 100);
+                _paramRep.Where = x => x.RepCodigo == repCodigo;
+
+                result.RepNombre = _RepoRepresentante.EncontrarPor(_paramRep).Result.Select(x => x.RepNombre).First();
             }
 
             return result;
@@ -106,6 +117,8 @@ namespace MDSoft.Tracking.Services
                 editCompra.ComEstatus = 1;
 
                 var result = await _RepoCompras.Actualizar(editCompra);
+
+                var compras = _mapper.Map<ComprasProductoDTO>(editCompra);
 
                 return compra;
             }
@@ -126,13 +139,16 @@ namespace MDSoft.Tracking.Services
 
             var compra = await _RepoDetalle.EncontrarPor(_param);
 
-            result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
+            if (compra.Count() > 0)
+            {
+                result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
 
-            var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
+                var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
 
-            _paramProd.Where = x => x.ProId == result.ProId;
+                _paramProd.Where = x => x.ProId == result.ProId;
 
-            result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+                result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+            }
             return result;
         }
 
@@ -142,17 +158,20 @@ namespace MDSoft.Tracking.Services
 
             var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
 
-            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference;
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference && x.ComEstatusDetalle == 1;
 
             var compra = await _RepoDetalle.EncontrarPor(_param);
 
-            result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
+            if (compra.Count() > 0)
+            {
+                result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
 
-            var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
+                var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
 
-            _paramProd.Where = x => x.ProId == result.ProId;
+                _paramProd.Where = x => x.ProId == result.ProId;
 
-            result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+                result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
+            }
 
             return result;
         }

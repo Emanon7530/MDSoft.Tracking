@@ -139,14 +139,14 @@ namespace Tracking.ViewModels
                 RecepcionesComprasDetalleDTO recepcionDetalle = new()
                 {
                     ComPeso = ComPeso,
-                    RecFechaCreacion = DateTime.Now,
+                    //RecFechaCreacion = DateTime.Now,
                     RecPeso = RecPeso,
-                    RecDestino = Destino == "Fermentacion" ? 1 : 2,
+                    //RecDestino = Destino == "Fermentacion" ? 1 : 2,
                     //RecPosicion = _compradetalleDTO.ComPosicion,
                     RepCodigo = RepCodigo,
                     ComReferencia = _compradetalleDTO.ComReferencia,
-                    LotReferencia = LotReferencia,
-                    RecEstado = "Rec",
+                    //LotReferencia = LotReferencia,
+                    RecEstado = 1,
                     RecSecuencia = 1
                 };
 
@@ -154,9 +154,9 @@ namespace Tracking.ViewModels
                 {
 
                     RecSecuencia = 1,
-                    RecEstado = "Prac",
+                    RecEstado = 1,
                     RecFechaCreacion = DateTime.Now,
-                    ComReferencia = _compradetalleDTO.ComReferencia
+                    RecReferencia = _compradetalleDTO.ComReferencia
                 };
 
 

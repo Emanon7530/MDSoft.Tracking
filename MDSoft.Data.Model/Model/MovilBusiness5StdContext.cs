@@ -16,22 +16,40 @@ public partial class MovilBusiness5StdContext : DbContext
     {
     }
 
+    public virtual DbSet<Compra> Compras { get; set; }
+
+    public virtual DbSet<ComprasDetalle> ComprasDetalles { get; set; }
+
     public virtual DbSet<ComprasProducto> ComprasProductos { get; set; }
+
     public virtual DbSet<ComprasProductosDetalle> ComprasProductosDetalles { get; set; }
+
     public virtual DbSet<LotesFermentacion> LotesFermentacions { get; set; }
+
     public virtual DbSet<LotesFermentacionDetalle> LotesFermentacionDetalles { get; set; }
+
     public virtual DbSet<LotesLimpieza> LotesLimpiezas { get; set; }
+
     public virtual DbSet<LotesLimpiezaDetalle> LotesLimpiezaDetalles { get; set; }
+
     public virtual DbSet<LotesSecadoMaquina> LotesSecadoMaquinas { get; set; }
+
     public virtual DbSet<LotesSecadoMaquinaDetalle> LotesSecadoMaquinaDetalles { get; set; }
+
     public virtual DbSet<LotesSecadoNatural> LotesSecadoNaturals { get; set; }
+
     public virtual DbSet<LotesSecadoNaturalDetalle> LotesSecadoNaturalDetalles { get; set; }
+
     public virtual DbSet<Producto> Productos { get; set; }
+
     public virtual DbSet<Proveedore> Proveedores { get; set; }
+
     public virtual DbSet<RecepcionesCompra> RecepcionesCompras { get; set; }
+
     public virtual DbSet<RecepcionesComprasDetalle> RecepcionesComprasDetalles { get; set; }
+
     public virtual DbSet<Representante> Representantes { get; set; }
-    public virtual DbSet<UsosMultiple> UsosMultiples { get; set; }
+
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -40,57 +58,147 @@ public partial class MovilBusiness5StdContext : DbContext
                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
     }
-    //=> optionsBuilder.UseSqlServer("Data Source=AGTDEVL1019;Initial Catalog=MovilBusiness5STD;User ID=SA;Password=manonram;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Compra>(entity =>
+        {
+            entity.ToTable(tb =>
+                {
+                    tb.HasComment("Maestra de Compras");
+                    tb.HasTrigger("tg_MD_REPL_Compras_IUDV7");
+                    tb.HasTrigger("trg_ComprasIOI");
+                });
+
+            entity.Property(e => e.ComSecuencia).HasComment("Secuencia");
+            entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
+            entity.Property(e => e.Cldcedula).HasComment("Cédula");
+            entity.Property(e => e.CliId).HasComment("ID Cliente");
+            entity.Property(e => e.ComCantidadCanastos)
+                .HasDefaultValueSql("((0))")
+                .HasComment("Cantidad canastos");
+            entity.Property(e => e.ComCantidadDetalle).HasComment("Cantidad detalle");
+            entity.Property(e => e.ComCantidadImpresion).HasComment("Cantidad impresión");
+            entity.Property(e => e.ComEstatus).HasComment("Estatus");
+            entity.Property(e => e.ComFecha).HasComment("Fecha");
+            entity.Property(e => e.ComFechaActualizacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasComment("Fecha Creacion/Actualizacion ");
+            entity.Property(e => e.ComNcf).HasComment("NCF");
+            entity.Property(e => e.ComReferencia).HasComment("Referencia");
+            entity.Property(e => e.ComTotal).HasComment("Total");
+            entity.Property(e => e.ConId).HasComment("ID condición de pago");
+            entity.Property(e => e.CuaSecuencia).HasComment("Secuencia");
+            entity.Property(e => e.DepSecuencia).HasComment("Secuencia");
+            entity.Property(e => e.MbVersion).HasComment("Version de MovilBusiness");
+            entity.Property(e => e.Rowguid)
+                .HasDefaultValueSql("(newid())")
+                .HasComment("Identificador Unico");
+            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
+            entity.Property(e => e.VisSecuencia).HasComment("Secuencia");
+        });
+
+        modelBuilder.Entity<ComprasDetalle>(entity =>
+        {
+            entity.ToTable("ComprasDetalle", tb =>
+                {
+                    tb.HasComment("Detalle de Compras");
+                    tb.HasTrigger("tg_MD_REPL_ComprasDetalle_IUDV7");
+                    tb.HasTrigger("trg_ComprasDetalleIOI");
+                });
+
+            entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
+            entity.Property(e => e.ComSecuencia).HasComment("Secuencia");
+            entity.Property(e => e.ComPosicion).HasComment("Posición");
+            entity.Property(e => e.ComAdValorem).HasComment("Impuesto AdValorem");
+            entity.Property(e => e.ComCantidad).HasComment("Cantidad");
+            entity.Property(e => e.ComCantidadDetalle).HasComment("Cantidad detalle");
+            entity.Property(e => e.ComDescuento).HasComment("Descuento");
+            entity.Property(e => e.ComFechaActualizacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasComment("Fecha Creacion/Actualizacion ");
+            entity.Property(e => e.ComItbis).HasComment("Itbis");
+            entity.Property(e => e.ComPrecio).HasComment("Precio");
+            entity.Property(e => e.ComSelectivo).HasComment("Selectivo");
+            entity.Property(e => e.ComTotalDescuento).HasComment("Total descuento");
+            entity.Property(e => e.ComTotalItbis).HasComment("Total Itbis");
+            entity.Property(e => e.ComindicadorOferta)
+                .HasDefaultValueSql("((0))")
+                .HasComment("Indicador oferta");
+            entity.Property(e => e.CxcDocumento).HasComment("Número de documento cuentas por cobrar");
+            entity.Property(e => e.ProId).HasComment("ID Producto");
+            entity.Property(e => e.Rowguid)
+                .HasDefaultValueSql("(newid())")
+                .HasComment("Identificador Unico");
+            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
+        });
+
+        modelBuilder.Entity<ComprasProducto>(entity =>
+        {
+            entity.HasKey(e => new { e.ComSecuencia, e.RepCodigo }).HasName("PK__ComprasP__F29A5E899E00CD55");
+
+            entity.ToTable(tb =>
+                {
+                    tb.HasTrigger("tg_MD_REPL_ComprasProductos_IUDV7");
+                    tb.HasTrigger("trg_ComprasProductosCambiarEstatus");
+                });
+        });
+
         modelBuilder.Entity<ComprasProductosDetalle>(entity =>
         {
-            entity.Property(e => e.ComReferencia).HasDefaultValueSql("((1))");
+            entity.HasKey(e => new { e.RepCodigo, e.ComSecuencia, e.ComPosicion }).HasName("PK__ComprasP__A54C7D876A365F90");
 
-            entity.HasOne(d => d.ComprasProducto).WithMany(p => p.ComprasProductosDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ComprasProductosDetalle_ComprasProductos");
+            entity.ToTable("ComprasProductosDetalle", tb => tb.HasTrigger("tg_MD_REPL_ComprasProductosDetalle_IUDV7"));
+        });
+
+        modelBuilder.Entity<LotesFermentacion>(entity =>
+        {
+            entity.HasKey(e => e.LotFermentacion).HasName("PK__LotesFer__6D556F5F91FC3215");
         });
 
         modelBuilder.Entity<LotesFermentacionDetalle>(entity =>
         {
-            entity.HasOne(d => d.LotFermentacionNavigation).WithMany(p => p.LotesFermentacionDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_LotesFermentacionDetalle_LotesFermentacion");
+            entity.HasKey(e => new { e.LotFermentacion, e.LotFermentacionSecuencia }).HasName("PK__LotesFer__303FB8CC9F3BA22D");
+        });
+
+        modelBuilder.Entity<LotesLimpieza>(entity =>
+        {
+            entity.HasKey(e => e.LotLimpieza).HasName("PK__LotesLim__5CA6223F1ECA25A2");
         });
 
         modelBuilder.Entity<LotesLimpiezaDetalle>(entity =>
         {
-            entity.HasOne(d => d.LotLimpiezaNavigation).WithMany(p => p.LotesLimpiezaDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_LotesLimpiezaDetalle_LotesLimpieza");
+            entity.HasKey(e => new { e.LotLimpieza, e.LotPosicion }).HasName("PK__LotesLim__9AFFBC61504C57FC");
+        });
+
+        modelBuilder.Entity<LotesSecadoMaquina>(entity =>
+        {
+            entity.HasKey(e => e.LotSecadoMaquina).HasName("PK__LotesSec__65FF21422BA12039");
         });
 
         modelBuilder.Entity<LotesSecadoMaquinaDetalle>(entity =>
         {
-            entity.HasOne(d => d.LotSecadoMaquinaNavigation).WithMany(p => p.LotesSecadoMaquinaDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_LotesSecadoMaquinaDetalle_LotesSecadoMaquina");
+            entity.HasKey(e => new { e.LotSecadoMaquina, e.LotPosicion }).HasName("PK__LotesSec__A3A6BF1C01BD50E8");
         });
 
         modelBuilder.Entity<LotesSecadoNatural>(entity =>
         {
-            entity.HasKey(e => e.LotSecadoManual).HasName("PK_LotesSecado");
+            entity.HasKey(e => e.LotSecadoManual).HasName("PK__LotesSec__D5FE91FDEE271836");
         });
 
         modelBuilder.Entity<LotesSecadoNaturalDetalle>(entity =>
         {
-            entity.HasKey(e => new { e.LotSecadoManual, e.LotPosicion }).HasName("PK_LotesSecadoDetalle");
-
-            entity.HasOne(d => d.LotSecadoManualNavigation).WithMany(p => p.LotesSecadoNaturalDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_LotesSecadoManualDetalle_LotesSecadoManual");
+            entity.HasKey(e => new { e.LotSecadoManual, e.LotPosicion }).HasName("PK__LotesSec__13A70FA36073BF47");
         });
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.ToTable(tb => tb.HasComment("Maestro de Productos"));
+            entity.ToTable(tb =>
+                {
+                    tb.HasComment("Maestro de Productos");
+                    tb.HasTrigger("tg_MD_REPL_Productos_IUDV7");
+                    tb.HasTrigger("trg_ProductosIOI");
+                });
 
             entity.Property(e => e.ProId)
                 .ValueGeneratedNever()
@@ -142,37 +250,43 @@ public partial class MovilBusiness5StdContext : DbContext
 
         modelBuilder.Entity<Proveedore>(entity =>
         {
-            entity.Property(e => e.ProCalle).HasDefaultValueSql("('')");
-            entity.Property(e => e.ProCasa).HasDefaultValueSql("('')");
-            entity.Property(e => e.ProContacto).HasDefaultValueSql("('')");
-            entity.Property(e => e.ProFechaActualizacion).HasDefaultValueSql("(getdate())");
-            entity.Property(e => e.ProFuente).HasDefaultValueSql("('ERP')");
-            entity.Property(e => e.ProTelefono).HasDefaultValueSql("('')");
-            entity.Property(e => e.ProUrbanizacion).HasDefaultValueSql("('')");
-            entity.Property(e => e.Rowguid).HasDefaultValueSql("(newid())");
+            entity.HasKey(e => e.ProCodigo).HasName("PK__Proveedo__90746C226DFCD3C2");
+
+            entity.ToTable(tb => tb.HasTrigger("tg_MD_REPL_Proveedores_IUDV7"));
         });
 
         modelBuilder.Entity<RecepcionesCompra>(entity =>
         {
-            entity.HasKey(e => e.RecSecuencia).HasName("PK_RecepcionCompras");
+            entity.ToTable(tb =>
+                {
+                    tb.HasTrigger("tg_MD_REPL_RecepcionesCompras_IUDV7");
+                    tb.HasTrigger("trg_RecepcionesComprasIOI");
+                });
 
-            entity.Property(e => e.RecSecuencia).ValueGeneratedNever();
+            entity.Property(e => e.RecEstatusErp).IsFixedLength();
         });
 
         modelBuilder.Entity<RecepcionesComprasDetalle>(entity =>
         {
-            entity.HasKey(e => new { e.RecSecuencia, e.RecPosicion }).HasName("PK_RecepcionComprasDetalle");
+            entity.ToTable("RecepcionesComprasDetalle", tb =>
+                {
+                    tb.HasTrigger("tg_MD_REPL_RecepcionesComprasDetalle_IUDV7");
+                    tb.HasTrigger("trg_RecepcionesComprasDetalleIOI");
+                });
 
-            entity.HasOne(d => d.RecSecuenciaNavigation).WithMany(p => p.RecepcionesComprasDetalles)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_RecepcionComprasDetalle_RecepcionCompras");
+            entity.Property(e => e.RecFechaActualizacion).HasDefaultValueSql("(getdate())");
         });
 
         modelBuilder.Entity<Representante>(entity =>
         {
             entity.HasKey(e => e.RepCodigo).HasName("PK_Usuarios");
 
-            entity.ToTable(tb => tb.HasComment("Maestra de Representantes "));
+            entity.ToTable(tb =>
+                {
+                    tb.HasComment("Maestra de Representantes ");
+                    tb.HasTrigger("tg_MD_REPL_Representantes_IUDV7");
+                    tb.HasTrigger("trg_RepresentantesIOI");
+                });
 
             entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
             entity.Property(e => e.AlmId).HasComment("ID de almacén");
@@ -218,45 +332,11 @@ public partial class MovilBusiness5StdContext : DbContext
             entity.Property(e => e.ZonId).HasComment("ID zona");
         });
 
-        modelBuilder.Entity<UsosMultiple>(entity =>
-        {
-            entity.ToTable(tb => tb.HasComment("Maestra de Usos Multiples"));
-
-            entity.Property(e => e.CodigoGrupo).HasComment("Código grupo");
-            entity.Property(e => e.CodigoUso).HasComment("Código uso");
-            entity.Property(e => e.Descripcion).HasComment("Descripción");
-            entity.Property(e => e.Rowguid)
-                .HasDefaultValueSql("(newid())")
-                .HasComment("Identificador Unico");
-            entity.Property(e => e.UsoFechaActualizacion)
-                .HasDefaultValueSql("(getdate())")
-                .HasComment("Fecha Creacion/Actualizacion ");
-            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
-        });
-
         modelBuilder.Entity<UsuarioSistema>(entity =>
         {
             entity.HasKey(e => e.UsuInicioSesion).HasName("PK16");
 
-            entity.ToTable("UsuarioSistema", tb => tb.HasComment("Maestra de Usuario del Sistema"));
-
-            entity.Property(e => e.UsuInicioSesion).HasComment("Usuario que creo o modifico el registro");
-            entity.Property(e => e.CliId).HasComment("ID Cliente");
-            entity.Property(e => e.RepCodigo).HasComment("Codigo de Representante");
-            entity.Property(e => e.RolId).HasComment("ID Rol");
-            entity.Property(e => e.Rowguid)
-                .HasDefaultValueSql("(newid())")
-                .HasComment("Identificador Unico");
-            entity.Property(e => e.UsuApellidos).HasComment("Apellidos usuario");
-            entity.Property(e => e.UsuCedula).HasComment("Cédula usuario");
-            entity.Property(e => e.UsuClave).HasComment("Clave");
-            entity.Property(e => e.UsuCorreoElectronico).HasComment("Correo electrónico usuario");
-            entity.Property(e => e.UsuDepartamento).HasComment("Departamento");
-            entity.Property(e => e.UsuEstatus).HasComment("Estatus");
-            entity.Property(e => e.UsuFechaActualizacion).HasComment("Fecha Creacion/Actualizacion ");
-            entity.Property(e => e.UsuFiltrarClientes).HasComment("Filtrar clientes");
-            entity.Property(e => e.UsuInstitucion).HasComment("Institución");
-            entity.Property(e => e.UsuNombres).HasComment("Nombres usuario");
+            entity.Property(e => e.Rowguid).HasDefaultValueSql("(newid())");
         });
 
         OnModelCreatingPartial(modelBuilder);

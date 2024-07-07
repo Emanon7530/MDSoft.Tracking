@@ -78,7 +78,7 @@
             <Button Text="Iniciar sesion" 
 Style="{StaticResource buttonStyle}"                        Command="{Binding LoginCommand}"/>
 
-            <Button Text="Olvido Su clave?" Style="{StaticResource buttonStyle}" Command="{Binding ForgetPasswordCommand}"/>
+            <!--<Button Text="Olvido Su clave?" Style="{StaticResource buttonStyle}" Command="{Binding ForgetPasswordCommand}"/>-->
         </StackLayout>
 
 

@@ -88,9 +88,9 @@ namespace Tracking.Services
 
         }
 
-        public async Task<ComprasProductoDTO> GetCompraByTicket(string ComReferencia)
+        public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
-            string endPoint = $"ComprasProductos/GetCompraByTicket?ComReferencia={ComReferencia}";
+            string endPoint = $"ComprasProductos/GetCompraByTicket?repCodigo={repCodigo}&comSecuencia={comSecuencia}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -120,9 +120,9 @@ namespace Tracking.Services
             return compras;
         }
 
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReference)
+        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReferencia)
         {
-            string endPoint = $"ComprasProductos/GetProductInCompraByReference?repCodigo={repCodigo}&comSecuencia={comSecuencia}&comReference={comReference}";
+            string endPoint = $"ComprasProductos/GetProductInCompraByReference?repCodigo={repCodigo}&comSecuencia={comSecuencia}&comReferencia={comReferencia}";
 
             var response = await _client.GetAsync(endPoint);
 

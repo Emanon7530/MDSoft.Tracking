@@ -8,6 +8,7 @@ namespace MDSoft.Tracking.Model;
 
 [PrimaryKey("RepCodigo", "ComSecuencia", "ComPosicion")]
 [Table("ComprasProductosDetalle")]
+[Index("RepCodigo", "ComSecuencia", "ComReferencia", Name = "NonClusteredIndex-20240702-172816")]
 public partial class ComprasProductosDetalle
 {
     [Key]
@@ -73,14 +74,37 @@ public partial class ComprasProductosDetalle
     [Unicode(false)]
     public string? ComEstadoProducto { get; set; }
 
-    [StringLength(5)]
     [Unicode(false)]
     public string? ComTipoCertificacion { get; set; }
 
     [Column(TypeName = "decimal(5, 3)")]
     public decimal? ComHumedad { get; set; }
 
-    [ForeignKey("ComSecuencia, RepCodigo")]
-    [InverseProperty("ComprasProductosDetalles")]
-    public virtual ComprasProducto ComprasProducto { get; set; } = null!;
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoKg { get; set; }
+
+    [Column("ComKGQuintal")]
+    public short? ComKgquintal { get; set; }
+
+    public string? ComTipoProducto { get; set; }
+
+    [Column("ComBRIX")]
+    public int? ComBrix { get; set; }
+
+    [Column("unmCodigo")]
+    [StringLength(5)]
+    [Unicode(false)]
+    public string? UnmCodigo { get; set; }
+
+    [Column("comPesoQuintal", TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoQuintal { get; set; }
+
+    [Column("comPrecioQuintal", TypeName = "decimal(13, 2)")]
+    public decimal? ComPrecioQuintal { get; set; }
+
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoBruto { get; set; }
+
+    [Column("ComPrecioKG", TypeName = "decimal(13, 2)")]
+    public decimal? ComPrecioKg { get; set; }
 }

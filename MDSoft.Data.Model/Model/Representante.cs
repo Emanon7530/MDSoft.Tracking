@@ -9,6 +9,7 @@ namespace MDSoft.Tracking.Model;
 /// <summary>
 /// Maestra de Representantes 
 /// </summary>
+[Index("Rowguid", Name = "IDXRepresentantesrowguid", IsUnique = true)]
 [Index("RepLicencia", Name = "IX_Representantes", IsUnique = true)]
 public partial class Representante
 {
@@ -58,7 +59,7 @@ public partial class Representante
     /// <summary>
     /// Clave
     /// </summary>
-    [StringLength(36)]
+    [StringLength(10)]
     [Unicode(false)]
     public string? RepClave { get; set; }
 

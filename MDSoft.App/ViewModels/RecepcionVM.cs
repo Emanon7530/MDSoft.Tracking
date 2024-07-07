@@ -23,25 +23,29 @@ namespace Tracking.ViewModels
         private ComprasProductoDTO _compraDTO;
         public RecepcionVM(ComprasProductoDTO compraDTO)
         {
-            WeakReferenceMessenger.Default.Register<RecepcionDetalleMessage>(this, (r, m) =>
+            try
             {
-                RecepcionDetalleMensajeRecibido(m.Value);
-            });
+                WeakReferenceMessenger.Default.Register<RecepcionDetalleMessage>(this, (r, m) =>
+                {
+                    RecepcionDetalleMensajeRecibido(m.Value);
+                });
 
-            WeakReferenceMessenger.Default.Register<CompraMessage>(this, (r, m) =>
+                WeakReferenceMessenger.Default.Register<CompraMessage>(this, (r, m) =>
+                {
+                    CompraMensajeRecibido(m.Value);
+                });
+
+                _compraDTO = compraDTO;
+                _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
+
+                TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
+
+                PropertyChanged += RecepcionVM_PropertyChanged;
+            }
+            catch (Exception e)
             {
-                CompraMensajeRecibido(m.Value);
-            });
-
-            _compraDTO = compraDTO;
-            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
-
-            //TODO
-            //TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
-            TotalpesoCompra = 4;
-
-            PropertyChanged += RecepcionVM_PropertyChanged;
-
+                Shell.Current.DisplayAlert("Error!", $"No se pudo recuperar las compras \\n {e.Message} ", "Aceptar");
+            }
         }
 
         private void RecepcionVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -121,35 +125,39 @@ namespace Tracking.ViewModels
         [RelayCommand]
         private async Task Buscar()
         {
-
-            if (BuscarRecepcion == null)
+            try
             {
-                await Shell.Current.DisplayAlert("Buscar Producto", $"Escanee o digite el codigo del producto", "OK");
-                return;
-            }
-
-            LoadingEsVisible = true;
-
-            var _compradetalleDTO = await _apiManager.GetProductInCompraByReference(RepCodigo, ComSecuencia, BuscarRecepcion);
-
-            if (_compradetalleDTO == null)
-            {
-                await Shell.Current.DisplayAlert("Buscar Producto", $"No existe producto con esta referencia {BuscarRecepcion}", "OK");
-            }
-            else
-            {
-                await Shell.Current.Navigation.PushModalAsync(new ProductoPage(new ProductoVM(_compradetalleDTO), 0));
-            }
-
-            await Task.Run(async () =>
-            {
-                MainThread.BeginInvokeOnMainThread(() =>
+                if (BuscarRecepcion == null)
                 {
-                    BuscarRecepcion = "";
-                    LoadingEsVisible = false;
-                    MostarTotal();
-                });
-            });
+                    await Shell.Current.DisplayAlert("Buscar Producto", $"Escanee o digite el codigo del producto", "OK");
+                    return;
+                }
+
+                LoadingEsVisible = true;
+
+                var _compradetalleDTO = await _apiManager.GetProductInCompraByReference(RepCodigo, ComSecuencia, BuscarRecepcion);
+
+                if (_compradetalleDTO == null)
+                {
+                    await Shell.Current.DisplayAlert("Buscar Producto", $"No existe producto con esta referencia {BuscarRecepcion}", "OK");
+                }
+                else
+                {
+                    await Shell.Current.Navigation.PushModalAsync(new ProductoPage(new ProductoVM(_compradetalleDTO), 0));
+                }
+
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Error!", $"No se pudo recuperar las compras \\n {e.Message} ", "Aceptar");
+            }
+            finally
+            {
+                BuscarRecepcion = "";
+                LoadingEsVisible = false;
+                MostarTotal();
+
+            }
 
         }
 
@@ -178,22 +186,31 @@ namespace Tracking.ViewModels
             LoadingEsVisible = true;
 
             BuscarRecepcion = "";
-            await Task.Run(async () =>
-            {
-                await GetRecepciones();
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                });
-            });
+            //await GetRecepciones();
+
+            LoadingEsVisible = false;
 
         }
 
         [RelayCommand]
-        private void EliminarEvent(RecepcionesComprasDetalleDTO detalle)
+        private async void Eliminar(RecepcionesComprasDetalleDTO detalle)
         {
-            DetalleRecepcion.Remove(detalle);
-            MostarTotal();
+            try
+            {
+                LoadingEsVisible = true;
+
+                //cierreParcial = await Shell.Current.DisplayAlert("Mensaje", "Desea cerra la recepcion con productos pendintes?", "Si", "No");
+                DetalleRecepcion.Remove(detalle);
+                MostarTotal();
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Error!", $"No se pudo Eliminar la recepcion \\n {e.Message} ", "Aceptar");
+            }
+            finally
+            {
+                LoadingEsVisible = false;
+            }
         }
 
         [RelayCommand]
@@ -226,19 +243,29 @@ namespace Tracking.ViewModels
                 RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO()
                 {
                     RecFechaActualizacion = DateTime.Now,
-                    ComSecuencia = ComSecuencia,
-                    ComReferencia = _compraDTO.ComReferencia,
-                    compraProductoDTO = _compraDTO,
-                    RecEstado = "Listo",
+                    RepCodigo = _compraDTO.RepCodigo,
+                    RecFecha = DateTime.Now,
+                    RecReferencia = _compraDTO.ComReferencia,
+                    RecEstado = 2, // abierta
                     RecFechaCreacion = DateTime.Now,
-                    RecSecuencia = ComSecuencia
+                    ComSecuencia = ComSecuencia,
+                    RecSecuencia = RecSecuencia,
+                    RecepcionesComprasDetallesDTO = DetalleRecepcion
                 };
 
                 await _apiManager.ActualizarRecepcion(recepcion);
 
-                await Shell.Current.DisplayAlert("Listo!", string.Concat($"Recepcion {recepcion.ComReferencia} fue recibida ", cierreParcial == true ? "Parcial" : "Total"), "Aceptar");
+                await Shell.Current.DisplayAlert("Listo!", string.Concat($"Recepcion {recepcion.RecReferencia} fue recibida ", cierreParcial == true ? "Parcial" : "Total"), "Aceptar");
 
-                await Shell.Current.Navigation.PopAsync();
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    await Shell.Current.Navigation.PopAsync();
+                    var result = new RecepcionCompraResult();
+                    result.recepcion = recepcion;
+
+                    WeakReferenceMessenger.Default.Send(result);
+                    LoadingEsVisible = false;
+                });
 
                 DetalleRecepcion.Clear();
                 TotalpesoCompra = 0;
@@ -249,8 +276,11 @@ namespace Tracking.ViewModels
             {
                 await Shell.Current.DisplayAlert("Error!", $"No se pudo registrar la recepcion \\n {e.Message} ", "Aceptar");
             }
+            finally
+            {
+                LoadingEsVisible = false;
+            }
 
-            LoadingEsVisible = false;
         }
 
         [RelayCommand]
@@ -268,46 +298,48 @@ namespace Tracking.ViewModels
             Totalpesorecibido = DetalleRecepcion.Sum(c => c.RecPeso.Value);
         }
 
-        public async Task GetRecepciones()
-        {
-            LoadingEsVisible = true;
+        //public async Task GetRecepciones()
+        //{
+        //    LoadingEsVisible = true;
 
-            await Task.Run(async () =>
-            {
+        //    try
+        //    {
+        //        var compras = await _apiManager.GetRecepcionesDetalle(RecSecuencia);
 
-                var compras = await _apiManager.GetRecepcionesDetalle(RecSecuencia);
+        //        var lstTemp = new ObservableCollection<RecepcionesComprasDetalleDTO>();
 
-                var lstTemp = new ObservableCollection<RecepcionesComprasDetalleDTO>();
+        //        if (compras.Any())
+        //        {
+        //            foreach (var item in compras)
+        //            {
+        //                lstTemp.Add(new RecepcionesComprasDetalleDTO
+        //                {
+        //                    ComReferencia = item.ComReferencia,
+        //                    RepCodigo = item.RepCodigo,
+        //                    ComPeso = item.ComPeso,
+        //                    RecEstado = item.RecEstado,
+        //                    //RecFechaCreacion = item.RecFechaCreacion,
+        //                    RecPeso = item.RecPeso,
+        //                    RecPosicion = item.RecPosicion,
+        //                    recepcionesComprasDTO = item.recepcionesComprasDTO
+        //                });
+        //            }
 
-                if (compras.Any())
-                {
-                    foreach (var item in compras)
-                    {
-                        lstTemp.Add(new RecepcionesComprasDetalleDTO
-                        {
-                            ComReferencia = item.ComReferencia,
-                            RepCodigo = item.RepCodigo,
-                            ComPeso = item.ComPeso,
-                            RecEstado = item.RecEstado,
-                            RecFechaCreacion = item.RecFechaCreacion,
-                            RecPeso = item.RecPeso,
-                            RecPosicion = item.RecPosicion,
-                            recepcionesComprasDTO = item.recepcionesComprasDTO
-                        });
-                    }
+        //        }
 
-                }
+        //        DetalleRecepcion = lstTemp;
 
-                DetalleRecepcion = lstTemp;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        await Shell.Current.DisplayAlert("Error!", $"No se pudo recuperar las compras \\n {e.Message} ", "Aceptar");
+        //    }
+        //    finally
+        //    {
+        //        LoadingEsVisible = false;
+        //    }
 
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                });
-            });
-
-
-        }
+        //}
 
         private void CompraMensajeRecibido(CompraResult result)
         {
@@ -320,6 +352,8 @@ namespace Tracking.ViewModels
 
         private void RecepcionDetalleMensajeRecibido(RecepcionesComprasDetalleDTO result)
         {
+            // TODO Asignar aqui el RecReferencia y el RecSecuencia
+            RecSecuencia = result.RecSecuencia;
             DetalleRecepcion.Add(result);
             MostarTotal();
         }

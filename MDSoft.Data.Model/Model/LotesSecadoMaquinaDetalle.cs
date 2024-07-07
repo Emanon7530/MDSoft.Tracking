@@ -21,8 +21,4 @@ public partial class LotesSecadoMaquinaDetalle
     [StringLength(50)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
-
-    [ForeignKey("LotSecadoMaquina")]
-    [InverseProperty("LotesSecadoMaquinaDetalles")]
-    public virtual LotesSecadoMaquina LotSecadoMaquinaNavigation { get; set; } = null!;
 }

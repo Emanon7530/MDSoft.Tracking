@@ -21,8 +21,4 @@ public partial class LotesFermentacionDetalle
     [StringLength(50)]
     [Unicode(false)]
     public string? ComReferencia { get; set; }
-
-    [ForeignKey("LotFermentacion")]
-    [InverseProperty("LotesFermentacionDetalles")]
-    public virtual LotesFermentacion LotFermentacionNavigation { get; set; } = null!;
 }

@@ -196,6 +196,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMDSoftTrackingAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMDSoftTrackingAppHideInfoBar="True" XamarinHotReloadGenericExceptionInfoBarMDSoftTrackingAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>
