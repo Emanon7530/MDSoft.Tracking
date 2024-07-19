@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MDSoft.Tracking.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+290bef1e650ac47e708318d611bd19b97fbcdd9f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+9fce9360b561f0cfd35d72a295b44fd715518348")]
 [assembly: System.Reflection.AssemblyProductAttribute("MDSoft.Tracking.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MDSoft.Tracking.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -40,27 +40,11 @@ namespace Tracking.ViewModels
                     throw new InvalidUsernameOrPasswordException();
                 }
 
-                using (var client = new HttpClient())
-                {
-                    //string urlBase = $"{Util.urlBase}/Seguridad/Login?Username={Usuario}&Password={Password}";
+                Preferences.Set("logueado", "si");
+                Preferences.Set("usuario", Usuario);
 
-                    ///// https://localhost:7033/api/v1/
-                    //client.BaseAddress = new Uri(urlBase);
-                    //HttpResponseMessage response = await client.GetAsync(urlBase);
+                Application.Current.MainPage = new AppShell();
 
-                    //if (response.IsSuccessStatusCode)
-                    //{
-                    //    string content = response.Content.ReadAsStringAsync().Result;
-                    //    userfound = JsonConvert.DeserializeObject<UsuarioSistemaDTO>(content);
-                    Preferences.Set("logueado", "si");
-                    Application.Current.MainPage = new AppShell();
-                    //}
-                    //else
-                    //{
-                    //    throw new InvalidUsernameOrPasswordException();
-                    //    //await Application.Current.MainPage.DisplayAlert("Mensaje", "No se encontraron coincidencias", "Aceptar");
-                    //}
-                }
             }
             catch (Exception ex)
             {
@@ -68,28 +52,5 @@ namespace Tracking.ViewModels
             }
 
         }
-
-        [RelayCommand]
-        private async Task ForgetPassword()
-        {
-            Preferences.Set("logueado", "si");
-            Application.Current.MainPage = new ForgotPasswordPage();
-        }
-
-        [RelayCommand]
-        private async Task Register()
-        {
-            if (Usuario == "Admin" && Password == "123")
-            {
-                Preferences.Set("logueado", "si");
-                Application.Current.MainPage = new AppShell();
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Mensaje", "No se encontraron coincidencias", "Aceptar");
-            }
-        }
-
-
     }
 }

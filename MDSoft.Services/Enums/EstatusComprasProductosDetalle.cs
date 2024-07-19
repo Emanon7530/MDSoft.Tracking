@@ -8,7 +8,7 @@ namespace PNComm.Common.Enums
 {
     public enum EstatusComprasProductosDetalle
     {
-        Recibido = 1,
-        Pendiente = 2
+        Recibido = 2,
+        Pendiente = 1
     }
 }

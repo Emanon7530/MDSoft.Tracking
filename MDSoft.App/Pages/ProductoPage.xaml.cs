@@ -21,8 +21,4 @@ public partial class ProductoPage : ContentPage
         viewModel.Inicio(_idProducto);
     }
 
-    //protected override void OnDisappearing()
-    //{
-    //    viewModel.Desuscribir();
-    //}
 }

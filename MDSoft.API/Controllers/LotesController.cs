@@ -78,6 +78,29 @@ namespace MDSoft.API.Controllers
 
         }
 
+        [HttpGet()]
+        [Route("LoteSecadoNaturalExits")]
+        public async Task<bool> LoteSecadoNaturalExits(string lotNumber)
+        {
+            var loteferm = new LoteSecadoNaturalServices(_mapper);
+
+            var result = await loteferm.Existe(lotNumber);
+
+            return result;
+        }
+
+        [HttpGet()]
+        [Route("LoteFermentacionExists")]
+        public async Task<bool> LoteFermentacionExists(string lotNumber)
+        {
+            var loteferm = new LoteFermentacionServices(_mapper);
+
+            var result = await loteferm.Existe(lotNumber);
+
+            return result;
+        }
+
+
         [HttpPost()]
         [Route("GuardarLoteSecadoNatural")]
         public async Task<LotesSecadoNaturalDTO> GuardarLoteSecadoNatural(LotesSecadoNaturalDTO loteSecadoNatura)

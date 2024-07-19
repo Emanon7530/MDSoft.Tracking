@@ -11,22 +11,7 @@
             <param name="serviceProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Tracking.ViewModels.ForgotPaswordVM">
-            <inheritdoc/>
-            <inheritdoc/>
-        </member>
-        <member name="P:Tracking.ViewModels.ForgotPaswordVM.Email">
-            <inheritdoc cref="F:Tracking.ViewModels.ForgotPaswordVM.email"/>
-        </member>
-        <member name="F:Tracking.ViewModels.ForgotPaswordVM.forgotCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ForgotPaswordVM.Forgot"/>.</summary>
-        </member>
         <member name="T:Tracking.ViewModels.LoginVM">
-            <inheritdoc/>
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
@@ -45,21 +30,7 @@
         <member name="P:Tracking.ViewModels.LoginVM.LoginCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Login"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.LoginVM.forgetPasswordCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.ForgetPassword"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.LoginVM.registerCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.RegisterCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.LoginVM.RegisterCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Register"/>.</summary>
-        </member>
         <member name="T:Tracking.ViewModels.MainVM">
-            <inheritdoc/>
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
@@ -89,18 +60,6 @@
         </member>
         <member name="P:Tracking.ViewModels.MainVM.SelectionChangedCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.SelectionChanged"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.MainVM.recepcionCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.RecepcionCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.MainVM.RecepcionCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.Recepcion"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.MainVM.secadoMaquinaCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.SecadoMaquinaCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.MainVM.SecadoMaquinaCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.SecadoMaquina"/>.</summary>
         </member>
         <member name="T:Tracking.ViewModels.PesoLinealVM">
             <inheritdoc/>
@@ -351,11 +310,11 @@
         <member name="P:Tracking.ViewModels.RecepcionVM.LimpiarCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Limpiar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionVM.eliminarEventCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionVM.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionVM.EliminarEventCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.EliminarEvent(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionVM.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.RecepcionVM.finalizarVentaCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand"/>.</summary>
@@ -519,9 +478,6 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
-        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Usuario">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Usuario" generated properties.</summary>
         </member>
@@ -641,9 +597,6 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Usuario">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Usuario" generated properties.</summary>

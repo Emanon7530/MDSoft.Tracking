@@ -15,7 +15,7 @@
 		<ApplicationTitle>Tracking</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.Tracking</ApplicationId>
+		<ApplicationId>com.mdsoft.Tracking</ApplicationId>
 		<ApplicationIdGuid>4324da72-f387-4563-a3a4-46f19bdbda9c</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -36,7 +36,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\icon_app.png" Color="#512BD4" BaseSize="64,64" />
+		<MauiIcon Include="Resources\AppIcon\icon_app.png" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -55,6 +56,8 @@
 
 	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\values\styles.xml" />
+	  <None Remove="Resources\AppIcon\appiconfg.png" />
+	  <None Remove="Resources\AppIcon\icon_app.png" />
 	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
 	  <None Remove="Resources\Images\envelop.svg" />
 	  <None Remove="Resources\Images\icons\add_solid.svg" />
@@ -102,25 +105,18 @@
 	  <MauiImage Include="Resources\Images\icons\add_solid.svg" />
 	  <MauiImage Include="Resources\Images\tracking\cierrepreview.png" />
 	  <MauiImage Include="Resources\Images\tracking\cierre.png" />
-	  <MauiImage Include="Resources\Images\tracking\cierre.svg" />
 	  <MauiImage Include="Resources\Images\tracking\fermentacion.png" />
-	  <MauiImage Include="Resources\Images\tracking\fermentacion.svg" />
 	  <MauiImage Include="Resources\Images\tracking\limpieza.png" />
-	  <MauiImage Include="Resources\Images\tracking\limpieza.svg" />
 	  <MauiImage Include="Resources\Images\tracking\limpiezapreview.png" />
 	  <MauiImage Include="Resources\Images\tracking\mainlogobig.png" />
 	  <MauiImage Include="Resources\Images\tracking\maquina.png" />
-	  <MauiImage Include="Resources\Images\tracking\maquina.svg" />
 	  <MauiImage Include="Resources\Images\tracking\maquinapreview.png" />
 	  <MauiImage Include="Resources\Images\tracking\natural.png" />
-	  <MauiImage Include="Resources\Images\tracking\natural.svg" />
 	  <MauiImage Include="Resources\Images\tracking\naturalpreview.png" />
 	  <MauiImage Include="Resources\Images\tracking\replacement.png" />
-	  <MauiImage Include="Resources\Images\tracking\replacement.svg" />
 	  <MauiImage Include="Resources\Images\tracking\recepcion.png" />
 	  <MauiImage Include="Resources\Images\tracking\rsz_cierre.jpg" />
 	  <MauiImage Include="Resources\Images\tracking\stock.png" />
-	  <MauiImage Include="Resources\Images\tracking\stock.svg" />
 	  <MauiSplashScreen Include="Resources\Splash\mainlogobig.png" />
 	</ItemGroup>
 
@@ -149,9 +145,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\ForgotPasswordPage.xaml.cs">
-	    <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\PesoLinealPage.xaml.cs">
 	    <DependentUpon>PesoLinealPage.xaml</DependentUpon>
 	  </Compile>
@@ -177,9 +170,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RecepcionListPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ForgotPasswordPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">

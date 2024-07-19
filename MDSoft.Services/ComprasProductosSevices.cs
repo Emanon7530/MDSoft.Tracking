@@ -8,6 +8,7 @@ using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 using MDSoft.Tracking.Services.Repository;
 using Microsoft.EntityFrameworkCore;
+using PNComm.Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace MDSoft.Tracking.Services
         {
             _RepoCompras = new ComprasProductosRepository();
             _RepoDetalle = new ComprasProductosDetalleRepository();
+
             _RepoProducto = new Repositorio<Producto>();
             _RepoRepresentante = new Repositorio<Representante>();
 
@@ -56,7 +58,7 @@ namespace MDSoft.Tracking.Services
 
             var _param = new ParametrosDeQuery<ComprasProducto>(1, 100);
 
-            _param.Where = x => x.ComEstatus == 2;
+            _param.Where = x => x.ComEstatus == (int)EstatusCompraProductos.Pendiente;
             _param.OrderBy = x => x.ComFecha.Value;
 
             IEnumerable<ComprasProducto> compra = await _RepoCompras.EncontrarPor(_param);
@@ -69,6 +71,21 @@ namespace MDSoft.Tracking.Services
             return result;
 
         }
+
+        public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasHistoricoPendientes()
+        {
+            IEnumerable<ComprasProductoDTO> result = null;
+
+            var compra = await _RepoCompras.sp_GetComprasHistoricoPendientes();
+
+            if (compra.Count() > 0)
+            {
+                result = _mapper.Map<IEnumerable<ComprasProductoDTO>>(compra);
+            }
+
+            return result;
+        }
+
 
         public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasPendientes()
         {
@@ -114,7 +131,7 @@ namespace MDSoft.Tracking.Services
             {
                 var editCompra = _mapper.Map<ComprasProducto>(compra);
 
-                editCompra.ComEstatus = 1;
+                editCompra.ComEstatus = compra.ComEstatus;
 
                 var result = await _RepoCompras.Actualizar(editCompra);
 
@@ -158,7 +175,7 @@ namespace MDSoft.Tracking.Services
 
             var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
 
-            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference && x.ComEstatusDetalle == 1;
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference && x.ComEstatusDetalle == (int)EstatusComprasProductosDetalle.Pendiente;
 
             var compra = await _RepoDetalle.EncontrarPor(_param);
 

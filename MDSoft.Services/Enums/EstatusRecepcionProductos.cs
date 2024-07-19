@@ -8,7 +8,7 @@ namespace PNComm.Common.Enums
 {
     public enum EstatusRecepcionProductos
     {
-        RecibidoTotal = 1,
-        RecibidoParcial = 2,
+        Cerrada = 1,
+        Abierta = 2,
     }
 }

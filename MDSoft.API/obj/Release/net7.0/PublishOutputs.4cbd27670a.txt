@@ -1,4 +1,5 @@
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MDSoft.Tracking.API.exe
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\nlog.config
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\appsettings.json
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\libman.json
@@ -30,6 +31,9 @@ D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\MimeKit.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NLog.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NLog.Extensions.Logging.dll
+D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NLog.Web.AspNetCore.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NuGet.Common.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NuGet.Configuration.dll
 D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.API\obj\Release\net7.0\PubTmp\Out\NuGet.Frameworks.dll

@@ -11,22 +11,7 @@
             <param name="serviceProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Tracking.ViewModels.ForgotPaswordVM">
-            <inheritdoc/>
-            <inheritdoc/>
-        </member>
-        <member name="P:Tracking.ViewModels.ForgotPaswordVM.Email">
-            <inheritdoc cref="F:Tracking.ViewModels.ForgotPaswordVM.email"/>
-        </member>
-        <member name="F:Tracking.ViewModels.ForgotPaswordVM.forgotCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.ForgotPaswordVM.ForgotCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ForgotPaswordVM.Forgot"/>.</summary>
-        </member>
         <member name="T:Tracking.ViewModels.LoginVM">
-            <inheritdoc/>
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
@@ -45,21 +30,7 @@
         <member name="P:Tracking.ViewModels.LoginVM.LoginCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Login"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.LoginVM.forgetPasswordCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.LoginVM.ForgetPasswordCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.ForgetPassword"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.LoginVM.registerCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.LoginVM.RegisterCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.LoginVM.RegisterCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.LoginVM.Register"/>.</summary>
-        </member>
         <member name="T:Tracking.ViewModels.MainVM">
-            <inheritdoc/>
-            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
@@ -89,18 +60,6 @@
         </member>
         <member name="P:Tracking.ViewModels.MainVM.SelectionChangedCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.SelectionChanged"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.MainVM.recepcionCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.RecepcionCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.MainVM.RecepcionCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.Recepcion"/>.</summary>
-        </member>
-        <member name="F:Tracking.ViewModels.MainVM.secadoMaquinaCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.MainVM.SecadoMaquinaCommand"/>.</summary>
-        </member>
-        <member name="P:Tracking.ViewModels.MainVM.SecadoMaquinaCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.MainVM.SecadoMaquina"/>.</summary>
         </member>
         <member name="T:Tracking.ViewModels.PesoLinealVM">
             <inheritdoc/>
@@ -210,7 +169,7 @@
         <member name="P:Tracking.ViewModels.ProductoVM.GuardarCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ProductoVM.Guardar"/>.</summary>
         </member>
-        <member name="T:Tracking.ViewModels.RecepcionlistMV">
+        <member name="T:Tracking.ViewModels.RecepcionListMV">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -219,59 +178,59 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarRecepcion">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.buscarRecepcion"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BuscarRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.buscarRecepcion"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.loadingEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.IsRefreshing">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.isRefreshing"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.IsRefreshing">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.isRefreshing"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.DataEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.dataEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.DataEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.dataEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BtnLimpiarEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.btnLimpiarEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.btnLimpiarEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.ListRecepcion">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.listRecepcion"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.ListRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.listRecepcion"/>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.refreshGridCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.refreshGridCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.RefreshGridCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.RefreshGrid"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.RefreshGridCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.RefreshGrid"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.buscarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.BuscarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Buscar"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Buscar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.limpiarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.LimpiarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Limpiar"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Limpiar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.irRecepcionCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.irRecepcionCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.IrRecepcionCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.IrRecepcion(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.IrRecepcionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.IrRecepcion(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.editarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.editarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.EditarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Editar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.EditarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Editar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.eliminarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.EliminarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Eliminar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Eliminar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
         <member name="T:Tracking.ViewModels.RecepcionVM">
             <inheritdoc/>
@@ -355,7 +314,7 @@
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarCommand"/>.</summary>
         </member>
         <member name="P:Tracking.ViewModels.RecepcionVM.EliminarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesProductosDetalleDTO)"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.RecepcionVM.finalizarVentaCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand"/>.</summary>
@@ -519,9 +478,6 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
-        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Usuario">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Usuario" generated properties.</summary>
         </member>
@@ -641,9 +597,6 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Usuario">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Usuario" generated properties.</summary>

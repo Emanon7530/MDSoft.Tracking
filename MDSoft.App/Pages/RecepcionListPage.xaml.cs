@@ -4,7 +4,7 @@ namespace Tracking.Pages;
 
 public partial class RecepcionListPage : ContentPage
 {
-	public RecepcionListPage(RecepcionlistMV viewModel)
+	public RecepcionListPage(RecepcionListMV viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;

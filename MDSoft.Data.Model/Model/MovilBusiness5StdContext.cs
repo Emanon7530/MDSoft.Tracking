@@ -48,9 +48,17 @@ public partial class MovilBusiness5StdContext : DbContext
 
     public virtual DbSet<RecepcionesComprasDetalle> RecepcionesComprasDetalles { get; set; }
 
+    public virtual DbSet<RecepcionesProducto> RecepcionesProductos { get; set; }
+
+    public virtual DbSet<RecepcionesProductosDetalle> RecepcionesProductosDetalles { get; set; }
+
     public virtual DbSet<Representante> Representantes { get; set; }
 
     public virtual DbSet<UsuarioSistema> UsuarioSistemas { get; set; }
+
+    public virtual DbSet<VwComprasProducto> VwComprasProductos { get; set; }
+
+    public virtual DbSet<VwComprasProductosDetalle> VwComprasProductosDetalles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -142,6 +150,8 @@ public partial class MovilBusiness5StdContext : DbContext
                     tb.HasTrigger("tg_MD_REPL_ComprasProductos_IUDV7");
                     tb.HasTrigger("trg_ComprasProductosCambiarEstatus");
                 });
+
+            entity.Property(e => e.ComEstatusRecepcion).HasDefaultValueSql("((1))");
         });
 
         modelBuilder.Entity<ComprasProductosDetalle>(entity =>
@@ -337,6 +347,16 @@ public partial class MovilBusiness5StdContext : DbContext
             entity.HasKey(e => e.UsuInicioSesion).HasName("PK16");
 
             entity.Property(e => e.Rowguid).HasDefaultValueSql("(newid())");
+        });
+
+        modelBuilder.Entity<VwComprasProducto>(entity =>
+        {
+            entity.ToView("vwComprasProductos");
+        });
+
+        modelBuilder.Entity<VwComprasProductosDetalle>(entity =>
+        {
+            entity.ToView("vwComprasProductosDetalle");
         });
 
         OnModelCreatingPartial(modelBuilder);

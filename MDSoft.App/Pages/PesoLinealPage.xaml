@@ -7,7 +7,6 @@
              x:Class="Tracking.Pages.PesoLinealPage"
              Title="Peso linea Producto">
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -43,7 +42,7 @@
                 <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="10">
                     <Label Text="Destino:" VerticalOptions="Center"/>
                     <Picker x:Name="pickerDestino" 
-                    SelectedItem="{Binding Destino}">
+                    SelectedItem="{Binding RecDestino}">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Fermentación</x:String>
@@ -77,14 +76,11 @@
                 </StackLayout>
 
 
-                <StackLayout Grid.Row="4" Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" Margin="0,20">
-                    <Button  Text="Guardar" BackgroundColor="{StaticResource bgPrimary}" HorizontalOptions="End"
-             TextColor="White" Command="{Binding GuardarCommand}">
+                <StackLayout Grid.Row="4" Orientation="Vertical" Spacing="5" HorizontalOptions="Center" Margin="0,20">
+                    <Button  Text="Guardar" Style="{StaticResource buttonStyle}"  Command="{Binding GuardarCommand}">
                     </Button>
-                    <Button Text="Cancelar" BackgroundColor="{StaticResource Gray200}"
-                            TextColor="{StaticResource bgDark}"
-                            Command="{Binding VolverInventarioCommand}"></Button>
 
+                    <Button Text="Cancelar" Style="{StaticResource buttonStyle}" Command="{Binding VolverInventarioCommand}"></Button>
                 </StackLayout>
 
 

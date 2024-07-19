@@ -36,9 +36,6 @@
     <MauiXaml Update="Pages\RecepcionListPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\ForgotPasswordPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

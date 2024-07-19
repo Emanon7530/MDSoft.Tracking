@@ -28,6 +28,8 @@ namespace Tracking
                     fonts.AddFont("fa-solid-900.ttf", "FaSolid");
                 });
 
+            builder.UseMauiApp<App>().UseMauiCommunityToolkit();
+
             builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
             builder.Services.AddDbContext<TrackingDbContext>();
@@ -42,7 +44,7 @@ namespace Tracking
             builder.Services.AddTransient<RecepcionVM>();
 
             builder.Services.AddTransient<RecepcionListPage>();
-            builder.Services.AddTransient<RecepcionlistMV>();
+            builder.Services.AddTransient<RecepcionListMV>();
 
             builder.Services.AddTransient<PesoLinealPage>();
             builder.Services.AddTransient<PesoLinealVM>();
@@ -61,8 +63,8 @@ namespace Tracking
 #endif
 
             Routing.RegisterRoute(nameof(ProductoPage), typeof(ProductoPage));
-            //Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
-            //Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
+            Routing.RegisterRoute(nameof(RecepcionListPage), typeof(RecepcionListPage));
+            Routing.RegisterRoute(nameof(RecepcionPage), typeof(RecepcionPage));
             Routing.RegisterRoute(nameof(PesoLinealPage), typeof(PesoLinealPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(SettingDataPage), typeof(SettingDataPage));

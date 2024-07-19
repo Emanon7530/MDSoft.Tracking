@@ -2,7 +2,7 @@ is_global = true
 build_property.TargetFramework = net7.0-windows10.0.19041.0
 build_property.TargetPlatformMinVersion = 10.0.17763.0
 build_property.UsingMicrosoftNETSdkWeb = 
-build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
@@ -35,12 +35,6 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tracking.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
-
-[D:/Emanon/MDSoft - Milquiades/App/MDSoft.Tracking/MDSoft.App/Pages/ForgotPasswordPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Tracking.Pages.ForgotPasswordPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\ForgotPasswordPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\ForgotPasswordPage.xaml
 
 [D:/Emanon/MDSoft - Milquiades/App/MDSoft.Tracking/MDSoft.App/Pages/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

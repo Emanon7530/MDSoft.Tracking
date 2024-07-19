@@ -19,6 +19,7 @@ namespace MDSoft.Tracking.Services.Repository
         {
 
         }
+
         public async Task<bool> Cerrar(ComprasProductosDetalle comprasProducto)
         {
             var estatusActualizar = await this.Actualizar(comprasProducto);

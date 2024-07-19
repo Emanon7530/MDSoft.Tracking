@@ -75,9 +75,29 @@ namespace MDSoft.API.Controllers
                 throw;
             }
         }
-
-
         [HttpGet()]
+        [Route("sp_GetComprasHistoricoPendientes")]
+        public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasHistoricoPendientes()
+        {
+            try
+            {
+                var result = await _compraServices.sp_GetComprasHistoricoPendientes();
+
+                return result;
+            }
+            catch (Exception e)
+            {
+
+                _logger.LogError("ComprasProductos_sp_GetComprasPendientes " + e.Message);
+                throw;
+            }
+        }
+
+
+
+        
+
+                [HttpGet()]
         [Route("GetCompraByTicket")]
         public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {

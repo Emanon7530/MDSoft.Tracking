@@ -7,6 +7,11 @@
              xmlns:dto="clr-namespace:MDSoft.Tracking.Services.DTO;assembly=MDSoft.Tracking.Services"
              Title="Recepcion de Sacos">
 
+    <!--<Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding BackCommand}"
+                            IconOverride="back.png" />
+    </Shell.BackButtonBehavior>-->
+
     <Grid Margin="5" RowDefinitions="Auto,*" >
         <Grid ColumnDefinitions="*,*,*" VerticalOptions="Center" Grid.Row="0" Margin="5,5,5,20">
             <VerticalStackLayout Grid.Column="0">
@@ -29,14 +34,15 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <!--<RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>-->
                 </Grid.RowDefinitions>
 
+                <ActivityIndicator Grid.Row="1" Grid.RowSpan="3" IsRunning="{Binding LoadingEsVisible}" 
+                               IsVisible="{Binding LoadingEsVisible}" 
+                               Color="Blue" VerticalOptions="Center" HorizontalOptions="Center"/>
 
                 <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" Spacing="5">
                     <Grid ColumnDefinitions="1*" RowDefinitions="1*" HorizontalOptions="FillAndExpand">
-                        <Entry HorizontalOptions="FillAndExpand" Placeholder="Escane o Digite el codigo de la compra" PlaceholderColor="DarkSlateGray"  Text="{Binding BuscarRecepcion}" />
+                        <Entry HorizontalOptions="FillAndExpand" Placeholder="Escane o Digite el codigo de la compra" PlaceholderColor="DarkSlateGray"  x:Name="searchEntry" Text="{Binding BuscarRecepcion}"  />
                         <ImageButton Source="close.svg" HeightRequest="32" WidthRequest="28" HorizontalOptions="End" 
                                  BackgroundColor="{StaticResource bgLightGray}" Padding="3" CornerRadius="4"
                                  IsVisible="{Binding BtnLimpiarEsVisible}" Command="{Binding LimpiarCommand}"/>
@@ -46,97 +52,91 @@
                      TextColor="Black"
                      Command="{Binding BuscarCommand}"></Button>
                     <!--ROW 1-->
-                    <StackLayout Grid.Row="1" Orientation="Vertical">
-                        <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" 
-                               IsVisible="{Binding LoadingEsVisible}" 
-                               Color="Blue" HeightRequest="25" 
-                               VerticalOptions="Start"/>
-                    </StackLayout>
                 </StackLayout>
 
                 <!--Details-->
-                <ScrollView Grid.Row="1" >
 
-                    <CollectionView SelectionMode="None"  ItemsSource="{Binding DetalleRecepcion}" >
-                        <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
-                        </CollectionView.ItemsLayout>
+                <CollectionView SelectionMode="None" Grid.Row="1" ItemsSource="{Binding DetalleRecepcion}" >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
 
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="dto:RecepcionesComprasDetalleDTO">
-                                <Grid Padding="0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <!-- Color -->
-                                        <!-- Columna de informacion -->
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- Detalle -->
-                                        <!-- Columna de botones -->
-                                    </Grid.ColumnDefinitions>
-                                    <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer 
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="dto:RecepcionesProductosDetalleDTO">
+                            <Grid Padding="0">
+                                <Grid.ColumnDefinitions>
+                                    <!-- Color -->
+                                    <!-- Columna de informacion -->
+                                    <ColumnDefinition Width="*"/>
+
+                                    <!-- Detalle -->
+                                    <!-- Columna de botones -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
                                          Command="{Binding BindingContext.IrRecepcionCommand, 
                                                     Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
                                                            CommandParameter="{Binding}"/>
-                                        </Frame.GestureRecognizers>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal" >
 
-                                        <StackLayout Orientation="Horizontal" >
+                                        <!-- GRID-1 Row 0, column 0 color -->
+                                        <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="5"/>
 
-                                            <BoxView Grid.Column="0" Color="{util:RandomColorExtension}" WidthRequest="5"/>
-                                            <Grid ColumnDefinitions="Auto,Auto,*,*" 
-                                              RowSpacing="5" 
+                                        <Grid ColumnDefinitions="Auto,Auto,*,*" 
+                                              RowDefinitions="Auto,Auto" 
                                               ColumnSpacing="5"
-                                              RowDefinitions="*,Auto" 
                                               HorizontalOptions="FillAndExpand" 
                                               Padding="5">
 
-                                                <VerticalStackLayout Grid.Column="0" Grid.RowSpan="2" Padding="5" HorizontalOptions="CenterAndExpand">
-                                                    <!--ROW 0, COLUMN 0 / ROW 1, COLUMN 0-->
-                                                    <Label Text="{Binding ComReferencia}" FontSize="Small" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
-                                                    <!--ROW 0, COLUMN 1 / ROW 0, COLUMN 1-->
-                                                    <Label Text="{Binding  RecFechaRecogida, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center" FontSize="Small"    TextColor="Black" FontAttributes="Bold" />
-                                                    <Label Text="Producto" FontSize="Small"    TextColor="Black" HorizontalOptions="Center"/>
-                                                </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Column="0" Grid.RowSpan="2" Padding="5" HorizontalOptions="CenterAndExpand">
+                                                <!--ROW 0, COLUMN 0 / ROW 1, COLUMN 0-->
+                                                <Label Text="{Binding ComReferencia}" FontSize="Micro" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
+                                                <!--ROW 0, COLUMN 1 / ROW 0, COLUMN 1-->
+                                                <Label Text="{Binding  RecFecha, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="Center" FontSize="Micro"    TextColor="Black" />
+                                                <Label Text="Sacos" FontSize="Micro"    TextColor="Black" HorizontalOptions="Center"/>
+                                            </VerticalStackLayout>
 
-                                                <Line Y1="75" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
+                                            <Line Y1="75" Margin="0"  Grid.Column="1"  Grid.RowSpan="2" Stroke="Gray"></Line>
 
-                                                <!--ROW 1 , COLUMN 0-->
-                                                <Label Text="{Binding NombreProducto}" Grid.Row="0" Grid.Column="2"   
+                                            <!--ROW 1 , COLUMN 0-->
+                                            <Label Text="{Binding NombreProducto}" Grid.Row="0" Grid.Column="2"   FontSize="Micro"
                                                    TextColor="Black" FontAttributes="Bold" Grid.ColumnSpan="3" />
 
-                                                <!--ROW 4 , COLUMN 0-->
-                                                <VerticalStackLayout Grid.Row="1" 
+                                            <!--ROW 4 , COLUMN 0-->
+                                            <VerticalStackLayout Grid.Row="1" 
                                                                  Grid.Column="2" 
                                                                  Margin="0"
                                                                  HorizontalOptions="FillAndExpand">
-                                                    <Label Text="Comprado" ></Label>
-                                                    <Label Text="{Binding ComPeso, StringFormat='{0:N}'}"  FontSize="Small" TextColor="Black" FontAttributes="Bold" />
-                                                </VerticalStackLayout>
+                                                <Label Text="Comprado" FontSize="Micro" FontAttributes="Bold" ></Label>
+                                                <Label Text="{Binding ComPeso, StringFormat='{0:N}'}"  FontSize="Micro" TextColor="Black" />
+                                            </VerticalStackLayout>
 
-                                                <VerticalStackLayout Grid.Row="1" 
+                                            <VerticalStackLayout Grid.Row="1" 
                                                                  Grid.Column="3" 
                                                                  HorizontalOptions="FillAndExpand">
-                                                    <Label Text="Recibido"  ></Label>
-                                                    <Label Text="{Binding RecPeso, StringFormat='{0:N}'}"   FontSize="Small" TextColor="Black" FontAttributes="Bold" />
-                                                </VerticalStackLayout>
+                                                <Label Text="Recibido"  FontAttributes="Bold" FontSize="Micro" ></Label>
+                                                <Label Text="{Binding RecPeso, StringFormat='{0:N}'}"   FontSize="Micro" TextColor="Black" />
+                                            </VerticalStackLayout>
 
-                                            </Grid>
-                                        </StackLayout>
-                                    </Frame>
-                                    <StackLayout Grid.Column="3" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
-                                        <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <StackLayout Grid.Column="3" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                    <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
       BackgroundColor="{StaticResource bgLightRed}"
-      Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+      Command="{Binding BindingContext.EliminarCommand, 
+                                            Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
       CommandParameter="{Binding}"
       />
-                                    </StackLayout>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
 
-                    </CollectionView>
-                </ScrollView>
+                </CollectionView>
 
                 <!--Footer and totals-->
                 <StackLayout Grid.Row="2" BackgroundColor="{StaticResource bgLightGray}" Padding="10">

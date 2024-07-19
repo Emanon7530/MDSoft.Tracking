@@ -1,18 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Tracking.Utilidades;
 using CommunityToolkit.Mvvm.Input;
-using Tracking.Pages;
 using CommunityToolkit.Mvvm.Messaging;
+using MDSoft.Tracking.Services.DTO;
+using PNComm.Common.Enums;
 using System.Collections.ObjectModel;
 using Tracking.DataAccess;
-using System.Drawing;
-using Microsoft.EntityFrameworkCore;
-using Tracking.Modelos;
-using MDSoft.Tracking.Services.DTO;
+using Tracking.Pages;
 using Tracking.Services;
-using MDSoft.Tracking.Services;
-using Microsoft.Identity.Client;
-using PNComm.Common.Enums;
+using Tracking.Utilidades;
 
 namespace Tracking.ViewModels
 {
@@ -21,7 +16,7 @@ namespace Tracking.ViewModels
         private readonly TrackingDbContext _context;
         private readonly IAPIManager _apiManager;
         private ComprasProductoDTO _compraDTO;
-        public RecepcionVM(ComprasProductoDTO compraDTO)
+        public RecepcionVM(ComprasProductoDTO compraDTO, IAPIManager apiManager)
         {
             try
             {
@@ -36,7 +31,7 @@ namespace Tracking.ViewModels
                 });
 
                 _compraDTO = compraDTO;
-                _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
+                _apiManager = apiManager;
 
                 TotalpesoCompra = decimal.Parse(compraDTO.ComCantidadDetalle.ToString());
 
@@ -50,6 +45,11 @@ namespace Tracking.ViewModels
 
         private void RecepcionVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == nameof(BuscarRecepcion))
+            {
+                BtnLimpiarEsVisible = !(string.IsNullOrEmpty(BuscarRecepcion));
+            }
+
             if (e.PropertyName == nameof(Totalpesorecibido))
             {
                 if ((Totalpesorecibido - TotalpesoCompra) > 0)
@@ -67,7 +67,7 @@ namespace Tracking.ViewModels
 
         #region Propiedades publicas
         [ObservableProperty]
-        private ObservableCollection<RecepcionesComprasDetalleDTO> detalleRecepcion = new ObservableCollection<RecepcionesComprasDetalleDTO>();
+        private ObservableCollection<RecepcionesProductosDetalleDTO> detalleRecepcion = new ObservableCollection<RecepcionesProductosDetalleDTO>();
 
         [ObservableProperty]
         private string buscarRecepcion = string.Empty;
@@ -113,6 +113,7 @@ namespace Tracking.ViewModels
 
         [ObservableProperty]
         private System.Drawing.Color cambioColor;
+
         [ObservableProperty]
         private bool btnLimpiarEsVisible = false;
 
@@ -143,7 +144,7 @@ namespace Tracking.ViewModels
                 }
                 else
                 {
-                    await Shell.Current.Navigation.PushModalAsync(new ProductoPage(new ProductoVM(_compradetalleDTO), 0));
+                    await Shell.Current.Navigation.PushModalAsync(new ProductoPage(new ProductoVM(_compradetalleDTO, _apiManager), 0));
                 }
 
             }
@@ -166,34 +167,45 @@ namespace Tracking.ViewModels
         {
 
             LoadingEsVisible = true;
-            await Shell.Current.Navigation.PushModalAsync(new PesoLinealPage(new PesoLinealVM(new ComprasProductoDTO()), 0));
-            await Task.Run(async () =>
+
+            var compras = new ComprasProductoDTO()
             {
-                //await GetRecepciones();
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    BuscarRecepcion = "";
-                    LoadingEsVisible = false;
-                    MostarTotal();
-                });
+                RepCodigo = RepCodigo,
+                ComSecuencia = ComSecuencia
+            };
+            await Shell.Current.Navigation.PushModalAsync(new PesoLinealPage(new PesoLinealVM(compras, _apiManager), 0));
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                BuscarRecepcion = "";
+                LoadingEsVisible = false;
+                MostarTotal();
             });
 
         }
+
+        //[RelayCommand]
+        //private async Task Back()
+        //{
+        //    LoadingEsVisible = true;
+        //    await Shell.Current.GoToAsync("..");
+        //}
+
 
         [RelayCommand]
         private async Task Limpiar()
         {
             LoadingEsVisible = true;
+            BtnLimpiarEsVisible = false;
 
             BuscarRecepcion = "";
-            //await GetRecepciones();
 
             LoadingEsVisible = false;
 
         }
 
         [RelayCommand]
-        private async void Eliminar(RecepcionesComprasDetalleDTO detalle)
+        private async void Eliminar(RecepcionesProductosDetalleDTO detalle)
         {
             try
             {
@@ -240,17 +252,17 @@ namespace Tracking.ViewModels
 
                 _compraDTO.ComEstatus = cierreParcial == true ? (short?)EstatusCompraProductos.RecibidoParcial : (short?)EstatusCompraProductos.RecibidoTotal;
 
-                RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO()
+                RecepcionesProductoDTO recepcion = new RecepcionesProductoDTO()
                 {
                     RecFechaActualizacion = DateTime.Now,
                     RepCodigo = _compraDTO.RepCodigo,
                     RecFecha = DateTime.Now,
                     RecReferencia = _compraDTO.ComReferencia,
-                    RecEstado = 2, // abierta
-                    RecFechaCreacion = DateTime.Now,
-                    ComSecuencia = ComSecuencia,
+                    RecEstado = (int)EstatusRecepcionProductos.Abierta, // abierta
+                    UsuiniciosesionCreacion = Preferences.Get("usuario", ""),
+                    ComEstadoCompra = cierreParcial == true ? (int) EstatusCompraProductos.RecibidoTotal : 
+                                                                (int)EstatusCompraProductos.RecibidoTotal,
                     RecSecuencia = RecSecuencia,
-                    RecepcionesComprasDetallesDTO = DetalleRecepcion
                 };
 
                 await _apiManager.ActualizarRecepcion(recepcion);
@@ -280,7 +292,6 @@ namespace Tracking.ViewModels
             {
                 LoadingEsVisible = false;
             }
-
         }
 
         [RelayCommand]
@@ -297,50 +308,6 @@ namespace Tracking.ViewModels
             TotalpesoCompra = DetalleRecepcion.Sum(c => c.ComPeso.Value);
             Totalpesorecibido = DetalleRecepcion.Sum(c => c.RecPeso.Value);
         }
-
-        //public async Task GetRecepciones()
-        //{
-        //    LoadingEsVisible = true;
-
-        //    try
-        //    {
-        //        var compras = await _apiManager.GetRecepcionesDetalle(RecSecuencia);
-
-        //        var lstTemp = new ObservableCollection<RecepcionesComprasDetalleDTO>();
-
-        //        if (compras.Any())
-        //        {
-        //            foreach (var item in compras)
-        //            {
-        //                lstTemp.Add(new RecepcionesComprasDetalleDTO
-        //                {
-        //                    ComReferencia = item.ComReferencia,
-        //                    RepCodigo = item.RepCodigo,
-        //                    ComPeso = item.ComPeso,
-        //                    RecEstado = item.RecEstado,
-        //                    //RecFechaCreacion = item.RecFechaCreacion,
-        //                    RecPeso = item.RecPeso,
-        //                    RecPosicion = item.RecPosicion,
-        //                    recepcionesComprasDTO = item.recepcionesComprasDTO
-        //                });
-        //            }
-
-        //        }
-
-        //        DetalleRecepcion = lstTemp;
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        await Shell.Current.DisplayAlert("Error!", $"No se pudo recuperar las compras \\n {e.Message} ", "Aceptar");
-        //    }
-        //    finally
-        //    {
-        //        LoadingEsVisible = false;
-        //    }
-
-        //}
-
         private void CompraMensajeRecibido(CompraResult result)
         {
             RepCodigo = result.Compra.RepCodigo;
@@ -350,7 +317,7 @@ namespace Tracking.ViewModels
 
         }
 
-        private void RecepcionDetalleMensajeRecibido(RecepcionesComprasDetalleDTO result)
+        private void RecepcionDetalleMensajeRecibido(RecepcionesProductosDetalleDTO result)
         {
             // TODO Asignar aqui el RecReferencia y el RecSecuencia
             RecSecuencia = result.RecSecuencia;

@@ -20,6 +20,7 @@ public partial class ComprasProductoDTO
     public DateTime? ComFecha { get; set; }
 
     public short? ComEstatus { get; set; }
+    [StringLength(9)]
     public string ComEstatusNombre { get => ComEstatus == 2 ? "Pendiente" : "Recibido"; }
 
 
@@ -52,6 +53,7 @@ public partial class ComprasProductoDTO
     [StringLength(50)]
     [Unicode(false)]
     public string ProCodigo { get; set; } = null!;
+    public string ProNombre { get; set; } = null!;
 
     [Column("ConID")]
     public int? ConId { get; set; }

@@ -1,20 +1,11 @@
-﻿using Tracking.DataAccess;
-using Tracking.Modelos;
-using Tracking.Pages;
-using Tracking.Utilidades;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.ObjectModel;
-using System.Formats.Tar;
-using System.IO;
-using System.Reflection;
 using MDSoft.Tracking.Services.DTO;
+using PNComm.Common.Enums;
+using Tracking.DataAccess;
 using Tracking.Services;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Windows.Input;
+using Tracking.Utilidades;
 
 namespace Tracking.ViewModels
 {
@@ -22,24 +13,19 @@ namespace Tracking.ViewModels
     public partial class PesoLinealVM : ObservableObject
     {
         private readonly TrackingDbContext _context;
-        private ComprasProductoDTO _compradetalleDTO;
+        private ComprasProductosDetalleDTO _compradetalleDTO;
         private readonly IAPIManager _apiManager;
-        public PesoLinealVM(ComprasProductoDTO compradetalleDTO)
+        public PesoLinealVM(ComprasProductosDetalleDTO compradetalleDTO, IAPIManager apiManager)
         {
             _compradetalleDTO = compradetalleDTO;
 
-            _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
-
-            //MainThread.BeginInvokeOnMainThread(async () =>
-            //    {
-            //        await Task.Run(async () => Inicio(0));
-            //        //await Task.Run(async () => await ShowInfoProduct());
-            //    });
+            _apiManager = apiManager;
 
         }
 
         #region Propiedades
         private int IdProducto;
+        private bool comReferenceExists = false;
 
         [ObservableProperty]
         private bool loadingEsVisible = false;
@@ -51,11 +37,15 @@ namespace Tracking.ViewModels
         private string comReferencia = string.Empty;
 
         [ObservableProperty]
-        private string lotReferencia ;
+        private string lotReferencia;
+
+        [ObservableProperty]
+        private string recTipoproducto;
 
         [ObservableProperty]
         private int comSecuencia;
 
+        // TODO Sacar el origen de usos multiples
         [ObservableProperty]
         private int recDestino;
 
@@ -63,32 +53,39 @@ namespace Tracking.ViewModels
         private string destino;
 
         [ObservableProperty]
+        private string nombreProducto;
+
+        [ObservableProperty]
         private decimal? comPeso;
 
         [ObservableProperty]
-        private int recPeso;
-
-        [ObservableProperty]
-        private int recTipoproducto;
+        private decimal? recPeso;
         #endregion
 
         public async void Inicio(int idProducto)
         {
+
             RepCodigo = _compradetalleDTO.RepCodigo;
             ComSecuencia = _compradetalleDTO.ComSecuencia;
+            ComPeso = _compradetalleDTO.ComCantidad;
+            IdProducto = _compradetalleDTO.ProId.Value;
+            NombreProducto = _compradetalleDTO.ProDescripcion;
+
         }
 
         #region Commands
+
         [RelayCommand]
         private async Task AddLote()
         {
             string resultado = await Shell.Current.DisplayPromptAsync("Nuevo Lote", "Escane el Lote", accept: "Aceptar", cancel: "Cancelar");
 
-            if (!string.IsNullOrEmpty(resultado))
+            try
             {
-                LoadingEsVisible = true;
-                await Task.Run(async () =>
+
+                if (!string.IsNullOrEmpty(resultado))
                 {
+                    LoadingEsVisible = true;
                     if (Destino == "Fermentación") // Fermentacion
                     {
                         var lote = new LotesFermentacionDTO()
@@ -96,8 +93,8 @@ namespace Tracking.ViewModels
                             LotFermentacion = resultado,
                             LotFechaCreacion = DateTime.Now,
                             LotFechaCierre = null,
+                            LotUsuarioCreacion = Preferences.Get("usuario", ""),
                             LotesFermentacionDetallesDTO = null
-
                         };
                         var compras = await _apiManager.GuardarLoteFermentacion(lote);
                     }
@@ -108,17 +105,23 @@ namespace Tracking.ViewModels
                             LotSecadoManual = resultado,
                             LotFechaCreacion = DateTime.Now,
                             LotFechaCierre = null,
+                            UsuiniciosesionCreacion = Preferences.Get("usuario", ""),
                             LotesSecadoNaturalDetallesDTO = null
+
                         };
                         var compras = await _apiManager.GuardarLoteSecadoNatural(lote);
                     }
-
-                    MainThread.BeginInvokeOnMainThread(() =>
-                    {
-                        ComReferencia = resultado;
-                        LoadingEsVisible = false;
-                    });
-                });
+                    ComReferencia = resultado;
+                    comReferenceExists = true;
+                }
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Guardar", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+            }
+            finally
+            {
+                LoadingEsVisible = false;
             }
         }
 
@@ -132,43 +135,85 @@ namespace Tracking.ViewModels
         private async Task Guardar()
         {
 
-            await Task.Run(async () =>
+            try
             {
+
+                if (string.IsNullOrEmpty(ComReferencia))
+                {
+                    await Shell.Current.DisplayAlert("Informacion", "Numero de lote requerido!", "OK");
+                    return;
+                }
+
+                if (RecPeso <= 0)
+                {
+                    await Shell.Current.DisplayAlert("Informacion", "Peso de Recepción es requerido!", "OK");
+                    return;
+                }
+
+                if (!comReferenceExists)
+                {
+                    if (Destino == "Fermentación")
+                    {
+                        comReferenceExists = await _apiManager.LoteFermentacionExists(ComReferencia);
+                    }
+                    else
+                    {
+                        comReferenceExists = await _apiManager.LoteSecadoNaturalExists(ComReferencia);
+                    }
+
+                    if (!comReferenceExists)
+                    {
+                        await Shell.Current.DisplayAlert("Informacion", "Numero de Lote no existe, Verifique!", "OK");
+                        return;
+                    }
+                }
+
+                if (ComPeso != RecPeso)
+                {
+                    var answer = await Shell.Current.DisplayAlert("Recepcion", "Peso recibido es diferente a peso Comprado, continuar?", "Guardar", "Corregir");
+
+                    if (!answer)
+                    {
+                        return;
+                    }
+                }
+
                 LoadingEsVisible = true;
 
-                RecepcionesComprasDetalleDTO recepcionDetalle = new()
+                RecepcionesProductosDetalleDTO recepcionDetalle = new()
                 {
                     ComPeso = ComPeso,
-                    //RecFechaCreacion = DateTime.Now,
                     RecPeso = RecPeso,
-                    //RecDestino = Destino == "Fermentacion" ? 1 : 2,
-                    //RecPosicion = _compradetalleDTO.ComPosicion,
+                    RecDestino = Destino == "Fermentación" ?  ((int)LoteDestinoEnum.LoteFermentacion).ToString()  : ((int)LoteDestinoEnum.LoteSecadoNatural).ToString(),
+                    //RefSecuencia = ComSecuencia,
+                    ProId = IdProducto,
                     RepCodigo = RepCodigo,
                     ComReferencia = _compradetalleDTO.ComReferencia,
-                    //LotReferencia = LotReferencia,
-                    RecEstado = 1,
-                    RecSecuencia = 1
+                    RecReferencia = ComReferencia,
+                    NombreProducto = NombreProducto,
+                    UsuInicioSesion = Preferences.Get("usuario", ""),
+                    UsuFechaActualizacion = DateTime.Now,
+                    RecFecha = DateTime.Now,
+                    RecEstado = (int)EstatusRecepcionProductos.Cerrada,
                 };
-
-                recepcionDetalle.recepcionesComprasDTO = new RecepcionesCompraDTO()
-                {
-
-                    RecSecuencia = 1,
-                    RecEstado = 1,
-                    RecFechaCreacion = DateTime.Now,
-                    RecReferencia = _compradetalleDTO.ComReferencia
-                };
-
 
                 var Prod = await _apiManager.GuradarDetalleRecepcion(recepcionDetalle);
 
                 MainThread.BeginInvokeOnMainThread(async () =>
                {
                    LoadingEsVisible = false;
-                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(recepcionDetalle));
+                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(Prod));
                    await Shell.Current.Navigation.PopAsync();
                });
-            });
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("Guardar", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+            }
+            finally
+            {
+                LoadingEsVisible = false;
+            }
 
         }
 

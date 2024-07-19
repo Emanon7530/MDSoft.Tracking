@@ -5,6 +5,9 @@ using MDSoft.Data.Repository;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Services.Common;
 using MDSoft.Tracking.Services.DTO;
+using MDSoft.Tracking.Services.Enums;
+using NuGet.Common;
+using PNComm.Common.Enums;
 
 
 namespace MDSoft.Tracking.Services
@@ -18,9 +21,10 @@ namespace MDSoft.Tracking.Services
         IRepositorio<LotesFermentacion> _repoFermentacion;
         IRepositorio<LotesSecadoNatural> _repoSecadoNatural;
 
-        IRepositorio<LotesFermentacionDetalle> _repoFermentacionDet;
-        IRepositorio<LotesSecadoNaturalDetalle> _repoSecadoNaturalDet;
+        RecepcionServices _recepcionServices;
 
+        LoteFermentacionServices _lotFermentacion;
+        LoteSecadoNaturalServices _lotSecadoNatural;
         IMapper _mapper;
 
         public RecepcionServices(IMapper mapper)
@@ -31,8 +35,8 @@ namespace MDSoft.Tracking.Services
             _repoCompraDet = new Repositorio<ComprasProductosDetalle>();
 
             _mapper = mapper;
-
         }
+
         public async Task<IEnumerable<RecepcionesCompraDTO>> GetRecepciones(RecepcionesComprasFilter Filter)
         {
             try
@@ -98,7 +102,7 @@ namespace MDSoft.Tracking.Services
 
                 //TODO recReferencia de done se llena
                 newRecord.RecEstado = 2;  // Abierta
-                newRecord.RecReferencia = recepcionCompra.RepCodigo + "-" + newRecord.RecSecuencia.ToString();
+                //newRecord.RecReferencia = recepcionCompra.RepCodigo + "-" + newRecord.RecSecuencia.ToString();
                 newRecord.RechoraInicial = DateTime.Now.ToLocalTime();
 
                 var result = await _RepoRecepcion.Agregar(newRecord);
@@ -180,11 +184,12 @@ namespace MDSoft.Tracking.Services
                     throw new ApplicationException("No existe recepcion con esta secuencia!");
                 }
 
-                recepcionCompra.RecFechaActualizacion = DateTime.Now;
-                recepcionCompra.RecEstado = 1; // Cerrada
 
                 var newRecord = recepciones.First();
                 newRecord = _mapper.Map<RecepcionesCompra>(recepcionCompra);
+
+                newRecord.RecFechaActualizacion = DateTime.Now;
+                newRecord.RecEstado = (int)EstatusRecepcionProductos.Cerrada; // Cerrada
 
                 var result = await _RepoRecepcion.Actualizar(newRecord);
 
@@ -223,29 +228,30 @@ namespace MDSoft.Tracking.Services
             try
             {
                 // Actualizar Lote 
-                if (recepcionDetalle.AlmCodigo == "1") // Fermentacion
+                if (recepcionDetalle.AlmCodigo == ((int)LoteDestinoEnum.LoteFermentacion).ToString()) // Fermentacion
                 {
-                    _repoFermentacionDet = new Repositorio<LotesFermentacionDetalle>();
+                    using (var _lotFermentacion = new LoteFermentacionServices(_mapper))
+                    {
+                        var lote = new LotesFermentacionDetalleDTO();
 
-                    var lote = new LotesFermentacionDetalle();
-                    lote.LotFermentacion = recepcionDetalle.RecReferencia;
-                    lote.ComReferencia = recepcionDetalle.ComReferencia;
+                        lote.LotFermentacion = recepcionDetalle.RecReferencia;
+                        lote.ComReferencia = recepcionDetalle.ComReferencia;
 
-                    lote.LotFermentacionSecuencia = await _repoFermentacionDet.Contar(x => x.LotFermentacion == recepcionDetalle.RecReferencia) + 1;
-
-                    await _repoFermentacionDet.Agregar(lote);
+                        await _lotFermentacion.GuardarDetalle(lote);
+                    }
                 }
                 else
                 {
-                    _repoSecadoNaturalDet = new Repositorio<LotesSecadoNaturalDetalle>();
-                    var lote = new LotesSecadoNaturalDetalle()
+                    using (var _lotSecadoNatural = new LoteSecadoNaturalServices(_mapper))
                     {
-                        LotSecadoManual = recepcionDetalle.RecReferencia,
-                        ComReferencia = recepcionDetalle.ComReferencia,
-                        LotPosicion = await _repoSecadoNaturalDet.Contar(x => x.LotSecadoManual == recepcionDetalle.RecReferencia) + 1
-                    };
+                        var lote = new LotesSecadoNaturalDetalleDTO()
+                        {
+                            LotSecadoManual = recepcionDetalle.RecReferencia,
+                            ComReferencia = recepcionDetalle.ComReferencia,
+                        };
 
-                    await _repoSecadoNaturalDet.Agregar(lote);
+                        await _lotSecadoNatural.GuardarDetalle(lote);
+                    }
                 };
 
                 // Insertar detalle recepcion 
@@ -253,7 +259,7 @@ namespace MDSoft.Tracking.Services
                 RecepcionesCompraDTO recepcionesComprasDTO;
                 var _parampro = new ParametrosDeQuery<RecepcionesCompra>(1, 100)
                 {
-                    Where = x => x.RepCodigo == recepcionDetalle.RepCodigo && x.RecEstado == 2 // Abierta
+                    Where = x => x.RepCodigo == recepcionDetalle.RepCodigo && x.RecEstado == (int)EstatusRecepcionProductos.Abierta // Abierta
                 };
 
                 var recepcionAbierta = await _RepoRecepcion.EncontrarPor(_parampro);
@@ -264,14 +270,16 @@ namespace MDSoft.Tracking.Services
                     {
                         RepCodigo = recepcionDetalle.RepCodigo,
                         RecReferencia = recepcionDetalle.RecReferencia,
-                        Comreferencia = recepcionDetalle.ComReferencia,
+                        Comreferencia = recepcionDetalle.RecReferencia,
                         RecSecuencia = await _RepoRecepcion.Contar(x => x.RepCodigo == recepcionDetalle.RepCodigo) + 1,
                         RecFecha = DateTime.Now,
                         AlmCodigo = recepcionDetalle.AlmCodigo,
                         RecImpresa = false,
-                        RecEstado = 2,
+                        RecEstado = (int)EstatusRecepcionProductos.Abierta,
                         OrdId = 1,
                         ComSecuencia = recepcionDetalle.RefSecuencia,
+                        UsuInicioSesion = recepcionDetalle.UsuInicioSesion,
+                        UsuFechaActualizacion = recepcionDetalle.UsuFechaActualizacion,
                         RecFechaCreacion = DateTime.Now,
                     };
 
@@ -289,7 +297,6 @@ namespace MDSoft.Tracking.Services
                                                                                   && x.RecSecuencia == recepcionDetalle.RecSecuencia) + 1;
 
                 //TODO De donde lleno el RefSecuencia
-                //recepcionDetalle.RefSecuencia = recepcionDetalle.RecPosicion.Value;
                 recepcionDetalle.Rowguid = Guid.NewGuid();
 
                 var newRecord = _mapper.Map<RecepcionesComprasDetalle>(recepcionDetalle);
@@ -309,7 +316,7 @@ namespace MDSoft.Tracking.Services
                     throw new ApplicationException("No existe este producto en la compra!");
                 }
 
-                compradet.ComEstatusDetalle = 2; // Recibido;
+                compradet.ComEstatusDetalle = (int)EstatusComprasProductosDetalle.Recibido; // Recibido;
                 compradet.ComFechaActualizacion = DateTime.Now;
                 await _repoCompraDet.Actualizar(compradet);
 

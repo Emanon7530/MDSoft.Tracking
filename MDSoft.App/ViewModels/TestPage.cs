@@ -85,26 +85,26 @@ namespace Tracking.ViewModels
         {
             LoadingEsVisible = true;
 
-            switch (SelectedOptions.Name)
-            {
-                case "Recepcion Compras":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Cierre Lotes":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Fermentacion":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Secado Maquina":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Limpiezas":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                default:
-                    break;
-            }
+            //switch (SelectedOptions.Name)
+            //{
+            //    case "Recepcion Compras":
+            //        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+            //        break;
+            //    case "Cierre Lotes":
+            //        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+            //        break;
+            //    case "Lotes Fermentacion":
+            //        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+            //        break;
+            //    case "Lotes Secado Maquina":
+            //        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+            //        break;
+            //    case "Lotes Limpiezas":
+            //        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             await Task.Run(async () =>
             {

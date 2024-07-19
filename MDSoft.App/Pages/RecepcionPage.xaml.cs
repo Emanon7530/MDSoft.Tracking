@@ -11,9 +11,16 @@ public partial class RecepcionPage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = vm;
+        Loaded += RecepcionPage_Loaded;
+
     }
 
-	public RecepcionPage(RecepcionVM vm, string idRecepcion)
+    private void RecepcionPage_Loaded(object sender, EventArgs e)
+    {
+        searchEntry.Focus();
+    }
+
+    public RecepcionPage(RecepcionVM vm, string idRecepcion)
 	{
 		InitializeComponent();
 		BindingContext = vm;
@@ -26,4 +33,8 @@ public partial class RecepcionPage : ContentPage
         viewModel.Inicio(_idRecepcion);
     }
 
+    private void searchEntry_Focused(object sender, FocusEventArgs e)
+    {
+
+    }
 }

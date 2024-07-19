@@ -10,22 +10,21 @@ using Tracking.Utilidades;
 
 namespace Tracking.ViewModels
 {
-    public partial class RecepcionlistMV : ObservableObject
+    public partial class RecepcionListMV : ObservableObject
     {
         private readonly TrackingDbContext _context;
         private readonly IAPIManager _apiManager;
-        public RecepcionlistMV(TrackingDbContext context)
+        public RecepcionListMV(TrackingDbContext context, IAPIManager apiManager)
         {
             try
             {
-
                 WeakReferenceMessenger.Default.Register<RecepcionCompraResult>(this, (r, m) =>
                  {
                      RecepcionMensajeRecibido(m);
                  });
 
+                _apiManager = apiManager;
                 _context = context;
-                _apiManager = Application.Current.MainPage.Handler.MauiContext.Services.GetService<IAPIManager>();
 
                 //TODO Agregar un Refreshview
                 Task.Run(async () => await GetRecepciones());
@@ -36,7 +35,8 @@ namespace Tracking.ViewModels
             {
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+                    Shell.Current.DisplayAlert("Information 300", "Ups, Algo no salio como esperaba\n\n" + e.Message, "OK");
+                    Shell.Current.Navigation.PopToRootAsync();
                 });
             }
 
@@ -79,14 +79,17 @@ namespace Tracking.ViewModels
                 IsRefreshing = true;
                 LoadingEsVisible = true;
 
-                var compras = await _apiManager.sp_GetComprasPendientes();
+                var compras = await _apiManager.sp_GetComprasHistoricoPendientes();
 
-                ListRecepcion = new ObservableCollection<ComprasProductoDTO>(compras.OrderBy(x => x.ComFecha));
+                if (compras != null)
+                {
+                    ListRecepcion = new ObservableCollection<ComprasProductoDTO>(compras.OrderBy(x => x.ComFecha));
+                }
 
             }
             catch (Exception e)
             {
-                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+                await Shell.Current.DisplayAlert("Information 400", "Ups, Algo no salio como esperaba\n\n" + e.Message, "OK");
             }
             finally
             {
@@ -99,6 +102,7 @@ namespace Tracking.ViewModels
         private async Task RefreshGrid()
         {
             await GetRecepciones();
+            IsRefreshing = false;
         }
 
         [RelayCommand]
@@ -109,6 +113,11 @@ namespace Tracking.ViewModels
 
             try
             {
+                if (string.IsNullOrEmpty(BuscarRecepcion))
+                {
+                    await Shell.Current.DisplayAlert("Information 500", "Debe especificar la referencia!", "OK");
+                    return;
+                }
 
                 var codigo = BuscarRecepcion.Split("-");
                 var compras = await _apiManager.GetCompraByTicket(codigo[0], int.Parse(codigo[1]));
@@ -140,7 +149,7 @@ namespace Tracking.ViewModels
             }
             catch (Exception e)
             {
-                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+                await Shell.Current.DisplayAlert("Information 100", "Ups, Algo no salio como esperaba\n\n" + e.Message, "OK");
             }
             finally
             {
@@ -172,13 +181,13 @@ namespace Tracking.ViewModels
             try
             {
 
-                await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(recepcion), recepcion.RepCodigo));
+                await Shell.Current.Navigation.PushAsync(new RecepcionPage(new RecepcionVM(recepcion, _apiManager), recepcion.RepCodigo));
 
                 await GetRecepciones();
             }
             catch (Exception e)
             {
-                await Shell.Current.DisplayAlert("Information", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
+                await Shell.Current.DisplayAlert("Information 200", "Ups, Algo no salio como esperaba\n\n" + e.Message, "OK");
             }
             finally
             {
@@ -190,14 +199,13 @@ namespace Tracking.ViewModels
 
         private void RecepcionMensajeRecibido(RecepcionCompraResult result)
         {
-            //TODO Agregar un Refreshview
             Task.Run(async () => await GetRecepciones());
         }
 
         [RelayCommand]
         private async Task Editar(ComprasProductoDTO recepcion)
         {
-            await Shell.Current.Navigation.PushModalAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));//, recepcion.Id));
+            //await Shell.Current.Navigation.PushModalAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));//, recepcion.Id));
         }
 
         [RelayCommand]

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Tracking.Pages;
 using System.Collections.ObjectModel;
+using Tracking.Services;
 
 namespace Tracking.ViewModels
 {
@@ -23,27 +24,38 @@ namespace Tracking.ViewModels
         }
 
         private readonly TrackingDbContext _context;
-        public MainVM(TrackingDbContext context)
+        private readonly IAPIManager _apiManager;
+        public MainVM(TrackingDbContext context, IAPIManager apiManager)
         {
-            MainThread.BeginInvokeOnMainThread(async () =>
+            try
             {
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    await Shell.Current.DisplayAlert("Internet", "Upps, Not internet access, Verify plase!", "OK");
-                }
-            });
+                MainThread.BeginInvokeOnMainThread(async () =>
+                 {
+                     if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                     {
+                         await Shell.Current.DisplayAlert("Internet", "Upps, Not internet access, Verify plase!", "OK");
+                     }
+                 });
 
-            _context = context;
-            Options = new ObservableCollection<menuOptions>() {
+                _apiManager = apiManager;
+
+                _context = context;
+                Options = new ObservableCollection<menuOptions>() {
                 new menuOptions {Name = "Recepcion Compras", Color= Colors.Red, Image="recepcion.png"},
                 new menuOptions {Name = "Cierre Lotes", Color=Colors.Green, Image="cierrepreview.png"},
-                new menuOptions {Name = "Lotes Fermentacion", Color=Colors.Blue, Image="fermentacionpreview.png"},
+                new menuOptions {Name = "Lotes\nFermentacion", Color=Colors.Blue, Image="fermentacionpreview.png"},
                 new menuOptions {Name = "Lotes Secado Maquina", Color=Colors.Purple, Image="maquinapreview.png"},
                 new menuOptions {Name = "Lotes Secado Natrual", Color=Colors.Brown, Image="naturalpreview.png"},
-                new menuOptions {Name = "Lotes Limpiezas", Color=Colors.Black, Image="limpiezapreview.png"},
+                new menuOptions {Name = "Lotes Limpiezas", Color=Colors.Black, Image="limpiezapreview.png"}
             };
+            }
+            catch (Exception e)
+            {
+                Shell.Current.Navigation.PushModalAsync(new SettingDataPage(new SettingDataMV(new TrackingDbContext())));
+            }
 
         }
+
         [ObservableProperty]
         private bool loadingEsVisible = false;
 
@@ -59,97 +71,56 @@ namespace Tracking.ViewModels
         [ObservableProperty]
         private int totalCategorias;
 
-
         [ObservableProperty]
         public ObservableCollection<menuOptions> options;
 
         [ObservableProperty]
         public menuOptions selectedOptions;
 
-        private async Task ObtenerResumen()
-        {
-            //decimal totalingresos = 0;
-            //var lstVentas = await _context.Ventas.ToListAsync();
-            //foreach (var item in lstVentas)
-            //{
-            //    totalingresos += item.Total;
-            //}
-
-            //TotalIngresos = totalingresos;
-            //TotalVentas = _context.Ventas.Count();
-            //TotalProductos = _context.Productos.Count();
-            //TotalCategorias = _context.Categorias.Count();
-        }
         [RelayCommand]
         public async Task SelectionChanged()
         {
             LoadingEsVisible = true;
 
-            switch (SelectedOptions.Name)
+            try
             {
-                case "Recepcion Compras":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Cierre Lotes":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Fermentacion":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Secado Maquina":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                case "Lotes Limpiezas":
-                    await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-                    break;
-                default:
-                    break;
+
+                switch (SelectedOptions.Name)
+                {
+                    case "Recepcion Compras":
+                        await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionListMV(new DataAccess.TrackingDbContext(), _apiManager)));
+                        break;
+                    case "Cierre Lotes":
+                        //await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+                        break;
+                    case "Lotes Fermentacion":
+                        //await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+                        break;
+                    case "Lotes Secado Maquina":
+                        //await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+                        break;
+                    case "Lotes Limpiezas":
+                        //await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
+                        break;
+                    default:
+                        break;
+                }
+
+                await Task.Run(async () =>
+                {
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        SelectedOptions = null;
+                        LoadingEsVisible = false;
+                    });
+                });
+
+            }
+            catch (Exception e)
+            {
+                await Shell.Current.DisplayAlert("SelectionChanged", "Ups, Algo no salio como esperaba\n" + e.Message, "OK");
             }
 
-            await Task.Run(async () =>
-            {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    SelectedOptions = null;
-                    LoadingEsVisible = false;
-                });
-            });
-
-
         }
-        [RelayCommand]
-        private async Task Recepcion()
-        {
-            LoadingEsVisible = true;
-
-            await Shell.Current.Navigation.PushAsync(new RecepcionListPage(new RecepcionlistMV(new DataAccess.TrackingDbContext())));
-
-            await Task.Run(async () =>
-            {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                });
-            });
-
-        }
-
-        [RelayCommand]
-        private async Task SecadoMaquina()
-        {
-            LoadingEsVisible = true;
-
-            await Task.Run(async () =>
-            {
-                //await Shell.Current.Navigation.PushAsync(new CategoriasPage(new CategoriasVM(new DataAccess.VentaDbContext())));
-
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    LoadingEsVisible = false;
-                });
-            });
-
-        }
-
     }
 }

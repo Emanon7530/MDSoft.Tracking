@@ -1,15 +1,11 @@
-﻿using MDSoft.Tracking.Services.DTO;
-using Tracking.Handlers;
+﻿using MDSoft.Tracking.Model;
+using MDSoft.Tracking.Services.DTO;
 using Newtonsoft.Json;
-using MDSoft.Tracking.Services.Repository;
 using System.Net.Http.Json;
-using Azure;
-using System.Net.Http;
-using System.Text;
-using NuGet.Protocol;
-using Tracking.DataAccess;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using Tracking.DataAccess;
 
 namespace Tracking.Services
 {
@@ -17,13 +13,30 @@ namespace Tracking.Services
     {
         private HttpClientHandler handler;
         private HttpClient _client;
-        public HttpClient Client { get { return _client; } }
+        private string url = null;
+        //public HttpClient Client { get { return _client; } }
 
-        public APIManager()
+        private readonly string comprasProductosController = "ComprasProductos";
+        private readonly string lotesController = "Lotes";
+        private readonly string recepcionComprasController = "RecepcionesProductos";
+
+        private readonly TrackingDbContext _context;
+
+        public APIManager(TrackingDbContext context)
         {
-            var dbContext = new TrackingDbContext();
+            //var dbContext = new TrackingDbContext();
 
-            string url = dbContext.SettingData.FirstOrDefault().urlApi;
+            _context = context;
+
+            if (_context.SettingData.Count() > 0)
+            {
+                InitializeAPI();
+            };
+        }
+
+        private void InitializeAPI()
+        {
+            url = _context.SettingData.FirstOrDefault().urlApi;
 
             if (string.IsNullOrEmpty(url))
             {
@@ -40,16 +53,20 @@ namespace Tracking.Services
             {
                 BaseAddress = new Uri(url)
             };
+
         }
 
         private bool CertificateCustomValidation(HttpRequestMessage message, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors errors)
-        {
-            return true;
-        }
+            => true;
 
         public async Task<List<ComprasProductoDTO>> GetComprasPendientes(DateTime fromDate, DateTime toDate)
         {
-            string endPoint = $"ComprasProductos/GetPendingByDate?FromDate={fromDate.ToString("yyyy/MM/dd")}&ToDate={toDate.ToString("yyyy/MM/dd")}";
+            string endPoint = $"{comprasProductosController}/GetPendingByDate?FromDate={fromDate.ToString("yyyy/MM/dd")}&ToDate={toDate.ToString("yyyy/MM/dd")}";
+
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
 
             var response = await _client.GetAsync(endPoint);
 
@@ -67,8 +84,12 @@ namespace Tracking.Services
         {
             try
             {
+                if (string.IsNullOrEmpty(url))
+                {
+                    InitializeAPI();
+                }
 
-                string endPoint = $"ComprasProductos/sp_GetComprasPendientes";
+                string endPoint = $"{comprasProductosController}/sp_GetComprasPendientes";
 
                 var response = await _client.GetAsync(endPoint);
 
@@ -88,9 +109,42 @@ namespace Tracking.Services
 
         }
 
+        public async Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasHistoricoPendientes()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(url))
+                {
+                    InitializeAPI();
+                }
+
+                string endPoint = $"{comprasProductosController}/sp_GetComprasHistoricoPendientes";
+
+                var response = await _client.GetAsync(endPoint);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+                var responsedetail = await response.Content.ReadAsStringAsync();
+                var compras = JsonConvert.DeserializeObject<List<ComprasProductoDTO>>(responsedetail);
+
+                return compras;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+        }
         public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
-            string endPoint = $"ComprasProductos/GetCompraByTicket?repCodigo={repCodigo}&comSecuencia={comSecuencia}";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{comprasProductosController}/GetCompraByTicket?repCodigo={repCodigo}&comSecuencia={comSecuencia}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -106,7 +160,13 @@ namespace Tracking.Services
 
         public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID)
         {
-            string endPoint = $"ComprasProductos/GetProductInCompraByCode?compra={repCodigo}&comSecuencia={comSecuencia}&productId={proID}";
+
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{comprasProductosController}/GetProductInCompraByCode?compra={repCodigo}&comSecuencia={comSecuencia}&productId={proID}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -122,7 +182,12 @@ namespace Tracking.Services
 
         public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReferencia)
         {
-            string endPoint = $"ComprasProductos/GetProductInCompraByReference?repCodigo={repCodigo}&comSecuencia={comSecuencia}&comReferencia={comReferencia}";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{comprasProductosController}/GetProductInCompraByReference?repCodigo={repCodigo}&comSecuencia={comSecuencia}&comReferencia={comReferencia}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -138,7 +203,12 @@ namespace Tracking.Services
 
         public async Task<LotesFermentacionDTO> GuardarLoteFermentacion(LotesFermentacionDTO loteFermentacion)
         {
-            string endPoint = $"Lotes/GuardarLoteFermentacion";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{lotesController}/GuardarLoteFermentacion";
 
             //HTTP POST
             LotesFermentacionDTO compras = new LotesFermentacionDTO();
@@ -157,9 +227,39 @@ namespace Tracking.Services
 
         }
 
+        public async Task<bool> LoteFermentacionExists(string loteFermentacion)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{lotesController}/LoteFermentacionExists?lotNumber={loteFermentacion}";
+
+            //HTTP POST
+            bool exists = false;
+
+            var response = await _client.GetAsync(endPoint);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            var responsedetail = await response.Content.ReadAsStringAsync();
+
+            exists = JsonConvert.DeserializeObject<bool>(responsedetail);
+
+            return exists;
+        }
+
         public async Task<LotesSecadoNaturalDTO> GuardarLoteSecadoNatural(LotesSecadoNaturalDTO loteFermentacion)
         {
-            string endPoint = $"Lotes/GuardarLoteSecadoNatural";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{lotesController}/GuardarLoteSecadoNatural";
 
             //HTTP POST
             LotesSecadoNaturalDTO compras = new LotesSecadoNaturalDTO();
@@ -178,12 +278,42 @@ namespace Tracking.Services
 
         }
 
-        public async Task<RecepcionesCompraDTO> GuardarRecepcion(RecepcionesCompraDTO recepcionDetalle)
+        public async Task<bool> LoteSecadoNaturalExists(string loteSecadoNatural)
         {
-            string endPoint = $"Recepcion/Guardar";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{lotesController}/LoteSecadoNaturalExits?lotNumber={loteSecadoNatural}";
 
             //HTTP POST
-            RecepcionesCompraDTO compras = new RecepcionesCompraDTO();
+            bool exists = false;
+
+            var response = await _client.GetAsync(endPoint);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            var responsedetail = await response.Content.ReadAsStringAsync();
+
+            exists = JsonConvert.DeserializeObject<bool>(responsedetail);
+
+            return exists;
+
+        }
+        public async Task<RecepcionesProductoDTO> GuardarRecepcion(RecepcionesProductoDTO recepcionDetalle)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{recepcionComprasController}/Guardar";
+
+            //HTTP POST
+            RecepcionesProductoDTO compras = new RecepcionesProductoDTO();
 
             var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
 
@@ -192,38 +322,57 @@ namespace Tracking.Services
             if (response.IsSuccessStatusCode)
             {
                 var responsedetail = await response.Content.ReadAsStringAsync();
-                compras = JsonConvert.DeserializeObject<RecepcionesCompraDTO>(responsedetail);
+                compras = JsonConvert.DeserializeObject<RecepcionesProductoDTO>(responsedetail);
 
             }
             return compras;
         }
 
-        public async Task<RecepcionesComprasDetalleDTO> GuradarDetalleRecepcion(RecepcionesComprasDetalleDTO recepcionDetalle)
+        public async Task<RecepcionesProductosDetalleDTO> GuradarDetalleRecepcion(RecepcionesProductosDetalleDTO recepcionDetalle)
         {
-            string endPoint = $"Recepcion/GuardarDetalle";
-
-            //HTTP POST
-            RecepcionesComprasDetalleDTO compras = new RecepcionesComprasDetalleDTO();
-
-            var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
-
-            var response = await _client.PostAsync(endPoint, content);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responsedetail = await response.Content.ReadAsStringAsync();
-                compras = JsonConvert.DeserializeObject<RecepcionesComprasDetalleDTO>(responsedetail);
 
+                if (string.IsNullOrEmpty(url))
+                {
+                    InitializeAPI();
+                }
+
+                string endPoint = $"{recepcionComprasController}/GuardarDetalle";
+
+                //HTTP POST
+                RecepcionesProductosDetalleDTO compras = new RecepcionesProductosDetalleDTO();
+
+                var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
+
+                var response = await _client.PostAsync(endPoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responsedetail = await response.Content.ReadAsStringAsync();
+                    compras = JsonConvert.DeserializeObject<RecepcionesProductosDetalleDTO>(responsedetail);
+                }
+
+                return compras;
             }
-            return compras;
+            catch (Exception e)
+            {
+                throw;
+            }
+
         }
 
-        public async Task<RecepcionesCompraDTO> ActualizarRecepcion(RecepcionesCompraDTO recepcionDetalle)
+        public async Task<RecepcionesProductoDTO> ActualizarRecepcion(RecepcionesProductoDTO recepcionDetalle)
         {
-            string endPoint = $"Recepcion/Cerrar";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{recepcionComprasController}/Cerrar";
 
             //HTTP POST
-            RecepcionesCompraDTO recepcion = new RecepcionesCompraDTO();
+            RecepcionesProductoDTO recepcion = new RecepcionesProductoDTO();
 
             var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
 
@@ -232,15 +381,20 @@ namespace Tracking.Services
             if (response.IsSuccessStatusCode)
             {
                 var responsedetail = await response.Content.ReadAsStringAsync();
-                recepcion = JsonConvert.DeserializeObject<RecepcionesCompraDTO>(responsedetail);
+                recepcion = JsonConvert.DeserializeObject<RecepcionesProductoDTO>(responsedetail);
 
             }
             return recepcion;
         }
 
-        public async Task<IEnumerable<RecepcionesComprasDetalleDTO>> GetRecepcionesDetalle(int recSecuencia)
+        public async Task<IEnumerable<RecepcionesProductosDetalleDTO>> GetRecepcionesDetalle(int recSecuencia)
         {
-            string endPoint = $"ComprasProductos/GetRecepcionesDetalle?RecSecuencia={recSecuencia}";
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{comprasProductosController}/GetRecepcionesDetalle?RecSecuencia={recSecuencia}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -250,7 +404,7 @@ namespace Tracking.Services
             }
             var responsedetail = await response.Content.ReadAsStringAsync();
 
-            var compras = JsonConvert.DeserializeObject<IEnumerable<RecepcionesComprasDetalleDTO>>(responsedetail);
+            var compras = JsonConvert.DeserializeObject<IEnumerable<RecepcionesProductosDetalleDTO>>(responsedetail);
 
             return compras;
         }
