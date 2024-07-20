@@ -4,6 +4,7 @@ using MDSoft.Data.Interface;
 using MDSoft.Data.Repository;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.Model;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 using MDSoft.Tracking.Services.Repository;
@@ -49,6 +50,34 @@ namespace MDSoft.Tracking.Services
             }
 
             return result;
+
+        }
+
+        public async Task<int> Actualizar(ComprasProductoDTO compraProducto)
+        {
+
+            var entidad = _mapper.Map<ComprasProducto>(compraProducto);
+
+            var result = await _RepoCompras.Actualizar(entidad);
+
+            return result;
+        }
+
+        public async Task<int> ActualizarDetalle(ComprasProductosDetalleDTO compraProducto)
+        {
+
+            var entidad = _mapper.Map<ComprasProductosDetalle>(compraProducto);
+
+            var result = await _RepoDetalle.Actualizar(entidad);
+
+            return result;
+        }
+
+        public async Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto()
+        {
+            IEnumerable<TipoProductoDTO> tipoProductos = await _RepoCompras.GetAllTipoProducto();
+
+            return tipoProductos;
 
         }
 
@@ -146,27 +175,52 @@ namespace MDSoft.Tracking.Services
             }
         }
 
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int prodID)
+        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductInCompraByCode(string repCodigo, int comSecuencia, int prodID)
         {
-            ComprasProductosDetalleDTO result = null;
+            IEnumerable<ComprasProductosDetalleDTO> prod;
 
-            var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
-
-            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ProId == prodID;
-
-            var compra = await _RepoDetalle.EncontrarPor(_param);
-
-            if (compra.Count() > 0)
+            using (var db = new MovilBusiness5StdContext())
             {
-                result = _mapper.Map<ComprasProductosDetalleDTO>(compra.FirstOrDefault());
+                prod = await (from cd in db.ComprasProductosDetalles
+                        join pd in db.Productos on cd.ProId equals pd.ProId
+                        where cd.RepCodigo == repCodigo && cd.ComSecuencia == comSecuencia && cd.ProId == prodID
+                        select new ComprasProductosDetalleDTO()
+                        {
+                            ProId = pd.ProId,
+                            ComAdValorem = cd.ComAdValorem,
+                            ComBrix = cd.ComBrix,
+                            ComSecuencia = cd.ComSecuencia,
+                            ComCantidad = cd.ComCantidad,
+                            ComDescuento = cd.ComDescuento,
+                            ComEstadoProducto = cd.ComEstadoProducto,
+                            ComEstatusDetalle = cd.ComEstatusDetalle,
+                            ComFechaActualizacion = cd.ComFechaActualizacion,
+                            ComHumedad = cd.ComHumedad,
+                            ComItbis = cd.ComItbis,
+                            ComKgquintal = cd.ComKgquintal,
+                            ComPesoBruto = cd.ComPesoBruto,
+                            ComPesoKg = cd.ComPesoKg,
+                            ComPesoQuintal = cd.ComPesoQuintal,
+                            ComPosicion = cd.ComPosicion,
+                            ComPrecio = cd.ComPrecio,
+                            ComPrecioKg = cd.ComPrecioKg,
+                            ComPrecioQuintal = cd.ComPrecioQuintal,
+                            ComReferencia = cd.ComReferencia,
+                            ComSelectivo = cd.ComSelectivo,
+                            ComTipoCertificacion = cd.ComTipoCertificacion,
+                            ComTipoProducto = cd.ComTipoProducto,
+                            ComTotalDescuento = cd.ComTotalDescuento,
+                            ComTotalItbis = cd.ComTotalItbis,
+                            ProDescripcion = pd.ProDescripcion,
+                            RepCodigo = cd.RepCodigo,
+                            RepSupervisor = cd.RepSupervisor,
+                            Rowguid = cd.Rowguid,
+                            UnmCodigo = cd.UnmCodigo,
+                            UsuInicioSesion = cd.UsuInicioSesion
+                        }).ToListAsync();
 
-                var _paramProd = new ParametrosDeQuery<Producto>(1, 100);
-
-                _paramProd.Where = x => x.ProId == result.ProId;
-
-                result.ProDescripcion = _RepoProducto.EncontrarPor(_paramProd).Result.Select(x => x.ProDescripcion).First();
             }
-            return result;
+            return prod;
         }
 
         public async Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReference)
@@ -175,7 +229,7 @@ namespace MDSoft.Tracking.Services
 
             var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100);
 
-            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference && x.ComEstatusDetalle == (int)EstatusComprasProductosDetalle.Pendiente;
+            _param.Where = x => x.RepCodigo == repCodigo && x.ComSecuencia == comSecuencia && x.ComReferencia == comReference;
 
             var compra = await _RepoDetalle.EncontrarPor(_param);
 
@@ -192,7 +246,6 @@ namespace MDSoft.Tracking.Services
 
             return result;
         }
-
 
         public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductsInCompra(string repCodigo, int comSecuencia)
         {

@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
+using MDSoft.Tracking.Services.Enums;
 using PNComm.Common.Enums;
+using System.Collections.ObjectModel;
 using Tracking.DataAccess;
 using Tracking.Services;
 using Tracking.Utilidades;
@@ -13,14 +16,21 @@ namespace Tracking.ViewModels
     public partial class PesoLinealVM : ObservableObject
     {
         private readonly TrackingDbContext _context;
-        private ComprasProductosDetalleDTO _compradetalleDTO;
+        private ComprasProductoDTO _compraproductoDTO;
         private readonly IAPIManager _apiManager;
-        public PesoLinealVM(ComprasProductosDetalleDTO compradetalleDTO, IAPIManager apiManager)
+        public PesoLinealVM(ComprasProductoDTO compraproductoDTO, IAPIManager apiManager)
         {
-            _compradetalleDTO = compradetalleDTO;
+            _compraproductoDTO = compraproductoDTO;
+            RepCodigo = compraproductoDTO.RepCodigo;
+            ComSecuencia = compraproductoDTO.ComSecuencia;
 
             _apiManager = apiManager;
 
+
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                RecListaTipos = new ObservableCollection<TipoProductoDTO>(await _apiManager.GetAllTipoProducto());
+            });
         }
 
         #region Propiedades
@@ -40,7 +50,10 @@ namespace Tracking.ViewModels
         private string lotReferencia;
 
         [ObservableProperty]
-        private string recTipoproducto;
+        private TipoProductoDTO recTipoproducto;
+
+        [ObservableProperty]
+        private ObservableCollection<TipoProductoDTO> recListaTipos;
 
         [ObservableProperty]
         private int comSecuencia;
@@ -65,11 +78,11 @@ namespace Tracking.ViewModels
         public async void Inicio(int idProducto)
         {
 
-            RepCodigo = _compradetalleDTO.RepCodigo;
-            ComSecuencia = _compradetalleDTO.ComSecuencia;
-            ComPeso = _compradetalleDTO.ComCantidad;
-            IdProducto = _compradetalleDTO.ProId.Value;
-            NombreProducto = _compradetalleDTO.ProDescripcion;
+            RepCodigo = _compraproductoDTO.RepCodigo;
+            ComSecuencia = _compraproductoDTO.ComSecuencia;
+            ComPeso = _compraproductoDTO.ComCantidadDetalle;
+            //IdProducto = _compraproductoDTO.ProId.Value;
+            //NombreProducto = _compraproductoDTO.ProDescripcion;
 
         }
 
@@ -132,6 +145,13 @@ namespace Tracking.ViewModels
         }
 
         [RelayCommand]
+        private async Task SelectedIndexChanged()
+        {
+            var Prod = await _apiManager.GetProductInCompraByCode(RepCodigo, ComSecuencia, RecTipoproducto.ProId);
+            ComPeso = Prod.Sum(x => x.ComPesoKg);
+        }
+
+        [RelayCommand]
         private async Task Guardar()
         {
 
@@ -184,25 +204,26 @@ namespace Tracking.ViewModels
                 {
                     ComPeso = ComPeso,
                     RecPeso = RecPeso,
-                    RecDestino = Destino == "Fermentación" ?  ((int)LoteDestinoEnum.LoteFermentacion).ToString()  : ((int)LoteDestinoEnum.LoteSecadoNatural).ToString(),
-                    //RefSecuencia = ComSecuencia,
-                    ProId = IdProducto,
+                    RecDestino = Destino == "Fermentación" ? ((int)LoteDestinoEnum.LoteFermentacion).ToString() : ((int)LoteDestinoEnum.LoteSecadoNatural).ToString(),
+                    RecSecuencia = ComSecuencia,
+                    ComSecuencia = ComSecuencia,
+                    ProId = RecTipoproducto.ProId,
                     RepCodigo = RepCodigo,
-                    ComReferencia = _compradetalleDTO.ComReferencia,
+                    //ComReferencia = _compraproductoDTO.ComReferencia,
                     RecReferencia = ComReferencia,
-                    NombreProducto = NombreProducto,
+                    //NombreProducto = NombreProducto,
                     UsuInicioSesion = Preferences.Get("usuario", ""),
                     UsuFechaActualizacion = DateTime.Now,
                     RecFecha = DateTime.Now,
                     RecEstado = (int)EstatusRecepcionProductos.Cerrada,
                 };
 
-                var Prod = await _apiManager.GuradarDetalleRecepcion(recepcionDetalle);
+                var Prod = await _apiManager.GuradarLinear(recepcionDetalle);
 
                 MainThread.BeginInvokeOnMainThread(async () =>
                {
                    LoadingEsVisible = false;
-                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleMessage(Prod));
+                   WeakReferenceMessenger.Default.Send(new RecepcionDetalleLinearMessage(Prod));
                    await Shell.Current.Navigation.PopAsync();
                });
             }

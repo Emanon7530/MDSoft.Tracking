@@ -1,4 +1,5 @@
 ﻿using MDSoft.Tracking.Model;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
@@ -158,7 +159,7 @@ namespace Tracking.Services
             return compras;
         }
 
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID)
+        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID)
         {
 
             if (string.IsNullOrEmpty(url))
@@ -166,7 +167,7 @@ namespace Tracking.Services
                 InitializeAPI();
             }
 
-            string endPoint = $"{comprasProductosController}/GetProductInCompraByCode?compra={repCodigo}&comSecuencia={comSecuencia}&productId={proID}";
+            string endPoint = $"{comprasProductosController}/GetProductInCompraByCode?repCodigo={repCodigo}&comSecuencia={comSecuencia}&productId={proID}";
 
             var response = await _client.GetAsync(endPoint);
 
@@ -175,7 +176,29 @@ namespace Tracking.Services
                 return null;
             }
             var responsedetail = await response.Content.ReadAsStringAsync();
-            var compras = JsonConvert.DeserializeObject<ComprasProductosDetalleDTO>(responsedetail);
+            var compras = JsonConvert.DeserializeObject<IEnumerable<ComprasProductosDetalleDTO>>(responsedetail);
+
+            return compras;
+        }
+
+        public async Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto()
+        {
+
+            if (string.IsNullOrEmpty(url))
+            {
+                InitializeAPI();
+            }
+
+            string endPoint = $"{comprasProductosController}/GetAllTipoProducto";
+
+            var response = await _client.GetAsync(endPoint);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            var responsedetail = await response.Content.ReadAsStringAsync();
+            var compras = JsonConvert.DeserializeObject<IEnumerable<TipoProductoDTO>>(responsedetail);
 
             return compras;
         }
@@ -303,6 +326,7 @@ namespace Tracking.Services
             return exists;
 
         }
+
         public async Task<RecepcionesProductoDTO> GuardarRecepcion(RecepcionesProductoDTO recepcionDetalle)
         {
             if (string.IsNullOrEmpty(url))
@@ -407,6 +431,40 @@ namespace Tracking.Services
             var compras = JsonConvert.DeserializeObject<IEnumerable<RecepcionesProductosDetalleDTO>>(responsedetail);
 
             return compras;
+        }
+
+        public async Task<IEnumerable<RecepcionesProductosDetalleDTO>> GuradarLinear(RecepcionesProductosDetalleDTO recepcionDetalle)
+        {
+            try
+            {
+
+                if (string.IsNullOrEmpty(url))
+                {
+                    InitializeAPI();
+                }
+
+                string endPoint = $"{recepcionComprasController}/GuardarLinear";
+
+                //HTTP POST
+                IEnumerable<RecepcionesProductosDetalleDTO> compras = new List<RecepcionesProductosDetalleDTO>();
+
+                var content = new StringContent(JsonConvert.SerializeObject(recepcionDetalle), Encoding.UTF8, "application/json");
+
+                var response = await _client.PostAsync(endPoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responsedetail = await response.Content.ReadAsStringAsync();
+                    compras = JsonConvert.DeserializeObject<IEnumerable<RecepcionesProductosDetalleDTO>>(responsedetail);
+                }
+
+                return compras;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
         }
     }
 }

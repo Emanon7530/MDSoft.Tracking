@@ -1,4 +1,5 @@
 ﻿using MDSoft.Tracking.Model;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 
 namespace Tracking.Services
@@ -13,7 +14,7 @@ namespace Tracking.Services
         Task<RecepcionesProductoDTO> ActualizarRecepcion(RecepcionesProductoDTO recepcionDetalle);
         Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia);
         Task<List<ComprasProductoDTO>> GetComprasPendientes(DateTime fromDate, DateTime toDate);
-        Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID);
+        Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductInCompraByCode(string repCodigo, int comSecuencia, int proID);
         Task<ComprasProductosDetalleDTO> GetProductInCompraByReference(string repCodigo, int comSecuencia, string comReference);
         Task<IEnumerable<RecepcionesProductosDetalleDTO>> GetRecepcionesDetalle(int recSecuencia);
         Task<LotesFermentacionDTO> GuardarLoteFermentacion(LotesFermentacionDTO loteFermentacion);
@@ -22,6 +23,7 @@ namespace Tracking.Services
         Task<RecepcionesProductosDetalleDTO> GuradarDetalleRecepcion(RecepcionesProductosDetalleDTO recepcionDetalle);
         Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasPendientes();
         Task<IEnumerable<ComprasProductoDTO>> sp_GetComprasHistoricoPendientes();
-
+        Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto();
+        Task<IEnumerable<RecepcionesProductosDetalleDTO>> GuradarLinear(RecepcionesProductosDetalleDTO recepcionDetalle);
     }
 }

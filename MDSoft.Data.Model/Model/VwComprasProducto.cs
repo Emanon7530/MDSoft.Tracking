@@ -95,5 +95,5 @@ public partial class VwComprasProducto
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ComEstatusRecepcion { get; set; }
+    public int? ComEstatusRecepcion { get; set; }
 }

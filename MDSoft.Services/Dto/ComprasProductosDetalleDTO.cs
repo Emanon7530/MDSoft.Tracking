@@ -18,13 +18,10 @@ public partial class ComprasProductosDetalleDTO
 
     [Key]
     public int ComPosicion { get; set; }
-    [Column(TypeName = "datetime")]
-    public DateTime? ComFecha { get; set; }
 
-    public short? ComEstatus { get; set; }
     [Column("ProID")]
     public int? ProId { get; set; }
-    public string? ProDescripcion { get; set; }
+    public string ProDescripcion { get; set; } = null!;
 
     [Column(TypeName = "decimal(13, 2)")]
     public decimal? ComCantidad { get; set; }
@@ -70,6 +67,44 @@ public partial class ComprasProductosDetalleDTO
 
     [Column("rowguid")]
     public Guid Rowguid { get; set; }
+
+    [StringLength(5)]
+    [Unicode(false)]
+    public int? ComEstadoProducto { get; set; }
+
+    [Unicode(false)]
+    public string? ComTipoCertificacion { get; set; }
+
+    [Column(TypeName = "decimal(5, 3)")]
+    public decimal? ComHumedad { get; set; }
+
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoKg { get; set; }
+
+    [Column("ComKGQuintal")]
+    public short? ComKgquintal { get; set; }
+
+    public string? ComTipoProducto { get; set; }
+
+    [Column("ComBRIX")]
+    public int? ComBrix { get; set; }
+
+    [Column("unmCodigo")]
+    [StringLength(5)]
+    [Unicode(false)]
+    public string? UnmCodigo { get; set; }
+
+    [Column("comPesoQuintal", TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoQuintal { get; set; }
+
+    [Column("comPrecioQuintal", TypeName = "decimal(13, 2)")]
+    public decimal? ComPrecioQuintal { get; set; }
+
+    [Column(TypeName = "decimal(13, 2)")]
+    public decimal? ComPesoBruto { get; set; }
+
+    [Column("ComPrecioKG", TypeName = "decimal(13, 2)")]
+    public decimal? ComPrecioKg { get; set; }
 
     public virtual ComprasProductoDTO ComprasProducto { get; set; } = null!;
 }

@@ -50,6 +50,7 @@ public partial class VwComprasProductosDetalle
     public string? ComReferencia { get; set; }
 
     public int? ComEstatusDetalle { get; set; }
+    public int? ComEstadoProducto { get; set; }
 
     [StringLength(15)]
     [Unicode(false)]

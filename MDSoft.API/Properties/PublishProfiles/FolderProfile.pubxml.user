@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\tracking</_PublishTargetUrl>
-    <History>True|2024-07-19T13:26:14.5208407Z||;True|2024-07-07T04:25:45.8407273-04:00||;True|2024-06-27T16:24:43.2303214-04:00||;True|2024-06-26T18:50:46.7785928-04:00||;</History>
+    <History>True|2024-07-20T14:29:57.1208167Z||;True|2024-07-19T09:26:14.5208407-04:00||;True|2024-07-07T04:25:45.8407273-04:00||;True|2024-06-27T16:24:43.2303214-04:00||;True|2024-06-26T18:50:46.7785928-04:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

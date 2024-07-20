@@ -1,6 +1,7 @@
 ﻿using MDSoft.Data.Interface;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.StoreProcedure;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Repository;
 using System;
@@ -20,6 +21,6 @@ namespace MDSoft.Tracking.Services.Interface
 		Task<ComprasProducto> GetByCodeBar(string comReferencia);
 		Task<ComprasProducto> GetByRepresentante(string Representante, int Secuencia);
 		Task<bool> Cerrar(ComprasProducto comprasProducto);
-
+        Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto();
     }
 }

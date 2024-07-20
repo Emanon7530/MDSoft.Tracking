@@ -66,6 +66,7 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.LoadingEsVisible">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.loadingEsVisible"/>
@@ -79,6 +80,12 @@
         <member name="P:Tracking.ViewModels.PesoLinealVM.LotReferencia">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.lotReferencia"/>
         </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.RecTipoproducto">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recTipoproducto"/>
+        </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.RecListaTipos">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recListaTipos"/>
+        </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.ComSecuencia">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.comSecuencia"/>
         </member>
@@ -88,14 +95,14 @@
         <member name="P:Tracking.ViewModels.PesoLinealVM.Destino">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.destino"/>
         </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.NombreProducto">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.nombreProducto"/>
+        </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.ComPeso">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.comPeso"/>
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.RecPeso">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recPeso"/>
-        </member>
-        <member name="P:Tracking.ViewModels.PesoLinealVM.RecTipoproducto">
-            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recTipoproducto"/>
         </member>
         <member name="F:Tracking.ViewModels.PesoLinealVM.addLoteCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.AddLoteCommand"/>.</summary>
@@ -108,6 +115,12 @@
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.VolverInventarioCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.PesoLinealVM.VolverInventario"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.PesoLinealVM.selectedIndexChangedCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.SelectedIndexChangedCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.SelectedIndexChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.PesoLinealVM.SelectedIndexChanged"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.PesoLinealVM.guardarCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.GuardarCommand"/>.</summary>
@@ -169,7 +182,7 @@
         <member name="P:Tracking.ViewModels.ProductoVM.GuardarCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.ProductoVM.Guardar"/>.</summary>
         </member>
-        <member name="T:Tracking.ViewModels.RecepcionlistMV">
+        <member name="T:Tracking.ViewModels.RecepcionListMV">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -178,59 +191,59 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarRecepcion">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.buscarRecepcion"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BuscarRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.buscarRecepcion"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.LoadingEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.loadingEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.LoadingEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.loadingEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.IsRefreshing">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.isRefreshing"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.IsRefreshing">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.isRefreshing"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.DataEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.dataEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.DataEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.dataEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BtnLimpiarEsVisible">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.btnLimpiarEsVisible"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BtnLimpiarEsVisible">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.btnLimpiarEsVisible"/>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.ListRecepcion">
-            <inheritdoc cref="F:Tracking.ViewModels.RecepcionlistMV.listRecepcion"/>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.ListRecepcion">
+            <inheritdoc cref="F:Tracking.ViewModels.RecepcionListMV.listRecepcion"/>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.refreshGridCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.refreshGridCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.RefreshGridCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.RefreshGridCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.RefreshGrid"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.RefreshGridCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.RefreshGrid"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.buscarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.buscarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.BuscarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.BuscarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Buscar"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.BuscarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Buscar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.limpiarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.limpiarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.LimpiarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.LimpiarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Limpiar"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.LimpiarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Limpiar"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.irRecepcionCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.irRecepcionCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.IrRecepcionCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.IrRecepcionCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.IrRecepcion(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.IrRecepcionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.IrRecepcion(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.editarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.editarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.EditarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.EditarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Editar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.EditarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Editar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
-        <member name="F:Tracking.ViewModels.RecepcionlistMV.eliminarCommand">
-            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand"/>.</summary>
+        <member name="F:Tracking.ViewModels.RecepcionListMV.eliminarCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionListMV.EliminarCommand"/>.</summary>
         </member>
-        <member name="P:Tracking.ViewModels.RecepcionlistMV.EliminarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionlistMV.Eliminar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
+        <member name="P:Tracking.ViewModels.RecepcionListMV.EliminarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionListMV.Eliminar(MDSoft.Tracking.Services.DTO.ComprasProductoDTO)"/>.</summary>
         </member>
         <member name="T:Tracking.ViewModels.RecepcionVM">
             <inheritdoc/>
@@ -314,7 +327,7 @@
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.EliminarCommand"/>.</summary>
         </member>
         <member name="P:Tracking.ViewModels.RecepcionVM.EliminarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesComprasDetalleDTO)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Tracking.ViewModels.RecepcionVM.Eliminar(MDSoft.Tracking.Services.DTO.RecepcionesProductosDetalleDTO)"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.RecepcionVM.finalizarVentaCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.RecepcionVM.FinalizarVentaCommand"/>.</summary>
@@ -517,6 +530,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LotReferencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecTipoproducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecListaTipos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecListaTipos" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
         </member>
@@ -526,17 +545,14 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Destino">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Destino" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComPeso" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecPeso" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecTipoproducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreProducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
@@ -637,6 +653,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LotReferencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecTipoproducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecListaTipos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecListaTipos" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
         </member>
@@ -646,17 +668,14 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Destino">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Destino" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComPeso" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecPeso" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecTipoproducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreProducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>

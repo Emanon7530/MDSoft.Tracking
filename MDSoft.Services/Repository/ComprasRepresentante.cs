@@ -11,6 +11,6 @@ namespace MDSoft.Tracking.Services.Repository
         public string ProNombre { get; set; }
         public string ComReferencia { get; set; }
         public decimal? ComCantidadDetalle { get; set; }
-        public short? ComEstatus { get; set; }
+        public int? ComEstatus { get; set; }
     }
 }

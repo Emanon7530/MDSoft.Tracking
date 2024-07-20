@@ -23,7 +23,9 @@ public partial class ComprasProductoDTO
     [StringLength(9)]
     public string ComEstatusNombre { get => ComEstatus == 2 ? "Pendiente" : "Recibido"; }
 
-
+    [StringLength(5)]
+    [Unicode(false)]
+    public int? ComEstatusRecepcion { get; set; }
 
     public string? RepNombre { get; set; }
 

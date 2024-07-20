@@ -1,5 +1,6 @@
 using AutoMapper;
 using MDSoft.Tracking.Services;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -93,17 +94,13 @@ namespace MDSoft.API.Controllers
             }
         }
 
-
-
-        
-
-                [HttpGet()]
+        [HttpGet()]
         [Route("GetCompraByTicket")]
         public async Task<ComprasProductoDTO> GetCompraByTicket(string repCodigo, int comSecuencia)
         {
             try
             {
-                var result = await _compraServices.GetCompraByTicket(repCodigo, comSecuencia );
+                var result = await _compraServices.GetCompraByTicket(repCodigo, comSecuencia);
 
                 return result;
             }
@@ -116,11 +113,29 @@ namespace MDSoft.API.Controllers
 
         [HttpGet()]
         [Route("GetProductInCompraByCode")]
-        public async Task<ComprasProductosDetalleDTO> GetProductInCompraByCode(string repCodigo, int comSecuencia, int productId)
+        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductInCompraByCode(string repCodigo, int comSecuencia, int productId)
         {
             try
             {
                 var result = await _compraServices.GetProductInCompraByCode(repCodigo, comSecuencia, productId);
+
+                return result;
+            }
+            catch (Exception e)
+            {
+
+                _logger.LogError("ComprasProductos_GetProductInCompraByCode " + e.Message);
+                throw;
+            }
+        }
+
+        [HttpGet()]
+        [Route("GetAllTipoProducto")]
+        public async Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto()
+        {
+            try
+            {
+                var result = await _compraServices.GetAllTipoProducto();
 
                 return result;
             }
@@ -152,7 +167,7 @@ namespace MDSoft.API.Controllers
 
         [HttpGet()]
         [Route("GetProductsInCompra")]
-        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductsInCompra(string repCodigo, int comSecuencia )
+        public async Task<IEnumerable<ComprasProductosDetalleDTO>> GetProductsInCompra(string repCodigo, int comSecuencia)
         {
             try
             {
@@ -175,7 +190,7 @@ namespace MDSoft.API.Controllers
         {
             try
             {
-                var result = await _compraServices.CerrarCompra(compra );
+                var result = await _compraServices.CerrarCompra(compra);
 
                 return result;
             }

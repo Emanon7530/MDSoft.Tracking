@@ -15,6 +15,7 @@ public partial class RecepcionesProductosDetalleDTO
 
     [Key]
     public int RecSecuencia { get; set; }
+    public int ComSecuencia { get; set; }
 
     [Key]
     public int RecPosicion { get; set; }

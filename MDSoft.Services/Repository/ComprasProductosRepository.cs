@@ -2,12 +2,14 @@
 using MDSoft.Data.Repository;
 using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Model.StoreProcedure;
+using MDSoft.Tracking.Services.Dto;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 using PNComm.Common.Enums;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,6 @@ namespace MDSoft.Tracking.Services.Repository
         public ComprasProductosRepository() : base()
         {
             _repoRepresentante = new Repositorio<Representante>();
-
             _repovwComprasProd = new Repositorio<VwComprasProducto>();
             _repovwComprasProdDetalle = new Repositorio<VwComprasProductosDetalle>();
         }
@@ -39,6 +40,24 @@ namespace MDSoft.Tracking.Services.Repository
             else
             {
                 return false;
+            }
+        }
+
+        public async Task<IEnumerable<TipoProductoDTO>> GetAllTipoProducto()
+        {
+            using (var dbContext = new MovilBusiness5StdContext())
+            {
+                var entryPoint = await (from ep in dbContext.ComprasProductosDetalles
+                                        select new TipoProductoDTO
+                                        {
+                                            ProId = ep.ProId.Value,
+                                            ComTipoCertificacion = ep.ComTipoCertificacion,
+                                            ComTipoProducto = ep.ComTipoProducto
+                                        }).Distinct()
+                                        .OrderBy(x => x.ComTipoProducto)
+                                        .ThenBy(x => x.ComTipoCertificacion).ToListAsync();
+
+                return entryPoint;
             }
         }
 
@@ -77,42 +96,56 @@ namespace MDSoft.Tracking.Services.Repository
 
         public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasHistoricoPendientes()
         {
-            using (var dbContext = new MovilBusiness5StdContext())
+
+            try
             {
-                var entryPoint = await (from ep in dbContext.VwComprasProductos
-                                        join d in dbContext.VwComprasProductosDetalles on new { ep.RepCodigo, ep.ComSecuencia } equals new { d.RepCodigo, d.ComSecuencia }
-                                        join e in dbContext.Representantes on ep.RepCodigo equals e.RepCodigo
-                                        join pr in dbContext.Proveedores on ep.ProCodigo equals pr.ProCodigo
-                                        where ep.ComEstatusRecepcion == ((int)EstatusCompraProductos.Pendiente).ToString()
-                                        group d by new { ep.RepCodigo, ep.ComReferencia, ep.ComSecuencia, ep.ComFecha, ep.ComEstatus, e.RepNombre, pr.ProNombre, pr.ProCodigo } into grupo
-                                        select new ComprasRepresentante
-                                        {
-                                            RepCodigo = grupo.Key.RepCodigo,
-                                            ProCodigo = grupo.Key.ProCodigo,
-                                            ComSecuencia = grupo.Key.ComSecuencia,
-                                            ComFecha = grupo.Key.ComFecha,
-                                            RepNombre = grupo.Key.RepNombre,
-                                            ProNombre = grupo.Key.ProNombre,
-                                            ComReferencia = grupo.Key.ComReferencia,
-                                            ComCantidadDetalle = grupo.Sum(t1 => t1.ComPesoKg),
-                                            ComEstatus = grupo.Key.ComEstatus
-                                        }).Take(100).ToListAsync();
 
-                return entryPoint;
+                using (var dbContext = new MovilBusiness5StdContext())
+                {
+                    var entryPoint = await (from ep in dbContext.VwComprasProductos
+                                            join d in dbContext.VwComprasProductosDetalles on new { ep.RepCodigo, ep.ComSecuencia } equals new { d.RepCodigo, d.ComSecuencia }
+                                            join e in dbContext.Representantes on ep.RepCodigo equals e.RepCodigo
+                                            join pr in dbContext.Proveedores on ep.ProCodigo equals pr.ProCodigo
+                                            where (ep.ComEstatusRecepcion == (int)EstatusCompraProductos.Pendiente
+                                            || ep.ComEstatusRecepcion == (int)EstatusCompraProductos.RecibidoParcial)
+                                            && d.ComEstadoProducto == (int)EstatusComprasProductosDetalle.Pendiente
+                                            group d by new { ep.RepCodigo, ep.ComReferencia, ep.ComSecuencia, ep.ComFecha, ep.ComEstatusRecepcion, e.RepNombre, pr.ProNombre, pr.ProCodigo } into grupo
+                                            select new ComprasRepresentante
+                                            {
+                                                RepCodigo = grupo.Key.RepCodigo,
+                                                ProCodigo = grupo.Key.ProCodigo,
+                                                ComSecuencia = grupo.Key.ComSecuencia,
+                                                ComFecha = grupo.Key.ComFecha,
+                                                RepNombre = grupo.Key.RepNombre,
+                                                ProNombre = grupo.Key.ProNombre,
+                                                ComReferencia = grupo.Key.ComReferencia,
+                                                ComCantidadDetalle = grupo.Sum(t1 => t1.ComPesoKg),
+                                                ComEstatus = grupo.Key.ComEstatusRecepcion
+                                            }).Take(100).ToListAsync();
+
+                    return entryPoint;
+                }
             }
-        }
+            catch (Exception e)
+            {
 
+                throw;
+            }
+
+        }
 
         public async Task<IEnumerable<ComprasRepresentante>> sp_GetComprasPendientes()
         {
             using (var dbContext = new MovilBusiness5StdContext())
             {
                 var entryPoint = await (from ep in dbContext.ComprasProductos
-                                        join d in dbContext.ComprasProductosDetalles on new { ep.RepCodigo, ep.ComSecuencia } equals new { d.RepCodigo, d.ComSecuencia }
+                                        join d in dbContext.ComprasProductosDetalles on new { ep.RepCodigo, ep.ComSecuencia }
+                                        equals new { d.RepCodigo, d.ComSecuencia }
                                         join e in dbContext.Representantes on ep.RepCodigo equals e.RepCodigo
                                         join pr in dbContext.Proveedores on ep.ProCodigo equals pr.ProCodigo
-                                        where ep.ComEstatusRecepcion == ((int)EstatusCompraProductos.Pendiente).ToString()
-                                        || ep.ComEstatusRecepcion == ((int)EstatusCompraProductos.RecibidoParcial).ToString()
+                                        where (ep.ComEstatusRecepcion == (int)EstatusCompraProductos.Pendiente
+                                        || ep.ComEstatusRecepcion == (int)EstatusCompraProductos.RecibidoParcial)
+                                        && d.ComEstadoProducto == (int)EstatusComprasProductosDetalle.Pendiente
                                         group d by new { ep.RepCodigo, ep.ComReferencia, ep.ComSecuencia, ep.ComFecha, ep.ComEstatus, e.RepNombre, pr.ProNombre, pr.ProCodigo } into grupo
                                         select new ComprasRepresentante
                                         {

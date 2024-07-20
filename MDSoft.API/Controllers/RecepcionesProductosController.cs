@@ -129,6 +129,22 @@ namespace MDSoft.API.Controllers
             }
         }
         [HttpPost()]
+        [Route("GuardarLinear")]
+        public async Task<IEnumerable<RecepcionesProductosDetalleDTO>> GuardarLinear(RecepcionesProductosDetalleDTO recepcionCompraDetalle)
+        {
+            try
+            {
+                var result = await _recepcionServices.GuradarLinear(recepcionCompraDetalle);
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost()]
         [Route("GuardarDetalle")]
         public async Task<RecepcionesProductosDetalleDTO> GuardarDetalle(RecepcionesProductosDetalleDTO recepcionCompraDetalle)
         {

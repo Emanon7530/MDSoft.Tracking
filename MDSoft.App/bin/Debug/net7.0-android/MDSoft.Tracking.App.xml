@@ -66,6 +66,7 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.LoadingEsVisible">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.loadingEsVisible"/>
@@ -79,6 +80,12 @@
         <member name="P:Tracking.ViewModels.PesoLinealVM.LotReferencia">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.lotReferencia"/>
         </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.RecTipoproducto">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recTipoproducto"/>
+        </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.RecListaTipos">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recListaTipos"/>
+        </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.ComSecuencia">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.comSecuencia"/>
         </member>
@@ -88,14 +95,14 @@
         <member name="P:Tracking.ViewModels.PesoLinealVM.Destino">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.destino"/>
         </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.NombreProducto">
+            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.nombreProducto"/>
+        </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.ComPeso">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.comPeso"/>
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.RecPeso">
             <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recPeso"/>
-        </member>
-        <member name="P:Tracking.ViewModels.PesoLinealVM.RecTipoproducto">
-            <inheritdoc cref="F:Tracking.ViewModels.PesoLinealVM.recTipoproducto"/>
         </member>
         <member name="F:Tracking.ViewModels.PesoLinealVM.addLoteCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.AddLoteCommand"/>.</summary>
@@ -108,6 +115,12 @@
         </member>
         <member name="P:Tracking.ViewModels.PesoLinealVM.VolverInventarioCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.PesoLinealVM.VolverInventario"/>.</summary>
+        </member>
+        <member name="F:Tracking.ViewModels.PesoLinealVM.selectedIndexChangedCommand">
+            <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.SelectedIndexChangedCommand"/>.</summary>
+        </member>
+        <member name="P:Tracking.ViewModels.PesoLinealVM.SelectedIndexChangedCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Tracking.ViewModels.PesoLinealVM.SelectedIndexChanged"/>.</summary>
         </member>
         <member name="F:Tracking.ViewModels.PesoLinealVM.guardarCommand">
             <summary>The backing field for <see cref="P:Tracking.ViewModels.PesoLinealVM.GuardarCommand"/>.</summary>
@@ -517,6 +530,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LotReferencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecTipoproducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecListaTipos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecListaTipos" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
         </member>
@@ -526,17 +545,14 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Destino">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Destino" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ComPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ComPeso" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecPeso" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecTipoproducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NombreProducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>
@@ -637,6 +653,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LotReferencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LotReferencia" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecTipoproducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecListaTipos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecListaTipos" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComSecuencia">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComSecuencia" generated properties.</summary>
         </member>
@@ -646,17 +668,14 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Destino">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Destino" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreProducto">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ComPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ComPeso" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecPeso">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecPeso" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecTipoproducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecTipoproducto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NombreProducto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NombreProducto" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BuscarRecepcion">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BuscarRecepcion" generated properties.</summary>

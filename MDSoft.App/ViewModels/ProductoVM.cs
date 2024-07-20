@@ -185,6 +185,7 @@ namespace Tracking.ViewModels
                     RecPeso = RecPeso,
                     RecDestino = Destino == "Fermentación" ?  ((int)LoteDestinoEnum.LoteFermentacion).ToString()  : ((int)LoteDestinoEnum.LoteSecadoNatural).ToString(),
                     //RefSecuencia = ComSecuencia,
+                    ComSecuencia = ComSecuencia,
                     ProId = IdProducto,
                     RepCodigo = RepCodigo,
                     ComReferencia = _compradetalleDTO.ComReferencia,

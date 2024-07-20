@@ -6,6 +6,7 @@ using MDSoft.Tracking.Model;
 using MDSoft.Tracking.Services.Common;
 using MDSoft.Tracking.Services.DTO;
 using MDSoft.Tracking.Services.Enums;
+using Microsoft.EntityFrameworkCore.Storage;
 using NuGet.Common;
 using PNComm.Common.Enums;
 
@@ -16,8 +17,7 @@ namespace MDSoft.Tracking.Services
     {
         IRepositorio<RecepcionesProducto> _RepoRecepcion;
         IRepositorio<RecepcionesProductosDetalle> _RepoRecepcionDetalle;
-        IRepositorio<ComprasProducto> _repoCompra;
-        IRepositorio<ComprasProductosDetalle> _repoCompraDet;
+        ComprasProductosSevices _repoCompra;
 
         LoteFermentacionServices _lotFermentacion;
         LoteSecadoNaturalServices _lotSecadoNatural;
@@ -27,8 +27,7 @@ namespace MDSoft.Tracking.Services
         {
             _RepoRecepcion = new Repositorio<RecepcionesProducto>();
             _RepoRecepcionDetalle = new Repositorio<RecepcionesProductosDetalle>();
-            _repoCompra = new Repositorio<ComprasProducto>();
-            _repoCompraDet = new Repositorio<ComprasProductosDetalle>();
+            _repoCompra = new ComprasProductosSevices(mapper);
 
             //LoteFermentacionServices _lotFermentacion = new LoteFermentacionServices(mapper);
             //LoteSecadoNaturalServices _lotSecadoNatural = new LoteSecadoNaturalServices(mapper);
@@ -36,6 +35,7 @@ namespace MDSoft.Tracking.Services
             _mapper = mapper;
 
         }
+
         public async Task<IEnumerable<RecepcionesProductoDTO>> GetRecepciones(RecepcionesProductoDTO Filter)
         {
             try
@@ -68,7 +68,6 @@ namespace MDSoft.Tracking.Services
                 throw;
             }
         }
-
 
         public async Task<IEnumerable<RecepcionesProductoDTO>> GetAll()
         {
@@ -139,24 +138,21 @@ namespace MDSoft.Tracking.Services
             try
             {
                 //*** Cerrar Compra //
-                var _param = new ParametrosDeQuery<ComprasProducto>(1, 100)
-                {
-                    Where = x => x.RepCodigo == recepcionCompra.RepCodigo && x.ComSecuencia == recepcionCompra.RecSecuencia
-                };
+                //var _param = new ParametrosDeQuery<ComprasProducto>(1, 100)
+                //{
+                //    Where = x => x.RepCodigo == recepcionCompra.RepCodigo && x.ComSecuencia == recepcionCompra.RecSecuencia
+                //};
 
-                var compra = await _repoCompra.EncontrarPor(_param);
+                var compra = await _repoCompra.GetCompraByTicket(recepcionCompra.RepCodigo, recepcionCompra.RecSecuencia);
 
                 if (compra == null)
                 {
                     throw new ApplicationException("No existe compra con esta secuencia!");
                 }
 
-                var myCompra = compra.First();
-
-                myCompra.ComEstatusRecepcion = ((int)recepcionCompra.ComEstadoCompra).ToString(); //Cerrada
-                myCompra.ComFechaActualizacion = DateTime.Now;
-
-                await _repoCompra.Actualizar(myCompra);
+                compra.ComEstatusRecepcion = recepcionCompra.ComEstadoCompra; //Cerrada
+                compra.ComFechaActualizacion = DateTime.Now;
+                await _repoCompra.Actualizar(compra);
 
                 /// actualizar recepcion
                 var _param1 = new ParametrosDeQuery<RecepcionesProducto>(1, 100)
@@ -172,7 +168,7 @@ namespace MDSoft.Tracking.Services
                 }
 
                 var newRecord = recepciones.First();
-                newRecord = _mapper.Map<RecepcionesProducto>(recepcionCompra);
+                //newRecord = _mapper.Map<RecepcionesProducto>(recepcionCompra);
 
                 newRecord.RecFechaActualizacion = DateTime.Now;
                 newRecord.RecEstado = (int)EstatusRecepcionProductos.Cerrada; // Cerrada
@@ -284,24 +280,140 @@ namespace MDSoft.Tracking.Services
                 var result = await _RepoRecepcionDetalle.Agregar(newRecord);
 
                 // Actualizar el producto de la compra recibido
-                var _param = new ParametrosDeQuery<ComprasProductosDetalle>(1, 100)
-                {
-                    Where = x => x.ComReferencia == recepcionDetalle.ComReferencia && x.RepCodigo == recepcionDetalle.RepCodigo
-                };
-
-                var compradet = _repoCompraDet.EncontrarPor(_param).Result.First();
+                var compradet = await _repoCompra.GetProductInCompraByReference(recepcionDetalle.RepCodigo,
+                                                                                recepcionDetalle.ComSecuencia,
+                                                                                recepcionDetalle.ComReferencia);
 
                 if (compradet == null)
                 {
                     throw new ApplicationException("No existe este producto en la compra!");
                 }
 
-                compradet.ComEstatusDetalle = (int)EstatusComprasProductosDetalle.Recibido; // Recibido;
-
+                compradet.ComEstadoProducto = (int)EstatusComprasProductosDetalle.Recibido; // Recibido;
                 compradet.ComFechaActualizacion = DateTime.Now;
-                await _repoCompraDet.Actualizar(compradet);
+
+                await _repoCompra.ActualizarDetalle(compradet);
 
                 return recepcionDetalle;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<RecepcionesProductosDetalleDTO>> GuradarLinear(RecepcionesProductosDetalleDTO recepcionDetalle)
+        {
+            try
+            {
+
+                var productos = await _repoCompra.GetProductInCompraByCode(recepcionDetalle.RepCodigo, recepcionDetalle.ComSecuencia, recepcionDetalle.ProId.Value);
+
+                List<RecepcionesProductosDetalleDTO> resultDetalle = new List<RecepcionesProductosDetalleDTO>();
+
+                foreach (var item in productos)
+                {
+                    // Actualizar Lote 
+                    // TODO: validar campo
+
+                    //if (recepcionDetalle.RecDestino == ((int)LoteDestinoEnum.LoteFermentacion).ToString()) // Fermentacion
+                    //{
+                    //    using (var _lotFermentacion = new LoteFermentacionServices(_mapper))
+                    //    {
+                    //        var lote = new LotesFermentacionDetalleDTO();
+
+                    //        // TODO: validar campo
+                    //        lote.LotFermentacion = recepcionDetalle.RecReferencia;
+                    //        lote.ComReferencia = item.ComReferencia;
+
+                    //        await _lotFermentacion.GuardarDetalle(lote);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    using (var _lotSecadoNatural = new LoteSecadoNaturalServices(_mapper))
+                    //    {
+                    //        var lote = new LotesSecadoNaturalDetalleDTO()
+                    //        {
+                    //            // TODO: validar campo
+                    //            LotSecadoManual = recepcionDetalle.RecReferencia,
+                    //            ComReferencia = item.ComReferencia,
+                    //        };
+
+                    //        await _lotSecadoNatural.GuardarDetalle(lote);
+                    //    }
+                    //};
+
+                    //// Insertar detalle recepcion 
+                    ////// verificar si existe cabecera
+                    //RecepcionesProductoDTO RecepcionesProductosDTO;
+                    //var _parampro = new ParametrosDeQuery<RecepcionesProducto>(1, 100)
+                    //{
+                    //    Where = x => x.RepCodigo == recepcionDetalle.RepCodigo && x.RecEstado == (int)EstatusRecepcionProductos.Abierta // Abierta
+                    //};
+
+                    //var recepcionAbierta = await _RepoRecepcion.EncontrarPor(_parampro);
+
+                    //if (recepcionAbierta.Count() == 0)
+                    //{
+                    //    RecepcionesProductosDTO = new RecepcionesProductoDTO()
+                    //    {
+                    //        RepCodigo = recepcionDetalle.RepCodigo,
+                    //        Comreferencia = recepcionDetalle.RecReferencia,
+                    //        RecFecha = recepcionDetalle.RecFecha,
+                    //        RecEstado = (int)EstatusRecepcionProductos.Abierta,
+                    //        UsuiniciosesionCreacion = recepcionDetalle.UsuInicioSesion,
+                    //    };
+
+                    //    var Recepcionresult = await Guardar(RecepcionesProductosDTO);
+                    //}
+                    //else
+                    //{
+                    //    RecepcionesProductosDTO = _mapper.Map<RecepcionesProductoDTO>(recepcionAbierta.First());
+                    //}
+
+                    //// Insertar Detalle
+                    //recepcionDetalle.RecPeso = item.ComPesoKg * (item.ComPesoKg / recepcionDetalle.RecPeso);
+                    //recepcionDetalle.ComReferencia = item.ComReferencia;
+                    //recepcionDetalle.RecSecuencia = RecepcionesProductosDTO.RecSecuencia;
+                    //recepcionDetalle.RecPosicion = await _RepoRecepcionDetalle.Contar(x =>
+                    //                                x.RepCodigo == recepcionDetalle.RepCodigo
+                    //                                && x.RecSecuencia == recepcionDetalle.RecSecuencia) + 1;
+                    //recepcionDetalle.Rowguid = Guid.NewGuid();
+
+                    //var newRecord = _mapper.Map<RecepcionesProductosDetalle>(recepcionDetalle);
+                    //var result = await _RepoRecepcionDetalle.Agregar(newRecord);
+
+                    //// Actualizar el producto de la compra recibido
+                    //item.ComEstatusDetalle = (int)EstatusComprasProductosDetalle.Recibido; // Recibido;
+                    //item.ComFechaActualizacion = DateTime.Now;
+                    //await _repoCompra.ActualizarDetalle(item);
+
+                    var detalle = new RecepcionesProductosDetalleDTO()
+                    {
+                        RepCodigo = recepcionDetalle.RepCodigo,
+                        ComSecuencia = recepcionDetalle.ComSecuencia,
+                        ComReferencia = item.ComReferencia,
+                        ComPeso = item.ComCantidad,
+                        NombreProducto = item.ProDescripcion,
+                        ProId = item.ProId,
+                        RecDestino = recepcionDetalle.RecDestino,
+                        RecEstado = (int)EstatusRecepcionProductos.Cerrada,
+                        RecFecha = recepcionDetalle.RecFecha,
+                        RecFechaActualizacion = recepcionDetalle.RecFechaActualizacion,
+                        RecLote = recepcionDetalle.RecLote,
+                        RecPeso = recepcionDetalle.RecPeso * (item.ComPesoKg / recepcionDetalle.RecPeso),
+                        RecPosicion = recepcionDetalle.RecPosicion,
+                        RecReferencia = recepcionDetalle.RecReferencia,
+                        UsuInicioSesion = recepcionDetalle.UsuInicioSesion
+                    };
+
+                    detalle = await GuradarDetalle(detalle);
+
+                    resultDetalle.Add(detalle);
+                }
+
+                return resultDetalle;
             }
             catch (Exception e)
             {

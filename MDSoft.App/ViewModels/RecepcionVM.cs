@@ -25,6 +25,12 @@ namespace Tracking.ViewModels
                     RecepcionDetalleMensajeRecibido(m.Value);
                 });
 
+                WeakReferenceMessenger.Default.Register<RecepcionDetalleLinearMessage>(this, (r, m) =>
+                {
+                    RecepcionDetalleMensajeLinearRecibido(m.Value);
+                });
+
+
                 WeakReferenceMessenger.Default.Register<CompraMessage>(this, (r, m) =>
                 {
                     CompraMensajeRecibido(m.Value);
@@ -260,9 +266,9 @@ namespace Tracking.ViewModels
                     RecReferencia = _compraDTO.ComReferencia,
                     RecEstado = (int)EstatusRecepcionProductos.Abierta, // abierta
                     UsuiniciosesionCreacion = Preferences.Get("usuario", ""),
-                    ComEstadoCompra = cierreParcial == true ? (int) EstatusCompraProductos.RecibidoTotal : 
+                    ComEstadoCompra = cierreParcial == true ? (int)EstatusCompraProductos.RecibidoParcial :
                                                                 (int)EstatusCompraProductos.RecibidoTotal,
-                    RecSecuencia = RecSecuencia,
+                    RecSecuencia = ComSecuencia,
                 };
 
                 await _apiManager.ActualizarRecepcion(recepcion);
@@ -322,6 +328,17 @@ namespace Tracking.ViewModels
             // TODO Asignar aqui el RecReferencia y el RecSecuencia
             RecSecuencia = result.RecSecuencia;
             DetalleRecepcion.Add(result);
+            MostarTotal();
+        }
+        private void RecepcionDetalleMensajeLinearRecibido(IEnumerable<RecepcionesProductosDetalleDTO> result)
+        {
+            // TODO Asignar aqui el RecReferencia y el RecSecuencia
+            foreach (var item in result)
+            {
+                RecSecuencia = item.RecSecuencia;
+                DetalleRecepcion.Add(item);
+            }
+
             MostarTotal();
         }
 

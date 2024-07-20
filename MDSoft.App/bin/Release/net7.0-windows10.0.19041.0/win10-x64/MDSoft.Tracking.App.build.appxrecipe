@@ -1891,18 +1891,6 @@
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierre.scale-100.png">
       <PackagePath>cierre.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierre.scale-125.png">
-      <PackagePath>cierre.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierre.scale-150.png">
-      <PackagePath>cierre.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierre.scale-200.png">
-      <PackagePath>cierre.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierre.scale-400.png">
-      <PackagePath>cierre.scale-400.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cierrepreview.scale-100.png">
       <PackagePath>cierrepreview.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -1999,18 +1987,6 @@
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacion.scale-100.png">
       <PackagePath>fermentacion.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacion.scale-125.png">
-      <PackagePath>fermentacion.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacion.scale-150.png">
-      <PackagePath>fermentacion.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacion.scale-200.png">
-      <PackagePath>fermentacion.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacion.scale-400.png">
-      <PackagePath>fermentacion.scale-400.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fermentacionpreview.scale-100.png">
       <PackagePath>fermentacionpreview.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -2028,6 +2004,144 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\home.scale-400.png">
       <PackagePath>home.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_app.ico">
+      <PackagePath>icon_app.ico</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLargeTile.scale-100.png">
+      <PackagePath>icon_appLargeTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLargeTile.scale-125.png">
+      <PackagePath>icon_appLargeTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLargeTile.scale-150.png">
+      <PackagePath>icon_appLargeTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLargeTile.scale-200.png">
+      <PackagePath>icon_appLargeTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLargeTile.scale-400.png">
+      <PackagePath>icon_appLargeTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>icon_appLogo.altform-lightunplated_targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>icon_appLogo.altform-lightunplated_targetsize-24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>icon_appLogo.altform-lightunplated_targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>icon_appLogo.altform-lightunplated_targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>icon_appLogo.altform-lightunplated_targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-unplated_targetsize-16.png">
+      <PackagePath>icon_appLogo.altform-unplated_targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-unplated_targetsize-24.png">
+      <PackagePath>icon_appLogo.altform-unplated_targetsize-24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-unplated_targetsize-256.png">
+      <PackagePath>icon_appLogo.altform-unplated_targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-unplated_targetsize-32.png">
+      <PackagePath>icon_appLogo.altform-unplated_targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.altform-unplated_targetsize-48.png">
+      <PackagePath>icon_appLogo.altform-unplated_targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.scale-100.png">
+      <PackagePath>icon_appLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.scale-125.png">
+      <PackagePath>icon_appLogo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.scale-150.png">
+      <PackagePath>icon_appLogo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.scale-200.png">
+      <PackagePath>icon_appLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.scale-400.png">
+      <PackagePath>icon_appLogo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.targetsize-16.png">
+      <PackagePath>icon_appLogo.targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.targetsize-24.png">
+      <PackagePath>icon_appLogo.targetsize-24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.targetsize-256.png">
+      <PackagePath>icon_appLogo.targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.targetsize-32.png">
+      <PackagePath>icon_appLogo.targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appLogo.targetsize-48.png">
+      <PackagePath>icon_appLogo.targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appMediumTile.scale-100.png">
+      <PackagePath>icon_appMediumTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appMediumTile.scale-125.png">
+      <PackagePath>icon_appMediumTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appMediumTile.scale-150.png">
+      <PackagePath>icon_appMediumTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appMediumTile.scale-200.png">
+      <PackagePath>icon_appMediumTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appMediumTile.scale-400.png">
+      <PackagePath>icon_appMediumTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appSmallTile.scale-100.png">
+      <PackagePath>icon_appSmallTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appSmallTile.scale-125.png">
+      <PackagePath>icon_appSmallTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appSmallTile.scale-150.png">
+      <PackagePath>icon_appSmallTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appSmallTile.scale-200.png">
+      <PackagePath>icon_appSmallTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appSmallTile.scale-400.png">
+      <PackagePath>icon_appSmallTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appStoreLogo.scale-100.png">
+      <PackagePath>icon_appStoreLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appStoreLogo.scale-125.png">
+      <PackagePath>icon_appStoreLogo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appStoreLogo.scale-150.png">
+      <PackagePath>icon_appStoreLogo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appStoreLogo.scale-200.png">
+      <PackagePath>icon_appStoreLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appStoreLogo.scale-400.png">
+      <PackagePath>icon_appStoreLogo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appWideTile.scale-100.png">
+      <PackagePath>icon_appWideTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appWideTile.scale-125.png">
+      <PackagePath>icon_appWideTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appWideTile.scale-150.png">
+      <PackagePath>icon_appWideTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appWideTile.scale-200.png">
+      <PackagePath>icon_appWideTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\icon_appWideTile.scale-400.png">
+      <PackagePath>icon_appWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\key.scale-100.png">
       <PackagePath>key.scale-100.png</PackagePath>
@@ -2047,18 +2161,6 @@
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpieza.scale-100.png">
       <PackagePath>limpieza.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpieza.scale-125.png">
-      <PackagePath>limpieza.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpieza.scale-150.png">
-      <PackagePath>limpieza.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpieza.scale-200.png">
-      <PackagePath>limpieza.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpieza.scale-400.png">
-      <PackagePath>limpieza.scale-400.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\limpiezapreview.scale-100.png">
       <PackagePath>limpiezapreview.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -2068,35 +2170,11 @@
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquina.scale-100.png">
       <PackagePath>maquina.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquina.scale-125.png">
-      <PackagePath>maquina.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquina.scale-150.png">
-      <PackagePath>maquina.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquina.scale-200.png">
-      <PackagePath>maquina.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquina.scale-400.png">
-      <PackagePath>maquina.scale-400.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\maquinapreview.scale-100.png">
       <PackagePath>maquinapreview.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\natural.scale-100.png">
       <PackagePath>natural.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\natural.scale-125.png">
-      <PackagePath>natural.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\natural.scale-150.png">
-      <PackagePath>natural.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\natural.scale-200.png">
-      <PackagePath>natural.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\natural.scale-400.png">
-      <PackagePath>natural.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\naturalpreview.scale-100.png">
       <PackagePath>naturalpreview.scale-100.png</PackagePath>
@@ -2109,18 +2187,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\replacement.scale-100.png">
       <PackagePath>replacement.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\replacement.scale-125.png">
-      <PackagePath>replacement.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\replacement.scale-150.png">
-      <PackagePath>replacement.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\replacement.scale-200.png">
-      <PackagePath>replacement.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\replacement.scale-400.png">
-      <PackagePath>replacement.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\rsz_cierre.scale-100.jpg">
       <PackagePath>rsz_cierre.scale-100.jpg</PackagePath>
@@ -2190,18 +2256,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stock.scale-100.png">
       <PackagePath>stock.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stock.scale-125.png">
-      <PackagePath>stock.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stock.scale-150.png">
-      <PackagePath>stock.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stock.scale-200.png">
-      <PackagePath>stock.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stock.scale-400.png">
-      <PackagePath>stock.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Emanon\MDSoft - Milquiades\App\MDSoft.Tracking\MDSoft.App\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ticket.scale-100.png">
       <PackagePath>ticket.scale-100.png</PackagePath>

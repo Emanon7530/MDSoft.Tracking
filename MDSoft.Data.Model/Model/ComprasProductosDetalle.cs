@@ -72,7 +72,7 @@ public partial class ComprasProductosDetalle
 
     [StringLength(5)]
     [Unicode(false)]
-    public string? ComEstadoProducto { get; set; }
+    public int? ComEstadoProducto { get; set; }
 
     [Unicode(false)]
     public string? ComTipoCertificacion { get; set; }
