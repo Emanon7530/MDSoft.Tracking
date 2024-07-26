@@ -12,3 +12,4 @@
 /.vs/ProjectEvaluation/mdsoft.tracking.projects.v7.bin
 /MDSoft.API/obj/Debug/net7.0/MDSoft.Tracking.API.AssemblyInfo.cs
 /MDSoft.API/obj/Debug/net7.0/MDSoft.Tracking.API.AssemblyInfoInputs.cache
+*.apk
