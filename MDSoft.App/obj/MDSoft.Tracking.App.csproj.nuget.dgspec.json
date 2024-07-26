@@ -512,10 +512,6 @@
               "version": "[16.4.7142, 16.4.7142]"
             },
             {
-              "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-arm64",
-              "version": "[16.4.7142, 16.4.7142]"
-            },
-            {
               "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64",
               "version": "[16.4.7142, 16.4.7142]"
             },
@@ -674,10 +670,6 @@
               "version": "[7.0.101, 7.0.101]"
             },
             {
-              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
               "version": "[7.0.20, 7.0.20]"
             },
@@ -724,9 +716,6 @@
           "#import": []
         },
         "ios-arm64": {
-          "#import": []
-        },
-        "maccatalyst-arm64": {
           "#import": []
         },
         "maccatalyst-x64": {
